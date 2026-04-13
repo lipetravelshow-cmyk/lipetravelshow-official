@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Como planejar sua Eurotrip do zero | Lipe Travel Show</title>
+  <meta name="description" content="Guia prático do Lipe Travel Show para planejar sua Eurotrip do zero: blocos de roteiro, voos, custos, deslocamentos, hotéis e ajuda personalizada.">
+  <style>
+    *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#0a1628; --navy2:#0d2240; --gold:#f0a500; --gold2:#ffc832; --white:#fff;
+      --gray:#8a9ab0; --dark:#06101e; --line:rgba(255,255,255,.12); --card:rgba(255,255,255,.05);
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',sans-serif; background:var(--navy); color:var(--white); overflow-x:hidden; }
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:1000; padding:18px 5%;
+      display:flex; align-items:center; justify-content:space-between;
+      background:rgba(10,22,40,.96); backdrop-filter:blur(16px); box-shadow:0 2px 30px rgba(0,0,0,.35);
+    }
+    .nav-logo { color:#fff; text-decoration:none; display:flex; align-items:center; gap:12px; }
+    .nav-mark {
+      width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--gold2));
+      color:var(--navy); display:grid; place-items:center; font-weight:800; font-size:.9rem;
+    }
+    .nav-logo strong { font-size:.96rem; letter-spacing:.3px; }
+    .nav-links { display:flex; gap:22px; list-style:none; align-items:center; }
+    .nav-links a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.84rem; font-weight:500; letter-spacing:.5px; transition:color .25s; }
+    .nav-links a:hover { color:var(--gold); }
+    .nav-cta { background:var(--gold); color:var(--navy)!important; padding:8px 18px; border-radius:50px; font-weight:700!important; }
+    .menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.45rem;cursor:pointer;}
+
+    .lang-switch {
+      display:inline-flex; align-items:center; gap:8px; margin-left:6px;
+      padding:6px 10px; border-radius:999px; text-decoration:none;
+      border:1px solid rgba(255,255,255,.18); color:rgba(255,255,255,.82)!important;
+      font-size:.78rem!important; font-weight:700!important; letter-spacing:.8px;
+    }
+    .lang-switch.active {
+      background:rgba(240,165,0,.16); border-color:rgba(240,165,0,.42);
+      color:var(--gold)!important;
+    }
+    
+    .page-hero {
+      min-height:80vh; padding:145px 5% 82px;
+      background:
+        linear-gradient(135deg,rgba(6,16,30,.56),rgba(13,34,64,.75)),
+        url('Europa - header - eurotrip.png') center/cover no-repeat;
+      display:flex; align-items:center;
+    }
+    .page-hero-inner { max-width:1200px; margin:0 auto; width:100%; }
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:8px; background:rgba(240,165,0,.15); border:1px solid rgba(240,165,0,.45);
+      color:var(--gold); padding:7px 20px; border-radius:50px; font-size:.72rem; font-weight:700; letter-spacing:2px;
+      text-transform:uppercase; margin-bottom:28px;
+    }
+    h1 { font-family:'Playfair Display',serif; font-size:clamp(2.9rem,6vw,5.1rem); line-height:1.04; margin-bottom:20px; max-width:860px; }
+    h1 span { color:var(--gold); font-style:italic; }
+    .hero-copy { max-width:790px; color:rgba(255,255,255,.9); line-height:1.84; font-size:1.02rem; }
+    .hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-top:32px; }
+    .btn-primary,.btn-secondary {
+      display:inline-flex; align-items:center; gap:10px; border-radius:50px; padding:14px 30px;
+      text-decoration:none; font-weight:700; transition:all .28s;
+    }
+    .btn-primary { background:var(--gold); color:var(--navy); }
+    .btn-primary:hover { background:var(--gold2); transform:translateY(-2px); }
+    .btn-secondary { border:1.5px solid rgba(255,255,255,.55); color:var(--white); }
+    .btn-secondary:hover { border-color:var(--gold); color:var(--gold); }
+    .hero-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:34px; max-width:910px; }
+    .stat { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:22px; padding:18px 20px; }
+    .stat strong { display:block; font-size:1.35rem; color:var(--gold); margin-bottom:6px; }
+    .stat span { font-size:.92rem; color:rgba(255,255,255,.82); line-height:1.5; }
+    .section-wrap { max-width:1220px; margin:0 auto; padding:82px 5% 28px; }
+    .section-header { text-align:center; margin-bottom:46px; }
+    .section-label {
+      display:inline-block; background:rgba(240,165,0,.12); color:var(--gold); padding:7px 16px; border-radius:999px;
+      font-size:.74rem; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:18px;
+    }
+    h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4.3vw,3.3rem); line-height:1.1; margin-bottom:14px; }
+    .section-subtitle { max-width:840px; margin:0 auto; color:rgba(255,255,255,.76); line-height:1.82; }
+    .grid-3, .grid-2, .grid-4 { display:grid; gap:22px; }
+    .grid-3 { grid-template-columns:repeat(3,1fr); }
+    .grid-2 { grid-template-columns:repeat(2,1fr); }
+    .grid-4 { grid-template-columns:repeat(4,1fr); }
+    .card {
+      background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.04));
+      border:1px solid var(--line); border-radius:28px; padding:28px; box-shadow:0 18px 40px rgba(0,0,0,.16);
+    }
+    .card h3 { font-size:1.22rem; margin-bottom:12px; }
+    .card p { color:rgba(255,255,255,.76); line-height:1.8; }
+    .card-icon {
+      width:54px; height:54px; border-radius:16px; background:rgba(240,165,0,.14); color:var(--gold);
+      display:grid; place-items:center; font-size:1.2rem; margin-bottom:18px;
+    }
+    .card-links, .cta-stack { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .chip, .tag {
+      display:inline-flex; align-items:center; gap:7px; padding:10px 14px; border-radius:999px; text-decoration:none;
+      font-size:.88rem; font-weight:600;
+    }
+    .chip { background:rgba(240,165,0,.12); color:var(--gold); border:1px solid rgba(240,165,0,.25); }
+    .chip:hover { background:rgba(240,165,0,.18); }
+    .tag { background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.1); }
+    .feature-band {
+      margin:24px auto 0; max-width:1120px; padding:24px 28px; border:1px solid var(--line); border-radius:28px;
+      background:linear-gradient(90deg,rgba(240,165,0,.12),rgba(255,255,255,.04));
+      display:grid; grid-template-columns:1.02fr 1.18fr; gap:26px; align-items:center;
+    }
+    .feature-band h3 { font-size:1.45rem; margin-bottom:10px; }
+    .feature-band p { color:rgba(255,255,255,.8); line-height:1.8; }
+    .quote-box {
+      border-left:3px solid var(--gold); padding:16px 18px; margin-top:18px;
+      background:rgba(255,255,255,.05); border-radius:0 18px 18px 0;
+      color:rgba(255,255,255,.84); line-height:1.78;
+    }
+    .check-list { list-style:none; display:grid; gap:12px; margin-top:18px; }
+    .check-list li { position:relative; padding-left:24px; color:rgba(255,255,255,.82); line-height:1.7; }
+    .check-list li:before { content:"✓"; position:absolute; left:0; color:var(--gold); font-weight:800; }
+    .step-card {
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:24px; padding:24px;
+    }
+    .step-card strong {
+      display:inline-flex; width:34px; height:34px; border-radius:50%; align-items:center; justify-content:center;
+      background:rgba(240,165,0,.16); color:var(--gold); margin-bottom:16px;
+    }
+    .step-card h3 { margin-bottom:10px; font-size:1.08rem; }
+    .step-card p { color:rgba(255,255,255,.76); line-height:1.72; }
+    .visual-card {
+      border-radius:26px; overflow:hidden; border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 18px 40px rgba(0,0,0,.18); background:rgba(255,255,255,.04);
+    }
+    .visual-card img { display:block; width:100%; height:100%; object-fit:cover; }
+    .cost-card strong {
+      display:block; color:var(--gold); font-size:1.08rem; margin-bottom:8px;
+    }
+
+    .transport-grid {
+      display:grid; grid-template-columns:repeat(2,1fr); gap:22px; margin-top:24px;
+    }
+    .transport-visual {
+      border-radius:26px; overflow:hidden; border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 18px 40px rgba(0,0,0,.18); background:rgba(255,255,255,.04);
+      position:relative;
+    }
+    .transport-visual img { display:block; width:100%; height:100%; object-fit:cover; min-height:340px; }
+    .transport-caption {
+      position:absolute; left:16px; right:16px; bottom:16px;
+      background:linear-gradient(180deg, rgba(10,22,40,.08), rgba(10,22,40,.72));
+      border:1px solid rgba(255,255,255,.10); border-radius:16px; padding:12px 14px;
+      backdrop-filter: blur(6px);
+    }
+    .transport-caption strong { display:block; color:var(--gold); margin-bottom:4px; font-size:.92rem; }
+    .transport-caption span { color:rgba(255,255,255,.9); line-height:1.45; font-size:.84rem; }
+
+
+    .reserve-visual {
+      border-radius:26px; overflow:hidden; border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 18px 40px rgba(0,0,0,.18); background:rgba(255,255,255,.04);
+    }
+    .reserve-visual img { display:block; width:100%; height:100%; object-fit:cover; min-height:340px; }
+
+
+    .experience-link {
+      display:block; text-decoration:none; color:inherit;
+    }
+    .experience-link:hover .reserve-visual,
+    .experience-link:hover .visual-card {
+      transform: translateY(-2px);
+      transition: transform .25s ease;
+    }
+
+    .footer { border-top:1px solid var(--line); margin-top:70px; padding:30px 5% 46px; }
+    .footer-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+    .footer p { color:rgba(255,255,255,.66); line-height:1.7; }
+
+    @media (max-width: 1100px) {
+      .grid-4 { grid-template-columns:repeat(2,1fr); }
+      .feature-band, .grid-2 { grid-template-columns:1fr; }
+      .hero-stats { grid-template-columns:1fr; max-width:420px; }
+    }
+    @media (max-width: 900px) {
+      .grid-3, .transport-grid { grid-template-columns:1fr; }
+      .menu-toggle{display:block;}
+      .nav-links {
+        position:absolute; top:100%; left:0; right:0; background:rgba(10,22,40,.98); border-top:1px solid rgba(255,255,255,.08);
+        padding:18px 5%; flex-direction:column; align-items:flex-start; display:none;
+      }
+      .nav-links.open { display:flex; }
+    }
+    @media (max-width: 700px) {
+      .grid-4 { grid-template-columns:1fr; }
+      .section-wrap { padding-top:72px; }
+      .page-hero { min-height:74vh; }
+    }
+  </style>
+  <link rel="canonical" href="https://www.lipetravelshow.com.br/como-planejar-sua-eurotrip-do-zero-final-pt-en-v3.html">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Alípio Lipe Camanzano">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.lipetravelshow.com.br"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Eurotrip do Zero",
+      "item": "https://www.lipetravelshow.com.br/como-planejar-sua-eurotrip-do-zero-final-pt-en-v3.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristDestination",
+  "name": "Eurotrip pela Europa",
+  "description": "Guia prático para montar uma Eurotrip pela Europa com roteiro, blocos de viagem, custos e logística mais inteligente.",
+  "url": "https://www.lipetravelshow.com.br/como-planejar-sua-eurotrip-do-zero-final-pt-en-v3.html",
+  "touristType": {
+    "@type": "Audience",
+    "audienceType": "Turistas brasileiros"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Alípio Camanzano",
+    "alternateName": "Lipe Camanzano"
+  }
+}
+  </script>
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="#top">
+      <img class="nav-mark" src="carinha portrait.png" alt="Lipe Travel Show avatar" decoding="async">
+      <strong>Lipe Travel Show</strong>
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menu" onclick="document.querySelector('.nav-links').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+    <div class="nav-links">
+      <a href="#erro">Erro comum</a>
+      <a href="#blocos">Blocos</a>
+      <a href="#custos">Custos</a>
+      <a href="#reservar">Reservar</a>
+      <a href="#ajuda" class="nav-cta">Montar minha estratégia</a>
+
+      <a href="como-planejar-sua-eurotrip-do-zero-final-pt-en-v3.html" class="lang-switch active">PT</a>
+      <a href="how-to-plan-your-eurotrip-from-scratch-v3.html" class="lang-switch">EN</a>
+    </div>
+  </nav>
+
+  <header class="page-hero" id="top">
+    <div class="page-hero-inner">
+      <div class="hero-badge"><i class="fas fa-globe-europe"></i> eurotrip • planejamento, custos e compra</div>
+      <h1>Como planejar sua <span>Eurotrip</span> do zero</h1>
+      <p class="hero-copy">
+        Fazer uma Eurotrip boa não é sair comprando passagem sem pensar. O que faz diferença de verdade é entender por onde entrar, como dividir a viagem em blocos, quantos países faz sentido combinar, como se deslocar e em que momento vale reservar voo, hotel e transporte interno. Aqui, a ideia é te ajudar a organizar essa viagem com mais clareza e menos erro.
+      </p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="#blocos"><i class="fas fa-map-marked-alt"></i> Montar minha Eurotrip</a>
+        <a class="btn-secondary" href="#reservar"><i class="fas fa-plane-departure"></i> Pesquisar voos e hotéis</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>Roteiro</strong><span>Primeiro vem a lógica da viagem; depois entram voo, hotel e reservas.</span></div>
+        <div class="stat"><strong>Blocos</strong><span>Combinações mais inteligentes para não transformar a Eurotrip em maratona.</span></div>
+        <div class="stat"><strong>Compra</strong><span>Próximos passos claros para pesquisar, comparar e fechar sua viagem melhor.</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section-wrap" id="erro">
+    <div class="section-header">
+      <span class="section-label">O erro mais comum</span>
+      <h2>Comprar a passagem antes de montar o roteiro costuma sair mais caro</h2>
+      <p class="section-subtitle">
+        Muita gente começa pela passagem aérea e depois tenta encaixar a viagem em volta dela. O problema é que isso te prende a uma lógica de chegada e saída que nem sempre combina com o roteiro mais inteligente.
+      </p>
+    </div>
+    <div class="grid-3">
+      <article class="step-card">
+        <strong>1</strong>
+        <h3>Defina o recorte</h3>
+        <p>Antes de abrir o buscador, pense que tipo de Eurotrip você quer fazer: primeira viagem, clássica, mais cultural, mais panorâmica ou mais enxuta.</p>
+      </article>
+      <article class="step-card">
+        <strong>2</strong>
+        <h3>Monte a lógica do percurso</h3>
+        <p>Às vezes vale entrar por Lisboa, Paris ou Roma e sair por outra cidade, em vez de forçar ida e volta pelo mesmo ponto.</p>
+      </article>
+      <article class="step-card">
+        <strong>3</strong>
+        <h3>Reserve melhor</h3>
+        <p>Quando o desenho da viagem está claro, fica mais fácil comparar voo, hotel e transporte interno sem desperdiçar dinheiro.</p>
+      </article>
+    </div>
+    <div class="quote-box">
+      O melhor caminho costuma ser este: <strong>roteiro → passagem → hospedagem</strong>. Isso ajuda a manter a Eurotrip mais leve, mais lógica e com melhor custo-benefício.
+    </div>
+  </section>
+
+  <section class="section-wrap" id="blocos">
+    <div class="section-header">
+      <span class="section-label">Pense em blocos</span>
+      <h2>Uma Eurotrip melhor começa quando você divide a viagem em módulos</h2>
+      <p class="section-subtitle">
+        Em vez de tentar fazer países demais em poucos dias, pense a Europa em blocos de 5 a 7 dias. Isso dá mais conforto, menos deslocamento perdido e uma experiência muito melhor no destino.
+      </p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-sun"></i></div>
+        <h3>Bloco 1 · Portugal + Espanha</h3>
+        <p>Ótimo para primeira Eurotrip. Lisboa, Porto, Madrid e Barcelona formam um recorte forte, fácil de entender e muito bom para quem quer começar pela Europa clássica do sul.</p>
+        <div class="card-links"><span class="tag">Lisboa</span><span class="tag">Porto</span><span class="tag">Madrid</span><span class="tag">Barcelona</span></div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-landmark"></i></div>
+        <h3>Bloco 2 · França</h3>
+        <p>Paris pode ser a base principal, com extensões para Normandia, Champagne, Vale do Loire ou Costa Azul, dependendo da época e do estilo da viagem.</p>
+        <div class="card-links"><span class="tag">Paris</span><span class="tag">Normandia</span><span class="tag">Loire</span><span class="tag">Costa Azul</span></div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-church"></i></div>
+        <h3>Bloco 3 · Itália</h3>
+        <p>Roma, Florença e outras bases como Toscana, Cinque Terre ou Lago de Como funcionam muito bem para quem quer misturar cidade, história, paisagem e gastronomia.</p>
+        <div class="card-links"><span class="tag">Roma</span><span class="tag">Florença</span><span class="tag">Toscana</span><span class="tag">Lago de Como</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="combina">
+    <div class="feature-band">
+      <div>
+        <span class="section-label">Qual Eurotrip combina com você?</span>
+        <h2>Use este filtro antes de sair reservando tudo</h2>
+        <p>Nem toda Eurotrip precisa ser uma corrida por vários países. Às vezes, uma viagem com dois países bem desenhados rende muito mais do que uma lista longa de cidades mal encaixadas.</p>
+        <ul class="check-list">
+          <li><strong>Primeira vez na Europa:</strong> Portugal + Espanha ou Itália clássica costumam funcionar muito bem.</li>
+          <li><strong>Viagem mais icônica:</strong> Paris + Itália cria uma leitura mais clássica e aspiracional.</li>
+          <li><strong>Mais cultura e história:</strong> França + Inglaterra ou França + Itália rendem muito.</li>
+          <li><strong>Mais leve e panorâmica:</strong> menos cidades, mais tempo em cada base e deslocamentos mais curtos.</li>
+        </ul>
+      </div>
+      <div class="visual-card">
+        <img src="Europa - foto-eurotrip.png" alt="Imagem promocional sobre visitar a Europa com cenário urbano europeu e Lipe Travel Show" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="transporte">
+    <div class="section-header">
+      <span class="section-label">Deslocamentos</span>
+      <h2>Como se locomover na Europa sem jogar dinheiro fora</h2>
+      <p class="section-subtitle">
+        Trem, ônibus e low cost podem funcionar muito bem, mas cada um tem seu momento. O segredo é comparar preço, tempo e praticidade — não só a tarifa mais barata na tela.
+      </p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-train"></i></div>
+        <h3>Trem</h3>
+        <p>Excelente para trajetos curtos e médios, especialmente quando o tempo total porta a porta é melhor do que ir ao aeroporto. Em muitos casos, é a opção mais confortável.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-bus"></i></div>
+        <h3>Ônibus</h3>
+        <p>Costuma ser o caminho mais econômico, principalmente em viagens noturnas ou quando o objetivo é reduzir custo entre cidades próximas.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-plane"></i></div>
+        <h3>Low cost</h3>
+        <p>Pode valer muito a pena, mas sempre some bagagem, deslocamento até aeroportos secundários e horários menos confortáveis antes de comparar.</p>
+      </article>
+    </div>
+    <div class="transport-grid">
+      <div class="transport-visual">
+        <img src="Europa-foto-eurotrip-carro.png" alt="Lipe viajando de carro pela Europa, representando roadtrip e deslocamentos cênicos entre cidades" decoding="async">
+        <div class="transport-caption">
+          <strong>Roadtrip pela Europa</strong>
+          <span>O carro faz mais sentido quando você quer liberdade, paisagens, vilarejos e deslocamentos por regiões como Toscana, Provence, Andaluzia ou interiores menos conectados por trem.</span>
+        </div>
+      </div>
+      <div class="transport-visual">
+        <img src="Europa-Eurotrip-Trem.png" alt="Lipe ao lado de trem de alta velocidade na Europa, representando deslocamentos práticos entre cidades" decoding="async">
+        <div class="transport-caption">
+          <strong>Eurotrip de trem</strong>
+          <span>O trem costuma ser a opção mais prática entre grandes cidades e trechos médios, especialmente quando você quer conforto, rapidez e menos atrito de aeroporto no meio da viagem.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="custos">
+    <div class="section-header">
+      <span class="section-label">Custos médios</span>
+      <h2>Quanto pode custar uma Eurotrip bem planejada</h2>
+      <p class="section-subtitle">
+        Os custos variam bastante conforme cidade, época e estilo de viagem, mas estes recortes ajudam a calibrar expectativa antes de reservar.
+      </p>
+    </div>
+    <div class="grid-4">
+      <article class="card cost-card">
+        <strong>Lisboa / Porto</strong>
+        <p>Faixa mais acessível dentro da Europa Ocidental, boa para começar, especialmente para quem quer equilibrar experiência e orçamento.</p>
+        <div class="card-links"><span class="tag">€80–110 / dia</span></div>
+      </article>
+      <article class="card cost-card">
+        <strong>Madrid / Barcelona</strong>
+        <p>Costumam exigir um pouco mais de orçamento, mas ainda podem render bem quando o roteiro está enxuto e bem montado.</p>
+        <div class="card-links"><span class="tag">€110–140 / dia</span></div>
+      </article>
+      <article class="card cost-card">
+        <strong>Paris</strong>
+        <p>É uma das bases mais caras, então vale equilibrar a estadia e evitar excesso de noites se o orçamento estiver apertado.</p>
+        <div class="card-links"><span class="tag">€150–200 / dia</span></div>
+      </article>
+      <article class="card cost-card">
+        <strong>Roma</strong>
+        <p>Pode variar bastante, mas costuma ficar entre Espanha e Paris. Cidades italianas menores às vezes entregam melhor custo-benefício.</p>
+        <div class="card-links"><span class="tag">€120–160 / dia</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="cartao">
+    <div class="feature-band">
+      <div>
+        <span class="section-label">Câmbio e cartão</span>
+        <h2>Pequenas decisões que ajudam a economizar durante a viagem</h2>
+        <p>Levar pouco dinheiro em espécie, usar cartão internacional com boa conversão e pagar sempre na moeda local costuma ser a lógica mais segura e prática.</p>
+        <ul class="check-list">
+          <li>Evite aceitar conversão em reais nas maquininhas.</li>
+          <li>Sempre que possível, pague em euros ou na moeda local do país.</li>
+          <li>Leve um segundo cartão como backup.</li>
+          <li>Planejamento financeiro também faz parte de uma Eurotrip bem montada.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-icon"><i class="fas fa-credit-card"></i></div>
+        <h3>O que eu faria na prática</h3>
+        <p>Montaria o roteiro, estimaria um custo médio por dia, separaria a parte aérea da parte terrestre e viajaria com pelo menos duas opções de pagamento para ter mais segurança e flexibilidade.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="erros">
+    <div class="section-header">
+      <span class="section-label">Erros que pesam no bolso</span>
+      <h2>O que mais faz o viajante gastar mais numa Eurotrip</h2>
+      <p class="section-subtitle">Muitas vezes, o problema não é a Europa estar cara. É a viagem ter sido montada sem lógica suficiente.</p>
+    </div>
+    <div class="grid-2">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-xmark"></i></div>
+        <h3>Querer países demais em poucos dias</h3>
+        <p>Isso aumenta deslocamentos, cansaço, gasto com transporte e reduz a qualidade da experiência em cada lugar.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-xmark"></i></div>
+        <h3>Comprar voo antes de fechar o desenho da viagem</h3>
+        <p>Você pode acabar preso a uma entrada ou saída que encarece o restante da Eurotrip.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-xmark"></i></div>
+        <h3>Comparar low cost sem incluir bagagem</h3>
+        <p>O preço inicial parece ótimo, mas a conta real muda quando entram mala, assento e deslocamento até aeroportos secundários.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-xmark"></i></div>
+        <h3>Reservar hotel só pelo menor preço</h3>
+        <p>Ficar longe demais pode gerar mais gasto e perda de tempo no dia a dia da viagem.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="reservar">
+    <div class="section-header">
+      <span class="section-label">Hora de reservar</span>
+      <h2>Quando a lógica da viagem estiver clara, aqui estão os próximos passos</h2>
+      <p class="section-subtitle">
+        Depois de definir o recorte da sua Eurotrip, faz sentido pesquisar voos, comparar hotéis e abrir a página específica de passagens para a Europa.
+      </p>
+    </div>
+    <div class="feature-band">
+      <div>
+        <h3>Pesquise e compare sua viagem</h3>
+        <p>Abra os buscadores quando você já souber por onde quer entrar, quais blocos quer fazer e quantos dias faz sentido em cada base. Isso melhora muito a qualidade da compra.</p>
+        <div class="cta-stack">
+          <a class="btn-primary" href="https://skyscanner.pxf.io/9VL6Xj" target="_blank" rel="noopener sponsored"><i class="fas fa-plane-departure"></i> Comprar voos</a>
+          <a class="btn-secondary" href="https://skyscanner.pxf.io/GbKyv9" target="_blank" rel="noopener sponsored"><i class="fas fa-hotel"></i> Reservar hotel</a>
+          <a class="btn-secondary" href="como-pesquisar-voos-para-europa-com-foto-no-cta-pt-en-v2-hero-nova-v3.html"><i class="fas fa-arrow-right"></i> Ver página de voos</a>
+          <a class="btn-secondary" href="#passeios"><i class="fas fa-ticket"></i> Ver passeios</a>
+        </div>
+      </div>
+      <div class="reserve-visual">
+        <img src="Europa-Aeroporto.png" alt="Lipe em aeroporto europeu, reforçando a etapa de reserva de voos e embarque para a Eurotrip" decoding="async">
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section-wrap" id="passeios">
+    <div class="section-header">
+      <span class="section-label">Passeios e experiências</span>
+      <h2>Também vale reservar seus passeios na Europa com antecedência</h2>
+      <p class="section-subtitle">
+        Em cidades muito disputadas, reservar antes pode ajudar a garantir melhores horários, evitar filas e deixar a Eurotrip mais redonda. Isso vale especialmente para atrações icônicas, tours guiados, bate-voltas e experiências com data marcada.
+      </p>
+    </div>
+    <div class="feature-band">
+      <div>
+        <h3>O que costuma valer reservar antes</h3>
+        <p>Museus concorridos, ingressos com hora marcada, tours panorâmicos, experiências gastronômicas, atrações muito procuradas e passeios em alta temporada.</p>
+        <ul class="check-list">
+          <li>Primeiro feche a lógica da viagem e as bases principais.</li>
+          <li>Depois reserve o que é mais sensível a lotação ou horário.</li>
+          <li>Evite excesso de rigidez, mas garanta o que realmente importa.</li>
+          <li>Use este bloco para ligar conteúdo editorial à reserva prática de experiências.</li>
+        </ul>
+        <div class="cta-stack">
+          <a class="btn-secondary" href="#reservar"><i class="fas fa-arrow-up"></i> Voltar para reservas</a>
+          <a class="btn-primary" href="https://www.getyourguide.com/pt-br/-l32/?cmp=brand&campaign_id=16362873257&adgroup_id=146123468550&target_id=kwd-313873642281&loc_physical_ms=9195695&match_type=b&ad_id=627972371196&keyword=get+your+guide+florence&ad_position=&feed_item_id=&placement=&device=c&partner_id=CD951&gad_source=1&gad_campaignid=16362873257&gbraid=0AAAAADmzJCNRZX9hRiBljvl4TFmj-f1if&gclid=CjwKCAjwspPOBhB9EiwATFbi5DQlAp1s3V2qjKAnChjS2xmr6l3ylD-_p01lau6hdPNVBP1dpwWScxoC5XsQAvD_BwE&visitor-id=O0QXRLM0WZE8HMZOD6EYU07PB2PVR8AL&locale_autoredirect_optout=true" target="_blank" rel="noopener sponsored"><i class="fas fa-ticket"></i> Reservar passeios</a>
+        </div>
+      </div>
+      <a class="experience-link" href="https://www.getyourguide.com/pt-br/-l32/?cmp=brand&campaign_id=16362873257&adgroup_id=146123468550&target_id=kwd-313873642281&loc_physical_ms=9195695&match_type=b&ad_id=627972371196&keyword=get+your+guide+florence&ad_position=&feed_item_id=&placement=&device=c&partner_id=CD951&gad_source=1&gad_campaignid=16362873257&gbraid=0AAAAADmzJCNRZX9hRiBljvl4TFmj-f1if&gclid=CjwKCAjwspPOBhB9EiwATFbi5DQlAp1s3V2qjKAnChjS2xmr6l3ylD-_p01lau6hdPNVBP1dpwWScxoC5XsQAvD_BwE&visitor-id=O0QXRLM0WZE8HMZOD6EYU07PB2PVR8AL&locale_autoredirect_optout=true" target="_blank" rel="noopener sponsored">
+        <div class="reserve-visual">
+          <img src="Europa-Eurotrip-Passeios.png" alt="Arte sobre reservar passeios na Europa com interface de busca e cenário urbano europeu" decoding="async">
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="ajuda">
+    <div class="section-header">
+      <span class="section-label">Ajuda personalizada</span>
+      <h2>Quer que eu te ajude a desenhar sua Eurotrip?</h2>
+      <p class="section-subtitle">
+        Se você quiser decidir melhor entrada, saída, blocos, cidades, ritmo de viagem e lógica aérea, este é o momento mais natural para pedir ajuda personalizada.
+      </p>
+    </div>
+    <div class="grid-2">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-user-check"></i></div>
+        <h3>Quando isso faz mais sentido</h3>
+        <p>Principalmente se for sua primeira Eurotrip, se você estiver em dúvida entre vários países, se quiser encaixar destinos mais premium ou se estiver tentando otimizar melhor tempo e orçamento.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-paper-plane"></i></div>
+        <h3>Próximo passo</h3>
+        <p>Se preferir, eu também posso te ajudar a transformar essa ideia em uma viagem mais clara, mais bem desenhada e mais alinhada com o seu perfil.</p>
+        <div class="cta-stack">
+          <a class="btn-primary" href="europa-videos-e-planejamento-home-revisada-com-grecia-pt-en.html"><i class="fas fa-suitcase-rolling"></i> Quero montar minha estratégia</a>
+          <a class="btn-secondary" href="europa-videos-e-planejamento-home-revisada-com-grecia-pt-en.html"><i class="fas fa-globe-europe"></i> Voltar para Europa</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="continuar">
+    <div class="section-header">
+      <span class="section-label">Continue no site</span>
+      <h2>Próximos passos para seguir planejando</h2>
+      <p class="section-subtitle">Depois de entender a lógica da Eurotrip, vale abrir os países, comparar voos e continuar afinando o roteiro dentro do site.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-globe-europe"></i></div>
+        <h3>Ver página Europa</h3>
+        <p>Abra a página-mãe para comparar países, hubs e estilos de viagem dentro do continente.</p>
+        <div class="card-links"><a class="chip" href="europa-videos-e-planejamento-home-revisada-com-grecia-pt-en.html"><i class="fas fa-arrow-right"></i> Ver Europa</a></div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-plane-departure"></i></div>
+        <h3>Como pesquisar voos</h3>
+        <p>Veja a página prática focada em passagens, datas, hubs e compra com mais contexto.</p>
+        <div class="card-links"><a class="chip" href="como-pesquisar-voos-para-europa-com-foto-no-cta-pt-en-v2-hero-nova-v3.html"><i class="fas fa-arrow-right"></i> Abrir guia de voos</a></div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-suitcase"></i></div>
+        <h3>Planeje sua viagem</h3>
+        <p>Use a camada prática do site para sair da inspiração e avançar para uma viagem mais bem resolvida.</p>
+        <div class="card-links"><a class="chip" href="europa-videos-e-planejamento-home-revisada-com-grecia-pt-en.html"><i class="fas fa-arrow-right"></i> Planejar viagem</a></div>
+      </article>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>Como planejar sua Eurotrip do zero — uma página prática para organizar melhor o roteiro, reservar com mais clareza e avançar para a próxima etapa da viagem.</p>
+      <a class="chip" href="europa-videos-e-planejamento-home-revisada-com-grecia-pt-en.html"><i class="fas fa-arrow-left"></i> Voltar para Europa</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+            document.querySelector('.nav-links')?.classList.remove('open');
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

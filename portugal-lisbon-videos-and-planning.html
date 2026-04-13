@@ -1,0 +1,132 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"><title>Portugal & Lisbon: videos and planning | Lipe Travel Show</title><meta name="description" content="A bridge between Portugal and Lisbon videos on the channel and a more practical first step for planning the trip.">
+  <style>
+    *, *:before, *:after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --navy:#0a1628; --navy2:#0d2240; --gold:#f0a500; --gold2:#ffc832; --white:#fff; --gray:#8a9ab0; --dark:#06101e; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',sans-serif; background:var(--navy); color:var(--white); overflow-x:hidden; }
+    nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:18px 5%; display:flex; align-items:center; justify-content:space-between; background:rgba(10,22,40,.96); backdrop-filter:blur(16px); box-shadow:0 2px 30px rgba(0,0,0,.4); }
+    .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+    .nav-logo img { height:46px; width:46px; object-fit:cover; border-radius:50%; }
+    .nav-links { display:flex; gap:22px; list-style:none; align-items:center; }
+    .nav-links a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.84rem; font-weight:500; letter-spacing:.5px; transition:color .25s; }
+    .nav-links a:hover { color:var(--gold); }
+    .nav-cta { background:var(--gold); color:var(--navy)!important; padding:8px 18px; border-radius:50px; font-weight:700!important; }
+    .lang-switch { display:flex; gap:8px; align-items:center; margin-left:16px; }
+    .lang-switch a { border:1px solid rgba(255,255,255,.5); color:#fff; padding:6px 10px; border-radius:999px; font-size:.8rem; text-decoration:none; }
+    .lang-switch a.lang-current { background:var(--gold); color:var(--navy); border-color:var(--gold); }
+    .menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;}
+    .page-hero { min-height:68vh; padding:145px 5% 70px; background:linear-gradient(135deg,rgba(6,16,30,.75),rgba(13,34,64,.9)), url('foto-lipe-portugal.jpg') center/cover no-repeat; display:flex; align-items:center; }
+    .page-hero-inner { max-width:1150px; margin:0 auto; width:100%; }
+    .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(240,165,0,.15); border:1px solid rgba(240,165,0,.5); color:var(--gold); padding:7px 22px; border-radius:50px; font-size:.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:28px; }
+    h1 { font-family:'Playfair Display',serif; font-size:clamp(2.6rem,6vw,5rem); line-height:1.06; margin-bottom:20px; }
+    h1 span { color:var(--gold); font-style:italic; }
+    .hero-copy { max-width:760px; color:rgba(255,255,255,.86); line-height:1.85; font-size:1.02rem; }
+    .hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-top:30px; }
+    .btn-primary,.btn-secondary { display:inline-flex; align-items:center; gap:9px; border-radius:50px; padding:14px 30px; text-decoration:none; font-weight:700; transition:all .3s; }
+    .btn-primary { background:var(--gold); color:var(--navy); }
+    .btn-primary:hover { background:var(--gold2); transform:translateY(-2px); }
+    .btn-secondary { border:1.5px solid rgba(255,255,255,.55); color:var(--white); }
+    .btn-secondary:hover { border-color:var(--gold); color:var(--gold); }
+    .section-wrap { max-width:1200px; margin:0 auto; padding:82px 5% 36px; }
+    .section-header { text-align:center; margin-bottom:48px; }
+    .section-label { display:inline-block; background:rgba(240,165,0,.12); border:1px solid rgba(240,165,0,.3); color:var(--gold); padding:5px 18px; border-radius:50px; font-size:.68rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
+    .section-header h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3rem); margin-bottom:14px; }
+    .section-header p { color:var(--gray); font-size:1rem; max-width:760px; margin:0 auto; line-height:1.7; }
+    .grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+    .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .card { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:22px; padding:28px 24px; box-shadow:0 18px 50px rgba(0,0,0,.22); }
+    .card h3 { font-size:1.14rem; margin-bottom:10px; }
+    .card p, .card li { color:rgba(255,255,255,.74); line-height:1.8; }
+    .kicker { display:inline-block; color:var(--gold); font-size:.68rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; }
+    .video-card { text-decoration:none; color:inherit; transition:transform .3s,border-color .3s,box-shadow .3s; }
+    .video-card:hover { transform:translateY(-6px); border-color:rgba(240,165,0,.3); box-shadow:0 24px 60px rgba(0,0,0,.3); }
+    .video-thumb { width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:16px; margin-bottom:16px; }
+    .video-meta { color:var(--gold); font-size:.82rem; font-weight:700; margin-bottom:8px; }
+    .video-link { color:var(--gold); font-weight:700; text-decoration:none; }
+    .path-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:26px; }
+    .mini-list { display:grid; gap:14px; }
+    .mini-item { padding:16px 18px; border-radius:16px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); }
+    .mini-item strong { color:var(--white); }
+    .cta-band { background:linear-gradient(135deg,rgba(240,165,0,.14),rgba(255,255,255,.04)); border:1px solid rgba(240,165,0,.26); border-radius:24px; padding:28px; display:flex; justify-content:space-between; gap:16px; align-items:center; flex-wrap:wrap; }
+    .cta-band p { color:rgba(255,255,255,.8); line-height:1.8; max-width:760px; }
+    .pill-links { display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; }
+    .pill-links a { text-decoration:none; border:1px solid rgba(255,255,255,.16); background:rgba(255,255,255,.04); color:#fff; border-radius:999px; padding:10px 14px; font-size:.9rem; }
+    .pill-links a:hover { border-color:rgba(240,165,0,.4); color:var(--gold); }
+    footer { background:var(--dark); border-top:1px solid rgba(255,255,255,.06); padding:38px 5% 28px; margin-top:60px; }
+    .footer-inner { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    .footer-inner p { color:var(--gray); font-size:.8rem; }
+    .footer-inner a { color:var(--gold); text-decoration:none; }
+    @media(max-width:900px){ .grid-2,.grid-3,.path-grid{grid-template-columns:1fr;} }
+    @media(max-width:768px){ .menu-toggle{display:block;} .nav-links{display:none;position:absolute;top:78px;left:5%;right:5%;background:rgba(10,22,40,.98);padding:16px;border-radius:18px;flex-direction:column;align-items:flex-start;box-shadow:0 20px 40px rgba(0,0,0,.3);} .nav-links.open{display:flex;} .lang-switch{margin-left:0;} }
+  </style>
+
+<link rel="canonical" href="https://www.lipetravelshow.com.br/portugal-lisbon-videos-and-planning.html">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Alípio Lipe Camanzano">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.lipetravelshow.com.br"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Portugal & Lisbon",
+      "item": "https://www.lipetravelshow.com.br/portugal-lisbon-videos-and-planning.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristDestination",
+  "name": "Portugal",
+  "description": "Videos, repertoire and practical ways to plan Portugal beyond Lisbon, with ideas by city, region and travel style.",
+  "url": "https://www.lipetravelshow.com.br/portugal-lisbon-videos-and-planning.html",
+  "touristType": {
+    "@type": "Audience",
+    "audienceType": "Brazilian travelers"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Alípio Camanzano",
+    "alternateName": "Lipe Camanzano"
+  }
+}
+</script>
+
+</head><body>
+<nav><a href="index-eng.html" class="nav-logo"><img src="lipe-carinha.jpg" alt="Lipe Travel Show" onerror="this.style.display='none'" decoding="async"></a><button class="menu-toggle" aria-label="Menu"><i class="fas fa-bars"></i></button><ul class="nav-links"><li><a href="index-eng.html">Home</a></li><li><a href="#videos">Videos</a></li><li><a href="plan-your-trip.html">Plan your trip</a></li><li><a href="where-to-stay-lisbon.html">Where to stay in Lisbon</a></li><li><a href="https://skyscanner.pxf.io/GbKyv9" class="nav-cta">Search hotels</a></li></ul><div class="lang-switch"><a href="portugal-lisbon-videos-and-planning.html" class="lang-current">EN</a><a href="portugal-lisboa-videos-e-planejamento.html">PT</a></div></nav>
+<section class="page-hero"><div class="page-hero-inner"><div class="hero-badge">🇵🇹 &nbsp; Portugal with the right rhythm</div><h1>Portugal: from <span>video</span> to planning</h1><p class="hero-copy">Lisbon remains a very strong entry point, but Portugal becomes even better when you read it as a broader trip: city life, coastline, wine, historic towns, scenery and rhythm. This page uses the videos as a starting point and expands the editorial map so you can decide what kind of Portugal fits your trip best.</p><div class="hero-btns"><a class="btn-primary" href="#videos"><i class="fab fa-youtube"></i> Watch Portugal videos</a><a class="btn-secondary" href="#beyond-lisbon"><i class="fas fa-compass"></i> Portugal beyond Lisbon</a></div></div></section>
+<section class="section-wrap" id="videos"><div class="section-header"><span class="section-label">Portugal on the channel</span><h2>Videos to get into the trip before you search</h2><p>Before flights and hotels, I like to start with mood and context. These videos help make Lisbon feel more tangible and work as a very good entry point into the rest of Portugal.</p></div><div class="grid-3"><a class="card video-card" href="https://www.youtube.com/watch?v=73dfZfKigVA" target="_blank" rel="noopener noreferrer">
+      <img class="video-thumb" src="https://img.youtube.com/vi/73dfZfKigVA/hqdefault.jpg" alt="Lisbon" loading="lazy" decoding="async">
+      <div class="video-meta">YouTube • Lipe Travel Show</div>
+      <h3>Lisbon</h3>
+      <p>A strong starting point to feel the city and begin thinking about pace, neighborhoods and how to frame the trip.</p>
+      <span class="video-link">Watch video <i class="fas fa-arrow-right"></i></span>
+    </a>
+<a class="card video-card" href="https://www.youtube.com/watch?v=oTXQw0Wl_qQ" target="_blank" rel="noopener noreferrer">
+      <img class="video-thumb" src="https://img.youtube.com/vi/oTXQw0Wl_qQ/hqdefault.jpg" alt="Lisbon" loading="lazy" decoding="async">
+      <div class="video-meta">YouTube • Lipe Travel Show</div>
+      <h3>Lisbon</h3>
+      <p>Another Lisbon layer from the channel, helpful for understanding the city beyond the obvious first impressions.</p>
+      <span class="video-link">Watch video <i class="fas fa-arrow-right"></i></span>
+    </a>
+<a class="card video-card" href="https://www.youtube.com/watch?v=rWbi-SyQrM0" target="_blank" rel="noopener noreferrer">
+      <img class="video-thumb" src="https://img.youtube.com/vi/rWbi-SyQrM0/hqdefault.jpg" alt="Hidden treasures of Lisbon" loading="lazy" decoding="async">
+      <div class="video-meta">YouTube • Lipe Travel Show</div>
+      <h3>Hidden treasures of Lisbon</h3>
+      <p>A good fit if you want a more personal, charming and textured version of Lisbon from the start.</p>
+      <span class="video-link">Watch video <i class="fas fa-arrow-right"></i></span>
+    </a></div></section>
+<section class="section-wrap"><div class="section-header"><span class="section-label">How I would frame this trip</span><h2>Lisbon as the entry point, Portugal as the bigger journey</h2><p>Lisbon is still an excellent base, but it becomes even stronger when you decide what expansion you want to give the route: city and day trips, wine and scenery, beach time, historic towns or stronger nature.</p></div><div class="path-grid"><div class="card"><span class="kicker">Where I would start</span><h3>A simple first-trip logic</h3><div class="mini-list"><div class="mini-item"><strong>1. Start with Lisbon:</strong> it gives you energy, food, history and a very good balance between culture and ease.</div><div class="mini-item"><strong>2. Decide on the second move:</strong> after Lisbon, the route can expand toward Sintra and Cascais, up to Porto and the Douro or down to the Algarve.</div><div class="mini-item"><strong>3. Search after the context:</strong> once you understand the trip style, hotels, transport and trip length become much easier to define.</div></div></div><div class="card"><span class="kicker">What this page opens inside Portugal</span><h3>A broader read of the country</h3><p>Portugal works beautifully when the trip balances city life, food, walks, coastline, wine and scenery. Lisbon is a strong anchor, but it does not need to carry the whole country alone.</p><div class="pill-links"><a href="where-to-stay-lisbon.html">Where to stay in Lisbon</a><a href="#beyond-lisbon">Portugal beyond Lisbon</a><a href="https://skyscanner.pxf.io/9VL6Xj" target="_blank" rel="sponsored noopener noreferrer">Search flights</a><a href="https://skyscanner.pxf.io/GbKyv9" target="_blank" rel="sponsored noopener noreferrer">Search hotels</a></div></div></div></section>
+<section class="section-wrap" id="beyond-lisbon"><div class="section-header"><span class="section-label">Portugal beyond Lisbon</span><h2>Other places in Portugal worth keeping on your radar</h2><p>Even when Lisbon is the main base, it helps to read Portugal in layers. Depending on your travel style, these destinations can fit beautifully into the trip.</p></div><div class="grid-3"><div class="card"><span class="kicker">Classic north</span><h3>Porto & Douro</h3><p>Great for travelers who want a mix of charming city life, food, wine and more contemplative scenery.</p></div><div class="card"><span class="kicker">Easy additions</span><h3>Sintra & Cascais</h3><p>They work extremely well with Lisbon: palaces, romantic atmosphere, elegant coastline and easy logistics.</p></div><div class="card"><span class="kicker">Beach and summer</span><h3>Algarve</h3><p>A strong fit for travelers looking for cliffs, sea, road-trip energy and a sunnier, more relaxed Portugal.</p></div><div class="card"><span class="kicker">Historic Portugal</span><h3>Óbidos, Coimbra & Évora</h3><p>Excellent if you want to add towns, heritage, university atmosphere, walls and a more historical read of the country.</p></div><div class="card"><span class="kicker">Landscape and wine</span><h3>Alentejo</h3><p>Very interesting for slower travel, wine, good food and properties with more breathing room.</p></div><div class="card"><span class="kicker">Island nature</span><h3>Madeira & Azores</h3><p>They make sense if you want trails, cliffs, lakes, ocean and a trip much more centered on nature.</p></div></div></section>
+<section class="section-wrap"><div class="section-header"><span class="section-label">What kind of Portugal fits you?</span><h2>Four quick ways to frame the trip better</h2><p>Not every Portugal trip needs the same logic. Good planning usually starts when you understand which version of the country matches your rhythm best.</p></div><div class="grid-2"><div class="card"><span class="kicker">First trip</span><h3>Lisbon + Sintra + Cascais</h3><p>A very strong combination for travelers who want to feel the country without overcomplicating logistics, mixing city life, palaces and coast.</p></div><div class="card"><span class="kicker">Classic and elegant</span><h3>Lisbon + Porto + Douro</h3><p>Great if you want a fuller Portugal with two major urban bases plus a wine-and-scenery stretch.</p></div><div class="card"><span class="kicker">Sun and sea</span><h3>Lisbon + Algarve</h3><p>Makes sense when the priority is to combine the capital with coastline, especially in warmer months.</p></div><div class="card"><span class="kicker">Nature and elevation</span><h3>Madeira or Azores</h3><p>Perfect if you want to enter a less obvious Portugal from the start, with greener, more volcanic and landscape-driven energy.</p></div></div></section><section class="section-wrap"><div class="cta-band"><div><span class="kicker">Next step</span><h3 style="font-size:1.35rem; margin-bottom:8px;">Ready to turn Portugal into a real trip?</h3><p>After the videos, I would first choose the trip frame — Lisbon and surroundings, the north, Algarve or the islands — and only then move into hotels, flights and the main base with better context behind the decision.</p></div><div class="hero-btns" style="margin-top:0;"><a class="btn-primary" href="where-to-stay-lisbon.html"><i class="fas fa-hotel"></i> Open Lisbon guide</a><a class="btn-secondary" href="plan-your-trip.html"><i class="fas fa-compass"></i> Back to Plan your trip</a></div></div></section>
+<footer><div class="footer-inner"><p>© 2025 Lipe Travel Show. Portugal as a bridge between video, travel context and planning.</p><p><a href="plan-your-trip.html">Back to Plan your trip</a></p></div></footer><script>const toggle=document.querySelector('.menu-toggle');const links=document.querySelector('.nav-links');if(toggle&&links){toggle.addEventListener('click',()=>links.classList.toggle('open'));}</script></body></html>

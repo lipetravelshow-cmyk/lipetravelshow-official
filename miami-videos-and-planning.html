@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Miami: videos and planning | Lipe Travel Show</title>
+  <meta name="description" content="Explore Miami with Lipe Travel Show: where to stay, beaches, hotels, Brickell, South Beach, Fort Lauderdale, shopping, cruises, nightlife and practical planning tips.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:'Inter',sans-serif; color:#fff; background:#091425; overflow-x:hidden; }
+    :root{
+      --navy:#091425; --navy-2:#10223d; --navy-3:#0d1b31; --gold:#f2b94b; --gold-2:#ffd16d;
+      --text-soft:rgba(255,255,255,.86); --text-muted:rgba(255,255,255,.72); --line:rgba(255,255,255,.10);
+      --card:rgba(255,255,255,.055); --shadow:0 24px 50px rgba(0,0,0,.25); --radius:28px; --max:1240px;
+    }
+    a { color:inherit; }
+    img { display:block; max-width:100%; }
+    .container{ width:min(var(--max), 92vw); margin:0 auto; }
+
+    nav{
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:18px 5%; background:rgba(9,20,37,.90); backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav-logo{ display:flex; align-items:center; gap:12px; text-decoration:none; font-weight:700; }
+    .nav-mark{ width:44px; height:44px; border-radius:50%; overflow:hidden; border:1px solid rgba(255,255,255,.16); flex:0 0 auto; box-shadow:0 8px 18px rgba(0,0,0,.22); background:#fff; }
+    .nav-mark img{ width:100%; height:100%; object-fit:cover; }
+    .nav-links{ display:flex; gap:22px; align-items:center; }
+    .nav-links a{ text-decoration:none; font-size:.88rem; font-weight:600; color:rgba(255,255,255,.84); }
+    .nav-links a:hover{ color:var(--gold); }
+    .nav-cta{ padding:10px 18px; border-radius:999px; background:var(--gold); color:#091425 !important; }
+    .menu-toggle{ display:none; background:none; border:none; color:#fff; font-size:1.4rem; }
+
+    .hero{
+      min-height:88vh;
+      display:flex; align-items:flex-end;
+      background:
+        linear-gradient(180deg, rgba(9,20,37,.05) 0%, rgba(9,20,37,.20) 38%, rgba(9,20,37,.88) 100%),
+        linear-gradient(90deg, rgba(9,20,37,.44) 0%, rgba(9,20,37,.12) 46%, rgba(9,20,37,.20) 100%),
+        url('Miami Page-Hero.jpg') center center/cover no-repeat;
+      position:relative;
+    }
+    .hero::after{
+      content:""; position:absolute; inset:0;
+      background:radial-gradient(circle at 18% 18%, rgba(242,185,75,.18), transparent 34%);
+      pointer-events:none;
+    }
+    .hero-inner{ position:relative; z-index:2; padding:150px 0 70px; width:min(760px, 100%); }
+    .eyebrow{
+      display:inline-flex; align-items:center; gap:10px; padding:8px 14px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.06); color:var(--gold); font-weight:700; letter-spacing:.08em;
+      text-transform:uppercase; font-size:.76rem;
+    }
+    h1,h2,h3{ margin:0; line-height:.95; }
+    .hero h1{ margin-top:20px; font-family:'Playfair Display',serif; font-size:clamp(3rem,7vw,6rem); max-width: 900px; }
+    .hero p{ margin:24px 0 0; font-size:clamp(1rem,2vw,1.24rem); line-height:1.72; color:var(--text-soft); max-width:720px; }
+    .hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:52px; padding:0 22px; border-radius:999px;
+      text-decoration:none; font-weight:700; transition:.2s ease; border:1px solid transparent;
+    }
+    .btn-primary{ background:var(--gold); color:#091425; }
+    .btn-primary:hover{ transform:translateY(-1px); filter:brightness(1.03); }
+    .btn-secondary{ background:rgba(255,255,255,.06); color:#fff; border-color:rgba(255,255,255,.12); }
+    .btn-secondary:hover{ background:rgba(255,255,255,.1); }
+
+    main section{ padding:84px 0; border-top:1px solid rgba(255,255,255,.06); }
+    .section-head{ max-width:840px; margin-bottom:26px; }
+    .section-head .kicker{ color:var(--gold); font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:.78rem; margin-bottom:12px; display:block; }
+    .section-head h2{ font-family:'Playfair Display',serif; font-size:clamp(2rem,4.4vw,3.6rem); }
+    .section-head p{ color:var(--text-soft); line-height:1.75; font-size:1.04rem; margin:16px 0 0; }
+
+    .intro-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap:26px; align-items:stretch; }
+    .card{
+      background:linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.035));
+      border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .card-body{ padding:28px; }
+    .card p{ color:var(--text-soft); line-height:1.78; margin:0; }
+    .video-card img{ width:100%; height:320px; object-fit:cover; }
+    .video-card .card-body h3{ font-size:1.55rem; margin-bottom:14px; }
+    .mini-meta{ display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .chip{
+      display:inline-flex; align-items:center; gap:8px; border-radius:999px; padding:10px 14px;
+      background:rgba(242,185,75,.10); border:1px solid rgba(242,185,75,.20); color:var(--gold-2); font-weight:700; font-size:.88rem;
+    }
+
+    .compare-grid,.profile-grid,.theme-grid,.stats-grid,.cta-grid,.stay-grid{ display:grid; gap:18px; }
+    .profile-grid{ grid-template-columns:repeat(4, minmax(0,1fr)); }
+    .compare-grid{ grid-template-columns:repeat(2, minmax(0,1fr)); }
+    .theme-grid{ grid-template-columns:repeat(3, minmax(0,1fr)); }
+    .stats-grid{ grid-template-columns:repeat(4, minmax(0,1fr)); }
+    .stay-grid{ grid-template-columns:repeat(3, minmax(0,1fr)); }
+    .profile-card,.theme-card,.stat,.stay-card{
+      background:rgba(255,255,255,.045); border:1px solid var(--line); border-radius:24px; padding:24px;
+    }
+    .profile-card h3,.theme-card h3,.stay-card h3{ font-size:1.25rem; margin-bottom:12px; }
+    .profile-card p,.theme-card p,.stay-card p,.stat p{ color:var(--text-soft); line-height:1.72; margin:0; }
+    .tag-row{ display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .tag{ padding:8px 12px; border-radius:999px; border:1px solid rgba(255,255,255,.12); color:var(--text-muted); font-size:.82rem; font-weight:700; }
+
+    .editorial{
+      display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:stretch;
+    }
+    .editorial.reverse{ grid-template-columns:1fr 1fr; }
+    .editorial .image-wrap img{ width:100%; height:100%; object-fit:cover; min-height:390px; }
+    .editorial .text-wrap{
+      background:rgba(255,255,255,.045); border:1px solid var(--line); border-radius:var(--radius); padding:34px;
+      display:flex; flex-direction:column; justify-content:center;
+    }
+    .editorial h3{
+      font-family:'Playfair Display',serif; font-size:clamp(2rem,3.6vw,3rem); margin-bottom:18px;
+    }
+    .editorial p{ color:var(--text-soft); line-height:1.82; margin:0 0 16px; }
+    .editorial ul{ margin:0; padding-left:20px; color:var(--text-soft); line-height:1.78; }
+    .editorial li + li{ margin-top:8px; }
+
+    .gallery-three{ display:grid; grid-template-columns:1.3fr .7fr .7fr; gap:18px; }
+    .gallery-three img,.gallery-two img{ width:100%; height:100%; object-fit:cover; border-radius:24px; min-height:250px; }
+    .gallery-two{ display:grid; grid-template-columns:1fr 1fr; gap:18px; }
+
+    .highlight-bar{
+      display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); gap:18px; margin-top:24px;
+    }
+    .highlight{
+      padding:22px; border-radius:24px; background:rgba(255,255,255,.04); border:1px solid var(--line);
+    }
+    .highlight strong{ display:block; color:var(--gold); font-size:1.8rem; margin-bottom:8px; }
+    .highlight span{ color:var(--text-soft); line-height:1.6; display:block; }
+
+    .closing-cta{
+      background:
+        linear-gradient(135deg, rgba(242,185,75,.16), rgba(255,255,255,.04)),
+        rgba(255,255,255,.03);
+      border:1px solid rgba(242,185,75,.22);
+      border-radius:32px; padding:34px;
+    }
+    .closing-cta h2{ font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.4rem); }
+    .closing-cta p{ color:var(--text-soft); line-height:1.82; max-width:760px; }
+
+    footer{
+      padding:32px 0 48px; color:var(--text-muted); border-top:1px solid rgba(255,255,255,.06);
+      font-size:.95rem;
+    }
+
+    @media (max-width: 1080px){
+      .profile-grid, .stay-grid { grid-template-columns:repeat(2, minmax(0,1fr)); }
+      .theme-grid { grid-template-columns:repeat(2, minmax(0,1fr)); }
+      .intro-grid, .editorial, .gallery-three, .highlight-bar, .stats-grid { grid-template-columns:1fr; }
+      .gallery-two, .compare-grid { grid-template-columns:1fr; }
+    }
+    @media (max-width: 760px){
+      nav{ padding:14px 4%; }
+      .menu-toggle{ display:block; }
+      .nav-links{
+        position:absolute; top:100%; left:0; right:0; padding:14px 4% 20px; background:rgba(9,20,37,.98);
+        flex-direction:column; align-items:flex-start; display:none; border-bottom:1px solid rgba(255,255,255,.08);
+      }
+      .nav-links.open{ display:flex; }
+      .hero-inner{ padding:130px 0 54px; }
+      .hero h1{ font-size:clamp(2.6rem,12vw,4rem); }
+      .profile-grid, .theme-grid, .stay-grid { grid-template-columns:1fr; }
+      .editorial .image-wrap img{ min-height:270px; }
+      .video-card img{ height:240px; }
+      .card-body, .text-wrap, .profile-card, .theme-card, .stay-card{ padding:22px; }
+    }
+  </style>
+<link rel="canonical" href="https://www.lipetravelshow.com.br/miami-videos-and-planning.html">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Alípio Lipe Camanzano">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lipetravelshow.com.br"},
+    {"@type": "ListItem", "position": 2, "name": "Miami", "item": "https://www.lipetravelshow.com.br/miami-videos-and-planning.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristDestination",
+  "name": "Miami",
+  "description": "Explore Miami with videos, itineraries and practical planning curated by Lipe Travel Show",
+  "url": "https://www.lipetravelshow.com.br/miami-videos-and-planning.html",
+  "touristType": {"@type": "Audience", "audienceType": "Turistas brasileiros"},
+  "author": {"@type": "Person", "name": "Alípio Camanzano", "alternateName": "Lipe Camanzano"}
+}
+</script>
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <span class="nav-mark"><img src="carinha portrait digital bege.png" alt="Lipe Travel Show" decoding="async"></span>
+      <span>Lipe Travel Show</span>
+    </a>
+    <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="nav-links">
+      <a href="#video">Video</a>
+      <a href="#ficar">Where to stay</a>
+      <a href="#viver">Experiences</a>
+      <a href="#comprar">Shopping</a>
+      <a href="#comprar-viagem" class="nav-cta">Book your trip</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <div class="hero-inner">
+        <span class="eyebrow"><i class="fas fa-sun"></i> Miami by atmosphere, base and travel style</span>
+        <h1>Miami for Brazilian travelers: when the trip works better than the cliché</h1>
+        <p>
+          Miami remains strong because it delivers very efficient combinations: beaches, hotels, shopping, skyline,
+          cruises, neighborhoods with very different personalities and a premium reading that can range from easy lifestyle
+          to a more sophisticated trip. The key is less about “going to Miami” and more about choosing the right base.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#video"><i class="fab fa-youtube"></i> Start with the video</a>
+          <a class="btn btn-secondary" href="#comprar-viagem"><i class="fas fa-plane"></i> Click here and book your trip</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="video">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Channel episode</span>
+          <h2>Watch first, then refine the way you read Miami</h2>
+          <p>
+            This page combines the channel episode with a more strategic planning layer: where to stay according to your profile,
+            when Fort Lauderdale is worth it, when Brickell makes more sense, when the premium beach side speaks louder and where Miami
+            works best as a gateway for cruises, shopping and combinations with Orlando.
+          </p>
+        </div>
+        <div class="intro-grid">
+          <article class="card video-card">
+            <img src="foto-lipe-miami1.JPG" alt="Lipe in Miami" decoding="async">
+            <div class="card-body">
+              <h3>Miami video on Lipe Travel Show</h3>
+              <p>
+                The episode is the ideal starting point to get into the mood of the destination. After that, this page helps you turn
+                inspiration into practical decisions.
+              </p>
+              <div class="mini-meta">
+                <span class="chip"><i class="fab fa-youtube"></i> Miami on the channel</span>
+                <span class="chip"><i class="fas fa-umbrella-beach"></i> Beach + city</span>
+                <span class="chip"><i class="fas fa-ship"></i> Cruises & combinations</span>
+              </div>
+              <div class="hero-actions" style="margin-top:22px;">
+                <a class="btn btn-primary" href="https://www.youtube.com/watch?v=O-0DOb1_Grw" target="_blank" rel="noopener">Watch the Miami video</a>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-body">
+              <h3 style="font-size:1.55rem; margin-bottom:14px;">How to read Miami the right way</h3>
+              <p>
+                Miami is not just one trip. South Beach, Brickell, Downtown, Mid Beach, Sunny Isles, Key Biscayne,
+                Fisher Island and Fort Lauderdale deliver very different experiences. What changes the final result of the trip
+                is the combination of neighborhood, rhythm, budget, profile and what you want to prioritize.
+              </p>
+              <div class="tag-row">
+                <span class="tag">Beach</span>
+                <span class="tag">Hotels</span>
+                <span class="tag">Shopping</span>
+                <span class="tag">Nightlife</span>
+                <span class="tag">Cruises</span>
+                <span class="tag">Premium</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="perfis">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Miami by profile</span>
+          <h2>The same city can create completely different trips</h2>
+          <p>
+            Before choosing a hotel or neighborhood, it is worth defining the narrative of the trip. In Miami, this saves time,
+            reduces mistakes and greatly increases the chance that you will enjoy the destination in the right way.
+          </p>
+        </div>
+        <div class="profile-grid">
+          <article class="profile-card">
+            <h3>First trip</h3>
+            <p>It works best with a simple reading: South Beach or Miami Beach + a bit of city, shopping and 3 to 5 well-planned days.</p>
+          </article>
+          <article class="profile-card">
+            <h3>Couples</h3>
+            <p>It works beautifully when the trip invests in a better hotel, rooftop, the right restaurant and a base that feels more charming or more premium.</p>
+          </article>
+          <article class="profile-card">
+            <h3>Friends</h3>
+            <p>South Beach, Brickell and the nightlife axis remain strong for groups who want mobility, energy and a good evening scene.</p>
+          </article>
+          <article class="profile-card">
+            <h3>Shopping</h3>
+            <p>Miami works well when you combine urban shopping, premium malls and outlets without turning the trip into a constant rush.</p>
+          </article>
+          <article class="profile-card">
+            <h3>Premium Miami</h3>
+            <p>Bal Harbour, Sunny Isles, Key Biscayne and a few tailor-made experiences elevate the perception of the destination considerably.</p>
+          </article>
+          <article class="profile-card">
+            <h3>Pre- or post-cruise</h3>
+            <p>Miami and Fort Lauderdale fit extremely well before embarkation or as a slower landing after the ship.</p>
+          </article>
+          <article class="profile-card">
+            <h3>Miami + Orlando</h3>
+            <p>A very efficient combination for families and groups, especially when travelers want beach time at the beginning or end of the trip.</p>
+          </article>
+          <article class="profile-card">
+            <h3>Miami + Caribbean</h3>
+            <p>Perfect for those who want to mix city, sea, shopping and hotels in a trip that feels bigger without becoming too tiring.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="ficar">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Where to stay</span>
+          <h2>Where to stay by neighborhood according to your profile</h2>
+          <p>
+            In Miami, choosing the wrong base can give you the wrong feeling of the destination. Choosing well makes the city click.
+          </p>
+        </div>
+
+        <div class="stay-grid">
+          <article class="stay-card">
+            <h3>Brickell</h3>
+            <p>Best for travelers who want a more urban Miami, skyline, strong restaurants, shopping, rooftop bars and a more contemporary mood than a touristic one.</p>
+          </article>
+          <article class="stay-card">
+            <h3>Downtown</h3>
+            <p>It makes sense for shows, games, events, the port, easy movement and a trip that feels more like a city stay than a resort stay.</p>
+          </article>
+          <article class="stay-card">
+            <h3>South Beach</h3>
+            <p>The classic reading of Miami: beach, walkability, hotels with personality, nightlife and the image many people still have of the city.</p>
+          </article>
+          <article class="stay-card">
+            <h3>Miami Beach / Mid Beach</h3>
+            <p>More resort, more beach, more downtime. It works better for travelers who want sea and hotel comfort with less pressure from the agenda.</p>
+          </article>
+          <article class="stay-card">
+            <h3>Fort Lauderdale</h3>
+            <p>A smart base for those who want a good beach, marina, Las Olas, a calmer rhythm and excellent logic for pre- and post-cruise stays.</p>
+          </article>
+          <article class="stay-card">
+            <h3>Islands and premium beachfront areas</h3>
+            <p>Bal Harbour, Sunny Isles, Key Biscayne and Fisher Island enter the conversation when the trip calls for more discreet luxury, a better beach and a true sense of retreat.</p>
+          </article>
+        </div>
+
+        <div class="editorial" style="margin-top:28px;">
+          <div class="image-wrap card"><img src="Key-Byscane-Miami.png" alt="Miami bay and islands" decoding="async"></div>
+          <div class="text-wrap">
+            <span class="eyebrow" style="width:max-content;">Premium stretch</span>
+            <h3>When it is worth leaving the center and sleeping better</h3>
+            <p>
+              For many travelers, the best Miami is not exactly in the middle of the buzz. Bal Harbour, Sunny Isles, Key Biscayne
+              and some nearby islands and resorts work beautifully for those who want cleaner beaches, better hotels, a more private atmosphere
+              and a trip that feels more premium.
+            </p>
+            <ul>
+              <li><strong>Bal Harbour / Surfside:</strong> luxury, beach and a quieter reading of the destination.</li>
+              <li><strong>Sunny Isles:</strong> high-end towers, family-friendly feel, wide beach and premium profile.</li>
+              <li><strong>Key Biscayne:</strong> calmer, greener and with more of a retreat feeling.</li>
+              <li><strong>Fisher Island:</strong> ultra-exclusive, for those who want privacy above all.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="viver">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Experiences</span>
+          <h2>Beach, skyline, rooftop, art, shopping and a city that changes tone all the time</h2>
+          <p>
+            Miami works precisely because it does not depend on a single narrative. It can be sunny, creative, urban, premium or practical.
+          </p>
+        </div>
+
+        <div class="gallery-three">
+          <img src="South Beach aerial.jpg" alt="South Beach" decoding="async">
+          <img src="miami-rooftop-restaurant.png" alt="Rooftop in Miami" decoding="async">
+          <img src="wynwood-walls-miami.jpg" alt="Wynwood in Miami" decoding="async">
+        </div>
+
+        <div class="theme-grid" style="margin-top:22px;">
+          <article class="theme-card">
+            <h3>Beach + hotels</h3>
+            <p>South Beach and Miami Beach remain strong, but the experience changes a lot when you upgrade the hotel or choose a calmer area.</p>
+          </article>
+          <article class="theme-card">
+            <h3>Brickell and urban Miami</h3>
+            <p>If you like restaurants, urban shopping, skyline and a more contemporary city feel, Brickell almost always delivers better than the classic beach reading.</p>
+          </article>
+          <article class="theme-card">
+            <h3>Wynwood and the creative side</h3>
+            <p>Urban art, cafés, bars and a less obvious Miami. It works very well for mixing strong visuals with a cooler, more contemporary program.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="comprar">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Shopping and lifestyle</span>
+          <h2>Miami remains strong for shopping — but the right neighborhood changes the experience a lot</h2>
+          <p>
+            For shopping, the ideal approach is not to treat everything as one big block. There is a major difference between Brickell’s urban shopping,
+            the luxury of Bal Harbour, the lifestyle of the Design District and the more utilitarian outlet routes.
+          </p>
+        </div>
+
+        <div class="editorial">
+          <div class="text-wrap">
+            <span class="eyebrow" style="width:max-content;">Shopping with logic</span>
+            <h3>Where it makes more sense to shop depending on the trip</h3>
+            <ul>
+              <li><strong>Brickell City Centre:</strong> best for travelers who want to integrate shopping into the urban rhythm of the trip.</li>
+              <li><strong>Design District:</strong> great for brands, design, architecture and a more aspirational experience.</li>
+              <li><strong>Bal Harbour Shops:</strong> ideal when the focus is luxury, fashion and a more premium reading of consumption.</li>
+              <li><strong>Aventura Mall:</strong> a very strong alternative when the idea is a large and more complete mall.</li>
+              <li><strong>Outlets:</strong> they work better as a complement, not necessarily as the center of the trip.</li>
+            </ul>
+          </div>
+          <div class="image-wrap card"><img src="Brickell-CityCenter-Mall.png" alt="Brickell City Centre" decoding="async"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="premium">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Premium Miami</span>
+          <h2>Luxury cars, strong hotels, marinas, skyline and a city that knows how to sell style</h2>
+          <p>
+            In Miami, a luxury car is not a logistical necessity. It is a language. It makes sense when the trip is more lifestyle-driven,
+            focused on celebration, couples, premium hotels, content or simply when the traveler wants to experience the city in a more aspirational way.
+          </p>
+        </div>
+
+        <div class="editorial reverse">
+          <div class="image-wrap card"><img src="Miami Luxury Cars.jpg" alt="Luxury cars in Miami" decoding="async"></div>
+          <div class="text-wrap">
+            <span class="eyebrow" style="width:max-content;">Rental car</span>
+            <h3>When renting a car in Miami makes sense — and when it does not</h3>
+            <ul>
+              <li><strong>Regular car:</strong> makes more sense for Miami + Orlando, Miami + Fort Lauderdale, outlets, more spread-out beaches and trips with more than one base.</li>
+              <li><strong>No car:</strong> South Beach, Brickell and Downtown work well with Uber, walking and more occasional transfers.</li>
+              <li><strong>Luxury cars:</strong> they enter as an experience, not an obligation. They pair well with a better hotel, couples, celebrations, lifestyle and content creation.</li>
+              <li><strong>Keep in mind:</strong> in Miami, parking, valet and the urban pace weigh into the budget. That needs to be part of the decision.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="combos">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Combinations</span>
+          <h2>Miami becomes even stronger when it turns into a starting point</h2>
+          <p>
+            Few destinations work so well as a combination base. Miami can be beach, city, shopping and cruise within the same trip.
+          </p>
+        </div>
+
+        <div class="compare-grid">
+          <article class="card">
+            <img src="Port-of-Miami-CruiseShips.jpg" alt="Cruises in Miami" style="width:100%; height:260px; object-fit:cover;" decoding="async">
+            <div class="card-body">
+              <h3 style="font-size:1.45rem; margin-bottom:12px;">Miami + cruise</h3>
+              <p>
+                One or two nights before embarkation make a big difference. You reduce logistical pressure and still get to enjoy the city more calmly.
+              </p>
+            </div>
+          </article>
+          <article class="card">
+            <img src="fort-lauderdale.jpg" alt="Fort Lauderdale" style="width:100%; height:260px; object-fit:cover;" decoding="async">
+            <div class="card-body">
+              <h3 style="font-size:1.45rem; margin-bottom:12px;">Miami + Fort Lauderdale</h3>
+              <p>
+                It makes a lot of sense when the trip calls for beach, marina, a bit less chaos and a lighter reading at the beginning or end of the itinerary.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="highlight-bar">
+          <div class="highlight"><strong>3–5 days</strong><span>a good length for a classic, well-resolved Miami trip.</span></div>
+          <div class="highlight"><strong>4–7 days</strong><span>when the trip mixes hotels, shopping, beach time and a more flexible pace.</span></div>
+          <div class="highlight"><strong>+ Orlando</strong><span>a very efficient combination for families and groups.</span></div>
+          <div class="highlight"><strong>+ Caribbean</strong><span>a strong reading for those who want sea + city + a premium rhythm.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="restaurantes">
+      <div class="container">
+        <div class="section-head">
+          <span class="kicker">Where Miami feels most interesting</span>
+          <h2>Restaurants, drinks and nightlife: where the city remains strong in 2026</h2>
+          <p>
+            Without falling into the cliché of “just nightlife,” Miami remains very strong in rooftops, waterfront dining, bars with atmosphere and restaurants
+            that mix visuals, energy and service. Brickell, Miami Beach and Wynwood usually deliver very different readings from one another.
+          </p>
+        </div>
+
+        <div class="theme-grid">
+          <article class="theme-card">
+            <h3>Miami Beach for dinner with atmosphere</h3>
+            <p>Great for travelers who want sea, hotel energy, drinks, beautiful dinners and a night that feels more visual than necessarily intense.</p>
+          </article>
+          <article class="theme-card">
+            <h3>Brickell for dinner + drinks</h3>
+            <p>A great reading for those who like skyline, strong restaurants, lounges and a more urban, contemporary pace.</p>
+          </article>
+          <article class="theme-card">
+            <h3>Wynwood for a more creative night out</h3>
+            <p>Best for those who prefer art, bars, music, casual chic and a city that feels less polished and more alive.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="comprar-viagem">
+      <div class="container">
+        <div class="closing-cta">
+          <span class="eyebrow"><i class="fas fa-plane-departure"></i> Book your trip</span>
+          <h2>Want to build the right version of Miami for your profile?</h2>
+          <p>
+            I can help you design the logic of the trip — first time, couple, shopping, cruise, premium travel, Miami + Orlando
+            or a combination with Fort Lauderdale and the Caribbean. The difference here is choosing the right base, rhythm and type of experience.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://skyscanner.pxf.io/9VL6Xj" target="_blank" rel="noopener"><i class="fas fa-plane"></i> Buy flights</a>
+            <a class="btn btn-secondary" href="https://skyscanner.pxf.io/GbKyv9" target="_blank" rel="noopener"><i class="fas fa-hotel"></i> Book hotel</a>
+            <a class="btn btn-secondary" href="mailto:lipe@btdweb.com"><i class="fas fa-envelope"></i> Ask for help by email</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Miami on Lipe Travel Show — inspiration, planning and practical paths to turn content into a real trip.
+    </div>
+  </footer>
+</body>
+</html>

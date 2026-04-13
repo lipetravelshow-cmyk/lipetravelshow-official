@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Europe: videos and planning | Lipe Travel Show</title>
+  <meta name="description" content="A Europe home hub for Lipe Travel Show, connecting videos, country pages, regions and practical ways to shape different travel styles across the continent.">
+  <style>
+    *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#0a1628; --navy2:#0d2240; --gold:#f0a500; --gold2:#ffc832; --white:#fff;
+      --gray:#8a9ab0; --dark:#06101e; --line:rgba(255,255,255,.12); --card:rgba(255,255,255,.05);
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',sans-serif; background:var(--navy); color:var(--white); overflow-x:hidden; }
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:1000; padding:18px 5%;
+      display:flex; align-items:center; justify-content:space-between;
+      background:rgba(10,22,40,.96); backdrop-filter:blur(16px); box-shadow:0 2px 30px rgba(0,0,0,.35);
+    }
+    .nav-logo { color:#fff; text-decoration:none; display:flex; align-items:center; gap:12px; }
+    .nav-mark {
+      width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--gold2));
+      color:var(--navy); display:grid; place-items:center; font-weight:800; font-size:.9rem;
+    }
+    .nav-logo strong { font-size:.96rem; letter-spacing:.3px; }
+    .nav-links { display:flex; gap:22px; list-style:none; align-items:center; }
+    .nav-links a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.84rem; font-weight:500; letter-spacing:.5px; transition:color .25s; }
+    .nav-links a:hover { color:var(--gold); }
+    .nav-cta { background:var(--gold); color:var(--navy)!important; padding:8px 18px; border-radius:50px; font-weight:700!important; }
+    .lang-switch { display:flex; gap:8px; align-items:center; margin-left:16px; }
+    .lang-switch a { border:1px solid rgba(255,255,255,.5); color:#fff; padding:6px 10px; border-radius:999px; font-size:.8rem; text-decoration:none; }
+    .lang-switch a.lang-current { background:var(--gold); color:var(--navy); border-color:var(--gold); }
+    .menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.45rem;cursor:pointer;}
+    .page-hero {
+      min-height:76vh; padding:145px 5% 82px;
+      background:linear-gradient(135deg,rgba(6,16,30,.72),rgba(13,34,64,.88)), url('foto-lipe-europa.jpg') center/cover no-repeat;
+      display:flex; align-items:center;
+    }
+    .page-hero-inner { max-width:1200px; margin:0 auto; width:100%; }
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:8px; background:rgba(240,165,0,.15); border:1px solid rgba(240,165,0,.45);
+      color:var(--gold); padding:7px 20px; border-radius:50px; font-size:.72rem; font-weight:700; letter-spacing:2px;
+      text-transform:uppercase; margin-bottom:28px;
+    }
+    h1 { font-family:'Playfair Display',serif; font-size:clamp(2.9rem,6vw,5.4rem); line-height:1.04; margin-bottom:20px; max-width:900px; }
+    h1 span { color:var(--gold); font-style:italic; }
+    .hero-copy { max-width:790px; color:rgba(255,255,255,.88); line-height:1.84; font-size:1.02rem; }
+    .hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-top:32px; }
+    .btn-primary,.btn-secondary {
+      display:inline-flex; align-items:center; gap:10px; border-radius:50px; padding:14px 30px;
+      text-decoration:none; font-weight:700; transition:all .28s;
+    }
+    .btn-primary { background:var(--gold); color:var(--navy); }
+    .btn-primary:hover { background:var(--gold2); transform:translateY(-2px); }
+    .btn-secondary { border:1.5px solid rgba(255,255,255,.55); color:var(--white); }
+    .btn-secondary:hover { border-color:var(--gold); color:var(--gold); }
+    .hero-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:34px; max-width:760px; }
+    .stat { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:22px; padding:18px 20px; }
+    .stat strong { display:block; font-size:1.35rem; color:var(--gold); margin-bottom:6px; }
+    .stat span { font-size:.92rem; color:rgba(255,255,255,.82); line-height:1.5; }
+    .section-wrap { max-width:1220px; margin:0 auto; padding:82px 5% 28px; }
+    .section-header { text-align:center; margin-bottom:46px; }
+    .section-label {
+      display:inline-block; background:rgba(240,165,0,.12); color:var(--gold); padding:7px 16px; border-radius:999px;
+      font-size:.74rem; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:18px;
+    }
+    h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4.3vw,3.4rem); line-height:1.1; margin-bottom:14px; }
+    .section-subtitle { max-width:760px; margin:0 auto; color:rgba(255,255,255,.76); line-height:1.82; }
+    .grid-3, .grid-4, .grid-2 { display:grid; gap:22px; }
+    .grid-3 { grid-template-columns:repeat(3,1fr); }
+    .grid-4 { grid-template-columns:repeat(4,1fr); }
+    .grid-2 { grid-template-columns:repeat(2,1fr); }
+    .card {
+      background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.04));
+      border:1px solid var(--line); border-radius:28px; padding:28px; box-shadow:0 18px 40px rgba(0,0,0,.16);
+    }
+    .card h3 { font-size:1.26rem; margin-bottom:12px; }
+    .card p { color:rgba(255,255,255,.76); line-height:1.8; }
+    .card-icon {
+      width:54px; height:54px; border-radius:16px; background:rgba(240,165,0,.14); color:var(--gold);
+      display:grid; place-items:center; font-size:1.2rem; margin-bottom:18px;
+    }
+    .card-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .chip, .tag {
+      display:inline-flex; align-items:center; gap:7px; padding:10px 14px; border-radius:999px; text-decoration:none;
+      font-size:.88rem; font-weight:600;
+    }
+    .chip { background:rgba(240,165,0,.12); color:var(--gold); border:1px solid rgba(240,165,0,.25); }
+    .chip:hover { background:rgba(240,165,0,.18); }
+    .tag { background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.1); }
+    .tag-muted { opacity:.86; }
+    .country-card { position:relative; overflow:hidden; }
+    .country-card:before {
+      content:""; position:absolute; inset:0; background:radial-gradient(circle at top right, rgba(240,165,0,.18), transparent 45%);
+      pointer-events:none;
+    }
+    .country-top { display:flex; align-items:flex-start; justify-content:space-between; gap:16px; margin-bottom:16px; }
+    .country-top span {
+      font-size:.73rem; font-weight:700; text-transform:uppercase; letter-spacing:1.4px; color:var(--gold);
+      border:1px solid rgba(240,165,0,.28); padding:8px 12px; border-radius:999px; white-space:nowrap;
+    }
+    .country-links a { margin-right:8px; margin-top:10px; }
+    .feature-band {
+      margin:24px auto 0; max-width:1120px; padding:24px 28px; border:1px solid var(--line); border-radius:28px;
+      background:linear-gradient(90deg,rgba(240,165,0,.12),rgba(255,255,255,.04));
+      display:grid; grid-template-columns:1.1fr 1.3fr; gap:26px; align-items:center;
+    }
+    .feature-band h3 { font-size:1.45rem; margin-bottom:10px; }
+    .feature-band p { color:rgba(255,255,255,.8); line-height:1.8; }
+    .feature-list { display:flex; flex-wrap:wrap; gap:10px; }
+    .route-card ul { list-style:none; display:grid; gap:10px; margin-top:16px; }
+    .route-card li { color:rgba(255,255,255,.8); line-height:1.65; padding-left:18px; position:relative; }
+    .route-card li:before { content:"•"; color:var(--gold); position:absolute; left:0; }
+    .footer { border-top:1px solid var(--line); margin-top:70px; padding:30px 5% 46px; }
+    .footer-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+    .footer p { color:rgba(255,255,255,.66); line-height:1.7; }
+    @media (max-width: 1024px) {
+      .grid-4 { grid-template-columns:repeat(2,1fr); }
+      .grid-3 { grid-template-columns:repeat(2,1fr); }
+      .feature-band, .grid-2 { grid-template-columns:1fr; }
+      .hero-stats { grid-template-columns:1fr; max-width:420px; }
+    }
+    @media (max-width: 820px) {
+      .menu-toggle{display:block;}
+      .nav-links {
+        position:absolute; top:100%; left:0; right:0; background:rgba(10,22,40,.98); border-top:1px solid rgba(255,255,255,.08);
+        padding:18px 5%; flex-direction:column; align-items:flex-start; display:none;
+      }
+      .nav-links.open { display:flex; }
+      .lang-switch { margin-left:0; }
+      .grid-3, .grid-4, .grid-2 { grid-template-columns:1fr; }
+      .country-top { flex-direction:column; }
+      .section-wrap { padding-top:72px; }
+    }
+  </style>
+
+<link rel="canonical" href="https://www.lipetravelshow.com.br/europe-videos-and-planning.html">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Alípio Lipe Camanzano">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.lipetravelshow.com.br"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Europe",
+      "item": "https://www.lipetravelshow.com.br/europe-videos-and-planning.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristDestination",
+  "name": "Europe",
+  "description": "A Europe home hub connecting videos, countries, regions and practical ways to shape different travel styles across the continent.",
+  "url": "https://www.lipetravelshow.com.br/europe-videos-and-planning.html",
+  "touristType": {
+    "@type": "Audience",
+    "audienceType": "Brazilian travelers"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Alípio Camanzano",
+    "alternateName": "Lipe Camanzano"
+  }
+}
+</script>
+
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="#top">
+      <span class="nav-mark">LTS</span>
+      <strong>Lipe Travel Show</strong>
+    </a>
+    <button class="menu-toggle" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+    <div class="nav-links">
+      <a href="#destinations">Destinations</a>
+      <a href="#regions">Regions</a>
+      <a href="#extras">More Europe</a>
+      <a href="#buy" class="nav-cta">Buy your trip</a>
+      <div class="lang-switch">
+        <a href="europa-videos-e-planejamento.html">PT</a>
+        <a href="europe-videos-and-planning.html" class="lang-current">EN</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-hero" id="top">
+    <div class="page-hero-inner">
+      <div class="hero-badge"><i class="fas fa-globe-europe"></i> europe • destinations, videos and trip planning</div>
+      <h1>Europe to see, compare and <span>plan better</span></h1>
+      <p class="hero-copy">
+        Europe brings together very different travel styles: classic capitals, historic cities, train routes, coastline, mountains, gastronomy and urban trips. On Lipe Travel Show, this page works as a starting point to compare countries, open regional hubs and turn inspiration into a real itinerary.
+      </p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="#destinations"><i class="fas fa-map-marked-alt"></i> Explore destinations</a>
+        <a class="btn-secondary" href="#buy"><i class="fas fa-cart-shopping"></i> Buy your trip</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>Destinations</strong><span>Strong countries and regional hubs to start with more clarity.</span></div>
+        <div class="stat"><strong>Comparison</strong><span>A more organized way to choose travel angles and combinations.</span></div>
+        <div class="stat"><strong>Booking</strong><span>Direct links to search flights, hotels and open the Skyscanner search page.</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section-wrap" id="destinations">
+    <div class="section-header">
+      <span class="section-label">Start here</span>
+      <h2>Main destinations to open Europe</h2>
+      <p class="section-subtitle">Start with the countries and hubs already organized on the site so you can better compare cities, travel styles and itinerary combinations.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card country-card">
+        <div class="country-top"><h3>Portugal</h3></div>
+        <p>Lisbon, Porto, Sintra, the Douro, the coast and other angles for different travel styles.</p>
+        <div class="card-links country-links">
+          <a class="chip" href="portugal-lisbon-videos-and-planning.html"><i class="fas fa-arrow-right"></i> View Portugal</a>
+          <span class="tag">Lisbon</span><span class="tag">Porto</span><span class="tag">Algarve</span>
+        </div>
+      </article>
+      <article class="card country-card">
+        <div class="country-top"><h3>Spain</h3></div>
+        <p>Major cities, Andalusia, the coast, islands and combinations to build more complete itineraries.</p>
+        <div class="card-links country-links">
+          <a class="chip" href="spain-videos-and-planning.html"><i class="fas fa-arrow-right"></i> View Spain</a>
+          <span class="tag">Madrid</span><span class="tag">Barcelona</span><span class="tag">Andalusia</span>
+        </div>
+      </article>
+      <article class="card country-card">
+        <div class="country-top"><h3>France</h3></div>
+        <p>Paris and other ways to think about France beyond the obvious, with more travel context.</p>
+        <div class="card-links country-links">
+          <a class="chip" href="france-videos-and-planning.html"><i class="fas fa-arrow-right"></i> View France</a>
+          <span class="tag">Paris</span><span class="tag">Routes</span><span class="tag">Cities</span>
+        </div>
+      </article>
+      <article class="card country-card">
+        <div class="country-top"><h3>Italy</h3></div>
+        <p>Classic cities, iconic regions and itinerary possibilities for different travel rhythms.</p>
+        <div class="card-links country-links">
+          <a class="chip" href="italy-videos-and-planning.html"><i class="fas fa-arrow-right"></i> View Italy</a>
+          <span class="tag">Rome</span><span class="tag">Tuscany</span><span class="tag">Coast</span>
+        </div>
+      </article>
+      <article class="card country-card">
+        <div class="country-top"><h3>England</h3></div>
+        <p>London and other bases to combine culture, history and urban life with more context.</p>
+        <div class="card-links country-links">
+          <a class="chip" href="england-videos-and-planning.html"><i class="fas fa-arrow-right"></i> View England</a>
+          <span class="tag">London</span><span class="tag">History</span><span class="tag">City break</span>
+        </div>
+      </article>
+      <article class="card country-card">
+        <div class="country-top"><h3>Germany</h3></div>
+        <p>Major cities, history, markets, castles and routes across the country to broaden your options.</p>
+        <div class="card-links country-links">
+          <a class="chip" href="germany-videos-and-planning.html"><i class="fas fa-arrow-right"></i> View Germany</a>
+          <span class="tag">Berlin</span><span class="tag">Castles</span><span class="tag">Markets</span>
+        </div>
+      </article>
+      <article class="card country-card">
+        <div class="country-top"><h3>Switzerland</h3></div>
+        <p>Alpine landscapes, trains, lakes and more contemplative trips for a different pace of Europe.</p>
+        <div class="card-links country-links">
+          <a class="chip" href="switzerland-videos-and-planning.html"><i class="fas fa-arrow-right"></i> View Switzerland</a>
+          <span class="tag">Alps</span><span class="tag">Trains</span><span class="tag">Lakes</span>
+        </div>
+      </article>
+      <article class="card country-card">
+        <div class="country-top"><h3>The Netherlands</h3></div>
+        <p>Amsterdam and other angles that combine city life, design, art and easy day trips.</p>
+        <div class="card-links country-links">
+          <a class="chip" href="netherlands-videos-and-planning.html"><i class="fas fa-arrow-right"></i> View the Netherlands</a>
+          <span class="tag">Amsterdam</span><span class="tag">Art</span><span class="tag">Design</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="regions">
+    <div class="section-header">
+      <span class="section-label">Explore by region</span>
+      <h2>Regional hubs to broaden the view</h2>
+      <p class="section-subtitle">These hubs open important blocks of the continent and help you enter through groups of destinations already organized on the site.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-landmark"></i></div>
+        <h3>Eastern Europe</h3>
+        <p>Historic cities, castles, striking architecture and less obvious routes for travelers who want to broaden their view of the continent.</p>
+        <div class="card-links"><a class="chip" href="eastern-europe-videos-and-planning.html"><i class="fas fa-arrow-right"></i> Explore Eastern Europe</a></div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-snowflake"></i></div>
+        <h3>Scandinavia</h3>
+        <p>Design, quality of life, landscapes, organized cities and a calmer travel rhythm.</p>
+        <div class="card-links"><a class="chip" href="scandinavia-videos-and-planning.html"><i class="fas fa-arrow-right"></i> Explore Scandinavia</a></div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-building-columns"></i></div>
+        <h3>Russia</h3>
+        <p>Major capitals, art, imperial history and a strong urban reading for travelers who want to explore another side of Europe.</p>
+        <div class="card-links"><a class="chip" href="russia-videos-and-planning.html"><i class="fas fa-arrow-right"></i> Explore Russia</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="extras">
+    <div class="section-header">
+      <span class="section-label">Keep exploring</span>
+      <h2>More cities and regions to explore</h2>
+      <p class="section-subtitle">Open these complementary destinations and compare more interesting combinations within Europe.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <h3>Prague & Czech Republic</h3>
+        <p>Architecture, history and the classic atmosphere of one of the region’s most desired cities.</p>
+        <div class="card-links"><a class="chip" href="prague-czech-republic-videos-and-planning.html"><i class="fas fa-arrow-right"></i> Open destination</a></div>
+      </article>
+      <article class="card">
+        <h3>Budapest & Hungary</h3>
+        <p>Thermal baths, river views, cafés and eastern elegance in a route that usually delivers a lot.</p>
+        <div class="card-links"><a class="chip" href="budapest-hungary-videos-and-planning.html"><i class="fas fa-arrow-right"></i> Open destination</a></div>
+      </article>
+      <article class="card">
+        <h3>Poland</h3>
+        <p>Historic cities, memory and great surprises for travelers who want to broaden their travel repertoire.</p>
+        <div class="card-links"><a class="chip" href="poland-videos-and-planning.html"><i class="fas fa-arrow-right"></i> Open destination</a></div>
+      </article>
+      <article class="card">
+        <h3>Croatia & the Balkans</h3>
+        <p>Coastline, walls, islands and summer travel with a different rhythm inside the continent.</p>
+        <div class="card-links"><a class="chip" href="croatia-balkans-videos-and-planning.html"><i class="fas fa-arrow-right"></i> Open destination</a></div>
+      </article>
+      <article class="card">
+        <h3>Romania & Bulgaria</h3>
+        <p>Castles, monasteries, mountains and less obvious routes for travelers who want to step away from the traditional path.</p>
+        <div class="card-links"><a class="chip" href="romania-bulgaria-videos-and-planning.html"><i class="fas fa-arrow-right"></i> Open destination</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="routes">
+    <div class="section-header">
+      <span class="section-label">Compare better</span>
+      <h2>What kind of Europe fits your trip?</h2>
+      <p class="section-subtitle">Use these lenses to refine your view before locking in a country, city or route combination.</p>
+    </div>
+    <div class="grid-2">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-passport"></i></div>
+        <h3>1) First time in Europe</h3>
+        <p>A good fit for travelers who want to start with more classic and easy-to-combine destinations such as Portugal, Spain, France or Italy.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-city"></i></div>
+        <h3>2) Urban and cultural Europe</h3>
+        <p>Ideal for big cities, museums, iconic neighborhoods, gastronomy and a more intense pace.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-chess-rook"></i></div>
+        <h3>3) Historic and scenic Europe</h3>
+        <p>Best for castles, medieval centers, landscapes and routes with more atmosphere.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-mountain"></i></div>
+        <h3>4) Nature and contemplative Europe</h3>
+        <p>Ideal for mountains, lakes, panoramic trains and visually driven travel.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="buy">
+    <div class="feature-band">
+      <div class="section-header" style="margin-bottom:28px;">
+        <span class="section-label">Booking</span>
+        <h2>Search, compare and buy your trip</h2>
+        <p class="section-subtitle">Once you know which destinations make more sense for your trip, it is time to compare prices and organize the next steps. Here on Lipe Travel Show, you can also search and buy flights, hotels and other travel services more easily.</p>
+      </div>
+      <div class="hero-btns" style="justify-content:center;">
+        <a class="btn-primary" href="https://skyscanner.pxf.io/9VL6Xj" target="_blank" rel="noopener sponsored"><i class="fas fa-plane-departure"></i> Buy flights</a>
+        <a class="btn-secondary" href="https://skyscanner.pxf.io/GbKyv9" target="_blank" rel="noopener sponsored"><i class="fas fa-hotel"></i> Book hotels</a>
+        <a class="btn-secondary" href="https://skyscanner.pxf.io/vDPKAL" target="_blank" rel="noopener sponsored"><i class="fas fa-magnifying-glass"></i> Open Skyscanner</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="continue">
+    <div class="section-header">
+      <span class="section-label">Keep going on the site</span>
+      <h2>Keep exploring on Lipe Travel Show</h2>
+      <p class="section-subtitle">Still unsure which country or city fits your trip best? Open other pages on the site to compare destinations, understand travel styles and build a clearer itinerary before deciding.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-video"></i></div>
+        <h3>See destinations and videos</h3>
+        <p>Open more countries, regions and editorial content to compare your next route more clearly.</p>
+        <div class="card-links"><a class="chip" href="watch-and-plan.html"><i class="fas fa-arrow-right"></i> See destinations and videos</a></div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-suitcase-rolling"></i></div>
+        <h3>Plan your trip</h3>
+        <p>Use the practical layer of the site to organize choices, priorities and next steps.</p>
+        <div class="card-links"><a class="chip" href="plan-your-trip.html"><i class="fas fa-arrow-right"></i> Plan your trip</a></div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-magnifying-glass-dollar"></i></div>
+        <h3>How to search flights</h3>
+        <p>Open the practical guide to search for airfares with more context and less noise.</p>
+        <div class="card-links"><a class="chip" href="how-to-search-flights.html"><i class="fas fa-arrow-right"></i> Open guide</a></div>
+      </article>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>Europe on Lipe Travel Show — a starting point to compare destinations, open more pages on the site and move toward booking your trip.</p>
+      <div class="lang-switch">
+        <a href="europa-videos-e-planejamento.html">PT</a>
+        <a href="europe-videos-and-planning.html" class="lang-current">EN</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+            document.querySelector('.nav-links')?.classList.remove('open');
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

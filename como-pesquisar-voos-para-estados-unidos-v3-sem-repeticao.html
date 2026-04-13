@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Como pesquisar voos para os Estados Unidos | Lipe Travel Show</title>
+  <meta name="description" content="Guia prático para pesquisar voos para os Estados Unidos com mais estratégia: origens no Brasil, companhias, conexões, sazonalidade, visto e melhores buscas.">
+  
+  <meta property="og:title" content="Como pesquisar voos para os Estados Unidos | Lipe Travel Show">
+  <meta property="og:description" content="Entenda como pesquisar passagens para os EUA com mais estratégia: aeroportos, conexões, datas, alta e baixa temporada, visto e comparação de tarifas.">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="eua-hero-voos.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Como pesquisar voos para os Estados Unidos | Lipe Travel Show">
+  <meta name="twitter:description" content="Guia prático para pesquisar passagens para os EUA com mais estratégia: origem no Brasil, conexões, companhias, sazonalidade, visto e compra mais inteligente.">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Como pesquisar voos para os Estados Unidos",
+    "description":"Guia prático para pesquisar passagens para os Estados Unidos com mais estratégia, comparando origens, hubs, companhias, conexões, sazonalidade e visto.",
+    "author":{"@type":"Person","name":"Lipe Travel Show"},
+    "inLanguage":"pt-BR"
+  }
+  </script>
+  <style>
+    *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#0a1628; --navy2:#0d2240; --gold:#f0a500; --gold2:#ffc832; --white:#fff;
+      --gray:#8a9ab0; --dark:#06101e; --line:rgba(255,255,255,.12); --card:rgba(255,255,255,.05);
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',sans-serif; background:var(--navy); color:var(--white); overflow-x:hidden; }
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:1000; padding:18px 5%;
+      display:flex; align-items:center; justify-content:space-between;
+      background:rgba(10,22,40,.96); backdrop-filter:blur(16px); box-shadow:0 2px 30px rgba(0,0,0,.35);
+    }
+    .nav-logo { color:#fff; text-decoration:none; display:flex; align-items:center; gap:12px; }
+    .nav-mark {
+      width:42px; height:42px; border-radius:50%; overflow:hidden; flex:0 0 42px;
+      border:1px solid rgba(255,255,255,.12); box-shadow:0 8px 18px rgba(0,0,0,.22);
+      background:rgba(255,255,255,.06);
+    }
+    .nav-mark img { width:100%; height:100%; object-fit:cover; display:block; }
+    .nav-logo strong { font-size:.96rem; letter-spacing:.3px; }
+    .nav-links { display:flex; gap:22px; list-style:none; align-items:center; }
+    .nav-links a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.84rem; font-weight:500; letter-spacing:.5px; transition:color .25s; }
+    .nav-links a:hover { color:var(--gold); }
+    .nav-cta { background:var(--gold); color:var(--navy)!important; padding:8px 18px; border-radius:50px; font-weight:700!important; }
+    .menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.45rem;cursor:pointer;}
+
+    .lang-switch {
+      display:inline-flex; align-items:center; gap:8px; margin-left:6px;
+      padding:6px 10px; border-radius:999px; text-decoration:none;
+      border:1px solid rgba(255,255,255,.18); color:rgba(255,255,255,.82)!important;
+      font-size:.78rem!important; font-weight:700!important; letter-spacing:.8px;
+    }
+    .lang-switch.active {
+      background:rgba(240,165,0,.16); border-color:rgba(240,165,0,.42);
+      color:var(--gold)!important;
+    }
+    
+    .page-hero {
+      min-height:78vh; padding:145px 5% 82px;
+      background:
+        linear-gradient(135deg,rgba(6,16,30,.76),rgba(13,34,64,.88)),
+        url('eua-hero-voos.png') center center/auto 82% no-repeat;
+      display:flex; align-items:center;
+    }
+    .page-hero-inner { max-width:1200px; margin:0 auto; width:100%; }
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:8px; background:rgba(240,165,0,.15); border:1px solid rgba(240,165,0,.45);
+      color:var(--gold); padding:7px 20px; border-radius:50px; font-size:.72rem; font-weight:700; letter-spacing:2px;
+      text-transform:uppercase; margin-bottom:28px;
+    }
+    h1 { font-family:'Playfair Display',serif; font-size:clamp(2.9rem,6vw,5.2rem); line-height:1.04; margin-bottom:20px; max-width:920px; }
+    h1 span { color:var(--gold); font-style:italic; }
+    .hero-copy { max-width:800px; color:rgba(255,255,255,.88); line-height:1.84; font-size:1.02rem; }
+    .hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-top:32px; }
+    .btn-primary,.btn-secondary {
+      display:inline-flex; align-items:center; gap:10px; border-radius:50px; padding:14px 30px;
+      text-decoration:none; font-weight:700; transition:all .28s;
+    }
+    .btn-primary { background:var(--gold); color:var(--navy); }
+    .btn-primary:hover { background:var(--gold2); transform:translateY(-2px); }
+    .btn-secondary { border:1.5px solid rgba(255,255,255,.55); color:var(--white); }
+    .btn-secondary:hover { border-color:var(--gold); color:var(--gold); }
+    .hero-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:34px; max-width:860px; }
+    .stat { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:22px; padding:18px 20px; }
+    .stat strong { display:block; font-size:1.35rem; color:var(--gold); margin-bottom:6px; }
+    .stat span { font-size:.92rem; color:rgba(255,255,255,.82); line-height:1.5; }
+    .section-wrap { max-width:1220px; margin:0 auto; padding:82px 5% 28px; }
+    .section-header { text-align:center; margin-bottom:46px; }
+    .section-label {
+      display:inline-block; background:rgba(240,165,0,.12); color:var(--gold); padding:7px 16px; border-radius:999px;
+      font-size:.74rem; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:18px;
+    }
+    h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4.3vw,3.3rem); line-height:1.1; margin-bottom:14px; }
+    .section-subtitle { max-width:820px; margin:0 auto; color:rgba(255,255,255,.76); line-height:1.82; }
+    .grid-3, .grid-2 { display:grid; gap:22px; }
+    .grid-3 { grid-template-columns:repeat(3,1fr); }
+    .grid-2 { grid-template-columns:repeat(2,1fr); }
+    .card {
+      background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.04));
+      border:1px solid var(--line); border-radius:28px; padding:28px; box-shadow:0 18px 40px rgba(0,0,0,.16);
+    }
+    .card h3 { font-size:1.26rem; margin-bottom:12px; }
+    .card p { color:rgba(255,255,255,.76); line-height:1.8; }
+    .card-icon {
+      width:54px; height:54px; border-radius:16px; background:rgba(240,165,0,.14); color:var(--gold);
+      display:grid; place-items:center; font-size:1.2rem; margin-bottom:18px;
+    }
+    .card-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .chip, .tag {
+      display:inline-flex; align-items:center; gap:7px; padding:10px 14px; border-radius:999px; text-decoration:none;
+      font-size:.88rem; font-weight:600;
+    }
+    .chip { background:rgba(240,165,0,.12); color:var(--gold); border:1px solid rgba(240,165,0,.25); }
+    .chip:hover { background:rgba(240,165,0,.18); }
+    .tag { background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.1); }
+    .feature-band {
+      margin:24px auto 0; max-width:1120px; padding:24px 28px; border:1px solid var(--line); border-radius:28px;
+      background:linear-gradient(90deg,rgba(240,165,0,.12),rgba(255,255,255,.04));
+      display:grid; grid-template-columns:1.05fr 1.25fr; gap:26px; align-items:center;
+    }
+    .feature-band h3 { font-size:1.45rem; margin-bottom:10px; }
+    .feature-band p { color:rgba(255,255,255,.8); line-height:1.8; }
+    .check-list { list-style:none; display:grid; gap:12px; margin-top:18px; }
+    .check-list li { position:relative; padding-left:24px; color:rgba(255,255,255,.82); line-height:1.7; }
+    .check-list li:before { content:"✓"; position:absolute; left:0; color:var(--gold); font-weight:800; }
+    .process-grid { display:grid; gap:18px; grid-template-columns:repeat(3,1fr); }
+    .step-card {
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:24px; padding:24px;
+    }
+    .step-card strong {
+      display:inline-flex; width:34px; height:34px; border-radius:50%; align-items:center; justify-content:center;
+      background:rgba(240,165,0,.16); color:var(--gold); margin-bottom:16px;
+    }
+    .step-card h3 { margin-bottom:10px; font-size:1.08rem; }
+    .step-card p { color:rgba(255,255,255,.76); line-height:1.72; }
+    .cta-stack { display:flex; flex-wrap:wrap; gap:14px; margin-top:22px; }
+    .quote-box {
+      border-left:3px solid var(--gold); padding:16px 18px; margin-top:18px;
+      background:rgba(255,255,255,.05); border-radius:0 18px 18px 0;
+      color:rgba(255,255,255,.84); line-height:1.78;
+    }
+    .footer { border-top:1px solid var(--line); margin-top:70px; padding:30px 5% 46px; }
+    .footer-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+    .footer p { color:rgba(255,255,255,.66); line-height:1.7; }
+
+    .cta-visual {
+      border-radius: 24px; overflow: hidden; border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 18px 40px rgba(0,0,0,.18); background:rgba(255,255,255,.04);
+    }
+    .cta-visual img {
+      display:block; width:100%; height:100%; object-fit:cover;
+    }
+
+    @media (max-width: 1024px) {
+      .grid-3, .process-grid { grid-template-columns:repeat(2,1fr); }
+      .grid-2, .feature-band { grid-template-columns:1fr; }
+      .hero-stats { grid-template-columns:1fr; max-width:420px; }
+    }
+    @media (max-width: 820px) {
+      .menu-toggle{display:block;}
+      .nav-links {
+        position:absolute; top:100%; left:0; right:0; background:rgba(10,22,40,.98); border-top:1px solid rgba(255,255,255,.08);
+        padding:18px 5%; flex-direction:column; align-items:flex-start; display:none;
+      }
+      .nav-links.open { display:flex; }
+      .grid-3, .grid-2, .process-grid { grid-template-columns:1fr; }
+      .section-wrap { padding-top:72px; }
+    }
+  </style>
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://lipetravelshow.com.br/como-pesquisar-voos-para-estados-unidos.html">
+  <link rel="alternate" hreflang="pt-BR" href="https://lipetravelshow.com.br/como-pesquisar-voos-para-estados-unidos.html">
+  <link rel="alternate" hreflang="en" href="https://lipetravelshow.com.br/how-to-search-flights-to-the-united-states.html">
+  <link rel="alternate" hreflang="x-default" href="https://lipetravelshow.com.br/como-pesquisar-voos-para-estados-unidos.html">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://lipetravelshow.com.br/como-pesquisar-voos-para-estados-unidos.html">
+
+
+
+  <meta name="author" content="Alípio Lipe Camanzano">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.lipetravelshow.com.br"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Voos para os Estados Unidos",
+      "item": "https://www.lipetravelshow.com.br/como-pesquisar-voos-para-estados-unidos.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristDestination",
+  "name": "Estados Unidos",
+  "description": "Guia prático para pesquisar voos para os Estados Unidos com mais estratégia, comparando origens no Brasil, companhias, conexões, sazonalidade e melhores buscas.",
+  "url": "https://www.lipetravelshow.com.br/como-pesquisar-voos-para-estados-unidos.html",
+  "touristType": {
+    "@type": "Audience",
+    "audienceType": "Turistas brasileiros"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Alípio Camanzano",
+    "alternateName": "Lipe Camanzano"
+  }
+}
+  </script>
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="estados-unidos-videos-e-planejamento.html" aria-label="Voltar para a home de Estados Unidos">
+      <span class="nav-mark"><img src="carinha-portrait.png" alt="Logo Lipe Travel Show" decoding="async"></span>
+      <strong>Lipe Travel Show</strong>
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menu" onclick="document.querySelector('.nav-links').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+    <div class="nav-links">
+      <a href="#como-pensar">Estratégia</a>
+      <a href="#camadas">Camadas</a>
+      <a href="#hubs">Entradas</a>
+      <a href="#companhias">Companhias</a>
+      <a href="#videos-eua">Vídeos EUA</a>
+      <a href="#comprar">Comprar</a>
+      <a href="#lead" class="nav-cta">Montar minha estratégia</a>
+      <a href="como-pesquisar-voos-para-estados-unidos.html" class="lang-switch active">PT</a>
+      <a href="how-to-search-flights-to-the-united-states.html" class="lang-switch">EN</a>
+    </div>
+  </nav>
+
+  <header class="page-hero" id="top">
+    <div class="page-hero-inner">
+      <div class="hero-badge"><i class="fas fa-plane-departure"></i> estados unidos • voos, conexões e estratégia</div>
+      <h1>Como pesquisar voos para os <span>Estados Unidos</span> com mais clareza</h1>
+      <p class="hero-copy">
+        Pesquisar passagem para os Estados Unidos não é só abrir um buscador e escolher a menor tarifa. O que realmente muda o resultado é entender o ponto de origem no Brasil, a porta de entrada mais inteligente nos EUA, as companhias e conexões disponíveis, a sazonalidade, a lógica do roteiro e até o timing do visto. Nesta página, a ideia é transformar uma busca solta em uma decisão melhor — e também te conectar com a home geral dos Estados Unidos, onde já temos vários vídeos e páginas sobre destinos como Miami, Orlando e Nova York.
+      </p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="#comprar"><i class="fas fa-magnifying-glass"></i> Pesquisar voos agora</a>
+        <a class="btn-secondary" href="estados-unidos-videos-e-planejamento.html"><i class="fas fa-video"></i> Ver home geral dos EUA</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>Origem</strong><span>Seu aeroporto de saída no Brasil pode mudar bastante o preço final e a lógica da viagem.</span></div>
+        <div class="stat"><strong>Datas</strong><span>Flexibilidade de poucos dias e busca por calendário fazem muita diferença na rota Brasil–EUA.</span></div>
+        <div class="stat"><strong>Entrada</strong><span>Nem sempre Miami ou Orlando são a melhor porta de entrada para o seu tipo de viagem.</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section-wrap" id="como-pensar">
+    <div class="section-header">
+      <span class="section-label">Antes de buscar</span>
+      <h2>O erro mais comum é pesquisar a passagem antes de definir a lógica da viagem</h2>
+      <p class="section-subtitle">
+        Estados Unidos não são um destino único. Dependendo do seu perfil, faz muito mais sentido pesquisar por hubs da Flórida, área de Nova York, Costa Leste, Costa Oeste ou rotas com conexão bem resolvida — e isso começa antes de abrir o buscador.
+      </p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-map-pin"></i></div>
+        <h3>1) Defina a porta de entrada</h3>
+        <p>Miami, Fort Lauderdale, Orlando, Nova York, Newark, Boston, Chicago, Dallas, Houston ou Los Angeles cumprem papéis diferentes. A melhor porta de entrada depende do seu roteiro e não só do preço no primeiro print.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-plane-up"></i></div>
+        <h3>2) Defina de onde você sai no Brasil</h3>
+        <p>GRU, GIG, VCP, CNF, BSB, REC, SSA, MAO, BEL e outras origens podem abrir combinações bem distintas. Em muitos casos, vale testar sua cidade e também uma origem alternativa antes de decidir.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-calendar-days"></i></div>
+        <h3>3) Defina a janela e o calendário</h3>
+        <p>Verão americano, spring break, Thanksgiving, Natal e Ano-Novo costumam pressionar preço e disponibilidade. Já shoulder seasons e datas intermediárias podem destravar tarifas mais inteligentes.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="camadas">
+    <div class="section-header">
+      <span class="section-label">Como usar esta página</span>
+      <h2>Um caminho mais claro para pesquisar e decidir sua viagem</h2>
+      <p class="section-subtitle">A melhor pesquisa costuma acontecer em camadas: inspiração, estratégia, comparação de rotas e só depois decisão de compra.</p>
+    </div>
+    <div class="grid-3 process-grid">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
+        <h3>Inspire-se</h3>
+        <p>Primeiro entenda o tipo de viagem: compras, parques, cidades, costa leste, road trip, viagem em família, premium ou multi-cidades. Isso muda totalmente a busca aérea.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-sitemap"></i></div>
+        <h3>Planeje melhor</h3>
+        <p>Escolha a porta de entrada, compare aeroportos vizinhos, pense se vale ida por uma cidade e volta por outra, e organize o visto antes de assumir qualquer compra sem flexibilidade.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-tags"></i></div>
+        <h3>Pesquise e reserve</h3>
+        <p>Use calendário, gráfico de preços, alertas e comparação de “melhor” versus “mais barato”. O objetivo não é achar qualquer tarifa: é achar a tarifa certa para o seu cenário.</p>
+      </article>
+    </div>
+
+    <div class="quote-box" style="margin-top:18px;">
+      Além deste guia de voos, a home geral dos Estados Unidos já reúne vários vídeos e páginas sobre os principais destinos do país, com destaque para Flórida, Miami, Orlando, Nova York, visto americano e chegada/alfândega.
+    </div>
+  </section>
+
+  <section class="section-wrap" id="videos-eua">
+    <div class="section-header">
+      <span class="section-label">Vídeos e páginas dos EUA</span>
+      <h2>Você já tem uma base forte de conteúdo sobre os principais destinos americanos</h2>
+      <p class="section-subtitle">Para esta página rankear melhor e manter boa navegação interna, vale deixar claro que a jornada não termina na passagem: a home dos Estados Unidos já conecta conteúdos sobre Flórida, Miami, Orlando, Nova York, visto americano e chegada aos EUA.</p>
+    </div>
+    <div class="feature-band">
+      <div>
+        <h3>Use a página-mãe dos Estados Unidos como próximo passo</h3>
+        <p>Depois de entender a lógica do voo, faz sentido navegar para a home geral dos EUA, onde você já tem vídeos e recortes mais práticos dos destinos principais. Isso ajuda quem ainda está decidindo entre Miami, Orlando, Nova York ou uma combinação maior.</p>
+        <div class="cta-stack">
+          <a class="btn-primary" href="estados-unidos-videos-e-planejamento.html"><i class="fas fa-compass"></i> Abrir home geral dos EUA</a>
+          <a class="btn-secondary" href="https://www.youtube.com/watch?v=gPo_B0o7QKI" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> Ver vídeo do visto</a>
+        </div>
+      </div>
+      <div class="cta-visual">
+        <img src="eua-lipe-lounge-moderno.png" alt="Lipe em lounge moderno de aeroporto nos Estados Unidos, conectando o guia de voos à home geral de destinos" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="hubs">
+    <div class="section-header">
+      <span class="section-label">Portas de entrada</span>
+      <h2>Por onde normalmente vale começar a comparação</h2>
+      <p class="section-subtitle">Estes grupos costumam ser os mais úteis para começar a busca, dependendo do estilo da viagem, do orçamento e de onde você sai no Brasil.</p>
+    </div>
+    <div class="grid-2">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-sun"></i></div>
+        <h3>Miami, Fort Lauderdale e Orlando</h3>
+        <p>Continuam fortíssimos para lazer, primeira viagem, parques, compras, cruzeiros e para quem quer uma entrada mais simples na Flórida. Também são boas bases para quem quer conectar com outras cidades depois.</p>
+        <div class="card-links">
+          <span class="tag">Flórida</span>
+          <span class="tag">Família</span>
+          <span class="tag">Primeira viagem</span>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-building"></i></div>
+        <h3>Nova York, Newark e Boston</h3>
+        <p>Funcionam muito bem para city trip, inverno, outono, costa leste e viagens combinadas. Vale comparar JFK e Newark porque a diferença pode aparecer tanto na tarifa quanto na praticidade do deslocamento.</p>
+        <div class="card-links">
+          <span class="tag">Costa Leste</span>
+          <span class="tag">Urbano</span>
+          <span class="tag">Open jaw</span>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-briefcase"></i></div>
+        <h3>Chicago, Dallas e Houston</h3>
+        <p>São úteis para quem quer tarifas mais racionais, conexões eficientes ou viagens de trabalho. Muitas vezes entram como rota “menos óbvia”, mas com ótimo custo-benefício dependendo da data.</p>
+        <div class="card-links">
+          <span class="tag">Negócios</span>
+          <span class="tag">Conexão</span>
+          <span class="tag">Centro dos EUA</span>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-car-side"></i></div>
+        <h3>Los Angeles, São Francisco e Costa Oeste</h3>
+        <p>Pedem pesquisa mais cuidadosa porque o tempo total de viagem pesa mais. Em alguns casos, vale entrar por uma cidade da costa oeste e sair por outra, especialmente em road trips ou roteiros maiores.</p>
+        <div class="card-links">
+          <span class="tag">Costa Oeste</span>
+          <span class="tag">Road trip</span>
+          <span class="tag">Multi-cidade</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="companhias">
+    <div class="section-header">
+      <span class="section-label">Companhias, conexões e origens</span>
+      <h2>Como eu pensaria as combinações saindo do Brasil</h2>
+      <p class="section-subtitle">Aqui entra uma camada que faz muita diferença: quem voa direto, quem conecta bem e quais origens brasileiras realmente merecem entrar na sua comparação.</p>
+    </div>
+    <div class="feature-band">
+      <div>
+        <h3>Nem toda boa tarifa nasce em GRU — e nem toda conexão é ruim</h3>
+        <p>Na prática, eu compararia primeiro sua origem real no Brasil e depois testaria uma ou duas alternativas inteligentes. As páginas de Azul e GOL para os EUA mostram ofertas e combinações saindo de origens como VCP, CNF, GIG, BSB, REC, BEL, CWB, VIX, NAT e outras, o que reforça que não vale assumir que só São Paulo resolve a viagem.</p>
+        <ul class="check-list">
+          <li>Compare companhias brasileiras e parceiras antes de decidir reposicionamento.</li>
+          <li>Teste GRU, VCP e também sua origem local quando houver boa malha.</li>
+          <li>Em viagens saindo de capitais fora do eixo Rio–São Paulo, a Copa via Panamá pode ser uma rota muito útil para ampliar opções.</li>
+          <li>Pense no custo real: bagagem, assento, conexão, imigração e deslocamento na chegada.</li>
+        </ul>
+      </div>
+      <div class="cta-visual">
+        <img src="eua-voos-aeroporto-ord.png" alt="Lipe em aeroporto dos Estados Unidos com mala, pronto para comparar rotas e conexões" decoding="async">
+      </div>
+    </div>
+    <div class="grid-3" style="margin-top:24px;">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-flag"></i></div>
+        <h3>Companhias brasileiras</h3>
+        <p>Vale olhar Azul e GOL especialmente quando você quer sair de origens brasileiras além de GRU e GIG. Elas podem aparecer com combinações competitivas e trajetos mais convenientes para determinados perfis.</p>
+        <div class="card-links">
+          <span class="tag">Azul</span>
+          <span class="tag">GOL</span>
+          <span class="tag">Origens variadas</span>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-shuffle"></i></div>
+        <h3>Copa Airlines via Panamá</h3>
+        <p>Copa continua relevante para muitos brasileiros porque o Hub of the Americas conecta mais de 70 destinos e abre bons encaixes para quem quer chegar aos EUA com uma conexão só e malha ampla depois.</p>
+        <div class="card-links">
+          <span class="tag">Panamá</span>
+          <span class="tag">1 conexão</span>
+          <span class="tag">Boa malha</span>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-users"></i></div>
+        <h3>Parceiras e alianças</h3>
+        <p>LATAM, American, Delta e United entram forte na comparação quando você quer voo direto, acúmulo em programas, horários melhores ou conexões mais previsíveis dentro dos EUA.</p>
+        <div class="card-links">
+          <span class="tag">LATAM</span>
+          <span class="tag">American</span>
+          <span class="tag">Delta / United</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="temporada">
+    <div class="section-header">
+      <span class="section-label">Alta e baixa temporada</span>
+      <h2>Os períodos que mais mexem no preço para os EUA</h2>
+      <p class="section-subtitle">Entender a sazonalidade evita comprar caro sem necessidade e ajuda a escolher a janela mais inteligente para seu perfil de viagem.</p>
+    </div>
+    <div class="grid-2">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-fire"></i></div>
+        <h3>Quando tende a ficar mais caro</h3>
+        <p>Junho e julho costumam pressionar bastante por causa do verão americano e das férias. Thanksgiving, Natal e Ano-Novo também são períodos clássicos de alta. Dependendo do destino, semanas de spring break podem distorcer bem os preços.</p>
+        <div class="card-links">
+          <span class="tag">Verão</span>
+          <span class="tag">Thanksgiving</span>
+          <span class="tag">Natal</span>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-leaf"></i></div>
+        <h3>Quando costuma abrir mais oportunidade</h3>
+        <p>Fevereiro e março fora dos grandes feriados, final de abril, maio, setembro, outubro e início de novembro costumam ser janelas mais saudáveis. Dentro do verão, agosto às vezes alivia em relação a junho e julho.</p>
+        <div class="card-links">
+          <span class="tag">Shoulder season</span>
+          <span class="tag">Setembro</span>
+          <span class="tag">Outono</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="checklist">
+    <div class="section-header">
+      <span class="section-label">Antes de emitir</span>
+      <h2>As melhores práticas que eu usaria hoje na busca</h2>
+      <p class="section-subtitle">É aqui que a pesquisa começa a parecer mais profissional e menos aleatória.</p>
+    </div>
+    <div class="feature-band">
+      <div>
+        <h3>O que vale checar antes de comprar</h3>
+        <ul class="check-list">
+          <li>Use calendário e gráfico de preços para identificar a janela mais barata.</li>
+          <li>Compare a aba de melhor tarifa com a de mais barata antes de decidir.</li>
+          <li>Ative alertas de preço para não comprar cedo demais sem contexto.</li>
+          <li>Teste ida por uma cidade e volta por outra quando o roteiro permitir.</li>
+          <li>Compare aeroportos vizinhos: MIA x FLL, JFK x EWR, e assim por diante.</li>
+          <li>Revise bagagem, horário, tempo total, aeroporto de conexão e custo de deslocamento na chegada.</li>
+        </ul>
+      </div>
+      <div class="cta-visual">
+        <img src="eua-lipe-janela-aeroporto.png" alt="Lipe ao lado de painéis de voos em aeroporto dos Estados Unidos, reforçando a etapa de revisão antes da emissão" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="visto">
+    <div class="section-header">
+      <span class="section-label">Visto americano</span>
+      <h2>O visto entra cedo na estratégia — não só no final</h2>
+      <p class="section-subtitle">Para brasileiros, o tema do visto interfere diretamente na decisão de compra, especialmente quando a tarifa não tem boa flexibilidade.</p>
+    </div>
+    <div class="grid-2">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-passport"></i></div>
+        <h3>Como eu pensaria esse ponto</h3>
+        <p>Se o visto ainda não está resolvido, eu evitaria assumir tarifa rígida sem antes avaliar prazo, elegibilidade, validade do passaporte e o calendário real da viagem. Visto não é detalhe operacional: ele muda a segurança da compra.</p>
+        <div class="card-links">
+          <span class="tag">Planejamento</span>
+          <span class="tag">Passaporte</span>
+          <span class="tag">Segurança da compra</span>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fab fa-youtube"></i></div>
+        <h3>Seu vídeo sobre visto americano</h3>
+        <p>Como esse tema já está forte no seu conteúdo, faz sentido conectar a busca do voo com a etapa do visto. Assim a página ajuda quem ainda está estruturando a viagem inteira e não só comparando tarifa.</p>
+        <div class="card-links">
+          <a class="chip" href="https://www.youtube.com/watch?v=gPo_B0o7QKI" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> Ver vídeo: como tirar visto americano</a>
+        </div>
+      </article>
+    </div>
+    <div class="quote-box">
+      Se o visto ainda não foi emitido, trate isso como parte da estratégia da viagem. Comprar a tarifa “certa” antes da hora pode sair mais caro do que esperar a janela correta.
+    </div>
+  </section>
+
+  <section class="section-wrap" id="comprar">
+    <div class="section-header">
+      <span class="section-label">Hora de pesquisar</span>
+      <h2>Pesquise seus voos para os Estados Unidos</h2>
+      <p class="section-subtitle">
+        Se a lógica da viagem já está clara, agora sim faz sentido abrir o buscador e comparar tarifas, rotas e companhias com muito mais critério.
+      </p>
+    </div>
+    <div class="feature-band">
+      <div>
+        <h3>Pesquise e compare com mais clareza</h3>
+        <p>Use o buscador para abrir múltiplos cenários: sua origem principal, uma origem alternativa, mais de um aeroporto de chegada e datas flexíveis. Quando a estratégia está definida, a compra fica muito mais segura.</p>
+        <div class="cta-stack">
+          <a class="btn-primary" href="https://skyscanner.pxf.io/9VL6Xj" target="_blank" rel="noopener sponsored"><i class="fas fa-plane-departure"></i> Comprar voos</a>
+          <a class="btn-secondary" href="https://skyscanner.pxf.io/vDPKAL" target="_blank" rel="noopener sponsored"><i class="fas fa-magnifying-glass"></i> Abrir buscador Skyscanner</a>
+          <a class="btn-secondary" href="https://skyscanner.pxf.io/GbKyv9" target="_blank" rel="noopener sponsored"><i class="fas fa-hotel"></i> Reservar hotel</a>
+        </div>
+      </div>
+      <div class="cta-visual">
+        <img src="eua-voos-busca.png" alt="Arte sobre compra de voos para os Estados Unidos com busca de passagens e cenário de viagem" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="lead">
+    <div class="section-header">
+      <span class="section-label">Ajuda personalizada</span>
+      <h2>Quer que eu monte sua estratégia?</h2>
+      <p class="section-subtitle">
+        Se você quer ajuda para decidir origem, porta de entrada, datas, companhia, lógica aérea e encaixe do roteiro, esse é o próximo passo mais natural.
+      </p>
+    </div>
+    <div class="feature-band">
+      <div>
+        <h3>Quando vale acionar ajuda personalizada</h3>
+        <p>Principalmente se for sua primeira viagem aos EUA, se você estiver entre Flórida e Nova York, se a saída do Brasil não for tão óbvia, se quiser combinar cidades, usar milhas ou montar algo mais premium e bem resolvido.</p>
+        <ul class="check-list">
+          <li>Família com parques, compras e múltiplos deslocamentos.</li>
+          <li>Viagem urbana com mais de uma cidade ou open jaw.</li>
+          <li>Busca com milhas, cabine melhor ou horários mais eficientes.</li>
+          <li>Decisão entre voo direto e conexão com melhor custo-benefício.</li>
+        </ul>
+        <div class="cta-stack">
+          <a class="btn-primary" href="estados-unidos-videos-e-planejamento.html"><i class="fas fa-suitcase-rolling"></i> Ver home geral dos EUA</a>
+          <a class="btn-secondary" href="#visto"><i class="fas fa-passport"></i> Revisar visto e planejamento</a>
+        </div>
+      </div>
+      <div class="cta-visual">
+        <img src="eua-voos-lounge-vip.png" alt="Lipe em lounge premium de aeroporto nos Estados Unidos" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="proximos-passos">
+    <div class="section-header">
+      <span class="section-label">Próximos passos</span>
+      <h2>Depois do voo, continue desenhando sua viagem</h2>
+      <p class="section-subtitle">Depois de definir a passagem, vale organizar visto, hotel, roteiro e a lógica de deslocamento dentro dos EUA.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-passport"></i></div>
+        <h3>Visto americano</h3>
+        <p>Se você ainda está nessa etapa, conecte a busca da passagem com o processo do visto para não inverter a ordem da viagem.</p>
+        <div class="card-links"><a class="chip" href="https://www.youtube.com/watch?v=gPo_B0o7QKI" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> Ver vídeo</a></div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-bed"></i></div>
+        <h3>Hotel e localização</h3>
+        <p>Depois da passagem, localização vira decisão crítica. Em cidades americanas, aeroporto, estacionamento, transporte e bairro pesam muito no custo real.</p>
+        <div class="card-links"><a class="chip" href="https://skyscanner.pxf.io/GbKyv9" target="_blank" rel="noopener sponsored"><i class="fas fa-hotel"></i> Pesquisar hotéis</a></div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-route"></i></div>
+        <h3>Roteiro e estratégia</h3>
+        <p>Se você quiser, eu também posso te ajudar a desenhar a lógica completa da viagem: entrada, saída, cidades, ritmo e melhor combinação aérea para o seu caso.</p>
+        <div class="card-links"><a class="chip" href="estados-unidos-videos-e-planejamento.html"><i class="fas fa-arrow-right"></i> Ver página dos EUA</a></div>
+      </article>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>Como pesquisar voos para os Estados Unidos — uma página prática para te ajudar a comparar melhor, decidir com mais segurança e seguir para a home geral dos EUA, com vídeos e páginas sobre os destinos principais.</p>
+      <div class="card-links">
+        <a class="chip" href="estados-unidos-videos-e-planejamento.html"><i class="fas fa-compass"></i> Home geral dos EUA</a>
+        <a class="chip" href="#top"><i class="fas fa-arrow-up"></i> Voltar ao topo</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+            document.querySelector('.nav-links')?.classList.remove('open');
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

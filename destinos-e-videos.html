@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Destinos &amp; Vídeos: do conteúdo à viagem real | Lipe Travel Show</title>
+<meta content="Uma ponte entre os vídeos do canal e páginas práticas de planejamento, para ajudar o viajante a sair da inspiração e começar a organizar a viagem com mais clareza." name="description">
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,700;0,800;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    *, *:before, *:after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --navy:#0a1628; --navy2:#0d2240; --gold:#f0a500; --gold2:#ffc832; --white:#fff; --gray:#8a9ab0; --dark:#06101e; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',sans-serif; background:var(--navy); color:var(--white); overflow-x:hidden; }
+    nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:18px 5%; display:flex; align-items:center; justify-content:space-between; background:rgba(10,22,40,.96); backdrop-filter:blur(16px); box-shadow:0 2px 30px rgba(0,0,0,.4); }
+    .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+    .nav-logo img { height:46px; width:46px; object-fit:cover; border-radius:50%; }
+    .nav-links { display:flex; gap:22px; list-style:none; align-items:center; }
+    .nav-links a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.84rem; font-weight:500; letter-spacing:.5px; transition:color .25s; }
+    .nav-links a:hover { color:var(--gold); }
+    .nav-cta { background:var(--gold); color:var(--navy)!important; padding:8px 18px; border-radius:50px; font-weight:700!important; }
+    .lang-switch { display:flex; gap:8px; align-items:center; margin-left:16px; }
+    .lang-switch a { border:1px solid rgba(255,255,255,.5); color:#fff; padding:6px 10px; border-radius:999px; font-size:.8rem; text-decoration:none; }
+    .lang-switch a.lang-current { background:var(--gold); color:var(--navy); border-color:var(--gold); }
+    .menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;}
+    .page-hero { min-height:68vh; padding:145px 5% 70px; background:linear-gradient(135deg,rgba(6,16,30,.75),rgba(13,34,64,.9)), url('foto lipe croacia.jpeg') center/cover no-repeat; display:flex; align-items:center; }
+    .page-hero-inner { max-width:1150px; margin:0 auto; width:100%; }
+    .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(240,165,0,.15); border:1px solid rgba(240,165,0,.5); color:var(--gold); padding:7px 22px; border-radius:50px; font-size:.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:28px; }
+    h1 { font-family:'Playfair Display',serif; font-size:clamp(2.6rem,6vw,5rem); line-height:1.06; margin-bottom:20px; }
+    h1 span { color:var(--gold); font-style:italic; }
+    .hero-copy { max-width:760px; color:rgba(255,255,255,.86); line-height:1.85; font-size:1.02rem; }
+    .hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-top:30px; }
+    .btn-primary,.btn-secondary { display:inline-flex; align-items:center; gap:9px; border-radius:50px; padding:14px 30px; text-decoration:none; font-weight:700; transition:all .3s; }
+    .btn-primary { background:var(--gold); color:var(--navy); }
+    .btn-primary:hover { background:var(--gold2); transform:translateY(-2px); }
+    .btn-secondary { border:1.5px solid rgba(255,255,255,.55); color:var(--white); }
+    .btn-secondary:hover { border-color:var(--gold); color:var(--gold); }
+    .section-wrap { max-width:1200px; margin:0 auto; padding:82px 5% 36px; }
+    .section-header { text-align:center; margin-bottom:48px; }
+    .section-label { display:inline-block; background:rgba(240,165,0,.12); border:1px solid rgba(240,165,0,.3); color:var(--gold); padding:5px 18px; border-radius:50px; font-size:.68rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
+    .section-header h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3rem); margin-bottom:14px; }
+    .section-header p { color:var(--gray); font-size:1rem; max-width:760px; margin:0 auto; line-height:1.7; }
+    .grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+    .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .card { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:22px; padding:28px 24px; box-shadow:0 18px 50px rgba(0,0,0,.22); }
+    .card h3 { font-size:1.14rem; margin-bottom:10px; }
+    .card p, .card li { color:rgba(255,255,255,.74); line-height:1.8; }
+    .kicker { display:inline-block; color:var(--gold); font-size:.68rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; }
+    .video-card { text-decoration:none; color:inherit; transition:transform .3s,border-color .3s,box-shadow .3s; }
+    .video-card:hover { transform:translateY(-6px); border-color:rgba(240,165,0,.3); box-shadow:0 24px 60px rgba(0,0,0,.3); }
+    .video-thumb { width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:16px; margin-bottom:16px; }
+    .video-meta { color:var(--gold); font-size:.82rem; font-weight:700; margin-bottom:8px; }
+    .video-link { color:var(--gold); font-weight:700; text-decoration:none; }
+    .video-link:hover { color:var(--gold2); }
+    .path-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:26px; }
+    .mini-list { display:grid; gap:14px; }
+    .mini-item { padding:16px 18px; border-radius:16px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); }
+    .mini-item strong { color:var(--white); }
+    .cta-band { background:linear-gradient(135deg,rgba(240,165,0,.14),rgba(255,255,255,.04)); border:1px solid rgba(240,165,0,.26); border-radius:24px; padding:28px; display:flex; justify-content:space-between; gap:16px; align-items:center; flex-wrap:wrap; }
+    .cta-band p { color:rgba(255,255,255,.8); line-height:1.8; max-width:760px; }
+    footer { background:var(--dark); border-top:1px solid rgba(255,255,255,.06); padding:38px 5% 28px; margin-top:60px; }
+    .footer-inner { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    .footer-inner p { color:var(--gray); font-size:.8rem; }
+    .footer-inner a { color:var(--gold); text-decoration:none; }
+    @media(max-width:900px){ .grid-2,.grid-3,.path-grid{grid-template-columns:1fr;} }
+    @media(max-width:768px){ .menu-toggle{display:block;} .nav-links{display:none;position:absolute;top:78px;left:5%;right:5%;background:rgba(10,22,40,.98);padding:16px;border-radius:18px;flex-direction:column;align-items:flex-start;box-shadow:0 20px 40px rgba(0,0,0,.3);} .nav-links.open{display:flex;} .lang-switch{margin-left:0;} }
+  </style>
+</meta><link href="https://www.lipetravelshow.com.br/destinos-e-videos.html" rel="canonical"/><meta content="index, follow" name="robots"/><meta content="Alípio Lipe Camanzano" name="author"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.lipetravelshow.com.br"},{"@type":"ListItem","position":2,"name":"Destinos & Vídeos: do conteúdo à viagem real","item":"https://www.lipetravelshow.com.br/destinos-e-videos.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristDestination","name":"Destinos de Viagem","description":"Uma ponte entre os vídeos do canal e páginas práticas de planejamento, para ajudar o viajante a sair da inspiração e começar a organizar a viagem com mais clareza.","url":"https://www.lipetravelshow.com.br/destinos-e-videos.html","touristType":{"@type":"Audience","audienceType":"Turistas brasileiros"},"author":{"@type":"Person","name":"Alípio Camanzano","alternateName":"Lipe Camanzano"}}</script>  <link rel="canonical" href="https://www.lipetravelshow.com.br/destinos-e-videos.html">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Alípio Lipe Camanzano">
+</head>
+<body>
+<nav>
+<a class="nav-logo" href="index.html"><img alt="Lipe Travel Show" decoding="async" onerror="this.style.display='none'" src="lipe-carinha.jpg"/></a>
+<button aria-label="Menu" class="menu-toggle"><i class="fas fa-bars"></i></button>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="#destinos">Destinos &amp; vídeos</a></li>
+<li><a href="planeje-sua-viagem.html">Planeje sua viagem</a></li>
+<li><a class="nav-cta" href="https://skyscanner.pxf.io/GbKyv9">Pesquisar hotéis</a></li>
+</ul>
+<div class="lang-switch"><a class="lang-current" href="#">PT</a><a class="" href="watch-and-plan.html">EN</a></div>
+</nav>
+<section class="page-hero">
+<div class="page-hero-inner">
+<div class="hero-badge">🎬   Conteúdo que leva à viagem</div>
+<h1>Destinos &amp; vídeos: do <span>encantamento</span> ao planejamento</h1>
+<p class="hero-copy">Se um destino te encantou no canal, aqui você encontra o próximo passo: transformar inspiração em planejamento, com páginas mais práticas sobre onde ficar, como organizar a viagem e por onde começar.</p>
+<div class="hero-btns">
+<a class="btn-primary" href="planeje-sua-viagem.html"><i class="fas fa-compass"></i> Abrir Planeje sua viagem</a>
+<a class="btn-secondary" href="#destinos"><i class="fab fa-youtube"></i> Ver destinos com vídeos</a>
+</div>
+</div>
+</section>
+<section class="section-wrap" id="destinos">
+<div class="section-header">
+<span class="section-label">Vídeo + planejamento</span>
+<h2>Do conteúdo à viagem real</h2>
+<p>Eu quis reunir aqui alguns destinos do canal com páginas práticas do site, para que você possa sair da inspiração e avançar para uma etapa mais clara de planejamento: base, bairro, ritmo de viagem e lógica de hospedagem.</p>
+</div>
+<div class="grid-2">
+<a class="card video-card" href="planeje-sua-viagem-china.html" rel="noopener noreferrer" target="_blank">
+<img alt="China: vídeos + guia prático para brasileiros" class="video-thumb" decoding="async" loading="lazy" src="https://img.youtube.com/vi/covKn2TZqrU/hqdefault.jpg"/>
+<div class="video-meta">China • Pequim • Hangzhou • WebSérie</div>
+<h3>China: vídeos + guia prático para brasileiros</h3>
+<p>O conteúdo de China no canal combina muito bem com a página prática sobre apps, eSIM, conectividade, cidades para a primeira viagem e o que eu aprendi no terreno.</p>
+<span class="video-link">Abrir especial China <i class="fas fa-arrow-right"></i></span>
+</a>
+<a class="card video-card" href="hoteis-boutique-em-roma.html" rel="noopener noreferrer" target="_blank">
+<img alt="Roma e Itália: do vídeo ao recorte de hospedagem" class="video-thumb" decoding="async" loading="lazy" src="https://img.youtube.com/vi/XzVWO6HrOrE/hqdefault.jpg"/>
+<div class="video-meta">Itália • Roma • Tivoli • playlist</div>
+<h3>Roma e Itália: do vídeo ao recorte de hospedagem</h3>
+<p>Aqui a lógica é assistir primeiro ao conteúdo de Itália e depois afinar a decisão entre um guia base de Roma e a camada mais autoral de hotéis boutique.</p>
+<span class="video-link">Ir para Roma <i class="fas fa-arrow-right"></i></span>
+</a>
+<a class="card video-card" href="onde-ficar-nova-york-primeira-viagem.html" rel="noopener noreferrer" target="_blank">
+<img alt="Nova York: transformar o imaginário em base prática" class="video-thumb" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?w=1200&amp;auto=format&amp;fit=crop"/>
+<div class="video-meta">EUA &amp; Canadá • playlist</div>
+<h3>Nova York: transformar o imaginário em base prática</h3>
+<p>Mesmo quando o vídeo puxa mais para a atmosfera da viagem, a virada de chave acontece quando você entende que bairro faz sentido para a sua primeira vez na cidade.</p>
+<span class="video-link">Planejar Nova York <i class="fas fa-arrow-right"></i></span>
+</a>
+<a class="card video-card" href="onde-ficar-buenos-aires.html" rel="noopener noreferrer" target="_blank">
+<img alt="Buenos Aires: inspiração no canal, leitura rápida no site" class="video-thumb" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=1200&amp;auto=format&amp;fit=crop"/>
+<div class="video-meta">Argentina • Buenos Aires • playlist</div>
+<h3>Buenos Aires: inspiração no canal, leitura rápida no site</h3>
+<p>Buenos Aires funciona muito por clima de bairro. Aqui o vídeo inspira e a página ajuda a transformar isso em decisão mais prática de hospedagem.</p>
+<span class="video-link">Planejar Buenos Aires <i class="fas fa-arrow-right"></i></span>
+</a>
+</div>
+</section>
+<section class="section-wrap">
+<div class="section-header">
+<span class="section-label">Como eu gosto de organizar essa jornada</span>
+<h2>Do vídeo para a viagem</h2>
+<p>Eu prefiro não te jogar direto numa busca fria. Primeiro vem a inspiração. Depois, o contexto. E só então entram os voos, os hotéis e o planejamento de forma mais natural.</p>
+</div>
+<div class="path-grid">
+<div class="card">
+<span class="kicker">Como essa jornada acontece</span>
+<h3>Como eu penso esse caminho</h3>
+<div class="mini-list">
+<div class="mini-item"><strong>1. Inspiração:</strong> você chega pelo vídeo, pela playlist ou pela memória de um destino que despertou vontade de viver aquilo.</div>
+<div class="mini-item"><strong>2. Contexto:</strong> depois entra numa página que ajuda a traduzir essa inspiração em algo mais prático: região, estilo de viagem, ritmo e lógica de roteiro.</div>
+<div class="mini-item"><strong>3. Planejamento:</strong> aí sim os links para voos e hotéis entram no momento certo, quando a decisão já faz mais sentido.</div>
+</div>
+</div>
+<div class="card">
+<span class="kicker">Por que eu quis criar essa ponte</span>
+<h3>Por que isso deixa o site mais vivo</h3>
+<p>Quero que o site converse mais com o canal. Em vez de parecer só um diretório de páginas, a ideia é transformar a navegação numa jornada mais natural: você se inspira com o conteúdo, entende melhor o destino e só depois parte para a parte prática.</p>
+</div>
+</div>
+</section>
+<section class="section-wrap">
+<div class="cta-band">
+<div>
+<span class="kicker">O que vem a seguir</span>
+<h3 style="font-size:1.35rem; margin-bottom:8px;">Próximos destinos para aprofundar</h3>
+<p>China já está com uma base muito forte. Roma, Nova York e Buenos Aires já começaram a ganhar essa ponte entre conteúdo e planejamento. Lisboa faz todo sentido como próximo passo, e Espanha também abre uma frente enorme para crescer essa lógica com ainda mais força.</p>
+</div>
+<div class="hero-btns" style="margin-top:0;">
+<a class="btn-primary" href="planeje-sua-viagem.html"><i class="fas fa-arrow-right"></i> Voltar para Planeje sua viagem</a>
+<a class="btn-secondary" href="https://www.youtube.com/@LipeTravelShow" rel="noopener noreferrer" target="_blank"><i class="fab fa-youtube"></i> Ver canal</a>
+</div>
+</div>
+</section>
+<footer>
+<div class="footer-inner">
+<p>© 2025 Lipe Travel Show. Conteúdo pensado para ligar inspiração e planejamento de forma mais natural.</p>
+<p><a href="index.html">Voltar ao site</a></p>
+</div>
+</footer>
+<script>
+const toggle=document.querySelector('.menu-toggle');
+const links=document.querySelector('.nav-links');
+if(toggle&&links){toggle.addEventListener('click',()=>links.classList.toggle('open'));}
+</script>
+</body>
+</html>
