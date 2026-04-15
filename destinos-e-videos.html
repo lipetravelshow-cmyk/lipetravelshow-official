@@ -1,183 +1,347 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Destinos &amp; Vídeos: do conteúdo à viagem real | Lipe Travel Show</title>
-<meta content="Uma ponte entre os vídeos do canal e páginas práticas de planejamento, para ajudar o viajante a sair da inspiração e começar a organizar a viagem com mais clareza." name="description">
-<link href="https://fonts.googleapis.com" rel="preconnect"/>
-<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,700;0,800;1,700&amp;display=swap" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Destinos & Vídeos — do desejo à viagem real | Lipe Travel Show</title>
+<meta name="description" content="Uma entrada mais editorial para quem quer assistir, sentir o destino e só depois planejar melhor com as ferramentas do ecossistema Lipe Travel Show."/>
+<link rel="canonical" href="https://www.lipetravelshow.com.br/destinos-e-videos.html"/>
+<link rel="alternate" hreflang="pt-BR" href="https://www.lipetravelshow.com.br/destinos-e-videos.html"/>
+<link rel="alternate" hreflang="en" href="https://www.lipetravelshow.com.br/watch-and-plan.html"/>
+<link rel="alternate" hreflang="zh-CN" href="https://www.lipetravelshow.com.br/watch-and-plan-zh.html"/>
+<link rel="alternate" hreflang="x-default" href="https://www.lipetravelshow.com.br/destinos-e-videos.html"/>
+<meta name="robots" content="index, follow"/>
+<meta name="author" content="Alípio Lipe Camanzano"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 <style>
-    *, *:before, *:after { box-sizing:border-box; margin:0; padding:0; }
-    :root { --navy:#0a1628; --navy2:#0d2240; --gold:#f0a500; --gold2:#ffc832; --white:#fff; --gray:#8a9ab0; --dark:#06101e; }
-    html { scroll-behavior:smooth; }
-    body { font-family:'Inter',sans-serif; background:var(--navy); color:var(--white); overflow-x:hidden; }
-    nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:18px 5%; display:flex; align-items:center; justify-content:space-between; background:rgba(10,22,40,.96); backdrop-filter:blur(16px); box-shadow:0 2px 30px rgba(0,0,0,.4); }
-    .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
-    .nav-logo img { height:46px; width:46px; object-fit:cover; border-radius:50%; }
-    .nav-links { display:flex; gap:22px; list-style:none; align-items:center; }
-    .nav-links a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.84rem; font-weight:500; letter-spacing:.5px; transition:color .25s; }
-    .nav-links a:hover { color:var(--gold); }
-    .nav-cta { background:var(--gold); color:var(--navy)!important; padding:8px 18px; border-radius:50px; font-weight:700!important; }
-    .lang-switch { display:flex; gap:8px; align-items:center; margin-left:16px; }
-    .lang-switch a { border:1px solid rgba(255,255,255,.5); color:#fff; padding:6px 10px; border-radius:999px; font-size:.8rem; text-decoration:none; }
-    .lang-switch a.lang-current { background:var(--gold); color:var(--navy); border-color:var(--gold); }
-    .menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.4rem;cursor:pointer;}
-    .page-hero { min-height:68vh; padding:145px 5% 70px; background:linear-gradient(135deg,rgba(6,16,30,.75),rgba(13,34,64,.9)), url('foto lipe croacia.jpeg') center/cover no-repeat; display:flex; align-items:center; }
-    .page-hero-inner { max-width:1150px; margin:0 auto; width:100%; }
-    .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(240,165,0,.15); border:1px solid rgba(240,165,0,.5); color:var(--gold); padding:7px 22px; border-radius:50px; font-size:.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:28px; }
-    h1 { font-family:'Playfair Display',serif; font-size:clamp(2.6rem,6vw,5rem); line-height:1.06; margin-bottom:20px; }
-    h1 span { color:var(--gold); font-style:italic; }
-    .hero-copy { max-width:760px; color:rgba(255,255,255,.86); line-height:1.85; font-size:1.02rem; }
-    .hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-top:30px; }
-    .btn-primary,.btn-secondary { display:inline-flex; align-items:center; gap:9px; border-radius:50px; padding:14px 30px; text-decoration:none; font-weight:700; transition:all .3s; }
-    .btn-primary { background:var(--gold); color:var(--navy); }
-    .btn-primary:hover { background:var(--gold2); transform:translateY(-2px); }
-    .btn-secondary { border:1.5px solid rgba(255,255,255,.55); color:var(--white); }
-    .btn-secondary:hover { border-color:var(--gold); color:var(--gold); }
-    .section-wrap { max-width:1200px; margin:0 auto; padding:82px 5% 36px; }
-    .section-header { text-align:center; margin-bottom:48px; }
-    .section-label { display:inline-block; background:rgba(240,165,0,.12); border:1px solid rgba(240,165,0,.3); color:var(--gold); padding:5px 18px; border-radius:50px; font-size:.68rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
-    .section-header h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3rem); margin-bottom:14px; }
-    .section-header p { color:var(--gray); font-size:1rem; max-width:760px; margin:0 auto; line-height:1.7; }
-    .grid-2 { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
-    .grid-3 { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-    .card { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:22px; padding:28px 24px; box-shadow:0 18px 50px rgba(0,0,0,.22); }
-    .card h3 { font-size:1.14rem; margin-bottom:10px; }
-    .card p, .card li { color:rgba(255,255,255,.74); line-height:1.8; }
-    .kicker { display:inline-block; color:var(--gold); font-size:.68rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; }
-    .video-card { text-decoration:none; color:inherit; transition:transform .3s,border-color .3s,box-shadow .3s; }
-    .video-card:hover { transform:translateY(-6px); border-color:rgba(240,165,0,.3); box-shadow:0 24px 60px rgba(0,0,0,.3); }
-    .video-thumb { width:100%; aspect-ratio:16/9; object-fit:cover; border-radius:16px; margin-bottom:16px; }
-    .video-meta { color:var(--gold); font-size:.82rem; font-weight:700; margin-bottom:8px; }
-    .video-link { color:var(--gold); font-weight:700; text-decoration:none; }
-    .video-link:hover { color:var(--gold2); }
-    .path-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:26px; }
-    .mini-list { display:grid; gap:14px; }
-    .mini-item { padding:16px 18px; border-radius:16px; background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); }
-    .mini-item strong { color:var(--white); }
-    .cta-band { background:linear-gradient(135deg,rgba(240,165,0,.14),rgba(255,255,255,.04)); border:1px solid rgba(240,165,0,.26); border-radius:24px; padding:28px; display:flex; justify-content:space-between; gap:16px; align-items:center; flex-wrap:wrap; }
-    .cta-band p { color:rgba(255,255,255,.8); line-height:1.8; max-width:760px; }
-    footer { background:var(--dark); border-top:1px solid rgba(255,255,255,.06); padding:38px 5% 28px; margin-top:60px; }
-    .footer-inner { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
-    .footer-inner p { color:var(--gray); font-size:.8rem; }
-    .footer-inner a { color:var(--gold); text-decoration:none; }
-    @media(max-width:900px){ .grid-2,.grid-3,.path-grid{grid-template-columns:1fr;} }
-    @media(max-width:768px){ .menu-toggle{display:block;} .nav-links{display:none;position:absolute;top:78px;left:5%;right:5%;background:rgba(10,22,40,.98);padding:16px;border-radius:18px;flex-direction:column;align-items:flex-start;box-shadow:0 20px 40px rgba(0,0,0,.3);} .nav-links.open{display:flex;} .lang-switch{margin-left:0;} }
-  </style>
-</meta><link href="https://www.lipetravelshow.com.br/destinos-e-videos.html" rel="canonical"/><meta content="index, follow" name="robots"/><meta content="Alípio Lipe Camanzano" name="author"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.lipetravelshow.com.br"},{"@type":"ListItem","position":2,"name":"Destinos & Vídeos: do conteúdo à viagem real","item":"https://www.lipetravelshow.com.br/destinos-e-videos.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristDestination","name":"Destinos de Viagem","description":"Uma ponte entre os vídeos do canal e páginas práticas de planejamento, para ajudar o viajante a sair da inspiração e começar a organizar a viagem com mais clareza.","url":"https://www.lipetravelshow.com.br/destinos-e-videos.html","touristType":{"@type":"Audience","audienceType":"Turistas brasileiros"},"author":{"@type":"Person","name":"Alípio Camanzano","alternateName":"Lipe Camanzano"}}</script>  <link rel="canonical" href="https://www.lipetravelshow.com.br/destinos-e-videos.html">
-  <meta name="robots" content="index, follow">
-  <meta name="author" content="Alípio Lipe Camanzano">
+:root{
+  --navy:#0a1628; --navy2:#0d2240; --gold:#f0a500; --gold2:#ffd15e; --white:#ffffff;
+  --text:rgba(255,255,255,.82); --muted:rgba(255,255,255,.58); --line:rgba(255,255,255,.08);
+  --card:rgba(255,255,255,.045); --dark:#06101e;
+}
+*,*:before,*:after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Inter",sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.skip-link{position:absolute;left:-9999px}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(10,22,40,.97);backdrop-filter:blur(16px);box-shadow:0 2px 30px rgba(0,0,0,.4)}
+.nav-logo{display:flex;align-items:center;gap:12px;flex-shrink:0}
+.nav-logo img{height:44px;width:44px;object-fit:cover;border-radius:50%}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1.08}
+.nav-logo-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700}
+.nav-logo-sub{font-size:.6rem;color:var(--gold2);letter-spacing:1.4px;text-transform:uppercase}
+.nav-links{display:flex;gap:8px;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.82);font-size:.82rem;font-weight:500;padding:8px 12px;border-radius:8px;transition:.2s}
+.nav-links a:hover{color:var(--gold2);background:rgba(255,255,255,.05)}
+.nav-cta{background:var(--gold)!important;color:var(--navy)!important;border-radius:999px!important;font-weight:700!important;padding:8px 16px!important}
+.lang-switch{display:flex;gap:6px;margin-left:12px}
+.lang-switch a{border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:999px;padding:5px 10px;font-size:.76rem;font-weight:600;transition:.2s}
+.lang-switch .active{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:6px;background:none;border:none}
+.hamburger span{width:22px;height:2px;background:#fff;border-radius:2px}
+.hero{position:relative;min-height:92vh;padding:140px 5% 84px;display:flex;align-items:center;overflow:hidden}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+.hero-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(115deg,rgba(6,16,30,.88) 0%,rgba(10,22,40,.60) 42%,rgba(10,22,40,.25) 100%),radial-gradient(circle at 72% 28%,rgba(240,165,0,.12),transparent 40%)}
+.hero-inner{position:relative;z-index:2;max-width:1080px;width:100%;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:rgba(240,165,0,.12);color:#ffe3a2;border:1px solid rgba(240,165,0,.24);font-size:.8rem;letter-spacing:.5px;margin-bottom:20px}
+.hero h1{font-family:"Playfair Display",serif;font-size:clamp(2.8rem,5.4vw,5.2rem);line-height:1.04;max-width:940px;margin-bottom:18px}
+.hero h1 span{color:var(--gold2);font-style:italic}
+.hero-sub{font-size:1.05rem;line-height:1.9;color:var(--text);max-width:760px;margin-bottom:28px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:22px}
+.hero-micro{max-width:760px;color:rgba(255,255,255,.66);font-size:.9rem;line-height:1.75}
+.btn-primary,.btn-secondary,.btn-outline{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:999px;font-weight:700;font-size:.9rem;transition:.25s;cursor:pointer;border:none}
+.btn-primary{background:var(--gold);color:var(--navy)}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-2px)}
+.btn-secondary{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.16)}
+.btn-secondary:hover{border-color:rgba(240,165,0,.35);color:var(--gold2)}
+.btn-outline{background:transparent;color:var(--gold2);border:1.5px solid var(--gold)}
+.btn-outline:hover{background:rgba(240,165,0,.1);transform:translateY(-2px)}
+.section{max-width:1240px;margin:0 auto;padding:88px 5% 0}
+.sec-label{color:var(--gold2);text-transform:uppercase;letter-spacing:1.8px;font-size:.76rem;font-weight:700;display:inline-block;margin-bottom:10px}
+.sec-title{font-family:"Playfair Display",serif;font-size:clamp(1.9rem,3.8vw,3rem);margin-bottom:12px}
+.sec-sub{color:var(--muted);line-height:1.86;max-width:820px;margin-bottom:30px}
+.section-header{text-align:center;margin-bottom:42px}
+.emotion-grid,.explore-grid,.tool-grid,.dest-grid,.social-grid{display:grid;gap:18px}
+.emotion-grid{grid-template-columns:repeat(3,1fr)}
+.explore-grid{grid-template-columns:repeat(4,1fr)}
+.tool-grid{grid-template-columns:repeat(3,1fr)}
+.dest-grid{grid-template-columns:repeat(2,1fr)}
+.social-grid{grid-template-columns:repeat(4,1fr);max-width:1100px;margin:0 auto}
+.card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:26px 24px;box-shadow:0 16px 40px rgba(0,0,0,.22)}
+.card:hover{border-color:rgba(240,165,0,.22)}
+.card-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:rgba(240,165,0,.12);color:var(--gold2);margin-bottom:16px;border:1px solid rgba(240,165,0,.22)}
+.card p,.method-copy p,.cta-copy p{color:var(--text);line-height:1.76}
+.card h3{font-size:1.08rem;margin-bottom:8px}
+.kicker{display:inline-flex;align-items:center;gap:7px;color:var(--gold2);font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:1.1px;margin-bottom:8px}
+.explore-card,.dest-card,.tool-card,.social-card{display:block;text-decoration:none}
+.explore-card,.tool-card,.dest-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:22px;overflow:hidden;transition:.3s;box-shadow:0 14px 38px rgba(0,0,0,.2)}
+.explore-card:hover,.tool-card:hover,.dest-card:hover{transform:translateY(-5px);border-color:rgba(240,165,0,.28);box-shadow:0 22px 52px rgba(0,0,0,.3)}
+.explore-card-body,.dest-card-body,.tool-card-body{padding:18px}
+.explore-card h3,.dest-card h3,.tool-card h3{font-size:1rem;margin-bottom:8px}
+.explore-card p,.dest-card p,.tool-card p{color:var(--muted);font-size:.84rem;line-height:1.68;margin-bottom:10px}
+.dest-card img,.explore-card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+.dest-meta,.explore-meta{color:var(--gold2);font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px;display:block}
+.dest-link,.tool-link{display:inline-flex;align-items:center;gap:6px;color:var(--gold2);font-size:.84rem;font-weight:700}
+.method-wrap{background:linear-gradient(135deg,rgba(240,165,0,.10),rgba(13,34,64,.88));border:1.5px solid rgba(240,165,0,.22);border-radius:28px;padding:34px;display:grid;grid-template-columns:1.1fr .9fr;gap:30px;align-items:start;box-shadow:0 28px 72px rgba(0,0,0,.28)}
+.method-steps{display:grid;gap:12px}
+.method-step{padding:16px 18px;border-radius:16px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09)}
+.method-step strong{color:var(--white)}
+.social-card-inner{border-radius:20px;padding:32px 20px;text-align:center;transition:.3s;border:1px solid rgba(255,255,255,.08)}
+.social-card:hover .social-card-inner{transform:translateY(-5px);box-shadow:0 20px 50px rgba(0,0,0,.35)}
+.sc-youtube{background:linear-gradient(135deg,#ff0000,#cc0000)}
+.sc-instagram{background:linear-gradient(135deg,#e1306c,#833ab4,#405de6)}
+.sc-linkedin{background:linear-gradient(135deg,#0077b5,#005a8e)}
+.sc-tiktok{background:linear-gradient(135deg,#010101,#69c9d0)}
+.sc-kwai{background:linear-gradient(135deg,#1c2435,#111827)}
+.sc-amazon{background:linear-gradient(135deg,#232f3e,#131a22)}
+.sc-tiktokshop{background:linear-gradient(135deg,#171717,#2b2b2b)}
+.social-card-inner i{font-size:1.6rem;color:#fff;margin-bottom:10px;display:block}
+.social-card-inner strong{display:block;font-size:1.1rem;font-weight:800;margin-bottom:3px}
+.social-card-inner span{color:rgba(255,255,255,.76);font-size:.78rem;line-height:1.35}
+.cta-band{background:linear-gradient(135deg,rgba(240,165,0,.14),rgba(255,255,255,.04));border:1px solid rgba(240,165,0,.26);border-radius:24px;padding:30px;display:flex;justify-content:space-between;gap:16px;align-items:center;flex-wrap:wrap}
+.cta-copy h3{font-family:"Playfair Display",serif;font-size:clamp(1.6rem,3vw,2.4rem);margin-bottom:10px}
+.footer-home{background:var(--dark);border-top:1px solid rgba(255,255,255,.06);padding:58px 5% 28px;margin-top:84px}
+.footer-inner-wrap{max-width:1200px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-brand-logo{display:flex;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:nowrap}
+.footer-brand-logo img{height:42px;width:42px;border-radius:50%;object-fit:cover;border:2px solid rgba(240,165,0,.3)}
+.footer-brand-logo span{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--white);font-weight:700}
+.footer-brand p{color:rgba(255,255,255,.58);font-size:.84rem;line-height:1.72;margin-bottom:20px;max-width:280px}
+.footer-socials{display:flex;gap:9px;flex-wrap:wrap}
+.footer-socials a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.55);font-size:.82rem;transition:all .3s}
+.footer-socials a:hover,.footer-socials a:focus-visible{background:var(--gold2);color:var(--navy);border-color:var(--gold2)}
+.footer-col h4{color:var(--white);font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:10px}
+.footer-col a{color:rgba(255,255,255,.58);font-size:.84rem;transition:color .25s}
+.footer-col a:hover,.footer-col a:focus-visible{color:var(--gold2)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.06);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+.footer-bottom p{color:rgba(255,255,255,.5);font-size:.75rem}
+@media(max-width:1100px){.explore-grid{grid-template-columns:repeat(2,1fr)}.tool-grid{grid-template-columns:repeat(2,1fr)}.social-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:920px){.nav-links{display:none;position:absolute;top:72px;left:5%;right:5%;flex-direction:column;align-items:stretch;background:rgba(10,22,40,.98);border:1px solid rgba(255,255,255,.1);border-radius:18px;padding:12px;box-shadow:0 20px 50px rgba(0,0,0,.35)}.nav-links.open{display:flex}.hamburger{display:flex}.emotion-grid,.dest-grid,.method-wrap,.footer-top{grid-template-columns:1fr}.social-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.hero{padding:118px 5% 64px;min-height:auto}.hero h1{font-size:2.35rem}.explore-grid,.tool-grid,.social-grid{grid-template-columns:1fr}.hero-actions{flex-direction:column;width:100%}.hero-actions a{justify-content:center}}
+</style>
 </head>
 <body>
+<a class="skip-link" href="#main">Skip to content</a>
 <nav>
-<a class="nav-logo" href="index.html"><img alt="Lipe Travel Show" decoding="async" onerror="this.style.display='none'" src="lipe-carinha.jpg"/></a>
-<button aria-label="Menu" class="menu-toggle"><i class="fas fa-bars"></i></button>
-<ul class="nav-links">
-<li><a href="index.html">Home</a></li>
-<li><a href="#destinos">Destinos &amp; vídeos</a></li>
-<li><a href="planeje-sua-viagem.html">Planeje sua viagem</a></li>
-<li><a class="nav-cta" href="https://skyscanner.pxf.io/GbKyv9">Pesquisar hotéis</a></li>
-</ul>
-<div class="lang-switch"><a class="lang-current" href="#">PT</a><a class="" href="watch-and-plan.html">EN</a></div>
+  <a class="nav-logo" href="index.html">
+    <img src="carinha-portrait%20-%20co%CC%81pia%202.jpg" alt="Lipe Travel Show"/>
+    <div class="nav-logo-text"><span class="nav-logo-name">Lipe Travel Show</span><span class="nav-logo-sub">Curated travel</span></div>
+  </a>
+  <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  <ul class="nav-links"><li><a href="index.html">Home</a></li><li><a href="index.html#destinations">Destinos</a></li><li><a href="planeje-sua-viagem.html">Planeje sua viagem</a></li><li><a href="para-marcas.html">Parcerias</a></li><li><a href="https://skyscanner.pxf.io/GbKyv9" class="nav-cta">Pesquisar hotéis</a></li></ul>
+
+    <div class="lang-switch">
+      <a href="destinos-e-videos.html" class="active">PT</a>
+      <a href="watch-and-plan.html" class="">EN</a>
+      <a href="watch-and-plan-zh.html" class="">中文</a>
+    </div>
 </nav>
-<section class="page-hero">
-<div class="page-hero-inner">
-<div class="hero-badge">🎬   Conteúdo que leva à viagem</div>
-<h1>Destinos &amp; vídeos: do <span>encantamento</span> ao planejamento</h1>
-<p class="hero-copy">Se um destino te encantou no canal, aqui você encontra o próximo passo: transformar inspiração em planejamento, com páginas mais práticas sobre onde ficar, como organizar a viagem e por onde começar.</p>
-<div class="hero-btns">
-<a class="btn-primary" href="planeje-sua-viagem.html"><i class="fas fa-compass"></i> Abrir Planeje sua viagem</a>
-<a class="btn-secondary" href="#destinos"><i class="fab fa-youtube"></i> Ver destinos com vídeos</a>
-</div>
-</div>
+<main id="main">
+  <section class="hero">
+    <video autoplay class="hero-video" loop muted playsinline poster="carinha-portrait.jpg">
+      <source src="inspiration-hero2.mp4" type="video/mp4"/>
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-inner">
+      <span class="eyebrow"><i class="fas fa-film"></i> Assista. Sinta o destino. Planeje melhor.</span>
+      <h1>A viagem começa no <span>imaginário</span> — e ganha forma aqui.</h1>
+      <p class="hero-sub">Esta página foi pensada para quem chega pelo vídeo, se encanta com um lugar e quer transformar esse impulso em decisão melhor: com contexto, curadoria e ferramentas no momento certo.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#destinos"><i class='fas fa-compass'></i> Explorar destinos</a>
+        <a class="btn-secondary" href="planeje-sua-viagem.html"><i class='fas fa-map-marked-alt'></i> Planeje sua viagem</a>
+      </div>
+      <p class="hero-micro">Primeiro vem a atmosfera. Depois a leitura do destino. Só então entram voos, hotéis, bairros, experiências e planejamento.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <span class="sec-label">Do vídeo à viagem real</span>
+      <h2 class="sec-title">Uma ponte mais emocional entre conteúdo e escolha</h2>
+      <p class="sec-sub">Aqui a inspiração não termina no vídeo. Ela ganha contexto, recorte e ferramentas para virar escolha real.</p>
+    </div>
+    <div class="emotion-grid"><div class="card"><div class="card-icon"><i class="fas fa-play-circle"></i></div><h3>Assista primeiro</h3><p>O vídeo não serve só para mostrar. Ele te coloca dentro do ritmo, da energia e da sensação do lugar.</p></div><div class="card"><div class="card-icon"><i class="fas fa-heart"></i></div><h3>Sinta o destino</h3><p>Antes de comparar hotel ou voo, vale entender se aquele destino realmente combina com o tipo de viagem que você quer viver.</p></div><div class="card"><div class="card-icon"><i class="fas fa-suitcase-rolling"></i></div><h3>Depois planeje melhor</h3><p>Quando o desejo está claro, a parte prática deixa de ser fria e começa a fazer sentido.</p></div></div>
+  </section>
+
+  <section class="section">
+    <div class="section-header">
+      <span class="sec-label">Explore do seu jeito</span>
+      <h2 class="sec-title">Entre pelo desejo, não só pela busca</h2>
+      <p class="sec-sub">Grandes cidades, primeiras viagens, destinos que pedem hotel certo e lugares que funcionam ainda melhor ao vivo do que no imaginário.</p>
+    </div>
+    <div class="explore-grid"><a class="explore-card" href="index.html#destinations">
+      <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?w=1200&auto=format&fit=crop" alt="Grandes cidades com outro olhar"/>
+      <div class="explore-card-body">
+        <span class="explore-meta">Curadoria</span><h3>Grandes cidades com outro olhar</h3><p>Destinos urbanos para quem quer mais repertório do que checklist.</p><span class="dest-link">Ver cidades <i class="fas fa-arrow-right"></i></span>
+      </div></a><a class="explore-card" href="planeje-sua-viagem.html">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&auto=format&fit=crop" alt="Viagens para a primeira vez"/>
+      <div class="explore-card-body">
+        <span class="explore-meta">Primeira viagem</span><h3>Viagens para a primeira vez</h3><p>Páginas que ajudam a decidir base, bairro, ritmo e o que faz sentido logo de cara.</p><span class="dest-link">Começar por aqui <i class="fas fa-arrow-right"></i></span>
+      </div></a><a class="explore-card" href="https://skyscanner.pxf.io/GbKyv9">
+      <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1200&auto=format&fit=crop" alt="Destinos que pedem hotel certo"/>
+      <div class="explore-card-body">
+        <span class="explore-meta">Estadia</span><h3>Destinos que pedem hotel certo</h3><p>Quando o lugar muda completamente dependendo da região onde você se hospeda.</p><span class="dest-link">Ver hospedagem <i class="fas fa-arrow-right"></i></span>
+      </div></a><a class="explore-card" href="https://www.getyourguide.com/">
+      <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&auto=format&fit=crop" alt="Lugares melhores ao vivo do que no feed"/>
+      <div class="explore-card-body">
+        <span class="explore-meta">Experiência real</span><h3>Lugares melhores ao vivo do que no feed</h3><p>Destinos que ganham outra dimensão quando você entende atmosfera, escala e contexto.</p><span class="dest-link">Descobrir experiências <i class="fas fa-arrow-right"></i></span>
+      </div></a></div>
+  </section>
+
+  <section class="section" id="destinos">
+    <div class="section-header">
+      <span class="sec-label">Vídeo + contexto + decisão</span>
+      <h2 class="sec-title">Destinos que já viraram ponte entre conteúdo e escolha</h2>
+      <p class="sec-sub">Menos catálogo. Mais curadoria. Cada card combina atmosfera, leitura prática e um próximo passo claro.</p>
+    </div>
+    <div class="dest-grid"><a class="dest-card" href="planeje-sua-viagem-china.html">
+      <img src="https://img.youtube.com/vi/covKn2TZqrU/hqdefault.jpg" alt="China"/>
+      <div class="dest-card-body">
+        <span class="dest-meta">China • Pequim • Hangzhou</span><h3>China</h3><p>Uma viagem que mistura fascínio, estranhamento e repertório — da série no canal à camada prática no site.</p><p>Apps, eSIM, cidades, lógica da primeira viagem e contexto real de terreno.</p><span class="dest-link">Abrir especial China <i class="fas fa-arrow-right"></i></span>
+      </div></a><a class="dest-card" href="hoteis-boutique-em-roma.html">
+      <img src="https://img.youtube.com/vi/XzVWO6HrOrE/hqdefault.jpg" alt="Roma"/>
+      <div class="dest-card-body">
+        <span class="dest-meta">Itália • Roma • Tivoli</span><h3>Roma</h3><p>A Itália do imaginário funciona melhor quando você começa a ler o ritmo da viagem e o tipo de hotel que sustenta a experiência.</p><p>Vídeo para desejo; guia e hotéis boutique para refinar a decisão.</p><span class="dest-link">Ir para Roma <i class="fas fa-arrow-right"></i></span>
+      </div></a><a class="dest-card" href="onde-ficar-nova-york-primeira-viagem.html">
+      <img src="https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?w=1200&auto=format&fit=crop" alt="Nova York"/>
+      <div class="dest-card-body">
+        <span class="dest-meta">EUA • primeira vez</span><h3>Nova York</h3><p>Nova York é uma cidade de desejo — mas a viagem melhora muito quando você acerta a base.</p><p>Bairro, primeira vez e lógica de hospedagem antes de cair na busca fria.</p><span class="dest-link">Planejar Nova York <i class="fas fa-arrow-right"></i></span>
+      </div></a><a class="dest-card" href="onde-ficar-buenos-aires.html">
+      <img src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=1200&auto=format&fit=crop" alt="Buenos Aires"/>
+      <div class="dest-card-body">
+        <span class="dest-meta">Argentina • bairros</span><h3>Buenos Aires</h3><p>Buenos Aires conquista pelo clima. A pergunta certa não é só se vale ir, mas de que jeito faz mais sentido vivê-la.</p><p>A página ajuda a transformar atmosfera em decisão de região e estadia.</p><span class="dest-link">Planejar Buenos Aires <i class="fas fa-arrow-right"></i></span>
+      </div></a></div>
+  </section>
+
+  <section class="section" id="ferramentas">
+    <div class="section-header">
+      <span class="sec-label">Ferramentas do ecossistema</span>
+      <h2 class="sec-title">Quando fizer sentido, o planejamento entra aqui</h2>
+      <p class="sec-sub">Voos, hotéis, carros, seguro, experiências, milhas e IA — integrados à jornada e não jogados friamente no primeiro clique.</p>
+    </div>
+    <div class="tool-grid"><a class="tool-card" href="https://skyscanner.pxf.io/9VL6Xj" target='_blank' rel='noopener noreferrer sponsored'>
+      <div class="tool-card-body">
+        <div class="card-icon"><i class="fas fa-plane"></i></div><h3>Voos</h3><p>Compare opções e encontre tarifas com mais clareza quando o destino já estiver mais amadurecido.</p><span class="tool-link">Pesquisar voos <i class="fas fa-arrow-right"></i></span>
+      </div></a><a class="tool-card" href="https://www.awin1.com/cread.php?awinmid=117697&awinaffid=2819302&ued=https%3A%2F%2Fwww.hotels.com%2F" target='_blank' rel='noopener noreferrer sponsored'>
+      <div class="tool-card-body">
+        <div class="card-icon"><i class="fas fa-hotel"></i></div><h3>Hotéis</h3><p>Do boutique ao luxo: refine a hospedagem certa depois de entender o contexto do destino.</p><span class="tool-link">Ver hotéis <i class="fas fa-arrow-right"></i></span>
+      </div></a><a class="tool-card" href="https://lipetravelshow.com.br/como-alugar-carro-no-exterior-v8-seo-corrigida" target='_blank' rel='noopener noreferrer sponsored'>
+      <div class="tool-card-body">
+        <div class="card-icon"><i class="fas fa-car"></i></div><h3>Carros</h3><p>Para viagens em que mobilidade muda tudo, entra a camada de aluguel de carro.</p><span class="tool-link">Ver guia de carros <i class="fas fa-arrow-right"></i></span>
+      </div></a><a class="tool-card" href="seguro-viagem.html" >
+      <div class="tool-card-body">
+        <div class="card-icon"><i class="fas fa-shield-halved"></i></div><h3>Seguro viagem</h3><p>Proteção não é detalhe. Compare guias e depois faça a cotação.</p><span class="tool-link">Ver seguro <i class="fas fa-arrow-right"></i></span>
+      </div></a><a class="tool-card" href="https://www.getyourguide.com/" target='_blank' rel='noopener noreferrer sponsored'>
+      <div class="tool-card-body">
+        <div class="card-icon"><i class="fas fa-ticket"></i></div><h3>Passeios & experiências</h3><p>Ingressos, tours e atividades que ajudam a costurar melhor a viagem.</p><span class="tool-link">Ver experiências <i class="fas fa-arrow-right"></i></span>
+      </div></a><a class="tool-card" href="como-usar-ia-para-planejar-viagem.html" >
+      <div class="tool-card-body">
+        <div class="card-icon"><i class="fas fa-robot"></i></div><h3>IA para viajar melhor</h3><p>IA acelera pesquisa, mas ainda erra ritmo, bairro e logística. Aqui entra o filtro humano.</p><span class="tool-link">Ver guia de IA <i class="fas fa-arrow-right"></i></span>
+      </div></a></div>
+  </section>
+
+  <section class="section">
+    <div class="method-wrap">
+      <div class="method-copy">
+        <span class="sec-label">Seu método</span>
+        <h2 class="sec-title">Do encantamento à escolha, sem pular etapas</h2>
+        <p>Meu jeito de organizar essa jornada é simples: primeiro vem a vontade real de viver o destino. Depois entra o contexto. Só então a parte prática aparece com mais inteligência.</p>
+      </div>
+      <div class="method-steps"><div class="method-step"><strong>1. Inspiração</strong><br>Você chega pelo vídeo, por uma memória ou por um lugar que ficou ressoando depois de assistir.</div><div class="method-step"><strong>2. Contexto</strong><br>A página traduz esse desejo em algo mais concreto: região, estilo de viagem, hotel, timing, bairro, lógica.</div><div class="method-step"><strong>3. Planejamento</strong><br>Com a decisão mais madura, voos, hotéis, experiências, seguro e IA entram na hora certa.</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="cta-band">
+      <div class="cta-copy">
+        <span class="sec-label">Próximo passo</span>
+        <h3>Nem toda viagem começa pela busca. Algumas começam por um vídeo certo.</h3>
+        <p>Se essa página cumpriu o papel dela, o próximo passo não é correr para uma busca genérica — é seguir pela camada do destino ou abrir o ecossistema de planejamento do site.</p>
+      </div>
+      <div class="hero-actions"><a class="btn-primary" href="planeje-sua-viagem.html"><i class='fas fa-arrow-right'></i> Abrir Planeje sua viagem</a><a class="btn-secondary" href="https://www.youtube.com/@LipeTravelShow" target="_blank" rel="noopener noreferrer"><i class='fab fa-youtube'></i> Ver canal</a></div>
+    </div>
+  </section>
+
+
+<section class="section" style="padding-bottom:0">
+  <div class="section-header">
+    <span class="sec-label">Siga o Lipe Travel Show</span>
+    <h2 class="sec-title">Continue essa jornada em todas as plataformas</h2>
+    <p class="sec-sub">Conteúdo, bastidores, vídeos curtos, repertório e curadoria — espalhados pelo ecossistema Lipe Travel Show.</p>
+  </div>
+  <div class="social-grid">
+    <a class="social-card" href="https://www.youtube.com/@LipeTravelShow" rel="noopener noreferrer" target="_blank"><div class="social-card-inner sc-youtube"><i class="fab fa-youtube"></i><strong>265K+</strong><span>YouTube</span></div></a>
+    <a class="social-card" href="https://www.instagram.com/lipetravelshow" rel="noopener noreferrer" target="_blank"><div class="social-card-inner sc-instagram"><i class="fab fa-instagram"></i><strong>265K+</strong><span>Instagram</span></div></a>
+    <a class="social-card" href="https://www.linkedin.com/in/alipiolipecamanzano/" rel="noopener noreferrer" target="_blank"><div class="social-card-inner sc-linkedin"><i class="fab fa-linkedin-in"></i><strong>30K+</strong><span>LinkedIn</span></div></a>
+    <a class="social-card" href="https://www.tiktok.com/@lipetravelshow" rel="noopener noreferrer" target="_blank"><div class="social-card-inner sc-tiktok"><i class="fab fa-tiktok"></i><strong>10K+</strong><span>TikTok</span></div></a>
+    <a class="social-card" href="https://k.kwai.com/u/@Lipe1111/syGeCCyZ" rel="noopener noreferrer" target="_blank"><div class="social-card-inner sc-kwai"><i class="fas fa-video"></i><strong>5K+</strong><span>Kwai</span></div></a>
+    <a class="social-card" href="https://www.amazon.com.br/" rel="noopener noreferrer sponsored" target="_blank"><div class="social-card-inner sc-amazon"><i class="fas fa-bag-shopping"></i><strong>Amazon Shop</strong><span>Loja do Lipe — em breve</span></div></a>
+    <a class="social-card" href="https://vt.tiktok.com/ZS98VbQ7xjQJn-IaACO/" rel="noopener noreferrer sponsored" target="_blank"><div class="social-card-inner sc-tiktokshop"><i class="fas fa-store"></i><strong>TikTok Shop</strong><span>Loja do Lipe — toque para ver</span></div></a>
+  </div>
 </section>
-<section class="section-wrap" id="destinos">
-<div class="section-header">
-<span class="section-label">Vídeo + planejamento</span>
-<h2>Do conteúdo à viagem real</h2>
-<p>Eu quis reunir aqui alguns destinos do canal com páginas práticas do site, para que você possa sair da inspiração e avançar para uma etapa mais clara de planejamento: base, bairro, ritmo de viagem e lógica de hospedagem.</p>
-</div>
-<div class="grid-2">
-<a class="card video-card" href="planeje-sua-viagem-china.html" rel="noopener noreferrer" target="_blank">
-<img alt="China: vídeos + guia prático para brasileiros" class="video-thumb" decoding="async" loading="lazy" src="https://img.youtube.com/vi/covKn2TZqrU/hqdefault.jpg"/>
-<div class="video-meta">China • Pequim • Hangzhou • WebSérie</div>
-<h3>China: vídeos + guia prático para brasileiros</h3>
-<p>O conteúdo de China no canal combina muito bem com a página prática sobre apps, eSIM, conectividade, cidades para a primeira viagem e o que eu aprendi no terreno.</p>
-<span class="video-link">Abrir especial China <i class="fas fa-arrow-right"></i></span>
-</a>
-<a class="card video-card" href="hoteis-boutique-em-roma.html" rel="noopener noreferrer" target="_blank">
-<img alt="Roma e Itália: do vídeo ao recorte de hospedagem" class="video-thumb" decoding="async" loading="lazy" src="https://img.youtube.com/vi/XzVWO6HrOrE/hqdefault.jpg"/>
-<div class="video-meta">Itália • Roma • Tivoli • playlist</div>
-<h3>Roma e Itália: do vídeo ao recorte de hospedagem</h3>
-<p>Aqui a lógica é assistir primeiro ao conteúdo de Itália e depois afinar a decisão entre um guia base de Roma e a camada mais autoral de hotéis boutique.</p>
-<span class="video-link">Ir para Roma <i class="fas fa-arrow-right"></i></span>
-</a>
-<a class="card video-card" href="onde-ficar-nova-york-primeira-viagem.html" rel="noopener noreferrer" target="_blank">
-<img alt="Nova York: transformar o imaginário em base prática" class="video-thumb" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1499092346589-b9b6be3e94b2?w=1200&amp;auto=format&amp;fit=crop"/>
-<div class="video-meta">EUA &amp; Canadá • playlist</div>
-<h3>Nova York: transformar o imaginário em base prática</h3>
-<p>Mesmo quando o vídeo puxa mais para a atmosfera da viagem, a virada de chave acontece quando você entende que bairro faz sentido para a sua primeira vez na cidade.</p>
-<span class="video-link">Planejar Nova York <i class="fas fa-arrow-right"></i></span>
-</a>
-<a class="card video-card" href="onde-ficar-buenos-aires.html" rel="noopener noreferrer" target="_blank">
-<img alt="Buenos Aires: inspiração no canal, leitura rápida no site" class="video-thumb" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=1200&amp;auto=format&amp;fit=crop"/>
-<div class="video-meta">Argentina • Buenos Aires • playlist</div>
-<h3>Buenos Aires: inspiração no canal, leitura rápida no site</h3>
-<p>Buenos Aires funciona muito por clima de bairro. Aqui o vídeo inspira e a página ajuda a transformar isso em decisão mais prática de hospedagem.</p>
-<span class="video-link">Planejar Buenos Aires <i class="fas fa-arrow-right"></i></span>
-</a>
-</div>
-</section>
-<section class="section-wrap">
-<div class="section-header">
-<span class="section-label">Como eu gosto de organizar essa jornada</span>
-<h2>Do vídeo para a viagem</h2>
-<p>Eu prefiro não te jogar direto numa busca fria. Primeiro vem a inspiração. Depois, o contexto. E só então entram os voos, os hotéis e o planejamento de forma mais natural.</p>
-</div>
-<div class="path-grid">
-<div class="card">
-<span class="kicker">Como essa jornada acontece</span>
-<h3>Como eu penso esse caminho</h3>
-<div class="mini-list">
-<div class="mini-item"><strong>1. Inspiração:</strong> você chega pelo vídeo, pela playlist ou pela memória de um destino que despertou vontade de viver aquilo.</div>
-<div class="mini-item"><strong>2. Contexto:</strong> depois entra numa página que ajuda a traduzir essa inspiração em algo mais prático: região, estilo de viagem, ritmo e lógica de roteiro.</div>
-<div class="mini-item"><strong>3. Planejamento:</strong> aí sim os links para voos e hotéis entram no momento certo, quando a decisão já faz mais sentido.</div>
-</div>
-</div>
-<div class="card">
-<span class="kicker">Por que eu quis criar essa ponte</span>
-<h3>Por que isso deixa o site mais vivo</h3>
-<p>Quero que o site converse mais com o canal. Em vez de parecer só um diretório de páginas, a ideia é transformar a navegação numa jornada mais natural: você se inspira com o conteúdo, entende melhor o destino e só depois parte para a parte prática.</p>
-</div>
-</div>
-</section>
-<section class="section-wrap">
-<div class="cta-band">
-<div>
-<span class="kicker">O que vem a seguir</span>
-<h3 style="font-size:1.35rem; margin-bottom:8px;">Próximos destinos para aprofundar</h3>
-<p>China já está com uma base muito forte. Roma, Nova York e Buenos Aires já começaram a ganhar essa ponte entre conteúdo e planejamento. Lisboa faz todo sentido como próximo passo, e Espanha também abre uma frente enorme para crescer essa lógica com ainda mais força.</p>
-</div>
-<div class="hero-btns" style="margin-top:0;">
-<a class="btn-primary" href="planeje-sua-viagem.html"><i class="fas fa-arrow-right"></i> Voltar para Planeje sua viagem</a>
-<a class="btn-secondary" href="https://www.youtube.com/@LipeTravelShow" rel="noopener noreferrer" target="_blank"><i class="fab fa-youtube"></i> Ver canal</a>
-</div>
-</div>
-</section>
-<footer>
-<div class="footer-inner">
-<p>© 2025 Lipe Travel Show. Conteúdo pensado para ligar inspiração e planejamento de forma mais natural.</p>
-<p><a href="index.html">Voltar ao site</a></p>
-</div>
+
+</main>
+
+<footer class="footer-home">
+  <div class="footer-inner-wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-brand-logo">
+          <img src="carinha-portrait%20-%20co%CC%81pia%202.jpg" alt="Lipe Travel Show"/>
+          <span>Lipe Travel Show</span>
+        </div>
+        <p>Viagens com curadoria, repertório e experiência real — conectando inspiração, decisão e planejamento em um mesmo ecossistema.</p>
+        <div class="footer-socials">
+          <a href="https://www.youtube.com/@LipeTravelShow" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          <a href="https://www.instagram.com/lipetravelshow" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.linkedin.com/in/alipiolipecamanzano/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="https://www.tiktok.com/@lipetravelshow" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explorar</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="planeje-sua-viagem.html">Planeje sua viagem</a></li>
+          <li><a href="sobre-o-lipe.html">Sobre o Lipe</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Lipe Travel Show</h4>
+        <ul>
+          <li><a href="para-marcas.html">Para marcas</a></li>
+          <li><a href="projetos-especiais.html">Projetos especiais</a></li>
+          <li><a href="https://www.youtube.com/@LipeTravelShow" target="_blank" rel="noopener noreferrer">Canal no YouTube</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Ferramentas</h4>
+        <ul>
+          <li><a href="https://skyscanner.pxf.io/9VL6Xj" target="_blank" rel="noopener noreferrer sponsored">Voos</a></li>
+          <li><a href="https://www.awin1.com/cread.php?awinmid=117697&awinaffid=2819302&ued=https%3A%2F%2Fwww.hotels.com%2F" target="_blank" rel="noopener noreferrer sponsored">Hotéis</a></li>
+          <li><a href="https://www.getyourguide.com/" target="_blank" rel="noopener noreferrer sponsored">Passeios</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Lipe Travel Show. Todos os direitos reservados.</p>
+      <p><a href="index.html">Voltar ao site</a></p>
+    </div>
+  </div>
 </footer>
+
+
 <script>
-const toggle=document.querySelector('.menu-toggle');
-const links=document.querySelector('.nav-links');
-if(toggle&&links){toggle.addEventListener('click',()=>links.classList.toggle('open'));}
+const burger=document.querySelector('.hamburger');
+const nav=document.querySelector('.nav-links');
+if(burger&&nav){burger.addEventListener('click',()=>nav.classList.toggle('open'));}
 </script>
+
 </body>
 </html>
