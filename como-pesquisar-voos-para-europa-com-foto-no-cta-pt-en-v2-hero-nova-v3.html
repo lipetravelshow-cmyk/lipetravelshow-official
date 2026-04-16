@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>Como pesquisar voos para Europa | Lipe Travel Show</title>
+  <meta name="description" content="Guia prático para pesquisar voos para a Europa com mais estratégia: hubs, rotas, datas, conexões, compra e planejamento de viagem.">
+  <style>
+    *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#0a1628; --navy2:#0d2240; --gold:#f0a500; --gold2:#ffc832; --white:#fff;
+      --gray:#8a9ab0; --dark:#06101e; --line:rgba(255,255,255,.12); --card:rgba(255,255,255,.05);
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',sans-serif; background:var(--navy); color:var(--white); overflow-x:hidden; }
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:1000; padding:18px 5%;
+      display:flex; align-items:center; justify-content:space-between;
+      background:rgba(10,22,40,.96); backdrop-filter:blur(16px); box-shadow:0 2px 30px rgba(0,0,0,.35);
+    }
+    .nav-logo { color:#fff; text-decoration:none; display:flex; align-items:center; gap:12px; }
+    .nav-mark {
+      width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--gold2));
+      color:var(--navy); display:grid; place-items:center; font-weight:800; font-size:.9rem;
+    }
+    .nav-logo strong { font-size:.96rem; letter-spacing:.3px; }
+    .nav-links { display:flex; gap:22px; list-style:none; align-items:center; }
+    .nav-links a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.84rem; font-weight:500; letter-spacing:.5px; transition:color .25s; }
+    .nav-links a:hover { color:var(--gold); }
+    .nav-cta { background:var(--gold); color:var(--navy)!important; padding:8px 18px; border-radius:50px; font-weight:700!important; }
+    .menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.45rem;cursor:pointer;}
+
+    .lang-switch {
+      display:inline-flex; align-items:center; gap:8px; margin-left:6px;
+      padding:6px 10px; border-radius:999px; text-decoration:none;
+      border:1px solid rgba(255,255,255,.18); color:rgba(255,255,255,.82)!important;
+      font-size:.78rem!important; font-weight:700!important; letter-spacing:.8px;
+    }
+    .lang-switch.active {
+      background:rgba(240,165,0,.16); border-color:rgba(240,165,0,.42);
+      color:var(--gold)!important;
+    }
+    
+    .page-hero {
+      min-height:78vh; padding:145px 5% 82px;
+      background:
+        linear-gradient(135deg,rgba(6,16,30,.76),rgba(13,34,64,.88)),
+        url('Europa-Hero-Flights-Page.png') center center/auto 82% no-repeat;
+      display:flex; align-items:center;
+    }
+    .page-hero-inner { max-width:1200px; margin:0 auto; width:100%; }
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:8px; background:rgba(240,165,0,.15); border:1px solid rgba(240,165,0,.45);
+      color:var(--gold); padding:7px 20px; border-radius:50px; font-size:.72rem; font-weight:700; letter-spacing:2px;
+      text-transform:uppercase; margin-bottom:28px;
+    }
+    h1 { font-family:'Playfair Display',serif; font-size:clamp(2.9rem,6vw,5.2rem); line-height:1.04; margin-bottom:20px; max-width:920px; }
+    h1 span { color:var(--gold); font-style:italic; }
+    .hero-copy { max-width:800px; color:rgba(255,255,255,.88); line-height:1.84; font-size:1.02rem; }
+    .hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-top:32px; }
+    .btn-primary,.btn-secondary {
+      display:inline-flex; align-items:center; gap:10px; border-radius:50px; padding:14px 30px;
+      text-decoration:none; font-weight:700; transition:all .28s;
+    }
+    .btn-primary { background:var(--gold); color:var(--navy); }
+    .btn-primary:hover { background:var(--gold2); transform:translateY(-2px); }
+    .btn-secondary { border:1.5px solid rgba(255,255,255,.55); color:var(--white); }
+    .btn-secondary:hover { border-color:var(--gold); color:var(--gold); }
+    .hero-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:34px; max-width:860px; }
+    .stat { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:22px; padding:18px 20px; }
+    .stat strong { display:block; font-size:1.35rem; color:var(--gold); margin-bottom:6px; }
+    .stat span { font-size:.92rem; color:rgba(255,255,255,.82); line-height:1.5; }
+    .section-wrap { max-width:1220px; margin:0 auto; padding:82px 5% 28px; }
+    .section-header { text-align:center; margin-bottom:46px; }
+    .section-label {
+      display:inline-block; background:rgba(240,165,0,.12); color:var(--gold); padding:7px 16px; border-radius:999px;
+      font-size:.74rem; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:18px;
+    }
+    h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4.3vw,3.3rem); line-height:1.1; margin-bottom:14px; }
+    .section-subtitle { max-width:820px; margin:0 auto; color:rgba(255,255,255,.76); line-height:1.82; }
+    .grid-3, .grid-2 { display:grid; gap:22px; }
+    .grid-3 { grid-template-columns:repeat(3,1fr); }
+    .grid-2 { grid-template-columns:repeat(2,1fr); }
+    .card {
+      background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.04));
+      border:1px solid var(--line); border-radius:28px; padding:28px; box-shadow:0 18px 40px rgba(0,0,0,.16);
+    }
+    .card h3 { font-size:1.26rem; margin-bottom:12px; }
+    .card p { color:rgba(255,255,255,.76); line-height:1.8; }
+    .card-icon {
+      width:54px; height:54px; border-radius:16px; background:rgba(240,165,0,.14); color:var(--gold);
+      display:grid; place-items:center; font-size:1.2rem; margin-bottom:18px;
+    }
+    .card-links { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .chip, .tag {
+      display:inline-flex; align-items:center; gap:7px; padding:10px 14px; border-radius:999px; text-decoration:none;
+      font-size:.88rem; font-weight:600;
+    }
+    .chip { background:rgba(240,165,0,.12); color:var(--gold); border:1px solid rgba(240,165,0,.25); }
+    .chip:hover { background:rgba(240,165,0,.18); }
+    .tag { background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.1); }
+    .feature-band {
+      margin:24px auto 0; max-width:1120px; padding:24px 28px; border:1px solid var(--line); border-radius:28px;
+      background:linear-gradient(90deg,rgba(240,165,0,.12),rgba(255,255,255,.04));
+      display:grid; grid-template-columns:1.05fr 1.25fr; gap:26px; align-items:center;
+    }
+    .feature-band h3 { font-size:1.45rem; margin-bottom:10px; }
+    .feature-band p { color:rgba(255,255,255,.8); line-height:1.8; }
+    .check-list { list-style:none; display:grid; gap:12px; margin-top:18px; }
+    .check-list li { position:relative; padding-left:24px; color:rgba(255,255,255,.82); line-height:1.7; }
+    .check-list li:before { content:"✓"; position:absolute; left:0; color:var(--gold); font-weight:800; }
+    .process-grid { display:grid; gap:18px; grid-template-columns:repeat(3,1fr); }
+    .step-card {
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:24px; padding:24px;
+    }
+    .step-card strong {
+      display:inline-flex; width:34px; height:34px; border-radius:50%; align-items:center; justify-content:center;
+      background:rgba(240,165,0,.16); color:var(--gold); margin-bottom:16px;
+    }
+    .step-card h3 { margin-bottom:10px; font-size:1.08rem; }
+    .step-card p { color:rgba(255,255,255,.76); line-height:1.72; }
+    .cta-stack { display:flex; flex-wrap:wrap; gap:14px; margin-top:22px; }
+    .quote-box {
+      border-left:3px solid var(--gold); padding:16px 18px; margin-top:18px;
+      background:rgba(255,255,255,.05); border-radius:0 18px 18px 0;
+      color:rgba(255,255,255,.84); line-height:1.78;
+    }
+    .footer { border-top:1px solid var(--line); margin-top:70px; padding:30px 5% 46px; }
+    .footer-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+    .footer p { color:rgba(255,255,255,.66); line-height:1.7; }
+
+    .cta-visual {
+      border-radius: 24px; overflow: hidden; border:1px solid rgba(255,255,255,.12);
+      box-shadow:0 18px 40px rgba(0,0,0,.18); background:rgba(255,255,255,.04);
+    }
+    .cta-visual img {
+      display:block; width:100%; height:100%; object-fit:cover;
+    }
+
+    @media (max-width: 1024px) {
+      .grid-3, .process-grid { grid-template-columns:repeat(2,1fr); }
+      .grid-2, .feature-band { grid-template-columns:1fr; }
+      .hero-stats { grid-template-columns:1fr; max-width:420px; }
+    }
+    @media (max-width: 820px) {
+      .menu-toggle{display:block;}
+      .nav-links {
+        position:absolute; top:100%; left:0; right:0; background:rgba(10,22,40,.98); border-top:1px solid rgba(255,255,255,.08);
+        padding:18px 5%; flex-direction:column; align-items:flex-start; display:none;
+      }
+      .nav-links.open { display:flex; }
+      .grid-3, .grid-2, .process-grid { grid-template-columns:1fr; }
+      .section-wrap { padding-top:72px; }
+    }
+  </style>
+<link rel="alternate" hreflang="pt-BR" href="https://lipetravelshow.com.br/como-pesquisar-voos-para-europa-com-foto-no-cta-pt-en.html">
+  <link rel="alternate" hreflang="en" href="https://lipetravelshow.com.br/how-to-search-flights-to-europe-v2-hero-nova-v3.html">
+  <link rel="alternate" hreflang="x-default" href="https://lipetravelshow.com.br/como-pesquisar-voos-para-europa-com-foto-no-cta-pt-en.html">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="Como pesquisar voos para a Europa | Lipe Travel Show">
+  <meta property="og:description" content="Guia prático para pesquisar voos para a Europa com mais estratégia: hubs, rotas, datas, conexões, compra e planejamento de viagem.">
+  <meta property="og:url" content="https://lipetravelshow.com.br/como-pesquisar-voos-para-europa-com-foto-no-cta-pt-en.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Como pesquisar voos para a Europa | Lipe Travel Show">
+  <meta name="twitter:description" content="Guia prático para pesquisar voos para a Europa com mais estratégia: hubs, rotas, datas, conexões, compra e planejamento de viagem.">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Article",
+    "headline":"Como pesquisar voos para a Europa",
+    "description":"Guia prático para pesquisar voos para a Europa com mais estratégia: hubs, rotas, datas, conexões, compra e planejamento de viagem.",
+    "inLanguage":"pt-BR",
+    "author":{"@type":"Person","name":"Lipe Travel Show"},
+    "publisher":{"@type":"Organization","name":"Lipe Travel Show"},
+    "mainEntityOfPage":"https://lipetravelshow.com.br/como-pesquisar-voos-para-europa-com-foto-no-cta-pt-en.html"
+  }
+  </script>
+
+  <link rel="canonical" href="https://www.lipetravelshow.com.br/como-pesquisar-voos-para-europa-com-foto-no-cta-pt-en-v2-hero-nova-v3.html">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Alípio Lipe Camanzano">
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.lipetravelshow.com.br"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Voos para Europa",
+      "item": "https://www.lipetravelshow.com.br/como-pesquisar-voos-para-europa-com-foto-no-cta-pt-en-v2-hero-nova-v3.html"
+    }
+  ]
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristDestination",
+  "name": "Europa",
+  "description": "Guia prático para pesquisar voos para a Europa com hubs, rotas, datas e conexões mais inteligentes.",
+  "url": "https://www.lipetravelshow.com.br/como-pesquisar-voos-para-europa-com-foto-no-cta-pt-en-v2-hero-nova-v3.html",
+  "touristType": {
+    "@type": "Audience",
+    "audienceType": "Turistas brasileiros"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Alípio Camanzano",
+    "alternateName": "Lipe Camanzano"
+  }
+}
+  </script>
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="#top">
+      <span class="nav-mark">LTS</span>
+      <strong>Lipe Travel Show</strong>
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menu" onclick="document.querySelector('.nav-links').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+    <div class="nav-links">
+      <a href="#como-pensar">Estratégia</a>
+      <a href="#camadas">Camadas</a>
+      <a href="#hubs">Hubs</a>
+      <a href="#comprar">Comprar</a>
+      <a href="#lead" class="nav-cta">Montar minha estratégia</a>
+
+      <a href="como-pesquisar-voos-para-europa-com-foto-no-cta-pt-en-v2-hero-nova-v3.html" class="lang-switch active">PT</a>
+      <a href="how-to-search-flights-to-europe-v2-hero-nova-v3.html" class="lang-switch">EN</a>
+    </div>
+  </nav>
+
+  <header class="page-hero" id="top">
+    <div class="page-hero-inner">
+      <div class="hero-badge"><i class="fas fa-plane-departure"></i> europa • voos, hubs e estratégia</div>
+      <h1>Como pesquisar voos para a <span>Europa</span> com mais clareza</h1>
+      <p class="hero-copy">
+        Pesquisar passagem para a Europa não deveria ser só abrir um buscador e pegar o menor preço. O que faz diferença de verdade é entender rota, data, aeroporto de entrada, conexões, sazonalidade e o tipo de viagem que você quer fazer. Nesta página, a ideia é transformar busca solta em decisão mais inteligente — e, no final, te mostrar o próximo passo certo: pesquisar, comparar ou montar a sua estratégia comigo.
+      </p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="#comprar"><i class="fas fa-magnifying-glass"></i> Pesquisar voos agora</a>
+        <a class="btn-secondary" href="#lead"><i class="fas fa-user-check"></i> Quero montar minha estratégia</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>Rota</strong><span>Nem sempre o destino final deve ser o primeiro aeroporto da sua busca.</span></div>
+        <div class="stat"><strong>Datas</strong><span>Flexibilidade de alguns dias pode mudar muito o preço e a lógica da viagem.</span></div>
+        <div class="stat"><strong>Decisão</strong><span>O objetivo não é só achar voo: é comprar melhor e encaixar o roteiro certo.</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section-wrap" id="como-pensar">
+    <div class="section-header">
+      <span class="section-label">Antes de buscar</span>
+      <h2>O erro mais comum é pesquisar a passagem antes de definir a lógica da viagem</h2>
+      <p class="section-subtitle">
+        Europa não é um destino único. É um continente com hubs fortes, companhias diferentes, entradas possíveis e combinações de cidades que mudam completamente o custo e a praticidade do roteiro.
+      </p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-route"></i></div>
+        <h3>1) Pense a porta de entrada</h3>
+        <p>Às vezes faz mais sentido entrar por Lisboa, Madri, Paris, Roma ou Londres e depois continuar a viagem internamente, em vez de insistir logo na cidade final.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-calendar-days"></i></div>
+        <h3>2) Pense o calendário</h3>
+        <p>Alta temporada, feriados, verão europeu, Natal e eventos locais impactam preço, disponibilidade e a experiência como um todo.</p>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-map-location-dot"></i></div>
+        <h3>3) Pense o recorte</h3>
+        <p>Uma primeira viagem, uma Eurotrip urbana, uma viagem de casal, trem, carro ou slow travel pedem buscas diferentes e aeroportos diferentes.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="camadas">
+    <div class="section-header">
+      <span class="section-label">Como usar esta página</span>
+      <h2>Um caminho mais claro para pesquisar e decidir sua viagem</h2>
+      <p class="section-subtitle">
+        Cada pessoa chega à Europa por um ponto diferente da jornada. Algumas ainda estão se inspirando, outras já querem organizar o roteiro, e outras já estão prontas para pesquisar e reservar.
+      </p>
+    </div>
+    <div class="process-grid">
+      <article class="step-card">
+        <strong>1</strong>
+        <h3>Inspire-se</h3>
+        <p>É o momento de entender que tipo de viagem faz mais sentido para você: Europa clássica, cidades icônicas, roteiro de verão, viagem romântica ou uma combinação de destinos.</p>
+      </article>
+      <article class="step-card">
+        <strong>2</strong>
+        <h3>Planeje melhor</h3>
+        <p>É a parte prática: decidir por qual país entrar, quantos dias ficar, como combinar cidades, qual a melhor época e quais hubs fazem mais sentido para o seu perfil de viagem.</p>
+      </article>
+      <article class="step-card">
+        <strong>3</strong>
+        <h3>Pesquise e reserve</h3>
+        <p>Quando a lógica da viagem já está clara, fica muito mais fácil comparar passagens, reservar hotel e seguir para uma compra mais segura e bem pensada.</p>
+      </article>
+    </div>
+    <div class="quote-box">
+      Meu objetivo aqui é te ajudar a sair da inspiração e chegar a uma decisão mais clara, com menos erro, mais contexto e um próximo passo bem definido.
+    </div>
+  </section>
+
+  <section class="section-wrap" id="hubs">
+    <div class="section-header">
+      <span class="section-label">Hubs europeus</span>
+      <h2>Por onde normalmente vale começar a comparação</h2>
+      <p class="section-subtitle">Estes hubs costumam funcionar bem para começar a pesquisa, dependendo do perfil da viagem e da combinação que você quer fazer depois.</p>
+    </div>
+    <div class="grid-2">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-plane-arrival"></i></div>
+        <h3>Lisboa e Madri</h3>
+        <p>Normalmente são boas portas de entrada para brasileiros pela oferta, idioma mais próximo e facilidade de combinar com Portugal, Espanha e outras conexões pela Europa.</p>
+        <div class="card-links">
+          <span class="tag">Portugal</span>
+          <span class="tag">Espanha</span>
+          <span class="tag">Primeira viagem</span>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-city"></i></div>
+        <h3>Paris e Roma</h3>
+        <p>Fazem sentido para quem quer entrar já em destinos icônicos e construir um roteiro mais clássico, urbano ou romântico.</p>
+        <div class="card-links">
+          <span class="tag">França</span>
+          <span class="tag">Itália</span>
+          <span class="tag">Europa clássica</span>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-train"></i></div>
+        <h3>Amsterdã e Frankfurt</h3>
+        <p>Interessantes para quem quer montar lógica multimodal com trem, voos internos ou uma rota mais eficiente entre diferentes países.</p>
+        <div class="card-links">
+          <span class="tag">Holanda</span>
+          <span class="tag">Alemanha</span>
+          <span class="tag">Roteiro aberto</span>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-crown"></i></div>
+        <h3>Londres</h3>
+        <p>Excelente quando a viagem inclui Reino Unido ou quando a experiência urbana pesa mais na decisão do que a simplicidade operacional.</p>
+        <div class="card-links">
+          <span class="tag">Inglaterra</span>
+          <span class="tag">City break</span>
+          <span class="tag">Premium</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="checklist">
+    <div class="feature-band">
+      <div>
+        <span class="section-label">Checklist rápido</span>
+        <h2>Antes de emitir, eu olharia estes pontos</h2>
+        <p>Isso evita comprar só pelo impulso do preço e depois descobrir que a lógica do roteiro não ficou boa.</p>
+      </div>
+      <div>
+        <ul class="check-list">
+          <li>Seu aeroporto de ida é realmente o melhor ponto de entrada para a viagem?</li>
+          <li>Vale procurar ida por uma cidade e volta por outra?</li>
+          <li>Você comparou datas com 2 a 4 dias de flexibilidade?</li>
+          <li>Está considerando bagagem, conexão, horário e aeroporto de conexão?</li>
+          <li>O voo escolhido conversa com o hotel, deslocamento e ritmo real da viagem?</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="comprar">
+    <div class="section-header">
+      <span class="section-label">Hora de pesquisar</span>
+      <h2>Pesquise seus voos para a Europa</h2>
+      <p class="section-subtitle">
+        Se você já entendeu a lógica da viagem, agora sim faz sentido abrir o buscador e comparar tarifas. Aqui, o próximo passo principal é pesquisar seu voo.
+      </p>
+    </div>
+    <div class="feature-band">
+      <div>
+        <h3>Pesquise e compare com mais clareza</h3>
+        <p>Use o buscador para comparar rotas, datas e companhias. Se a lógica da viagem já estiver bem definida, esse é o melhor momento para avançar para a pesquisa e encontrar a combinação que faz mais sentido para o seu roteiro.</p>
+        <div class="cta-stack">
+          <a class="btn-primary" href="https://skyscanner.pxf.io/9VL6Xj" target="_blank" rel="noopener sponsored"><i class="fas fa-plane-departure"></i> Comprar voos</a>
+          <a class="btn-secondary" href="https://skyscanner.pxf.io/vDPKAL" target="_blank" rel="noopener sponsored"><i class="fas fa-magnifying-glass"></i> Abrir buscador Skyscanner</a>
+          <a class="btn-secondary" href="https://skyscanner.pxf.io/GbKyv9" target="_blank" rel="noopener sponsored"><i class="fas fa-hotel"></i> Reservar hotel</a>
+        </div>
+      </div>
+      <div class="cta-visual">
+        <img src="europa voo 2.png" alt="Arte sobre compra de voos para a Europa com busca de passagens e cenário de aeroporto" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="lead">
+    <div class="section-header">
+      <span class="section-label">Ajuda personalizada</span>
+      <h2>Quer que eu monte sua estratégia?</h2>
+      <p class="section-subtitle">
+        Se você quer ajuda para decidir a melhor porta de entrada, a combinação de cidades, a lógica aérea e como encaixar tudo isso no seu perfil de viagem, este é o próximo passo mais natural.
+      </p>
+    </div>
+    <div class="grid-2">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-user-tie"></i></div>
+        <h3>Quando vale acionar ajuda personalizada</h3>
+        <p>Principalmente se for sua primeira Eurotrip, se você quiser otimizar várias cidades, comparar países, decidir entre trem e aéreo ou montar uma viagem mais premium e bem desenhada.</p>
+        <div class="card-links">
+          <span class="tag">Primeira vez</span>
+          <span class="tag">Roteiro complexo</span>
+          <span class="tag">Viagem premium</span>
+        </div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-paper-plane"></i></div>
+        <h3>Próximo passo</h3>
+        <p>Se preferir, eu também posso te ajudar a desenhar essa viagem de forma mais personalizada, pensando rota, cidades, ritmo e a lógica aérea mais adequada para o seu caso.</p>
+        <div class="cta-stack">
+          <a class="btn-primary" href="europa-videos-e-planejamento-home-revisada-com-grecia-pt-en.html"><i class="fas fa-suitcase-rolling"></i> Quero montar minha estratégia</a>
+          <a class="btn-secondary" href="#top"><i class="fas fa-arrow-right"></i> Ver guia geral de voos</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="continuar">
+    <div class="section-header">
+      <span class="section-label">Continue explorando</span>
+      <h2>Próximos passos para seguir planejando sua viagem</h2>
+      <p class="section-subtitle">Depois de pesquisar o voo, vale continuar navegando pelos destinos, hotéis e ferramentas do site para fechar a viagem com mais segurança.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-globe-europe"></i></div>
+        <h3>Página Europa</h3>
+        <p>Abra os países e hubs regionais para transformar a busca do voo em um recorte de viagem mais claro.</p>
+        <div class="card-links"><a class="chip" href="europa-videos-e-planejamento-home-revisada-com-grecia-pt-en.html"><i class="fas fa-arrow-right"></i> Ver Europa</a></div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-map-marked-alt"></i></div>
+        <h3>Hub Europa</h3>
+        <p>Abra a home de Europa para comparar países, hubs regionais, páginas-filhas e próximos passos da sua viagem.</p>
+        <div class="card-links"><a class="chip" href="europa-videos-e-planejamento-home-revisada-com-grecia-pt-en.html"><i class="fas fa-arrow-right"></i> Planejar viagem</a></div>
+      </article>
+      <article class="card">
+        <div class="card-icon"><i class="fas fa-video"></i></div>
+        <h3>Destinos e vídeos</h3>
+        <p>Volte para a camada editorial e compare mais países, cidades e estilos de viagem antes de comprar.</p>
+        <div class="card-links"><a class="chip" href="europa-videos-e-planejamento-home-revisada-com-grecia-pt-en.html"><i class="fas fa-arrow-right"></i> Ver destinos e vídeos</a></div>
+      </article>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>Como pesquisar voos para Europa — uma página prática para te ajudar a comparar melhor, decidir com mais segurança e avançar para a próxima etapa da viagem.</p>
+      <a class="chip" href="europa-videos-e-planejamento-home-revisada-com-grecia-pt-en.html"><i class="fas fa-arrow-left"></i> Voltar para Europa</a>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+            document.querySelector('.nav-links')?.classList.remove('open');
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>

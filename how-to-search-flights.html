@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>How to search flights more intelligently | Lipe Travel Show</title>
+<meta content="A Lipe Travel Show guide with a simple logic to compare dates, timings, connections and routes before buying a ticket." name="description">
+<meta content="How to search flights more intelligently | Lipe Travel Show" property="og:title"/>
+<meta content="lipe-carinha.jpg" property="og:image"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,700;0,800;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    *, *:before, *:after { box-sizing:border-box; margin:0; padding:0; }
+    :root { --navy:#0a1628; --navy2:#0d2240; --gold:#f0a500; --gold2:#ffc832; --white:#fff; --gray:#8a9ab0; --dark:#06101e; }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',sans-serif; background:var(--navy); color:var(--white); overflow-x:hidden; }
+    nav { position:fixed; top:0; left:0; right:0; z-index:1000; padding:18px 5%; display:flex; align-items:center; justify-content:space-between; background:rgba(10,22,40,.96); backdrop-filter:blur(16px); box-shadow:0 2px 30px rgba(0,0,0,.4); }
+    .nav-logo { display:flex; align-items:center; gap:12px; text-decoration:none; }
+    .nav-logo img { height:46px; width:46px; object-fit:cover; border-radius:50%; filter:drop-shadow(0 2px 8px rgba(0,0,0,.5)); }
+    .nav-links { display:flex; gap:22px; list-style:none; align-items:center; }
+    .nav-links a { color:rgba(255,255,255,.85); text-decoration:none; font-size:.84rem; font-weight:500; letter-spacing:.5px; transition:color .25s; }
+    .nav-links a:hover { color:var(--gold); }
+    .nav-cta { background:var(--gold); color:var(--navy)!important; padding:8px 18px; border-radius:50px; font-weight:700!important; }
+    .lang-switch { display:flex; gap:8px; align-items:center; margin-left:16px; }
+    .lang-switch a { border:1px solid rgba(255,255,255,.5); color:#fff; padding:6px 10px; border-radius:999px; font-size:.8rem; text-decoration:none; }
+    .lang-switch a.lang-current { background:var(--gold); color:var(--navy); border-color:var(--gold); }
+    @media(max-width:768px){ .nav-links{display:none;} }
+    .page-hero { min-height:72vh; padding:150px 5% 80px; background:linear-gradient(135deg,rgba(6,16,30,.72),rgba(13,34,64,.9)), url('foto lipe private jet.jpeg') center/cover no-repeat; display:flex; align-items:center; }
+    .page-hero-inner { max-width:1100px; margin:0 auto; width:100%; }
+    .hero-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(240,165,0,.15); border:1px solid rgba(240,165,0,.5); color:var(--gold); padding:7px 22px; border-radius:50px; font-size:.7rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:28px; }
+    h1 { font-family:'Playfair Display',serif; font-size:clamp(2.6rem,6vw,5rem); line-height:1.06; margin-bottom:20px; }
+    h1 span { color:var(--gold); font-style:italic; }
+    .hero-copy { max-width:680px; color:rgba(255,255,255,.85); line-height:1.85; font-size:1.02rem; }
+    .hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-top:30px; }
+    .btn-primary,.btn-secondary { display:inline-flex; align-items:center; gap:9px; border-radius:50px; padding:14px 30px; text-decoration:none; font-weight:700; transition:all .3s; }
+    .btn-primary { background:var(--gold); color:var(--navy); }
+    .btn-primary:hover { background:var(--gold2); transform:translateY(-2px); }
+    .btn-secondary { border:1.5px solid rgba(255,255,255,.55); color:var(--white); }
+    .btn-secondary:hover { border-color:var(--gold); color:var(--gold); }
+    .section-wrap { max-width:1200px; margin:0 auto; padding:90px 5% 50px; }
+    .section-header { text-align:center; margin-bottom:56px; }
+    .section-label { display:inline-block; background:rgba(240,165,0,.12); border:1px solid rgba(240,165,0,.3); color:var(--gold); padding:5px 18px; border-radius:50px; font-size:.68rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
+    .section-header h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3rem); margin-bottom:14px; }
+    .section-header p { color:var(--gray); font-size:1rem; max-width:760px; margin:0 auto; line-height:1.7; }
+    .tools-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .tool-card { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:22px; padding:30px 26px; box-shadow:0 18px 50px rgba(0,0,0,.22); transition:transform .3s, box-shadow .3s, border-color .3s; }
+    .tool-card:hover { transform:translateY(-6px); box-shadow:0 24px 60px rgba(0,0,0,.3); border-color:rgba(240,165,0,.3); }
+    .tool-icon { width:56px; height:56px; border-radius:16px; display:flex; align-items:center; justify-content:center; background:rgba(240,165,0,.12); color:var(--gold); font-size:1.25rem; margin-bottom:18px; border:1px solid rgba(240,165,0,.25); }
+    .tool-card h3 { font-size:1.16rem; margin-bottom:10px; }
+    .tool-card p { color:rgba(255,255,255,.72); line-height:1.8; font-size:.94rem; margin-bottom:18px; }
+    .tool-link { color:var(--gold); text-decoration:none; font-weight:700; }
+    .tool-link:hover { color:var(--gold2); }
+    .why { background:linear-gradient(135deg,#06101e 0%,#0d2240 100%); }
+    .why-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:34px; align-items:start; }
+    .why-card { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:22px; padding:28px 24px; }
+    .why-card h3 { font-size:1.15rem; margin-bottom:12px; }
+    .why-card p, .why-card li { color:rgba(255,255,255,.74); line-height:1.8; }
+    .why-card ul { margin-left:18px; }
+    .disclaimer { margin-top:16px; font-size:.8rem; color:rgba(255,255,255,.55); }
+    footer { background:var(--dark); border-top:1px solid rgba(255,255,255,.06); padding:38px 5% 28px; }
+    .footer-inner { max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; }
+    .footer-inner p { color:var(--gray); font-size:.8rem; }
+    .footer-inner a { color:var(--gold); text-decoration:none; }
+    @media(max-width:900px){ .tools-grid,.why-grid{grid-template-columns:1fr;} }
+
+    .guides-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:24px; }
+    .guide-card { background:rgba(255,255,255,.04); border:1px solid rgba(255,255,255,.08); border-radius:22px; padding:28px 24px; text-decoration:none; box-shadow:0 18px 50px rgba(0,0,0,.22); transition:transform .3s, box-shadow .3s, border-color .3s; }
+    .guide-card:hover { transform:translateY(-6px); box-shadow:0 24px 60px rgba(0,0,0,.3); border-color:rgba(240,165,0,.3); }
+    .guide-card .guide-kicker { display:inline-block; color:var(--gold); font-size:.68rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; }
+    .guide-card h3 { color:var(--white); font-size:1.1rem; margin-bottom:10px; }
+    .guide-card p { color:rgba(255,255,255,.72); line-height:1.8; font-size:.94rem; margin-bottom:14px; }
+    .guide-card span:last-child { color:var(--gold); font-weight:700; }
+    @media(max-width:900px){ .guides-grid{grid-template-columns:1fr;} }
+
+  </style>
+</meta><link href="https://www.lipetravelshow.com.br/how-to-search-flights.html" rel="canonical"/><meta content="index, follow" name="robots"/><meta content="Alípio Lipe Camanzano" name="author"/><script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.lipetravelshow.com.br"},{"@type":"ListItem","position":2,"name":"How to search flights more intelligently","item":"https://www.lipetravelshow.com.br/how-to-search-flights.html"}]}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"TouristDestination","name":"Flight Search","description":"A Lipe Travel Show guide with a simple logic to compare dates, timings, connections and routes before buying a ticket.","url":"https://www.lipetravelshow.com.br/how-to-search-flights.html","touristType":{"@type":"Audience","audienceType":"Travelers"},"author":{"@type":"Person","name":"Alípio Camanzano","alternateName":"Lipe Camanzano"}}</script>  <link rel="canonical" href="https://www.lipetravelshow.com.br/how-to-search-flights.html">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Alípio Lipe Camanzano">
+</head>
+<body>
+<nav>
+<a class="nav-logo" href="index-eng.html"><img alt="Lipe Travel Show" decoding="async" onerror="this.style.display='none'" src="lipe-carinha.jpg"/></a>
+<ul class="nav-links">
+<li><a href="index-eng.html">Home</a></li>
+<li><a href="#tools">Tools</a></li>
+<li><a href="#how-to-use">How to use</a></li>
+<li><a class="nav-cta" href="index-eng.html#media-kit">Partnerships</a></li>
+</ul>
+<div class="lang-switch"><a href="planeje-sua-viagem.html">PT</a><a class="lang-current" href="plan-your-trip.html">EN</a></div>
+</nav>
+<section class="page-hero">
+<div class="page-hero-inner">
+<div class="hero-badge">✈️   Editorial guide</div>
+<h1>How to search <span>flights</span> more intelligently</h1>
+<p class="hero-copy">Before turning research into purchase, I like to compare nearby dates, total travel time, number of connections and whether the route actually fits the rhythm of the trip. That avoids rushed decisions and helps reveal real value.</p>
+<div class="hero-btns">
+<a class="btn-primary" href="https://skyscanner.pxf.io/9VL6Xj" rel="sponsored noopener noreferrer" target="_blank"><i class="fas fa-plane"></i> Search flights</a>
+<a class="btn-secondary" href="https://skyscanner.pxf.io/GbKyv9" rel="sponsored noopener noreferrer" target="_blank"><i class="fas fa-hotel"></i> Search hotels</a>
+</div>
+</div>
+</section>
+<section class="section-wrap" id="tools">
+<div class="section-header">
+<span class="section-label">Tools</span>
+<h2>Three quick ways to get started</h2>
+<p>Use the shortcuts below according to the kind of trip you are planning.</p>
+</div>
+<div class="tools-grid">
+<div class="tool-card">
+<div class="tool-icon"><i class="fas fa-plane-departure"></i></div>
+<h3>Flights</h3>
+<p>Ideal to compare dates, routes and combinations before choosing your airfare.</p>
+<a class="tool-link" href="https://skyscanner.pxf.io/9VL6Xj" rel="sponsored noopener noreferrer" target="_blank">Open flights search <i class="fas fa-arrow-right"></i></a>
+</div>
+<div class="tool-card">
+<div class="tool-icon"><i class="fas fa-bed"></i></div>
+<h3>Hotels</h3>
+<p>Useful to compare stays by neighborhood, category and travel profile.</p>
+<a class="tool-link" href="https://skyscanner.pxf.io/GbKyv9" rel="sponsored noopener noreferrer" target="_blank">Open hotels search <i class="fas fa-arrow-right"></i></a>
+</div>
+<div class="tool-card">
+<div class="tool-icon"><i class="fas fa-earth-americas"></i></div>
+<h3>Explore destinations</h3>
+<p>Perfect if you have not decided where to go yet and want to start with possibilities.</p>
+<a class="tool-link" href="https://skyscanner.pxf.io/vDPKAL" rel="sponsored noopener noreferrer" target="_blank">Explore destinations <i class="fas fa-arrow-right"></i></a>
+</div>
+</div>
+</section>
+<section class="section-wrap">
+<div class="section-header">
+<span class="section-label">Checklist</span>
+<h2>Four things I would compare first</h2>
+<p>Price alone rarely tells the whole story. The smarter approach is to evaluate cost together with time, effort and how well the route fits the trip.</p>
+</div>
+<div class="guides-grid">
+<div class="guide-card"><span class="guide-kicker">1</span><h3>Nearby dates</h3><p>One or two days can make a meaningful difference in price and comfort.</p></div>
+<div class="guide-card"><span class="guide-kicker">2</span><h3>Total travel time</h3><p>The cheapest option is not always the smartest if the trip becomes too long or too broken.</p></div>
+<div class="guide-card"><span class="guide-kicker">3</span><h3>Connections and timing</h3><p>A good connection can work well; a bad one can drain the trip before it begins.</p></div>
+<div class="guide-card"><span class="guide-kicker">4</span><h3>Route logic</h3><p>It helps to ask whether the chosen airports and timing fit the rest of the itinerary.</p></div>
+</div>
+</section>
+<section class="why">
+<div class="section-wrap" id="how-to-use">
+<div class="section-header">
+<span class="section-label">Practical note</span>
+<h2>What I would avoid</h2>
+<p>Researching flights without context can feel productive, but usually it only creates noise and indecision.</p>
+</div>
+<div class="why-grid">
+<div class="why-card">
+<h3>I would avoid</h3>
+<ul>
+<li>Looking only at the lowest price without checking total travel time.</li>
+<li>Accepting bad connections to save very little.</li>
+<li>Researching hotels before understanding the flight logic.</li>
+<li>Buying the ticket without checking final rules and timings.</li>
+</ul>
+</div>
+<div class="why-card">
+<h3>Related pages</h3>
+<p><a href="travel-planning-tools.html">The tools I use to plan trips</a></p>
+<p><a href="plan-your-trip.html">Plan your trip</a></p>
+</div>
+</div>
+</div>
+</section>
+<footer>
+<div class="footer-inner">
+<p>© 2026 Lipe Travel Show. All rights reserved.</p>
+<p><a href="plan-your-trip.html">Back to Plan your trip</a></p>
+</div>
+</footer>
+</body>
+</html>

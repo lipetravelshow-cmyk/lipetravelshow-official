@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Italy: videos, itineraries and complete planning | Lipe Travel Show</title>
+  <meta name="description" content="A complete Italy planning page curated by Lipe: Rome, Florence, Milan and Lake Como videos, practical notes, route logic, hotels, flights and a free guide.">
+  <meta property="og:title" content="Italy: videos and planning | Lipe Travel Show">
+  <meta property="og:description" content="Beauty, rhythm and what travelers should know before they go.">
+  <meta property="og:image" content="foto-lipe-italia.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *,*:before,*:after{box-sizing:border-box;margin:0;padding:0}
+    :root{--navy:#0a1628;--navy2:#0d2240;--gold:#f0a500;--gold2:#ffd15e;--white:#fff;--text:rgba(255,255,255,.82);--muted:rgba(255,255,255,.68);--line:rgba(255,255,255,.08);--card:rgba(255,255,255,.045);--dark:#06101e}
+    html{scroll-behavior:smooth}
+    body{font-family:"Inter",sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
+    a{color:inherit}
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;background:rgba(10,22,40,.96);backdrop-filter:blur(16px);box-shadow:0 2px 30px rgba(0,0,0,.4)}
+    .nav-logo img{height:46px;width:46px;object-fit:cover;border-radius:50%}
+    .nav-links{display:flex;gap:22px;list-style:none;align-items:center}
+    .nav-links a{color:rgba(255,255,255,.85);text-decoration:none;font-size:.84rem;font-weight:500;letter-spacing:.4px;transition:color .25s}
+    .nav-links a:hover{color:var(--gold)}
+    .nav-cta{background:var(--gold);color:var(--navy)!important;padding:8px 18px;border-radius:999px;font-weight:700!important}
+    .lang-switch{display:flex;gap:8px;margin-left:16px}
+    .lang-switch a{border:1px solid rgba(255,255,255,.45);color:#fff;text-decoration:none;border-radius:999px;padding:6px 10px;font-size:.78rem}
+    .lang-switch .current{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+    .anchor-nav{position:sticky;top:82px;z-index:900;background:rgba(10,22,40,.97);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,.07);padding:0 5%;overflow-x:auto;white-space:nowrap}
+    .anchor-nav ul{display:inline-flex;gap:0;list-style:none}
+    .anchor-nav a{display:inline-block;color:rgba(255,255,255,.65);text-decoration:none;font-size:.8rem;font-weight:600;letter-spacing:.5px;padding:14px 18px;border-bottom:2px solid transparent;transition:all .22s}
+    .anchor-nav a:hover,.anchor-nav a.active{color:var(--gold2);border-bottom-color:var(--gold)}
+    .hero{min-height:80vh;padding:150px 5% 86px;background:linear-gradient(110deg,rgba(6,16,30,.82) 0%,rgba(10,22,40,.55) 45%,rgba(10,22,40,.15) 100%),radial-gradient(circle at top right,rgba(240,165,0,.16),transparent 34%),url("foto-lipe-italia.jpg") center/cover no-repeat;display:flex;align-items:center}
+    .hero-inner{max-width:1220px;width:100%;margin:0 auto}
+    .eyebrow{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;background:rgba(240,165,0,.12);color:#ffe3a2;border:1px solid rgba(240,165,0,.24);font-size:.82rem;letter-spacing:.5px;margin-bottom:22px}
+    h1{font-family:"Playfair Display",serif;font-size:clamp(2.9rem,5.3vw,5rem);line-height:1.02;max-width:920px;margin-bottom:18px}
+    .hero p{font-size:1.08rem;line-height:1.9;color:var(--text);max-width:760px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+    .btn-primary,.btn-secondary,.btn-gold-outline{display:inline-flex;align-items:center;gap:10px;text-decoration:none;padding:14px 22px;border-radius:999px;font-weight:700;transition:.25s}
+    .btn-primary{background:var(--gold);color:var(--navy)}
+    .btn-primary:hover{background:var(--gold2);transform:translateY(-2px)}
+    .btn-secondary{background:rgba(255,255,255,.05);color:var(--white);border:1px solid rgba(255,255,255,.18)}
+    .btn-secondary:hover{border-color:rgba(240,165,0,.35);color:var(--gold2)}
+    .btn-gold-outline{background:transparent;color:var(--gold2);border:1.5px solid var(--gold)}
+    .btn-gold-outline:hover{background:rgba(240,165,0,.1);transform:translateY(-2px)}
+    .section{max-width:1220px;margin:0 auto;padding:90px 5% 12px}
+    .section-header{max-width:900px;margin-bottom:28px}
+    .label{color:var(--gold2);text-transform:uppercase;letter-spacing:1.8px;font-size:.78rem;font-weight:700;display:inline-block;margin-bottom:12px}
+    h2{font-family:"Playfair Display",serif;font-size:clamp(2rem,4vw,3.2rem);margin-bottom:14px}
+    .section-header p{color:var(--muted);line-height:1.86;font-size:1rem}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:28px;box-shadow:0 18px 50px rgba(0,0,0,.22)}
+    .card h3{font-size:1.18rem;margin-bottom:12px}
+    .card p,.card li{color:var(--text);line-height:1.82}
+    .card ul{padding-left:18px;display:grid;gap:8px}
+    .card .kicker{display:inline-block;color:var(--gold2);font-size:.78rem;text-transform:uppercase;letter-spacing:1.4px;margin-bottom:10px;font-weight:700}
+    .highlight{background:linear-gradient(180deg,rgba(240,165,0,.08),rgba(255,255,255,.03));border-color:rgba(240,165,0,.22)}
+    .quote{margin-top:28px;background:linear-gradient(90deg,rgba(240,165,0,.12),rgba(255,255,255,.03));border:1px solid rgba(240,165,0,.18);border-radius:22px;padding:22px 24px;line-height:1.85;color:rgba(255,255,255,.9)}
+    .route-map{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+    .route-node{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:22px;min-height:190px}
+    .route-node h3{margin-bottom:10px}
+    .profile-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+    .profile-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:22px;padding:24px}
+    .profile-card h3{font-size:1.02rem;margin-bottom:10px}
+    .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+    .video-card{display:block;text-decoration:none;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:24px;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s;box-shadow:0 16px 40px rgba(0,0,0,.22)}
+    .video-card:hover{transform:translateY(-6px);border-color:rgba(240,165,0,.28);box-shadow:0 22px 52px rgba(0,0,0,.32)}
+    .video-card img{width:100%;aspect-ratio:16/9;object-fit:cover;display:block}
+    .video-card .video-meta{color:var(--gold2);font-size:.78rem;text-transform:uppercase;letter-spacing:1.4px;font-weight:700;padding:18px 20px 0}
+    .video-card h3{padding:8px 20px 0;font-size:1.12rem}
+    .video-card p{padding:10px 20px 0;color:var(--muted);line-height:1.74;min-height:78px}
+    .video-card span{display:inline-flex;align-items:center;gap:8px;padding:16px 20px 22px;color:var(--gold2);font-weight:700}
+    .tips-list{display:grid;gap:14px}
+    .tip{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:16px 18px}
+    .tip i{color:var(--gold2);margin-top:4px}
+    .affiliate-block{max-width:1220px;margin:0 auto;padding:70px 5% 0}
+    .affiliate-block-inner{background:linear-gradient(135deg,rgba(13,34,64,.9),rgba(6,16,30,.95));border:1px solid rgba(255,255,255,.1);border-radius:28px;padding:40px}
+    .affiliate-block-inner>p{color:var(--muted);margin-bottom:32px}
+    .affiliate-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .affiliate-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.09);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:14px}
+    .affiliate-card .aff-icon{width:44px;height:44px;border-radius:12px;background:rgba(240,165,0,.15);display:flex;align-items:center;justify-content:center;color:var(--gold2);font-size:1.2rem}
+    .affiliate-card h3{font-size:1rem;margin-bottom:4px}
+    .affiliate-card p{color:var(--muted);font-size:.9rem;line-height:1.7;flex:1}
+    .affiliate-links{display:flex;flex-direction:column;gap:8px}
+    .aff-btn{display:inline-flex;align-items:center;justify-content:space-between;gap:8px;background:rgba(240,165,0,.1);border:1px solid rgba(240,165,0,.25);color:var(--gold2);text-decoration:none;padding:10px 14px;border-radius:12px;font-size:.85rem;font-weight:600;transition:.2s}
+    .aff-btn:hover{background:rgba(240,165,0,.18);transform:translateX(3px)}
+    .aff-btn i{font-size:.75rem;opacity:.7}
+    .insurance-block{max-width:1220px;margin:0 auto;padding:60px 5% 0}
+    .insurance-inner{background:linear-gradient(120deg,rgba(240,165,0,.1) 0%,rgba(13,34,64,.85) 60%);border:1px solid rgba(240,165,0,.2);border-radius:26px;padding:36px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+    .insurance-inner h3{font-family:"Playfair Display",serif;font-size:1.7rem;margin-bottom:10px}
+    .insurance-inner p{color:var(--text);line-height:1.8;max-width:640px}
+    .insurance-inner ul{margin-top:14px;display:flex;flex-wrap:wrap;gap:10px;list-style:none}
+    .insurance-inner ul li{background:rgba(240,165,0,.1);border:1px solid rgba(240,165,0,.2);border-radius:999px;padding:6px 14px;font-size:.82rem;color:var(--gold2)}
+    .insurance-cta{display:flex;flex-direction:column;gap:12px;align-items:flex-end;min-width:200px}
+    .cities-block{max-width:1220px;margin:0 auto;padding:70px 5% 0}
+    .cities-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:28px}
+    .city-card{display:block;text-decoration:none;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:22px;overflow:hidden;transition:transform .3s,border-color .3s,box-shadow .3s}
+    .city-card:hover{transform:translateY(-5px);border-color:rgba(240,165,0,.3);box-shadow:0 20px 50px rgba(0,0,0,.3)}
+    .city-card img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block}
+    .city-card-body{padding:18px 20px 22px}
+    .city-card-body .city-tag{color:var(--gold2);font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;margin-bottom:6px;display:block}
+    .city-card-body h3{font-size:1.05rem;margin-bottom:8px}
+    .city-card-body p{color:var(--muted);font-size:.88rem;line-height:1.7}
+    .city-card-body .city-link{display:inline-flex;align-items:center;gap:6px;color:var(--gold2);font-size:.84rem;font-weight:700;margin-top:12px}
+    .lead-magnet{max-width:1220px;margin:0 auto;padding:70px 5% 0}
+    .lead-inner{background:linear-gradient(135deg,rgba(240,165,0,.13) 0%,rgba(13,34,64,.92) 55%,rgba(6,16,30,.98) 100%);border:1.5px solid rgba(240,165,0,.28);border-radius:30px;padding:48px;display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center;box-shadow:0 30px 80px rgba(0,0,0,.3)}
+    .lead-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(240,165,0,.15);color:var(--gold2);border:1px solid rgba(240,165,0,.3);border-radius:999px;padding:8px 16px;font-size:.8rem;font-weight:700;margin-bottom:18px}
+    .lead-inner h2{font-family:"Playfair Display",serif;font-size:clamp(1.8rem,3.2vw,2.7rem);margin-bottom:14px}
+    .lead-inner p{color:var(--text);line-height:1.84;margin-bottom:10px}
+    .lead-perks{list-style:none;display:grid;gap:10px;margin:18px 0 0}
+    .lead-perks li{display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.85);font-size:.93rem}
+    .lead-perks li i{color:var(--gold2);width:18px}
+    .lead-form{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:22px;padding:32px}
+    .lead-form h3{font-size:1.22rem;margin-bottom:6px}
+    .lead-form p{color:var(--muted);font-size:.88rem;margin-bottom:22px;line-height:1.7}
+    .form-group{margin-bottom:14px}
+    .form-group label{display:block;font-size:.82rem;color:var(--muted);margin-bottom:6px;font-weight:600;letter-spacing:.3px}
+    .form-group input,.form-group select{width:100%;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:12px;padding:13px 16px;color:#fff;font-size:.93rem;font-family:"Inter",sans-serif;outline:none;transition:border-color .2s}
+    .form-group input:focus,.form-group select:focus{border-color:rgba(240,165,0,.35)}
+    .form-group input::placeholder{color:rgba(255,255,255,.45)}
+    .btn-submit{width:100%;display:inline-flex;justify-content:center;align-items:center;gap:10px;background:var(--gold);color:var(--navy);border:none;border-radius:999px;padding:15px 18px;font-size:.95rem;font-weight:800;cursor:pointer;transition:.25s;margin-top:6px}
+    .btn-submit:hover{background:var(--gold2);transform:translateY(-2px)}
+    .form-fine{margin-top:12px!important;font-size:.78rem!important;color:rgba(255,255,255,.52)!important;text-align:center}
+    .cta-panel{max-width:1220px;margin:26px auto 0;padding:0 5% 96px}
+    .cta-inner{background:linear-gradient(135deg,rgba(240,165,0,.14),rgba(13,34,64,.82));border:1px solid rgba(240,165,0,.22);border-radius:30px;padding:36px;display:grid;grid-template-columns:1.05fr .95fr;gap:30px;box-shadow:0 24px 70px rgba(0,0,0,.24)}
+    .cta-inner p{color:var(--text);line-height:1.84}
+    .cta-actions{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-start}
+    .fine{margin-top:14px;color:rgba(255,255,255,.58);font-size:.86rem;line-height:1.72}
+    footer{border-top:1px solid rgba(255,255,255,.08);background:var(--dark)}
+    .footer-inner{max-width:1220px;margin:0 auto;padding:28px 5%;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:rgba(255,255,255,.62);font-size:.92rem}
+    .footer-inner a{color:var(--gold2);text-decoration:none}
+    @media(max-width:1100px){.route-map,.profile-grid,.video-grid,.grid-3,.affiliate-grid,.cities-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:860px){.grid-2,.route-map,.profile-grid,.video-grid,.cta-inner,.grid-3,.affiliate-grid,.cities-grid,.lead-inner,.insurance-inner{grid-template-columns:1fr}.nav-links{display:none}.hero{padding-top:132px}.insurance-cta{align-items:flex-start}.lead-inner{padding:34px}.affiliate-block-inner,.cta-inner,.insurance-inner{padding:28px}}
+  </style>
+
+<link rel="canonical" href="https://www.lipetravelshow.com.br/italy-videos-and-planning.html">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Alípio Lipe Camanzano">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://www.lipetravelshow.com.br"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Italy",
+      "item": "https://www.lipetravelshow.com.br/italy-videos-and-planning.html"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristDestination",
+  "name": "Italy",
+  "description": "Travel through Italy with videos, itineraries and planning — Rome, Florence, Milan, Lake Como and more",
+  "url": "https://www.lipetravelshow.com.br/italy-videos-and-planning.html",
+  "touristType": {
+    "@type": "Audience",
+    "audienceType": "International travelers"
+  },
+  "author": {
+    "@type": "Person",
+    "name": "Alípio Camanzano",
+    "alternateName": "Lipe Camanzano"
+  }
+}
+</script>
+
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="index-eng.html"><img src="logo lts.png" alt="Lipe Travel Show" decoding="async"></a>
+    <div style="display:flex;align-items:center;">
+      <ul class="nav-links">
+        <li><a href="index-eng.html">Home</a></li>
+        <li><a href="plan-your-trip.html">Plan your trip</a></li>
+        <li><a href="watch-and-plan.html">Watch & plan</a></li>
+        <li><a class="nav-cta" href="where-to-stay-rome.html">Rome</a></li>
+      </ul>
+      <div class="lang-switch">
+        <a href="italia-videos-e-planejamento-v2-final.html">PT</a>
+        <a class="current" href="italy-videos-and-planning-v2-final.html">EN</a>
+      </div>
+    </div>
+  </nav>
+  <nav class="anchor-nav">
+    <ul>
+      <li><a href="#fascination">Why Italy</a></li>
+      <li><a href="#map">Trip logic</a></li>
+      <li><a href="#profiles">Profiles</a></li>
+      <li><a href="#watchouts">Watch-outs</a></li>
+      <li><a href="#videos">Videos</a></li>
+      <li><a href="#tips">Practical notes</a></li>
+      <li><a href="#book">Flights & hotels</a></li>
+      <li><a href="#insurance">Insurance</a></li>
+      <li><a href="#cities">Cities</a></li>
+      <li><a href="#guide">Free guide</a></li>
+    </ul>
+  </nav>
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="eyebrow"><i class="fas fa-landmark"></i> Europe • Italy</span>
+      <h1>Italy: beauty, rhythm and what travelers should know before they go</h1>
+      <p>Italy has a rare ability to feel cinematic and deeply human at the same time. Beyond the beauty, the food and the obvious icons, this page brings together my videos, my travel perspective and the practical things that can make a real difference when planning the trip well.</p>
+      <div class="hero-actions">
+        <a class="btn-primary" href="#videos"><i class="fab fa-youtube"></i> Watch Italy videos</a>
+        <a class="btn-secondary" href="#guide"><i class="fas fa-map"></i> Get the free guide</a>
+        <a class="btn-secondary" href="plan-your-trip.html"><i class="fas fa-compass"></i> Plan your trip</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="fascination">
+    <div class="section-header">
+      <span class="label">Why Italy keeps pulling people in</span>
+      <h2>Beauty is only part of the story</h2>
+      <p>Italy is one of those countries people often dream about long before they go. Part of that is obvious: the food, the art, the cities, the landscapes and the history. But there is also something less tangible. Italy feels iconic and intimate at the same time, which is why expectations tend to run high.</p>
+    </div>
+    <div class="grid-2">
+      <div class="card"><span class="kicker">What drives the desire</span><h3>Cinema, fashion, design and lifestyle</h3><p>For many travelers, the fascination comes from the power of Italy’s global image: films, fashion, architecture, design, food culture and the idea of a beautiful life lived with style.</p></div>
+      <div class="card highlight"><span class="kicker">My angle</span><h3>Less checklist, more country reading</h3><p>I do not like reducing Italy to a list of overcrowded icons. For me, the trip becomes stronger when you think in terms of pace, bases, side trips, seasonal pressure and the kind of Italy you actually want to experience.</p></div>
+    </div>
+    <div class="quote">Italy tends to become even better when the trip is built with more intention: less pressure to “do everything” and more clarity around what kind of experience really fits the traveler.</div>
+  </section>
+
+  <section class="section" id="map">
+    <div class="section-header"><span class="label">A quick map of the trip logic</span><h2>How I like to organize Italy</h2><p>Instead of treating Italy as one giant bucket list, I prefer to think about travel axes. That makes the route, the rhythm and the planning much more intelligent.</p></div>
+    <div class="route-map">
+      <div class="route-node"><h3>Rome & surroundings</h3><p>Rome, Tivoli and Civitavecchia create a dense, historical and emotionally powerful classic axis.</p></div>
+      <div class="route-node"><h3>Tuscany & art</h3><p>Florence brings beauty, scale and the kind of travel where rhythm and timing matter more than people expect.</p></div>
+      <div class="route-node"><h3>Northern urban elegance</h3><p>Milan and Lake Como create a different Italy: more design-driven, more cosmopolitan and often more polished.</p></div>
+      <div class="route-node"><h3>Liguria & the sea</h3><p>Genoa adds a more lived-in, port-city reading of the country — less obvious, less polished and often more surprising.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="profiles">
+    <div class="section-header"><span class="label">Traveler profiles</span><h2>Italy changes depending on the kind of trip you want</h2><p>This is a country that can work for very different kinds of travelers, and that should shape the route from the beginning.</p></div>
+    <div class="profile-grid">
+      <div class="profile-card"><h3>First-time classic trip</h3><p>Rome + Florence + Milan can work beautifully as a first journey, as long as the pace is realistic.</p></div>
+      <div class="profile-card"><h3>Curated chic travel</h3><p>Italy is ideal for cinematic hotels, strong restaurants, design, texture and a more elegant reading of the destination.</p></div>
+      <div class="profile-card"><h3>Road trip with charm</h3><p>In the right regions, driving adds freedom and contrast. But it has to match the route logic.</p></div>
+      <div class="profile-card"><h3>Smart budget travel</h3><p>Italy can also be done more intelligently on budget, with better bases, stronger value areas and fewer tourist traps.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="watchouts">
+    <div class="section-header"><span class="label">What I would watch out for</span><h2>The less glamorous side that still matters</h2><p>Italy is deeply rewarding, but the trip works better when expectations and practical reality stay in the same conversation.</p></div>
+    <div class="grid-3">
+      <div class="card"><h3>Summer overcrowding</h3><p>Rome, Florence and Milan all feel the weight of high season. The atmosphere, the walking rhythm and the sense of space can change dramatically.</p></div>
+      <div class="card"><h3>Prices rise in the big tourist centers</h3><p>Food, cafés and casual stops often become noticeably more expensive in the most visited parts of major cities than in smaller towns or less exposed neighborhoods.</p></div>
+      <div class="card"><h3>Too many hotel moves flatten the trip</h3><p>A beautiful route on paper is not always a satisfying rhythm in real life. Staying longer in fewer bases often improves everything.</p></div>
+      <div class="card"><h3>Heat and crowds multiply each other</h3><p>Summer can feel far more physically demanding than people expect, especially with long walking days and dense urban tourism.</p></div>
+      <div class="card"><h3>The cinematic image is real — but partial</h3><p>Italy absolutely delivers beauty. But the trip gets better when the dream is balanced with practical reading of the country.</p></div>
+      <div class="card"><h3>Luxury and style need the right base</h3><p>Italy can deliver extraordinary hotel and lifestyle experiences, but that works best when the base, the route and the pace are aligned.</p></div>
+    </div>
+  </section>
+
+  <section class="section" id="videos">
+    <div class="section-header"><span class="label">Italy videos</span><h2>The cities and routes I gathered there</h2><p>The idea here is not just to list videos, but to use the channel as an entry point into the different energies of Italy and the way each place wants to be traveled.</p></div>
+    <div class="video-grid">
+      <a class="video-card" href="https://www.youtube.com/watch?v=38rxGHIwZvM" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/38rxGHIwZvM/hqdefault.jpg" alt="Rome Ep 1" loading="lazy" decoding="async"><div class="video-meta">YouTube • Lipe Travel Show</div><h3>Rome Ep 1</h3><p>Classic, intense Rome.</p><span>Watch video <i class="fas fa-arrow-right"></i></span></a>
+      <a class="video-card" href="https://www.youtube.com/watch?v=Rgcg2N7lab8" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/Rgcg2N7lab8/hqdefault.jpg" alt="Rome Ep 2" loading="lazy" decoding="async"><div class="video-meta">YouTube • Lipe Travel Show</div><h3>Rome Ep 2</h3><p>More layers of the Eternal City.</p><span>Watch video <i class="fas fa-arrow-right"></i></span></a>
+      <a class="video-card" href="https://www.youtube.com/watch?v=bzJmClPGMy4" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/bzJmClPGMy4/hqdefault.jpg" alt="Rome Ep 3" loading="lazy" decoding="async"><div class="video-meta">YouTube • Lipe Travel Show</div><h3>Rome Ep 3</h3><p>Rome beyond the obvious first impact.</p><span>Watch video <i class="fas fa-arrow-right"></i></span></a>
+      <a class="video-card" href="https://www.youtube.com/watch?v=p7azrpoQEgI" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/p7azrpoQEgI/hqdefault.jpg" alt="Tivoli" loading="lazy" decoding="async"><div class="video-meta">YouTube • Lipe Travel Show</div><h3>Tivoli</h3><p>A side trip that enriches the journey.</p><span>Watch video <i class="fas fa-arrow-right"></i></span></a>
+      <a class="video-card" href="https://www.youtube.com/watch?v=jg6Ydzck-zY" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/jg6Ydzck-zY/hqdefault.jpg" alt="Civitavecchia" loading="lazy" decoding="async"><div class="video-meta">YouTube • Lipe Travel Show</div><h3>Civitavecchia</h3><p>Sea gateway and route logic.</p><span>Watch video <i class="fas fa-arrow-right"></i></span></a>
+      <a class="video-card" href="https://www.youtube.com/watch?v=-Dc9YYwiecA" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/-Dc9YYwiecA/hqdefault.jpg" alt="Milan Ep 1" loading="lazy" decoding="async"><div class="video-meta">YouTube • Lipe Travel Show</div><h3>Milan Ep 1</h3><p>An urban, elegant and connected Italy.</p><span>Watch video <i class="fas fa-arrow-right"></i></span></a>
+      <a class="video-card" href="https://www.youtube.com/watch?v=qmblvC3riE4" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/qmblvC3riE4/hqdefault.jpg" alt="Milan Ep 2" loading="lazy" decoding="async"><div class="video-meta">YouTube • Lipe Travel Show</div><h3>Milan Ep 2</h3><p>Design, rhythm and a more cosmopolitan reading.</p><span>Watch video <i class="fas fa-arrow-right"></i></span></a>
+      <a class="video-card" href="https://www.youtube.com/watch?v=DXGqkYKr8RE" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/DXGqkYKr8RE/hqdefault.jpg" alt="Florence Ep 1" loading="lazy" decoding="async"><div class="video-meta">YouTube • Lipe Travel Show</div><h3>Florence Ep 1</h3><p>Art, scale and delicacy.</p><span>Watch video <i class="fas fa-arrow-right"></i></span></a>
+      <a class="video-card" href="https://www.youtube.com/watch?v=DT8OWOphjYY" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/DT8OWOphjYY/hqdefault.jpg" alt="Florence Ep 2" loading="lazy" decoding="async"><div class="video-meta">YouTube • Lipe Travel Show</div><h3>Florence Ep 2</h3><p>More depth for reading Florence well.</p><span>Watch video <i class="fas fa-arrow-right"></i></span></a>
+      <a class="video-card" href="https://www.youtube.com/watch?v=EeE6uWtlz9s" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/EeE6uWtlz9s/hqdefault.jpg" alt="Genoa" loading="lazy" decoding="async"><div class="video-meta">YouTube • Lipe Travel Show</div><h3>Genoa</h3><p>A more port-city, less predictable Italy.</p><span>Watch video <i class="fas fa-arrow-right"></i></span></a>
+      <a class="video-card" href="https://www.youtube.com/watch?v=MlXGNDW7uZ4" target="_blank" rel="noopener noreferrer"><img src="https://img.youtube.com/vi/MlXGNDW7uZ4/hqdefault.jpg" alt="Lake Como" loading="lazy" decoding="async"><div class="video-meta">YouTube • Lipe Travel Show</div><h3>Lake Como</h3><p>The elegant imagination of Italian travel.</p><span>Watch video <i class="fas fa-arrow-right"></i></span></a>
+    </div>
+  </section>
+
+  <section class="section" id="tips">
+    <div class="section-header"><span class="label">Practical notes</span><h2>Things I would keep in mind when planning Italy well</h2></div>
+    <div class="tips-list">
+      <div class="tip"><i class="fas fa-circle-check"></i><div><strong>Flights and routing:</strong> many Italy trips become smarter when you arrive in one city and leave from another instead of repeating the same path.</div></div>
+      <div class="tip"><i class="fas fa-circle-check"></i><div><strong>Reservations:</strong> in high-pressure periods, booking ahead changes the quality of hotels, museums and restaurant choices dramatically.</div></div>
+      <div class="tip"><i class="fas fa-circle-check"></i><div><strong>Food costs:</strong> eating in the most obvious zones of major cities usually costs more than it does in smaller towns or less exposed parts of town.</div></div>
+      <div class="tip"><i class="fas fa-circle-check"></i><div><strong>Base selection:</strong> the right base changes the emotional quality of the trip. In many cities, where you stay matters more than trying to do everything.</div></div>
+      <div class="tip"><i class="fas fa-circle-check"></i><div><strong>Beyond the icons:</strong> Italy often becomes more memorable when the obvious is balanced with places that feel less programmed.</div></div>
+    </div>
+  </section>
+
+  <div class="affiliate-block" id="book">
+    <div class="affiliate-block-inner">
+      <span class="label">Practical planning</span>
+      <h2 style="margin-bottom:8px;">Book your Italy trip</h2>
+      <p>Tools I use and recommend to build the trip more intelligently — flights, hotels and experiences organized by type of need.</p>
+      <div class="affiliate-grid">
+        <div class="affiliate-card"><div class="aff-icon"><i class="fas fa-plane"></i></div><h3>Flights to Italy</h3><p>Compare direct and connecting fares to Rome (FCO), Milan (MXP) and Florence (FLR), starting with the best flight-search flow.</p><div class="affiliate-links"><a class="aff-btn" href="https://skyscanner.pxf.io/9VL6Xj" target="_blank" rel="noopener noreferrer">Search flights — Skyscanner <i class="fas fa-arrow-right"></i></a><a class="aff-btn" href="https://skyscanner.pxf.io/9VL6Xj" target="_blank" rel="noopener noreferrer">Flights to Rome (FCO) <i class="fas fa-arrow-right"></i></a><a class="aff-btn" href="https://skyscanner.pxf.io/9VL6Xj" target="_blank" rel="noopener noreferrer">Flights to Milan (MXP) <i class="fas fa-arrow-right"></i></a></div></div>
+        <div class="affiliate-card"><div class="aff-icon"><i class="fas fa-hotel"></i></div><h3>Hotels and stays</h3><p>From cinematic boutique hotels to smart, well-located bases — the right stay changes the whole trip.</p><div class="affiliate-links"><a class="aff-btn" href="https://www.awin1.com/cread.php?awinmid=117697&awinaffid=2819302&ued=https%3A%2F%2Fwww.hotels.com%2F" target="_blank" rel="noopener noreferrer">Hotels in Rome <i class="fas fa-arrow-right"></i></a><a class="aff-btn" href="https://www.awin1.com/cread.php?awinmid=117697&awinaffid=2819302&ued=https%3A%2F%2Fwww.hotels.com%2F" target="_blank" rel="noopener noreferrer">Hotels in Florence <i class="fas fa-arrow-right"></i></a><a class="aff-btn" href="https://www.awin1.com/cread.php?awinmid=117697&awinaffid=2819302&ued=https%3A%2F%2Fwww.hotels.com%2F" target="_blank" rel="noopener noreferrer">Hotels in Milan <i class="fas fa-arrow-right"></i></a></div></div>
+        <div class="affiliate-card"><div class="aff-icon"><i class="fas fa-ticket"></i></div><h3>Experiences & tickets</h3><p>Museums, guided tours, Lake Como outings and Tuscany tastings — worth booking ahead when demand spikes.</p><div class="affiliate-links"><a class="aff-btn" href="https://www.getyourguide.com/pt-br/italia-l169011/" target="_blank" rel="noopener noreferrer">Italy experiences <i class="fas fa-arrow-right"></i></a><a class="aff-btn" href="https://www.getyourguide.com/pt-br/italia-l169011/" target="_blank" rel="noopener noreferrer">Tours in Rome <i class="fas fa-arrow-right"></i></a><a class="aff-btn" href="https://www.getyourguide.com/pt-br/italia-l169011/" target="_blank" rel="noopener noreferrer">Tours in Florence <i class="fas fa-arrow-right"></i></a></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="insurance-block" id="insurance">
+    <div class="insurance-inner">
+      <div>
+        <span class="label">Travel insurance</span>
+        <h3>Italy is not the place to skip travel insurance</h3>
+        <p>Europe may require coverage depending on the entry framework, and even when it is not checked, an uncovered medical emergency can become expensive very quickly. It is one of the cheapest protections compared with what it covers.</p>
+        <ul><li><i class="fas fa-shield-halved"></i> Medical coverage in Europe</li><li><i class="fas fa-plane-slash"></i> Flight disruption cover</li><li><i class="fas fa-suitcase-rolling"></i> Lost baggage assistance</li><li><i class="fas fa-hospital"></i> 24/7 support</li></ul>
+      </div>
+      <div class="insurance-cta">
+        <a class="btn-primary" href="https://www.segurospromo.com.br/?a=SEU_ID_SEGURO" target="_blank" rel="noopener noreferrer"><i class="fas fa-shield-halved"></i> Compare insurance</a>
+        <a class="btn-gold-outline" href="https://www.segurospromo.com.br/?a=SEU_ID_SEGURO" target="_blank" rel="noopener noreferrer"><i class="fas fa-search"></i> See plans</a>
+        <p style="color:var(--muted);font-size:.8rem;text-align:center;margin-top:6px;">Quote in under 2 minutes</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="cities-block" id="cities">
+    <div class="section-header"><span class="label">Explore city by city</span><h2>Go deeper base by base</h2><p>Each Italian base has its own rhythm, profile and travel logic. Explore dedicated pages with more specific tips, where to stay and what not to miss.</p></div>
+    <div class="cities-grid">
+      <a class="city-card" href="where-to-stay-rome.html"><img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=400&q=70" alt="Rome" loading="lazy" decoding="async"><div class="city-card-body"><span class="city-tag">Rome & surroundings</span><h3>Rome</h3><p>The Eternal City: history, intensity and unmatched energy.</p><span class="city-link">See Rome page <i class="fas fa-arrow-right"></i></span></div></a>
+      <a class="city-card" href="boutique-hotels-in-rome.html"><img src="https://images.unsplash.com/photo-1555992828-ca4dbe41d294?w=400&q=70" alt="Rome hotels" loading="lazy" decoding="async"><div class="city-card-body"><span class="city-tag">Rome • Hotels</span><h3>Boutique hotels in Rome</h3><p>A cinematic hotel curation for the Eternal City.</p><span class="city-link">See curation <i class="fas fa-arrow-right"></i></span></div></a>
+      <a class="city-card" href="florence-videos-and-planning.html"><img src="https://images.unsplash.com/photo-1541370976299-4d24be63e9d3?w=400&q=70" alt="Florence" loading="lazy" decoding="async"><div class="city-card-body"><span class="city-tag">Tuscany</span><h3>Florence</h3><p>Art, human scale and a rhythm that rewards time and attention.</p><span class="city-link">Coming soon <i class="fas fa-clock"></i></span></div></a>
+      <a class="city-card" href="milan-videos-and-planning.html"><img src="https://images.unsplash.com/photo-1610016302534-6f67f1c968d8?w=400&q=70" alt="Milan" loading="lazy" decoding="async"><div class="city-card-body"><span class="city-tag">Northern Italy</span><h3>Milan & Lake Como</h3><p>Design, urban elegance and one of the most cinematic landscapes in Italy.</p><span class="city-link">Coming soon <i class="fas fa-clock"></i></span></div></a>
+    </div>
+  </div>
+
+  <div class="lead-magnet" id="guide">
+    <div class="lead-inner">
+      <div>
+        <span class="lead-badge"><i class="fas fa-gift"></i> Free • Exclusive curation</span>
+        <h2>Get the Italy guide curated by Lipe</h2>
+        <p>A practical guide with my editorial view on how to build an Italy trip that really works — without turning it into a marathon, with the right bases and experiences that match your travel style.</p>
+        <ul class="lead-perks">
+          <li><i class="fas fa-map-marked-alt"></i> Route logic by travel axis (Rome, Tuscany, North)</li>
+          <li><i class="fas fa-hotel"></i> Base and neighborhood notes by city</li>
+          <li><i class="fas fa-calendar-alt"></i> Better timing by profile and season</li>
+          <li><i class="fas fa-lightbulb"></i> What to prioritize — and what to avoid</li>
+          <li><i class="fas fa-star"></i> Curation built on 25 years in travel</li>
+        </ul>
+      </div>
+      <div class="lead-form">
+        <h3>Send me the guide</h3>
+        <p>Fill in the form below and receive it by email in minutes.</p>
+        <form action="https://formspree.io/f/SEU_FORM_ID" method="POST">
+          <div class="form-group"><label for="lead-name">Your name</label><input type="text" id="lead-name" name="name" placeholder="How should I call you?" required></div>
+          <div class="form-group"><label for="lead-email">Email</label><input type="email" id="lead-email" name="email" placeholder="you@email.com" required></div>
+          <div class="form-group"><label for="lead-profile">Travel profile</label><select id="lead-profile" name="profile"><option value="">Select your style</option><option value="classic">First-time classic trip</option><option value="chic">Curated chic</option><option value="roadtrip">Road trip with charm</option><option value="budget">Smart budget</option></select></div>
+          <button type="submit" class="btn-submit"><i class="fas fa-paper-plane"></i> Send guide now</button>
+        </form>
+        <p class="form-fine">No spam. You can unsubscribe at any time.</p>
+      </div>
+    </div>
+  </div>
+
+  <section class="cta-panel" style="padding-top:60px;">
+    <div class="cta-inner">
+      <div>
+        <span class="label">Next steps</span>
+        <h2>Italy is beautiful in the imagination — and even better when planned well</h2>
+        <p>Italy remains one of those destinations people imagine for a long time before they ever go. And there is a reason for that. It has beauty, food, rhythm, culture, history and a rare ability to feel both familiar and extraordinary.</p>
+        <p class="fine">The next natural step is to deepen city by city — starting with Rome, Florence, Milan or Lake Como depending on the kind of trip you want.</p>
+      </div>
+      <div class="cta-actions">
+        <a class="btn-primary" href="plan-your-trip.html"><i class="fas fa-compass"></i> Plan your trip</a>
+        <a class="btn-secondary" href="where-to-stay-rome.html"><i class="fas fa-hotel"></i> Where to stay in Rome</a>
+        <a class="btn-secondary" href="boutique-hotels-in-rome.html"><i class="fas fa-key"></i> Boutique hotels in Rome</a>
+        <a class="btn-secondary" href="https://www.awin1.com/cread.php?awinmid=117697&awinaffid=2819302&ued=https%3A%2F%2Fwww.hotels.com%2F" target="_blank" rel="noopener noreferrer"><i class="fas fa-bed"></i> Search hotels</a>
+        <a class="btn-secondary" href="https://skyscanner.pxf.io/9VL6Xj" target="_blank" rel="noopener noreferrer"><i class="fas fa-plane"></i> Search flights</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <p>© 2026 Lipe Travel Show. All rights reserved.</p>
+      <p><a href="plan-your-trip.html">Back to Plan your trip</a></p>
+    </div>
+  </footer>
+  <script>
+    const sections = document.querySelectorAll("section[id], div[id]");
+    const anchors = document.querySelectorAll(".anchor-nav a");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          anchors.forEach(a => a.classList.remove("active"));
+          const active = document.querySelector(`.anchor-nav a[href="#${entry.target.id}"]`);
+          if (active) active.classList.add("active");
+        }
+      });
+    }, { threshold: 0.25 });
+    sections.forEach(s => observer.observe(s));
+  </script>
+</body>
+</html>

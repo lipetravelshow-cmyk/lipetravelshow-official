@@ -1,0 +1,124 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>New York State: what to do, regions and trip planning | Lipe Travel Show</title><meta name="description" content="Plan your New York State trip with a consumer-first guide: New York City, Broadway, Christmas, Niagara Falls, Long Island, fall foliage, luxury stays and practical 2026 tips."><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet"><style>
+    *, *::before, *::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:'Inter',sans-serif; color:#fff; background:#091425; overflow-x:hidden; }
+    :root{
+      --navy:#091425; --navy-2:#10223d; --navy-3:#0d1b31; --gold:#f2b94b; --gold-2:#ffd16d;
+      --text-soft:rgba(255,255,255,.86); --text-muted:rgba(255,255,255,.72); --line:rgba(255,255,255,.10);
+      --card:rgba(255,255,255,.055); --shadow:0 24px 50px rgba(0,0,0,.25); --radius:28px; --max:1240px;
+    }
+    a { color:inherit; }
+    img { display:block; max-width:100%; }
+    .container{ width:min(var(--max), 92vw); margin:0 auto; }
+    nav{
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:18px 5%; background:rgba(9,20,37,.90); backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav-logo{ display:flex; align-items:center; gap:12px; text-decoration:none; font-weight:700; }
+    .nav-mark{ width:44px; height:44px; border-radius:50%; overflow:hidden; border:1px solid rgba(255,255,255,.16); flex:0 0 auto; box-shadow:0 8px 18px rgba(0,0,0,.22); background:#fff; }
+    .nav-mark img{ width:100%; height:100%; object-fit:cover; }
+    .nav-links{ display:flex; gap:22px; align-items:center; }
+    .nav-links a{ text-decoration:none; font-size:.88rem; font-weight:600; color:rgba(255,255,255,.84); }
+    .nav-links a:hover{ color:var(--gold); }
+    .nav-cta{ padding:10px 18px; border-radius:999px; background:var(--gold); color:#091425 !important; }
+    .lang-btn{padding:10px 16px;border-radius:999px;background:var(--gold);color:#091425!important;font-weight:800}
+    .menu-toggle{ display:none; background:none; border:none; color:#fff; font-size:1.4rem; }
+
+    .hero{
+      min-height:88vh; display:flex; align-items:center; position:relative;
+      background:
+        linear-gradient(90deg, rgba(9,20,37,.18) 0%, rgba(9,20,37,.18) 30%, rgba(9,20,37,.50) 48%, rgba(9,20,37,.86) 70%, rgba(9,20,37,.96) 100%),
+        linear-gradient(180deg, rgba(9,20,37,.04) 0%, rgba(9,20,37,.12) 42%, rgba(9,20,37,.56) 100%),
+        var(--hero-img) 14% 62%/cover no-repeat;
+    }
+    .hero::after{content:""; position:absolute; inset:0; background:radial-gradient(circle at 78% 22%, rgba(242,185,75,.12), transparent 26%); pointer-events:none;}
+    .hero .container{ display:flex; justify-content:flex-end; width:min(var(--max), 92vw); }
+    .hero-inner{ position:relative; z-index:2; padding:150px 0 78px; width:min(540px, 100%); margin-left:auto; text-align:left; }
+    .eyebrow{display:inline-flex; align-items:center; gap:10px; padding:8px 14px; border-radius:999px; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.06); color:var(--gold); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:.76rem; }
+    h1,h2,h3{ margin:0; line-height:1.02; }
+    .hero h1{ margin-top:18px; font-family:'Playfair Display',serif; font-size:clamp(2.2rem,4vw,4rem); max-width:10ch; }
+    .hero p{ margin:22px 0 0; font-size:clamp(1rem,1.5vw,1.12rem); line-height:1.78; color:var(--text-soft); max-width:50ch; }
+    .hero-actions{ display:flex; flex-wrap:wrap; gap:14px; margin-top:28px; }
+    .btn{display:inline-flex; align-items:center; justify-content:center; gap:10px; min-height:52px; padding:0 22px; border-radius:999px; text-decoration:none; font-weight:700; transition:.2s ease; border:1px solid transparent; }
+    .btn-primary{ background:var(--gold); color:#091425; }
+    .btn-secondary{ background:rgba(255,255,255,.06); color:#fff; border-color:rgba(255,255,255,.12); }
+
+    main section{ padding:84px 0; border-top:1px solid rgba(255,255,255,.06); }
+    .section-head{ max-width:860px; margin-bottom:26px; }
+    .section-head .kicker{ color:var(--gold); font-weight:800; letter-spacing:.08em; text-transform:uppercase; font-size:.78rem; margin-bottom:12px; display:block; }
+    .section-head h2{ font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.4rem); }
+    .section-head p{ color:var(--text-soft); line-height:1.75; font-size:1.04rem; margin:16px 0 0; }
+
+    .card{background:linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.035)); border:1px solid var(--line); border-radius:var(--radius); box-shadow:var(--shadow); overflow:hidden;}
+    .card-body{ padding:28px; }
+    .card p{ color:var(--text-soft); line-height:1.78; margin:0; }
+    .video-card{display:grid; grid-template-columns:1fr 1.06fr; gap:0;}
+    .video-card img{ width:100%; height:100%; min-height:330px; object-fit:cover; }
+    .mini-meta{ display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .chip{ display:inline-flex; align-items:center; gap:8px; border-radius:999px; padding:10px 14px; background:rgba(242,185,75,.10); border:1px solid rgba(242,185,75,.20); color:var(--gold-2); font-weight:700; font-size:.88rem; }
+
+    .grid-3,.grid-2{display:grid; gap:18px;}.grid-3{grid-template-columns:repeat(3,minmax(0,1fr));}.grid-2{grid-template-columns:repeat(2,minmax(0,1fr));}
+    .profile-card,.theme-card,.stay-card,.info-card{background:rgba(255,255,255,.045); border:1px solid var(--line); border-radius:24px; padding:24px;}
+    .profile-card h3,.theme-card h3,.stay-card h3,.info-card h3{ font-size:1.25rem; margin-bottom:12px; }
+    .profile-card p,.theme-card p,.stay-card p,.info-card p{ color:var(--text-soft); line-height:1.72; margin:0; }
+
+    #year2026{ background:linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.015)); }
+    #year2026 .info-card{ background:linear-gradient(180deg, rgba(255,255,255,.055), rgba(255,255,255,.03)); border:1px solid rgba(255,255,255,.09); box-shadow:var(--shadow); }
+
+    .editorial{ display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:stretch; }
+    .editorial .image-wrap img{ width:100%; height:100%; object-fit:cover; min-height:390px; }
+    .editorial .text-wrap{ background:rgba(255,255,255,.045); border:1px solid var(--line); border-radius:var(--radius); padding:34px; display:flex; flex-direction:column; justify-content:center; }
+    .editorial h3{ font-family:'Playfair Display',serif; font-size:clamp(2rem,3.4vw,2.8rem); margin-bottom:18px; }
+    .editorial p{ color:var(--text-soft); line-height:1.82; margin:0 0 16px; }
+    .editorial ul{ margin:0; padding-left:20px; color:var(--text-soft); line-height:1.78; }
+    .editorial li + li{ margin-top:8px; }
+
+    .image-card img{width:100%; height:250px; object-fit:cover; background:#0d1b31;}
+    .image-card.portrait img{height:460px; object-fit:cover; padding:0; background:#0d1b31;}
+    .image-card.xmas img{height:340px; object-fit:contain; object-position:center top; background:#0d1b31;}
+    .cta-box{background: linear-gradient(135deg, rgba(242,185,75,.16), rgba(255,255,255,.04)), rgba(255,255,255,.03); border:1px solid rgba(242,185,75,.22); border-radius:32px; padding:34px;}
+    .cta-box h2{ font-family:'Playfair Display',serif; font-size:clamp(2rem,4vw,3.4rem); }
+    .cta-box p{ color:var(--text-soft); line-height:1.82; max-width:760px; }
+    footer{ padding:32px 0 48px; color:var(--text-muted); border-top:1px solid rgba(255,255,255,.06); font-size:.95rem; }
+    @media (max-width:1080px){ .video-card,.editorial,.grid-3,.grid-2{grid-template-columns:1fr;} .hero{background-position:14% 62%}.hero .container{justify-content:flex-start}.hero-inner{margin-left:0;max-width:680px} }
+    @media (max-width:760px){ nav{padding:14px 4%;}.menu-toggle{display:block}.nav-links{position:absolute; top:100%; left:0; right:0; padding:14px 4% 20px; background:rgba(9,20,37,.98); flex-direction:column; align-items:flex-start; display:none; border-bottom:1px solid rgba(255,255,255,.08);} .nav-links.open{display:flex;} .hero{min-height:82vh; background:linear-gradient(180deg, rgba(9,20,37,.40) 0%, rgba(9,20,37,.72) 54%, rgba(9,20,37,.92) 100%), var(--hero-img) 14% 62%/cover no-repeat;} .hero .container{justify-content:flex-end} .hero-inner{padding:128px 0 52px; max-width:100%;} .hero h1{font-size:clamp(2.1rem,10vw,3.8rem); max-width:10ch;} .video-card img{min-height:240px;} .editorial .image-wrap img{min-height:260px;} .image-card.portrait img{height:380px;} }
+</style>
+<link rel="canonical" href="https://www.lipetravelshow.com.br/new-york-state-videos-and-planning.html">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Alípio Lipe Camanzano">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lipetravelshow.com.br"},
+    {"@type": "ListItem", "position": 2, "name": "New York State", "item": "https://www.lipetravelshow.com.br/new-york-state-videos-and-planning.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristDestination",
+  "name": "New York State",
+  "description": "Plan your New York State trip with videos, regions, experiences and practical 2026 planning tips from Lipe Travel Show.",
+  "url": "https://www.lipetravelshow.com.br/new-york-state-videos-and-planning.html",
+  "touristType": {"@type": "Audience", "audienceType": "Turistas brasileiros"},
+  "author": {"@type": "Person", "name": "Alípio Camanzano", "alternateName": "Lipe Camanzano"}
+}
+</script>
+</head><body style="--hero-img:url('ny-statue-of-liberty.png')">
+<nav><a class="nav-logo" href="#top"><span class="nav-mark"><img src="carinha portrait digital bege.png" alt="Lipe Travel Show" decoding="async"></span><span>New York State · Lipe Travel Show</span></a><button class="menu-toggle" aria-label="menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button><div class="nav-links"><a href="#video">Video</a><a href="#year2026">2026</a><a href="#regions">Regions</a><a href="#style">Travel style</a><a href="#planning">Planning</a><a class="lang-btn" href="nova-york-estado-videos-e-planejamento-v11-embedded-fixed.html">PT</a><a class="nav-cta" href="mailto:contato@lipetravelshow.com.br">Book your trip</a></div></nav>
+<header class="hero" id="top"><div class="container"><div class="hero-inner"><span class="eyebrow">New York State</span><h1>New York State: a trip that can go far beyond Manhattan</h1><p>If you are deciding between New York City, Broadway, Christmas, Niagara Falls, Long Island or a wider state itinerary, this page helps you choose the right starting point, decide when to expand the route and travel smarter in 2026.</p><div class="hero-actions"><a class="btn btn-primary" href="#video">Start with the video</a><a class="btn btn-secondary" href="mailto:contato@lipetravelshow.com.br">Book your trip</a></div></div></div></header>
+<main>
+<section id="video"><div class="container"><div class="section-head"><span class="kicker">Channel episode</span><h2>Start with the video</h2><p>Before choosing your hotel, travel season or route extension, it is worth watching the episode from the channel. It helps you feel the destination and understand why New York State should never be reduced to a single city.</p></div><div class="card video-card"><img src="foto-lipe-nyork.png" alt="Lipe in Times Square" decoding="async"><div class="card-body"><h3 style="font-size:1.7rem; margin-bottom:14px;">New York on Lipe Travel Show</h3><p>A strong starting point to feel the energy of the destination and decide whether the focus should stay on New York City or open toward other parts of the state.</p><div class="mini-meta"><span class="chip">New York City</span><span class="chip">Broadway</span><span class="chip">Niagara</span><span class="chip">Long Island</span></div><div class="hero-actions" style="margin-top:22px;"><a class="btn btn-primary" href="https://www.youtube.com/watch?v=tQIfykHiAjE" target="_blank" rel="noopener">Watch on YouTube</a></div></div></div></div></section>
+<section id="cuts"><div class="container"><div class="section-head"><span class="kicker">New York by travel style</span><h2>What kind of New York fits your trip?</h2><p>New York State can be urban, festive, sophisticated, scenic, coastal or completely built around road trips and nature. The key is not to treat everything as the same kind of journey.</p></div><div class="grid-3"><article class="profile-card"><h3>Classic New York City</h3><p>For travelers who want skyline views, museums, shopping, iconic neighborhoods, observatories, Broadway and the energy that makes the city one of the most desired gateways in the United States.</p></article><article class="profile-card"><h3>Christmas and winter</h3><p>If your trip revolves around holiday windows, Rockefeller Center, ice skating, lights and year-end atmosphere, winter becomes the main character of the itinerary.</p></article><article class="profile-card"><h3>The state beyond the city</h3><p>Niagara Falls, Long Island, coastal escapes, fall foliage and upstate scenery help create a richer and less obvious route.</p></article></div></div></section>
+<section id="year2026"><div class="container"><div class="section-head"><span class="kicker">2026</span><h2>What is especially strong in 2026</h2><p>New York’s official tourism website highlights a few strong 2026 angles for travelers: the World Cup atmosphere in the region, official 2-for-1 Broadway and attraction programs, and winter campaigns with hotel and cultural promotions.</p></div><div class="grid-3"><article class="info-card"><h3>2026 World Cup year</h3><p>The New York/New Jersey region will host eight matches, including the final on July 19. That makes summer even more dynamic and worth considering if you want to travel during that period.</p></article><article class="info-card"><h3>Broadway Week, Off-Broadway Week and Must-See Week</h3><p>The official 2-for-1 programs remain one of the smartest ways to fit shows and attractions into your trip while paying better — especially if you want a full city experience without losing control of the budget.</p></article><article class="info-card"><h3>Hotel Week and winter season</h3><p>At the start of the year, New York often reinforces hotel, restaurant, Broadway and attraction campaigns. For winter travelers, that can make a meaningful difference in the final cost.</p></article></div></div></section>
+<section id="regions"><div class="container"><div class="section-head"><span class="kicker">Regions and experiences</span><h2>Key ways to experience New York State</h2><p>Instead of trying to do everything, it helps to understand which regions truly fit your time, budget and travel style.</p></div>
+<div class="editorial"><div class="image-wrap card"><img src="ny-manhattan-view.png" alt="Manhattan skyline" decoding="async"></div><div class="text-wrap"><span class="eyebrow" style="width:max-content;">New York City</span><h3>The main gateway</h3><p>The city remains the state’s most classic layer: famous neighborhoods, skyline views, observatories, museums, shopping, restaurants, parks and the feeling of being inside one of the most filmed cities in the world.</p><ul><li>First trip: classic Manhattan plus a few key neighborhoods.</li><li>Repeat trip: Brooklyn, ferries, waterfronts and less obvious slices of the city.</li><li>Especially strong for winter, Christmas, shopping and Broadway.</li></ul></div></div>
+<div class="grid-2" style="margin-top:22px;"><article class="card image-card"><img src="ny-neigborhood.png" alt="Neighborhoods, waterfronts and the city from the water" decoding="async"><div class="card-body"><h3>Neighborhoods, waterfronts and the city from the water</h3><p>Brooklyn, DUMBO, ferries and Manhattan views help you experience a more open, photogenic New York that is less tied to the classic tourist axis.</p></div></article><article class="card image-card"><img src="ny-broadway-shows-2026.png" alt="Broadway and live culture" decoding="async"><div class="card-body"><h3>Broadway and live culture</h3><p>Broadway remains a strong reason to travel. In 2026, the official promotional periods are still a great way to fit shows into your trip while paying better.</p></div></article><article class="card image-card xmas"><img src="ny-xmas.jpg" alt="Christmas in New York" decoding="async"><div class="card-body"><h3>Christmas in New York</h3><p>Holiday windows, Rockefeller Center, skating rinks, shopping and that atmosphere that makes many travelers build the whole trip around year-end.</p></div></article><article class="card image-card"><img src="ny-niagara.jpg" alt="Niagara Falls" decoding="async"><div class="card-body"><h3>Niagara Falls</h3><p>A strong extension for travelers who want scale, water and scenery. It works best when you have extra days or when Manhattan does not need to take over the whole trip.</p></div></article><article class="card image-card"><img src="ny-long-island.png" alt="Long Island and coastal escapes" decoding="async"><div class="card-body"><h3>Long Island and coastal escapes</h3><p>A smart choice if you want a lighter, more coastal and less vertical New York — especially in summer or on repeat trips.</p></div></article><article class="card image-card"><img src="ny-clare-fall-folliage.jpg" alt="Fall foliage, upstate and road trips" decoding="async"><div class="card-body"><h3>Fall foliage, upstate and road trips</h3><p>The state also works beautifully for mountains, rivers, smaller towns and the changing colors of fall foliage.</p></div></article></div></div></section>
+<section id="style"><div class="container"><div class="section-head"><span class="kicker">Travel style</span><h2>New York can also mean a better hotel, stronger skyline views and a trip with more personality</h2><p>When you move beyond checklist travel, the destination opens another layer: rooftops, waterfront parks, ferries, neighborhoods with more personality and hotels that can change the whole feel of the trip.</p></div><div class="grid-2"><article class="card image-card"><img src="ny-rooftop.png" alt="Rooftops, hotels and views" decoding="async"><div class="card-body"><h3>Rooftops, hotels and views</h3><p>In New York, your hotel choice and base shape the whole trip. Location, view, pace and neighborhood matter almost as much as the attractions themselves.</p></div></article><article class="card image-card"><img src="ny-parques.png" alt="Parks, water and smart pauses" decoding="async"><div class="card-body"><h3>Parks, water and smart pauses</h3><p>The city also breathes through piers, ferries and open spaces. That makes a real difference when you want to slow down between neighborhoods.</p></div></article></div></div></section>
+<section id="planning"><div class="container"><div class="cta-box"><span class="eyebrow">Planning</span><h2>Want to plan your New York trip the right way?</h2><p>I can help you decide whether your focus should be New York City, Broadway, Christmas, Niagara Falls, Long Island or a broader combination within New York State — with a structure that fits your profile and budget.</p><div class="hero-actions"><a class="btn btn-primary" href="mailto:contato@lipetravelshow.com.br">Plan your trip with me</a><a class="btn btn-secondary" href="https://skyscanner.pxf.io/vDPKAL" target="_blank" rel="noopener">Search flights and hotels</a></div></div></div></section>
+</main><footer><div class="container">New York State · Lipe Travel Show</div></footer></body></html>

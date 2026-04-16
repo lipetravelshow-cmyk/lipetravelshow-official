@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,700;0,800;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>América do Norte — vídeos e planejamento | Lipe Travel Show</title>
+  <meta name="description" content="Home editorial da América do Norte no Lipe Travel Show, conectando Canadá, Estados Unidos e México com vídeos, páginas-filhas e planejamento de viagem.">
+  <style>
+    *, *:before, *:after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:#0a1628; --navy2:#0d2240; --gold:#f0a500; --gold2:#ffc832; --white:#fff;
+      --gray:#8a9ab0; --line:rgba(255,255,255,.12);
+    }
+    html { scroll-behavior:smooth; }
+    body { font-family:'Inter',sans-serif; background:var(--navy); color:var(--white); overflow-x:hidden; }
+    img { max-width:100%; display:block; }
+    a { text-decoration:none; color:inherit; }
+
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:1000; padding:18px 5%;
+      display:flex; align-items:center; justify-content:space-between;
+      background:rgba(10,22,40,.96); backdrop-filter:blur(16px); box-shadow:0 2px 30px rgba(0,0,0,.35);
+    }
+    .nav-logo { color:#fff; display:flex; align-items:center; gap:12px; }
+    .nav-mark {
+      width:42px; height:42px; border-radius:50%; overflow:hidden; flex:0 0 42px;
+      border:1px solid rgba(255,255,255,.12); box-shadow:0 8px 18px rgba(0,0,0,.22); background:rgba(255,255,255,.06);
+    }
+    .nav-mark img { width:100%; height:100%; object-fit:cover; }
+    .nav-logo strong { font-size:.96rem; letter-spacing:.3px; }
+    .nav-links { display:flex; gap:22px; list-style:none; align-items:center; }
+    .nav-links a { color:rgba(255,255,255,.85); font-size:.84rem; font-weight:500; letter-spacing:.5px; transition:color .25s; }
+    .nav-links a:hover { color:var(--gold); }
+    .nav-cta { background:var(--gold); color:var(--navy)!important; padding:8px 18px; border-radius:50px; font-weight:700!important; }
+    .menu-toggle{display:none;background:none;border:none;color:#fff;font-size:1.45rem;cursor:pointer;}
+    .lang-switch {
+      display:inline-flex; align-items:center; gap:8px; margin-left:6px;
+      padding:6px 10px; border-radius:999px; border:1px solid rgba(255,255,255,.18);
+      color:rgba(255,255,255,.82)!important; font-size:.78rem!important; font-weight:700!important; letter-spacing:.8px;
+    }
+    .lang-switch.active {
+      background:rgba(240,165,0,.16); border-color:rgba(240,165,0,.42); color:var(--gold)!important;
+    }
+
+    .page-hero {
+      min-height:78vh; padding:145px 5% 82px;
+      background:
+        linear-gradient(135deg,rgba(6,16,30,.78),rgba(13,34,64,.86)),
+        url('Hero-North-America-Page.png') center 28%/cover no-repeat;
+      display:flex; align-items:center;
+    }
+    .page-hero-inner { max-width:1200px; margin:0 auto; width:100%; }
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:8px; background:rgba(240,165,0,.15); border:1px solid rgba(240,165,0,.45);
+      color:var(--gold); padding:7px 20px; border-radius:50px; font-size:.72rem; font-weight:700; letter-spacing:2px;
+      text-transform:uppercase; margin-bottom:28px;
+    }
+    h1 { font-family:'Playfair Display',serif; font-size:clamp(2.8rem,5.7vw,5rem); line-height:1.04; margin-bottom:20px; max-width:960px; }
+    h1 span { color:var(--gold); font-style:italic; }
+    .hero-copy { max-width:830px; color:rgba(255,255,255,.88); line-height:1.84; font-size:1.02rem; }
+    .hero-btns { display:flex; gap:14px; flex-wrap:wrap; margin-top:32px; }
+    .btn-primary,.btn-secondary {
+      display:inline-flex; align-items:center; gap:10px; border-radius:50px; padding:14px 30px;
+      text-decoration:none; font-weight:700; transition:all .28s;
+    }
+    .btn-primary { background:var(--gold); color:var(--navy); }
+    .btn-primary:hover { background:var(--gold2); transform:translateY(-2px); }
+    .btn-secondary { border:1.5px solid rgba(255,255,255,.55); color:var(--white); }
+    .btn-secondary:hover { border-color:var(--gold); color:var(--gold); }
+    .hero-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:34px; max-width:900px; }
+    .stat { background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12); border-radius:22px; padding:18px 20px; }
+    .stat strong { display:block; font-size:1.35rem; color:var(--gold); margin-bottom:6px; }
+    .stat span { font-size:.92rem; color:rgba(255,255,255,.82); line-height:1.5; }
+
+    .section-wrap { max-width:1220px; margin:0 auto; padding:82px 5% 28px; }
+    .section-header { text-align:center; margin-bottom:46px; }
+    .section-label {
+      display:inline-block; background:rgba(240,165,0,.12); color:var(--gold); padding:7px 16px; border-radius:999px;
+      font-size:.74rem; font-weight:700; letter-spacing:1.6px; text-transform:uppercase; margin-bottom:18px;
+    }
+    h2 { font-family:'Playfair Display',serif; font-size:clamp(2rem,4.3vw,3.3rem); line-height:1.1; margin-bottom:14px; }
+    .section-subtitle { max-width:860px; margin:0 auto; color:rgba(255,255,255,.76); line-height:1.82; }
+
+    .grid-3 { display:grid; gap:22px; grid-template-columns:repeat(3,1fr); }
+    .card {
+      background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.04));
+      border:1px solid var(--line); border-radius:28px; overflow:hidden; box-shadow:0 18px 40px rgba(0,0,0,.16);
+    }
+    .card img { width:100%; aspect-ratio:16/10; object-fit:cover; display:block; }
+    .card-media { aspect-ratio:16/10; display:flex; align-items:flex-end; padding:22px; position:relative; overflow:hidden; }
+    .card-media:before { content:''; position:absolute; inset:0; background:linear-gradient(180deg,rgba(6,16,30,.12),rgba(6,16,30,.72)); }
+    .card-media > div { position:relative; z-index:1; display:flex; align-items:center; gap:12px; }
+    .card-media i { width:54px; height:54px; border-radius:50%; display:grid; place-items:center; background:rgba(255,255,255,.14); border:1px solid rgba(255,255,255,.18); color:#fff; font-size:1.2rem; }
+    .card-media strong { font-size:1.1rem; letter-spacing:.2px; }
+    .country-canada { background:linear-gradient(135deg,#17365f,#305b8f 52%,#6f95bf); }
+    .country-usa { background:linear-gradient(135deg,#1a2542,#334b7a 52%,#7ea0d8); }
+    .country-mexico { background:linear-gradient(135deg,#2e4a27,#52773b 50%,#b08a2b); }
+    .card img.canada { object-position:18% center; }
+    .card img.usa { object-position:40% center; }
+    .card img.mexico { object-position:84% center; }
+    .card .body { padding:26px; }
+    .tag {
+      display:inline-flex; align-items:center; gap:7px; padding:10px 14px; border-radius:999px;
+      background:rgba(240,165,0,.12); color:var(--gold); border:1px solid rgba(240,165,0,.25);
+      font-size:.82rem; letter-spacing:.08em; text-transform:uppercase; font-weight:700;
+    }
+    .card h3 { margin:12px 0 10px; font-size:1.4rem; }
+    .card p { color:rgba(255,255,255,.76); line-height:1.8; }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+    .chip {
+      display:inline-flex; align-items:center; gap:7px; padding:10px 14px; border-radius:999px;
+      background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.1); font-size:.88rem; font-weight:600;
+    }
+    .ghost-btn {
+      display:inline-flex; align-items:center; gap:8px; padding:12px 16px; border-radius:999px;
+      background:rgba(255,255,255,.08); color:#fff; border:1px solid rgba(255,255,255,.16); font-weight:700;
+    }
+    .ghost-btn:hover { border-color:rgba(240,165,0,.42); color:var(--gold); }
+
+    .mini-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:18px; }
+    .mini-box {
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.12); border-radius:24px; padding:24px;
+    }
+    .mini-box h4 { margin:0 0 8px; font-size:1.05rem; }
+    .mini-box p { color:rgba(255,255,255,.74); line-height:1.72; }
+
+    .cta-band {
+      margin:24px auto 0; max-width:1120px; padding:28px; border:1px solid var(--line); border-radius:28px;
+      background:linear-gradient(90deg,rgba(240,165,0,.12),rgba(255,255,255,.04));
+      display:grid; grid-template-columns:1.05fr 1.1fr; gap:26px; align-items:center;
+    }
+    .cta-band h3 { font-size:1.45rem; margin-bottom:10px; }
+    .cta-band p { color:rgba(255,255,255,.8); line-height:1.8; }
+    .cta-visual { border-radius:24px; overflow:hidden; border:1px solid rgba(255,255,255,.12); background:rgba(255,255,255,.04); box-shadow:0 18px 40px rgba(0,0,0,.18); }
+    .cta-visual img { width:100%; height:100%; object-fit:cover; display:block; object-position:center 28%; }
+
+    .footer { border-top:1px solid var(--line); margin-top:70px; padding:30px 5% 46px; }
+    .footer-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:18px; flex-wrap:wrap; }
+    .footer p { color:rgba(255,255,255,.66); line-height:1.7; }
+
+    @media (max-width: 1024px) {
+      .grid-3, .mini-grid { grid-template-columns:repeat(2,1fr); }
+      .cta-band, .hero-stats { grid-template-columns:1fr; }
+      .hero-stats { max-width:460px; }
+    }
+    @media (max-width: 820px) {
+      .menu-toggle{display:block;}
+      .nav-links {
+        position:absolute; top:100%; left:0; right:0; background:rgba(10,22,40,.98); border-top:1px solid rgba(255,255,255,.08);
+        padding:18px 5%; flex-direction:column; align-items:flex-start; display:none;
+      }
+      .nav-links.open { display:flex; }
+      .grid-3, .mini-grid { grid-template-columns:1fr; }
+      .section-wrap { padding-top:72px; }
+      .page-hero { background-position:center 24%; min-height:72vh; }
+      .card img.canada, .card img.usa, .card img.mexico { object-position:center 28%; }
+    }
+  </style>
+<link rel="canonical" href="https://www.lipetravelshow.com.br/america-do-norte-videos-e-planejamento.html">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Alípio Lipe Camanzano">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lipetravelshow.com.br"},
+    {"@type": "ListItem", "position": 2, "name": "América do Norte", "item": "https://www.lipetravelshow.com.br/america-do-norte-videos-e-planejamento.html"}
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TouristDestination",
+  "name": "América do Norte",
+  "description": "EUA, Canadá e México com vídeos, roteiros e ferramentas de planejamento do Lipe Travel Show",
+  "url": "https://www.lipetravelshow.com.br/america-do-norte-videos-e-planejamento.html",
+  "touristType": {"@type": "Audience", "audienceType": "Turistas brasileiros"},
+  "author": {"@type": "Person", "name": "Alípio Camanzano", "alternateName": "Lipe Camanzano"}
+}
+</script>
+</head>
+<body>
+  <nav>
+    <a class="nav-logo" href="#top" aria-label="Voltar ao topo da página de América do Norte">
+      <span class="nav-mark"><img src="carinha portrait.png" alt="Logo Lipe Travel Show" decoding="async"></span>
+      <strong>Lipe Travel Show</strong>
+    </a>
+    <button class="menu-toggle" aria-label="Abrir menu" onclick="document.querySelector('.nav-links').classList.toggle('open')"><i class="fas fa-bars"></i></button>
+    <div class="nav-links">
+      <a href="#destinos">Destinos</a>
+      <a href="#como-explorar">Estratégia</a>
+      <a href="#voos">Voos</a>
+      <a href="#comprar">Comprar</a>
+      <a href="#destinos" class="nav-cta">Explorar América do Norte</a>
+      <a href="america-do-norte-videos-e-planejamento-hero-trocada-v16.html" class="lang-switch active">PT</a>
+      <a href="north-america-videos-and-planning-v16.html" class="lang-switch">EN</a>
+    </div>
+  </nav>
+
+  <header class="page-hero" id="top">
+    <div class="page-hero-inner">
+      <div class="hero-badge"><i class="fas fa-earth-americas"></i> américa do norte • vídeos, países e planejamento</div>
+      <h1>América do Norte</h1>
+      <p class="hero-copy">
+        Esta é a porta de entrada do Lipe Travel Show para a América do Norte. A ideia aqui é organizar o continente por recortes mais úteis — grandes cidades, viagens urbanas, natureza, road trips e planejamento — conectando Canadá, Estados Unidos e México dentro da mesma lógica editorial.
+      </p>
+      <div class="hero-btns">
+        <a class="btn-primary" href="#destinos"><i class="fas fa-compass"></i> Explorar destinos</a>
+        <a class="btn-secondary" href="https://skyscanner.pxf.io/vDPKAL" target="_blank" rel="noopener noreferrer"><i class="fas fa-magnifying-glass"></i> Compre sua viagem</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>3 países</strong><span>Canadá, Estados Unidos e México entram aqui como portas principais do continente.</span></div>
+        <div class="stat"><strong>Vídeos + páginas</strong><span>O objetivo é transformar inspiração editorial em planejamento e próximos passos reais.</span></div>
+        <div class="stat"><strong>México já entra</strong><span>México já aparece nesta home enquanto a página própria do país é preparada.</span></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="section-wrap" id="destinos">
+    <div class="section-header">
+      <span class="section-label">Comece por aqui</span>
+      <h2>Três portas fortes para navegar a América do Norte</h2>
+      <p class="section-subtitle">
+        A home principal do continente já organiza Canadá, New York State e México dentro da mesma lógica. Isso ajuda a visualizar melhor os recortes que fazem sentido para cada tipo de viagem.
+      </p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <img class="canada" src="lipe-foto-canada.jpg" alt="Lipe no Canadá em cenário de Québec, reforçando a atmosfera do país" decoding="async">
+        <div class="body">
+          <div class="tag">Canadá</div>
+          <h3>Canadá — vídeos, destinos e planejamento</h3>
+          <p>Toronto, Ottawa, Montreal e Québec como base, mais costa oeste, Rockies, ski, trem, road trips, cruzeiros, expedições e uma leitura menos óbvia do país.</p>
+          <div class="actions">
+            <a class="ghost-btn" href="canada-videos-e-planejamento.html"><i class="fas fa-arrow-right"></i> Ver Canadá</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="usa" src="USA-Hero.jpeg" alt="Lipe nos Estados Unidos em visual editorial ligado a New York State" decoding="async">
+        <div class="body">
+          <div class="tag">Estados Unidos</div>
+          <h3>Estados Unidos — vídeos, estados e planejamento</h3>
+          <p>Os EUA já entram no site por camadas mais úteis, com páginas abertas para New York State e Florida. A tendência agora é expandir essa lógica para outros estados, cidades, regiões e combinações de roteiro.</p>
+          <div class="actions">
+            <a class="ghost-btn" href="estados-unidos-videos-e-planejamento-com-box-voos-v2.html"><i class="fas fa-arrow-right"></i> Ver página dos Estados Unidos</a>
+            <a class="ghost-btn" href="new-york-state-videos-and-planning.html"><i class="fas fa-arrow-right"></i> Ver New York State</a>
+            <a class="ghost-btn" href="florida-videos-e-planejamento-v9-embedded.html"><i class="fas fa-arrow-right"></i> Ver Florida</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="mexico" src="Mexico-Hero-Homepage-pais.png" alt="Lipe no México em cenário ligado à cultura e ao patrimônio do país" decoding="async">
+        <div class="body">
+          <div class="tag">México</div>
+          <h3>México — em breve</h3>
+          <p>México já aparece aqui como uma frente importante da América do Norte. Em seguida, a ideia é abrir o país com cidades, cultura, praias, gastronomia e recortes próprios de planejamento.</p>
+          <div class="actions">
+            <span class="chip"><i class="fas fa-clock"></i> Em breve</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="como-explorar">
+    <div class="section-header">
+      <span class="section-label">Como explorar</span>
+      <h2>Uma home pensada para navegar o continente com mais contexto</h2>
+      <p class="section-subtitle">
+        Em vez de misturar tudo, a ideia aqui é abrir a América do Norte por camadas mais úteis: país, região, estado, cidade e próximos passos comerciais.
+      </p>
+    </div>
+    <div class="mini-grid">
+      <div class="mini-box">
+        <h4>Canadá completo</h4>
+        <p>Página já pronta com costa leste, oeste, Rockies, ski, cruzeiros, trem e experiências culturais.</p>
+      </div>
+      <div class="mini-box">
+        <h4>Estados Unidos em expansão</h4>
+        <p>New York State já está integrado, e a próxima etapa é abrir mais camadas dos EUA no mesmo padrão.</p>
+      </div>
+      <div class="mini-box">
+        <h4>México entrando na home</h4>
+        <p>Mesmo antes da página própria ficar pronta, o México já passa a entrar como recorte estratégico do continente.</p>
+      </div>
+      <div class="mini-box">
+        <h4>Planejamento e compra</h4>
+        <p>Os mesmos CTAs comerciais do site seguem aqui para transformar pesquisa em ação.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section-wrap" id="voos">
+    <div class="section-header">
+      <span class="section-label">Guia prático de voos</span>
+      <h2>Antes de comprar, entenda melhor como pesquisar seus voos</h2>
+      <p class="section-subtitle">
+        Depois de comparar Canadá, Estados Unidos e México, vale abrir a camada mais prática da viagem. Esta página ajuda a pensar portas de entrada, hubs, rotas e datas com mais clareza antes da compra.
+      </p>
+    </div>
+    <div class="cta-band">
+      <div>
+        <h3>Um próximo passo natural dentro da América do Norte</h3>
+        <p>Se você já entendeu melhor o seu recorte de viagem, o guia de voos dos Estados Unidos ajuda a organizar a lógica aérea com mais critério — e isso costuma melhorar bastante a comparação antes da emissão.</p>
+        <div class="actions">
+          <a class="btn-primary" href="como-pesquisar-voos-para-estados-unidos-v3-sem-repeticao.html"><i class="fas fa-plane-departure"></i> Ver guia de voos</a>
+          <a class="btn-secondary" href="new-york-state-videos-and-planning.html"><i class="fas fa-arrow-right"></i> Voltar para EUA</a>
+        </div>
+      </div>
+      <div class="cta-visual">
+        <img src="eua-voos-lounge-vip.png" alt="Lipe em lounge VIP planejando voos para os Estados Unidos" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <section class="section-wrap" id="comprar">
+    <div class="section-header">
+      <span class="section-label">Skyscanner</span>
+      <h2>Pesquise, compare e compre sua viagem</h2>
+      <p class="section-subtitle">
+        Depois de escolher melhor seu recorte de América do Norte, vale começar a comparar voos, hotéis e possibilidades de viagem com calma.
+      </p>
+    </div>
+    <div class="cta-band">
+      <div>
+        <h3>Transforme inspiração em próximos passos</h3>
+        <p>Depois de entender melhor seu recorte entre Canadá, Estados Unidos e México, use os atalhos abaixo para comparar voos, hotéis e possibilidades de viagem com mais clareza.</p>
+        <div class="actions">
+          <a class="btn-primary" href="https://skyscanner.pxf.io/9VL6Xj" target="_blank" rel="noopener noreferrer"><i class="fas fa-plane-departure"></i> Comprar voos</a>
+          <a class="btn-secondary" href="https://skyscanner.pxf.io/GbKyv9" target="_blank" rel="noopener noreferrer"><i class="fas fa-hotel"></i> Reservar hotel</a>
+          <a class="btn-secondary" href="https://skyscanner.pxf.io/vDPKAL" target="_blank" rel="noopener noreferrer"><i class="fas fa-magnifying-glass"></i> Abrir Skyscanner</a>
+        </div>
+      </div>
+      <div class="cta-visual">
+        <img src="eua-lipe-lounge-moderno.png" alt="Lipe em lounge moderno em contexto de compra e planejamento de viagem" decoding="async">
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>América do Norte — uma página editorial para conectar Canadá, Estados Unidos e México com mais contexto, vídeos, planejamento e próximos passos de viagem.</p>
+      <div class="actions">
+        <a class="chip" href="#top"><i class="fas fa-arrow-up"></i> Voltar ao topo</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        if (href.length > 1) {
+          const target = document.querySelector(href);
+          if (target) {
+            e.preventDefault();
+            target.scrollIntoView({ behavior: 'smooth' });
+            document.querySelector('.nav-links')?.classList.remove('open');
+          }
+        }
+      });
+    });
+  </script>
+</body>
+</html>
