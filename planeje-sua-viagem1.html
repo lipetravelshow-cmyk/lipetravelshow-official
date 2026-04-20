@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Planeje sua viagem | Lipe Travel Show</title>
+<meta content="Central de planejamento de viagem do Lipe Travel Show: voos, hotéis, experiências, seguro, milhas e IA para organizar sua próxima viagem com mais inteligência." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=Playfair+Display:ital,wght@0,700;0,800;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+<style>
+*,*:before,*:after{box-sizing:border-box;margin:0;padding:0}
+:root{--navy:#0a1628;--navy2:#0d2240;--gold:#f0a500;--gold2:#ffd15e;--white:#fff;--text:rgba(255,255,255,.86);--muted:rgba(255,255,255,.6);--line:rgba(255,255,255,.08);--card:rgba(255,255,255,.045);--dark:#06101e}
+body{font-family:"Inter",sans-serif;background:var(--navy);color:var(--white);overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+main{padding:96px 5% 80px}
+.page-inner{max-width:1180px;margin:0 auto}
+
+/* HERO LP */
+.lp-hero{padding:40px 0 28px;border-bottom:1px solid rgba(255,255,255,.08);display:grid;grid-template-columns:1.3fr .9fr;gap:32px;align-items:center}
+.lp-hero-copy span.eyebrow{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(240,165,0,.16);color:#ffe3a2;border:1px solid rgba(240,165,0,.28);font-size:.8rem;letter-spacing:.4px;margin-bottom:14px}
+.lp-hero-copy h1{font-family:"Playfair Display",serif;font-size:clamp(2.2rem,4vw,3.1rem);line-height:1.08;margin-bottom:14px}
+.lp-hero-copy p{font-size:1rem;line-height:1.9;color:var(--text);max-width:60ch;margin-bottom:20px}
+.lp-hero-meta{display:flex;flex-wrap:wrap;gap:14px;font-size:.85rem;color:var(--muted)}
+.lp-hero-meta span{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08)}
+.lp-hero-visual{background:radial-gradient(circle at top left,rgba(240,165,0,.4),transparent 55%),radial-gradient(circle at bottom right,rgba(42,198,255,.45),transparent 55%);border-radius:26px;border:1px solid rgba(255,255,255,.12);padding:18px;position:relative;overflow:hidden;min-height:220px;display:flex;flex-direction:column;justify-content:space-between}
+.lp-hero-visual small{font-size:.78rem;color:var(--muted);display:inline-flex;align-items:center;gap:6px;margin-bottom:6px}
+.lp-hero-visual h2{font-family:"Playfair Display",serif;font-size:1.4rem;margin-bottom:6px}
+.lp-hero-visual p{font-size:.9rem;color:var(--text);line-height:1.7;max-width:38ch}
+.lp-hero-cta{margin-top:16px;display:flex;flex-wrap:wrap;gap:10px}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;background:var(--gold);color:var(--navy);font-weight:700;font-size:.9rem;border:none;cursor:pointer}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border-radius:999px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;font-weight:600;font-size:.88rem}
+
+/* PLANNING GRID */
+.section{margin-top:32px}
+.section-header{margin-bottom:14px}
+.section-header h2{font-family:"Playfair Display",serif;font-size:1.4rem;margin-bottom:6px}
+.section-header p{font-size:.9rem;color:var(--muted);max-width:none;width:100%} 
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.card{background:rgba(255,255,255,.045);border-radius:18px;border:1px solid rgba(255,255,255,.08);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.card-header{display:flex;gap:10px;align-items:flex-start}
+.card-icon{width:32px;height:32px;border-radius:999px;display:flex;align-items:center;justify-content:center;background:rgba(240,165,0,.12);color:var(--gold2)}
+.card h3{font-size:1.05rem}
+.card p{font-size:.9rem;color:var(--text);line-height:1.7;margin-bottom:2px}
+.card-meta{font-size:.8rem;color:var(--muted);margin-top:2px;font-style:italic}
+.card-actions{margin-top:10px;padding-top:10px;border-top:1px solid rgba(255,255,255,.06);display:flex;flex-wrap:wrap;gap:10px}
+.card-actions a{font-size:.82rem;display:inline-flex;align-items:center;gap:6px;color:var(--gold2)}
+
+/* TOOL GRID */
+.tool-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:8px}
+.tool{background:rgba(255,255,255,.04);border-radius:14px;border:1px solid rgba(255,255,255,.06);padding:10px 12px;font-size:.8rem;color:var(--text);display:flex;flex-direction:column;gap:4px}
+.tool span{font-weight:600}
+.tool small{color:var(--muted);font-size:.76rem}
+
+/* IA & MILHAS */
+.two-col{display:grid;grid-template-columns:1.1fr .9fr;gap:16px}
+.badge{display:inline-flex;align-items:center;gap:6px;font-size:.78rem;padding:5px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(10,22,40,.9);color:var(--muted);margin-bottom:8px}
+.list{font-size:.88rem;color:var(--text);line-height:1.8;margin-top:8px}
+.list li{margin-left:18px}
+
+/* CTA STRIP */
+.cta-strip{margin-top:40px;padding:16px 18px;border-radius:20px;border:1px solid rgba(255,255,255,.1);background:linear-gradient(120deg,rgba(240,165,0,.18),rgba(6,16,30,.9));display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.cta-strip-text{font-size:.94rem;max-width:54ch}
+
+@media(max-width:980px){
+  .lp-hero{grid-template-columns:1fr}
+}
+@media(max-width:820px){
+  main{padding-top:86px}
+  .grid{grid-template-columns:1fr}
+  .tool-grid{grid-template-columns:1fr 1fr}
+  .two-col{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .tool-grid{grid-template-columns:1fr}
+}
+
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 5%;display:flex;align-items:center;justify-content:space-between;transition:background .4s,box-shadow .4s}
+nav.scrolled{background:rgba(10,22,40,.97);backdrop-filter:blur(18px);box-shadow:0 2px 30px rgba(0,0,0,.45)}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo img{height:46px;width:46px;object-fit:cover;border-radius:50%;border:2px solid rgba(240,165,0,.4)}
+.nav-logo-text{display:flex;flex-direction:column;line-height:1.15}
+.nav-logo-name{font-family:"Playfair Display",serif;font-size:1.05rem;font-weight:700;color:var(--white)}
+.nav-logo-sub{font-size:.62rem;color:var(--gold);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
+.nav-links{display:flex;gap:4px;list-style:none;align-items:center}
+.nav-links a{color:rgba(255,255,255,.82);font-size:.84rem;font-weight:500;padding:7px 11px;border-radius:8px;transition:all .25s}
+.nav-links a:hover,.nav-links a.active{color:var(--white);background:rgba(255,255,255,.06)}
+.nav-cta{background:var(--gold)!important;color:var(--navy)!important;padding:8px 18px!important;border-radius:50px!important;font-weight:700!important}
+.nav-cta:hover{background:var(--gold2)!important;transform:translateY(-1px)}
+.nav-actions{display:flex;align-items:center;gap:12px}
+.lang-switch{display:flex;gap:6px;align-items:center;margin-left:8px}
+.lang-switch a{border:1px solid rgba(255,255,255,.4);color:#fff;padding:5px 10px;border-radius:999px;font-size:.76rem;font-weight:600;transition:all .2s}
+.lang-switch a.lang-current{background:var(--gold);color:var(--navy);border-color:var(--gold)}
+.lang-switch a:hover:not(.lang-current){border-color:var(--gold);color:var(--gold)}
+.nav-toggle{display:none;width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.06);color:var(--white);align-items:center;justify-content:center;cursor:pointer;font-size:.95rem;transition:all .25s}
+.nav-toggle:hover{border-color:var(--gold);color:var(--gold)}
+@media(max-width:900px){.nav-links{display:none}.nav-toggle{display:flex}}
+@media(max-width:768px){
+  nav{padding:14px 5%}
+  .nav-links{display:none;position:absolute;top:74px;left:4%;right:4%;flex-direction:column;align-items:stretch;gap:0;background:rgba(10,22,40,.98);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.08);border-radius:20px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.45);padding:8px 0}
+  .nav-links.nav-open{display:flex}
+  .nav-links li{width:100%}
+  .nav-links a{display:block;width:100%;padding:13px 20px;border-radius:0;font-size:.92rem}
+  .nav-cta{margin:8px 14px 4px!important;text-align:center;border-radius:50px!important;width:calc(100% - 28px)!important}
+  .lang-switch{margin-left:0}
+}
+
+.footer-signature{padding:22px 5% 32px;border-top:1px solid rgba(255,255,255,.08);margin-top:40px;text-align:center;color:var(--muted);font-size:.9rem}.footer-signature strong{color:var(--white);font-weight:600}
+</style>
+</head>
+<body>
+<nav aria-label="Navegação principal" id="navbar" role="navigation">
+<a aria-label="Lipe Travel Show página inicial" class="nav-logo" href="index.html">
+<img alt="Lipe Travel Show" decoding="async" height="46" onerror="this.style.display='none'" src="carinha-portrait.jpg" width="46"/>
+<div class="nav-logo-text">
+<span class="nav-logo-name">Lipe Travel Show</span>
+<span class="nav-logo-sub">Viagens pelo Brasil e pelo Mundo</span>
+</div>
+</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="sobre-o-lipe.html">Sobre</a></li>
+<li><a href="index.html#destinations">Destinos</a></li>
+<li><a href="index.html#videos">Vídeos</a></li>
+<li><a class="nav-cta active" href="planeje-sua-viagem1.html">Planeje sua viagem</a></li>
+<li><a href="milhas-sem-complicacao-FINAL-hub-v7-seo.html">Milhas</a></li>
+<li><a href="index.html#social">Redes Sociais</a></li>
+<li><a class="nav-cta" href="index.html#media-kit">Parcerias &amp; Mídia Kit</a></li>
+</ul>
+<div class="nav-actions">
+<div aria-label="Seleção de idioma" class="lang-switch">
+<a aria-current="page" class="lang-current" href="planeje-sua-viagem1.html">PT</a>
+<a href="planeje-sua-viagem1-en.html">EN</a>
+<a href="planeje-sua-viagem1-es.html">ES</a>
+<a href="planeje-sua-viagem1-zh.html">中文</a>
+</div>
+<button aria-expanded="false" aria-label="Abrir menu de navegação" class="nav-toggle" id="navToggle" type="button">
+<i aria-hidden="true" class="fas fa-bars"></i>
+</button>
+</div>
+</nav>
+<main>
+<div class="page-inner">
+<section class="lp-hero">
+<div class="lp-hero-copy">
+<span class="eyebrow"><i class="fa-solid fa-compass"></i> Planejamento inteligente</span>
+<h1>Planeje sua viagem com atalhos mais inteligentes</h1>
+<p>Aqui eu junto voos, hotéis, experiências, seguro, milhas e IA para ajudar você a organizar a parte prática da viagem com mais clareza. Não é um shopping de links; é um hub para comparar caminhos e decidir melhor.</p>
+<p>Ela funciona melhor quando você já tem um rascunho de destino, região ou tipo de viagem. Se ainda estiver nessa fase anterior, passe primeiro pela home, por Brasil em camadas ou por América do Norte/Europa.</p><div class="lp-hero-meta">
+<span><i class="fa-solid fa-plane"></i> Voos e conexões</span>
+<span><i class="fa-solid fa-hotel"></i> Hotéis e bairros certos</span>
+<span><i class="fa-solid fa-shield-heart"></i> Seguro para cada tipo de viagem</span>
+</div>
+</div>
+<aside class="lp-hero-visual">
+<div>
+<small><i class="fa-solid fa-lightbulb"></i> Como usar esta página</small>
+<h2>Comece pelo que pesa mais</h2>
+<p>Passagem, hotel, experiências, seguro, milhas ou IA: entre pelo bloco que hoje mais pesa na sua decisão e use o resto como camada de apoio.</p>
+</div>
+<video autoplay="" loop="" muted="" playsinline="" preload="metadata" src="plan-your-trip-video-hero.mp4" style="width:100%; display:block; border-radius:18px; margin-top:14px; aspect-ratio:16/9; object-fit:cover; border:1px solid rgba(255,255,255,.10);"></video><div class="lp-hero-cta">
+<a class="btn-primary" href="planeje-sua-viagem.html"><i class="fa-solid fa-plane-up"></i> Ver voos</a>
+<a class="btn-secondary" href="planeje-sua-viagem.html"><i class="fa-solid fa-bed"></i> Ver hotéis</a>
+</div>
+</aside>
+</section>
+<section class="section" id="voos">
+<div class="section-header"><h2>Voos</h2><p><strong>Para quem já tem datas na cabeça e quer comparar cenários sem perder tempo.</strong> Use este bloco quando a passagem começa a ditar orçamento, rota ou duração da viagem. Compare preços, rotas e conexões sem cair em armadilhas comuns. Use os links abaixo como ponto de partida para buscar passagens com mais critério.</p></div>
+<div class="grid">
+<div class="card">
+<div class="card-header">
+<div class="card-icon"><i class="fa-solid fa-plane-departure"></i></div>
+<div>
+<h3>Buscar voos pelo mundo</h3>
+<p>Uma porta de entrada para comparar preços e rotas de voos internacionais saindo do Brasil.</p>
+<div class="card-meta">Ferramenta parceira de pesquisa de passagens</div>
+</div>
+</div>
+<div class="card-actions">
+<a href="https://skyscanner.pxf.io/9VL6Xj" rel="noopener noreferrer sponsored" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Pesquisar voos</a>
+<a href="como-pesquisar-voos-para-estados-unidos-v3-sem-repeticao.html"><i class="fa-solid fa-book-open"></i> Ver guia para EUA</a>
+</div>
+</div>
+<div class="card">
+<div class="card-header">
+<div class="card-icon"><i class="fa-solid fa-plane-arrival"></i></div>
+<div>
+<h3>Voos dentro do Brasil</h3>
+<p>Dicas para pesquisar melhor passagens nacionais, entender horários, conexões e trechos que valem mais a pena.</p>
+<div class="card-meta">Conteúdo editorial + ferramenta parceira</div>
+</div>
+</div>
+<div class="card-actions">
+<a href="como-pesquisar-voos-no-brasil-seo-v3.html"><i class="fa-solid fa-book-open"></i> Ver guia completo</a>
+<a href="https://skyscanner.pxf.io/9VL6Xj" rel="noopener noreferrer sponsored" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Pesquisar voos</a>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="hoteis">
+<div class="section-header"><h2>Hotéis &amp; bairros certos</h2><p><strong>Para quem já fechou cidade ou bairro e quer filtrar opções com mais critério.</strong> Use este bloco quando a hospedagem deixa de ser detalhe e passa a moldar a experiência. Escolher onde ficar muda completamente a viagem, então combine episódios com pesquisa de hospedagem para decidir melhor bairro e tipo de hotel.</p></div>
+<div class="grid">
+<div class="card">
+<div class="card-header">
+<div class="card-icon"><i class="fa-solid fa-bed"></i></div>
+<div>
+<h3>Buscar hotéis</h3>
+<p>Explore e reserve hotéis no mundo todo — do boutique ao luxo, com tarifas competitivas.</p>
+<div class="card-meta">Ferramenta parceira de hospedagem</div>
+</div>
+</div>
+<div class="card-actions">
+<a href="https://www.awin1.com/cread.php?awinmid=117697&amp;awinaffid=2819302&amp;ued=https%3A%2F%2Fwww.hotels.com%2F" rel="noopener noreferrer sponsored" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver hotéis</a>
+</div>
+</div>
+<div class="card">
+<div class="card-header">
+<div class="card-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+<div>
+<h3>Bairros e bases certas</h3>
+<p>Use os roteiros e vídeos do Lipe para entender que bairro faz mais sentido para o seu perfil em cada cidade.</p>
+<div class="card-meta">Conteúdo editorial + planejamento</div>
+</div>
+</div>
+<div class="card-actions">
+<a href="destinos-e-videos.html"><i class="fa-solid fa-video"></i> Ver destinos &amp; vídeos</a>
+<a href="brasil-videos-e-planejamento.html"><i class="fa-solid fa-map"></i> Ver bases no Brasil</a>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="experiencias">
+<div class="section-header"><h2>Experiências &amp; passeios</h2><p><strong>Para quem não quer deixar ingressos e passeios para a última hora.</strong> Use este bloco quando o roteiro já ganhou forma e você precisa reduzir fricção na parte prática. Ingressos, tours guiados, passeios e atividades entram aqui para evitar correria e decisão apressada.</p></div>
+<div class="grid">
+<div class="card">
+<div class="card-header">
+<div class="card-icon"><i class="fa-solid fa-ticket"></i></div>
+<div>
+<h3>Ingressos e passeios</h3>
+<p>Seleção de experiências para planejar o que fazer em cada destino com tranquilidade.</p>
+<div class="card-meta">Parceiro de experiências e tours</div>
+</div>
+</div>
+<div class="card-actions">
+<a href="https://www.getyourguide.com/" rel="noopener noreferrer sponsored" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver experiências</a>
+</div>
+</div>
+<div class="card">
+<div class="card-header">
+<div class="card-icon"><i class="fa-solid fa-car"></i></div>
+<div>
+<h3>Aluguel de carro</h3>
+<p>Conteúdo e ferramenta para comparar locadoras, entender seguros e decidir se faz sentido alugar carro na sua viagem.</p>
+<div class="card-meta">Conteúdo + link para parceiro</div>
+</div>
+</div>
+<div class="card-actions">
+<a href="aluguel-de-carro-lp-mestra-pt-final-corrigida-v8-crossed-minimal.html"><i class="fa-solid fa-book-open"></i> Ver guia de carro</a>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="seguro">
+<div class="section-header"><h2>Seguro viagem</h2><p><strong>Para quem quer viajar protegido sem cair na armadilha do “qualquer plano serve”.</strong> Use este bloco quando a viagem já está desenhada e você precisa comparar cobertura, perfil e risco com mais calma. Viajar sem seguro pode sair caro, então vale decidir isso com critério e não por impulso.</p></div>
+<div class="grid">
+<div class="card">
+<div class="card-header">
+<div class="card-icon"><i class="fa-solid fa-shield-heart"></i></div>
+<div>
+<h3>Seguro internacional</h3>
+<p>Guia para entender coberturas, limites e detalhes importantes antes de contratar.</p>
+<div class="card-meta">Conteúdo + ferramenta parceira</div>
+</div>
+</div>
+<div class="card-actions">
+<a href="seguro-viagem-internacional.html"><i class="fa-solid fa-book-open"></i> Ver guia</a>
+</div>
+</div>
+<div class="card">
+<div class="card-header">
+<div class="card-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+<div>
+<h3>Seguro para viagens no Brasil</h3>
+<p>Quando faz sentido, que tipo de cobertura olhar e como comparar planos para viagens nacionais.</p>
+<div class="card-meta">Conteúdo + recomendação</div>
+</div>
+</div>
+<div class="card-actions">
+<a href="seguro-viagem-nacional.html"><i class="fa-solid fa-book-open"></i> Ver guia</a>
+</div>
+</div>
+</div>
+</section>
+<section class="section" id="ia-milhas">
+<div class="section-header"><h2>IA &amp; milhas a seu favor</h2><p><strong>Para quem quer pesquisar melhor antes de comprar e decidir com mais consciência.</strong> Use este bloco quando a viagem já saiu da inspiração e entrou na fase de testar cenários, emissões, prompts e escolhas com mais método.</p></div>
+<div class="two-col">
+<div class="card">
+<span class="badge"><i class="fa-solid fa-wand-magic-sparkles"></i> IA aplicada à viagem</span>
+<h3>Use IA sem cair em roteiro genérico</h3>
+<p><strong>Para quem quer usar IA como assistente de pesquisa, não como roteirista genérico.</strong> Use este bloco quando você já tem um ponto de partida e quer comparar bases, bairros, deslocamentos e possibilidades com mais inteligência.</p><p>Em vez de aceitar o primeiro roteiro pronto, você pode usar IA como copiloto para testar ideias, comparar bases, mapear bairros e entender melhor o contexto dos destinos.</p>
+<ul class="list">
+<li>Como fazer boas perguntas para a IA antes de viajar.</li>
+<li>Exemplos práticos de prompts para viagem.</li>
+<li>Como combinar IA com conteúdo do Lipe Travel Show.</li>
+</ul>
+<div class="card-actions" style="margin-top:12px">
+<a href="como-usar-ia-para-planejar-viagem.html"><i class="fa-solid fa-book-open"></i> Ver guia de IA</a>
+</div>
+</div>
+<div class="card">
+<span class="badge"><i class="fa-solid fa-coins"></i> Milhas sem mistério</span>
+<h3>Guia de milhas para vida real</h3>
+<p><strong>Para quem está entre pagar no dinheiro ou emitir com pontos e quer decidir com calma.</strong> Use este bloco quando tarifa, saldo e flexibilidade começam a pesar mais do que o impulso da oferta.</p><p>Conteúdo para comparar pontos, programas e decisões de compra sem hype, sem promessas mágicas e com lógica de viagem real.</p>
+<ul class="list">
+<li>Quando faz sentido usar milhas e quando é melhor pagar.</li>
+<li>Como olhar para promoções com mais cuidado.</li>
+<li>Como encaixar milhas na sua estratégia de viagem.</li>
+</ul>
+<div class="card-actions" style="margin-top:12px">
+<a href="guias-de-milhas.html"><i class="fa-solid fa-book-open"></i> Ver guias de milhas</a>
+</div>
+</div>
+</div>
+</section>
+<section class="cta-strip">
+<div class="cta-strip-text">Se você já decidiu o destino ou está quase lá, combine esta página com os roteiros e episódios. Ela funciona como hub de decisão: primeiro você entende o caminho, depois usa voos, hotéis, experiências, seguro, milhas e IA com mais inteligência.</div>
+<a class="btn-secondary" href="destinos-e-videos.html"><i class="fa-solid fa-earth-americas"></i> Ver destinos &amp; vídeos</a>
+</section>
+</div>
+</main>
+<footer class="footer-signature">Feito com muito ❤️ pelo <strong>Lipe Travel Hub</strong></footer><script>
+const navbar=document.getElementById('navbar');
+const navLinks=document.getElementById('navLinks');
+const navToggle=document.getElementById('navToggle');
+if(navbar){navbar.classList.add('scrolled');window.addEventListener('scroll',()=>{if(window.scrollY>10){navbar.classList.add('scrolled')}else{navbar.classList.add('scrolled')}});} 
+if(navToggle&&navLinks){navToggle.addEventListener('click',()=>{const open=navLinks.classList.toggle('nav-open');navToggle.setAttribute('aria-expanded',open?'true':'false');});}
+</script>
+</body>
+</html>

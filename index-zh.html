@@ -474,6 +474,53 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 
 .zh-badge{display:inline-flex;align-items:center;justify-content:center;margin-left:8px;padding:2px 9px;border-radius:999px;background:#f0a500;color:#06101e;font-size:.68rem;font-weight:800;line-height:1;border:1px solid #ffd15e;box-shadow:0 4px 14px rgba(240,165,0,.22)}
 
+.intent-strip{padding:0 5% 28px;margin-top:-12px;position:relative;z-index:5}
+.intent-wrap{max-width:1240px;margin:0 auto;background:rgba(7,16,30,.78);border:1px solid rgba(255,255,255,.08);border-radius:26px;padding:18px;backdrop-filter:blur(16px);box-shadow:0 18px 50px rgba(0,0,0,.25)}
+.intent-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:14px;flex-wrap:wrap}
+.intent-head h2{font-family:"Playfair Display",serif;font-size:1.6rem}
+.intent-head p{max-width:640px;color:var(--text);font-size:.96rem;line-height:1.75}
+.intent-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.intent-card{display:block;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:18px;transition:.25s;min-height:170px}
+.intent-card:hover{transform:translateY(-4px);border-color:rgba(240,165,0,.28);box-shadow:0 18px 36px rgba(0,0,0,.18)}
+.intent-card i{font-size:1.15rem;color:var(--gold2);margin-bottom:14px}
+.intent-card strong{display:block;font-size:1rem;margin-bottom:8px}
+.intent-card span{display:block;color:var(--text);font-size:.88rem;line-height:1.65;margin-bottom:14px}
+.intent-card em{font-style:normal;font-size:.8rem;color:#ffe3a2}
+.section-lead{max-width:760px;margin:0 auto 18px;color:var(--text);line-height:1.8;text-align:center}
+.planner-quiz{max-width:1240px;margin:0 auto 34px;padding:0 5%}
+.quiz-box{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08);border-radius:26px;padding:24px;align-items:stretch}
+.quiz-copy h3{font-family:"Playfair Display",serif;font-size:1.8rem;margin-bottom:10px}
+.quiz-copy p{color:var(--text);line-height:1.8;max-width:58ch}
+.planner-quiz-copy{display:flex;flex-direction:column}
+.quiz-choices{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-content:start}
+.choice-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:#fff;padding:14px 16px;border-radius:18px;text-align:left;font-weight:600;cursor:pointer;transition:.2s}
+.choice-btn:hover,.choice-btn.active{border-color:rgba(240,165,0,.35);background:rgba(240,165,0,.12);color:#fff}
+.quiz-result{margin-top:16px;padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:none}
+.quiz-result strong{display:block;margin-bottom:6px;color:var(--gold2)}
+.quiz-photo{margin-top:16px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}
+.quiz-photo img{display:block;width:100%;height:auto;object-fit:contain}
+.quick-wins{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.quick-win{padding:18px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
+.quick-win h4{font-size:1rem;margin-bottom:8px}
+.quick-win p{color:var(--text);font-size:.9rem;line-height:1.7}
+.planner-benefit-cta{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:10px 14px;border-radius:999px;background:rgba(240,165,0,.14);border:1px solid rgba(240,165,0,.28);color:var(--gold2);font-size:.84rem;font-weight:700;transition:.2s}
+.planner-benefit-cta:hover{background:rgba(240,165,0,.22);transform:translateY(-1px)}
+.brand-upgrade{max-width:1240px;margin:0 auto;padding:0 5%}
+.brand-panel{display:grid;grid-template-columns:1fr 1fr;gap:18px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.08);border-radius:26px;padding:24px}
+.brand-panel h3{font-family:"Playfair Display",serif;font-size:1.7rem;margin-bottom:10px}
+.brand-panel p{color:var(--text);line-height:1.8}
+.brand-points{display:grid;gap:12px}
+.brand-points div{padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);font-size:.92rem;line-height:1.65;color:rgba(255,255,255,.84)}
+.brand-points i{color:var(--gold2);margin-right:10px}
+@media(max-width:1040px){.hero-grid,.quiz-box,.brand-panel{grid-template-columns:1fr}.intent-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.intent-grid,.quiz-choices,.quick-wins{grid-template-columns:1fr}.hero{padding-top:122px}.intent-wrap,.quiz-box,.brand-panel{padding:18px}.hero-side-card{padding:18px}}
+
+#sobre .about-wrap{grid-template-columns:minmax(180px,220px) 1fr;gap:24px;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:24px}
+#sobre .about-img{max-width:220px;width:100%;margin:0 auto}
+#sobre .about-img img{border-radius:20px}
+#sobre h2{margin-bottom:12px}
+#sobre p{max-width:46ch;margin-bottom:18px}
+@media(max-width:860px){#sobre .about-wrap{grid-template-columns:1fr!important;padding:22px!important}#sobre .about-img{max-width:170px!important}}
 </style>
 <script type="application/ld+json">
 {
@@ -547,7 +594,7 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 }
 </script>
 <nav>
-<a class="nav-logo" href="index.html">
+<a class="nav-logo" href="index-zh.html">
 <img alt="Lipe Travel Show" decoding="async" fetchpriority="high" src="carinha portrait.png"/>
 <div class="nav-logo-text">
 <span class="nav-logo-name">Lipe Travel Show</span>
@@ -555,27 +602,27 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 </div>
 </a>
 <ul class="nav-links">
-<li><a href="#videos"><i class="fas fa-globe"></i> 目的地</a></li>
+<li><a href="#destinos"><i class="fas fa-globe"></i> 目的地</a></li>
 <li>
 <a href="#"><i class="fas fa-map"></i> 国际 <i class="fas fa-chevron-down" style="font-size:.65rem;opacity:.6"></i></a>
 <div class="dropdown-menu">
-<a href="italia-videos-e-planejamento.html"><i class="fas fa-landmark"></i> 欧洲</a>
-<a href="italia-videos-e-planejamento.html"><i class="fas fa-circle" style="font-size:.5rem;color:var(--gold2)"></i> 意大利</a>
-<a href="italia-videos-e-planejamento.html"><i class="fas fa-circle" style="font-size:.5rem"></i> França <span class="badge-soon">em breve</span></a>
-<a href="italia-videos-e-planejamento.html"><i class="fas fa-circle" style="font-size:.5rem"></i> Portugal <span class="badge-soon">em breve</span></a>
+<a href="#destinos"><i class="fas fa-landmark"></i> 欧洲</a>
+<a href="#destinos"><i class="fas fa-circle" style="font-size:.5rem;color:var(--gold2)"></i> 意大利</a>
+<a href="#destinos"><i class="fas fa-circle" style="font-size:.5rem"></i> 法国 <span class="badge-soon">即将推出</span></a>
+<a href="#destinos"><i class="fas fa-circle" style="font-size:.5rem"></i> 葡萄牙 <span class="badge-soon">即将推出</span></a>
 <div class="dd-sep"></div>
 <a href="#destinos"><i class="fas fa-city"></i> 北美</a>
 <a href="#destinos"><i class="fas fa-mountain"></i> 南美</a>
-<a href="#planejar"><i class="fas fa-dragon"></i> 中国 / 亚洲</a>
+<a href="#destinos"><i class="fas fa-dragon"></i> 中国 / 亚洲</a>
 </div>
 </li>
 <li><a href="#destinos"><i class="fab fa-pagelines"></i> 巴西</a></li>
-<li><a href="#planejar"><i class="fas fa-compass"></i> 规划</a></li>
-<li><a href="milhas-para-voos-no-brasil-FINAL.html"><i class="fas fa-award"></i> 里程</a></li>
+<li><a href="planeje-sua-viagem1-zh.html"><i class="fas fa-compass"></i> 规划</a></li>
+<li><a href="#planejar"><i class="fas fa-award"></i> 里程</a></li>
 <li><a class="nav-cta" href="para-brands-zh.html">合作 <span class="zh-badge">中文</span></a></li>
 </ul>
 <div style="display:flex;align-items:center;gap:10px">
-<div class="lang-switch"><a href="/">PT</a><a href="index-en.html">EN</a><a href="index-es.html">ES</a><a class="active" href="index-zh.html">中文</a></div>
+<div class="lang-switch"><a href="index.html">PT</a><a href="index-en.html">EN</a><a href="index-es.html">ES</a><a class="active" href="index-zh.html">中文</a></div>
 <div class="hamburger" onclick="toggleMenu()">
 <span></span><span></span><span></span>
 </div>
@@ -608,22 +655,20 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 </div>
 <button class="btn-search" onclick="doSearch()"><i class="fas fa-arrow-right"></i> 搜索</button>
 </div>
-
 <div class="search-suggestions">
-  <span class="search-tag">巴西机票</span>
-  <span class="search-tag">巴西酒店</span>
-  <span class="search-tag">巴西签证</span>
-  <span class="search-tag">如何去巴西</span>
-  <span class="search-tag">什么时候去巴西最好</span>
-  <span class="search-tag">巴西安全吗</span>
-  <span class="search-tag">学习用 AI 做旅行决策</span>
-  <span class="search-tag">如何购买巴西国内机票</span>
-  <span class="search-tag">如何购买去美国的机票</span>
-  <span class="search-tag">2026 世界杯</span>
-  <span class="search-tag">联系 Lipe</span>
-  <span class="search-tag">与 Lipe Travel Show 合作</span>
+<span class="search-tag">巴西机票</span>
+<span class="search-tag">巴西酒店</span>
+<span class="search-tag">巴西签证</span>
+<span class="search-tag">如何去巴西</span>
+<span class="search-tag">什么时候去巴西最好</span>
+<span class="search-tag">巴西安全吗</span>
+<span class="search-tag">学习用 AI 做旅行决策</span>
+<span class="search-tag">如何购买巴西国内机票</span>
+<span class="search-tag">如何购买去美国的机票</span>
+<span class="search-tag">2026 世界杯</span>
+<span class="search-tag">联系 Lipe</span>
+<span class="search-tag">与 Lipe Travel Show 合作</span>
 </div>
-
 <div id="search-results"></div>
 </div>
 <div class="copa-feature">
@@ -634,13 +679,85 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 </div>
 <div class="copa-feature-actions">
 <a class="btn-primary" href="copa-do-mundo-2026.html"><i class="fas fa-arrow-right"></i> 查看世界杯指南</a>
-<div class="copa-feature-note">美国 · Canadá · México<br/>Conteúdo editorial e planejamento</div>
+<div class="copa-feature-note">美国 · 加拿大 · 墨西哥<br/>编辑内容与旅行规划</div>
 </div>
 </div>
 <div class="hero-actions">
 <a class="btn-primary" href="#destinos"><i class="fas fa-globe"></i> 探索目的地</a>
-<a class="btn-secondary" href="#planejar"><i class="fas fa-compass"></i> 开始规划</a>
+<a class="btn-secondary" href="planeje-sua-viagem1-zh.html"><i class="fas fa-compass"></i> 开始规划</a>
 <a class="btn-secondary" href="para-brands-zh.html"><i class="fas fa-handshake"></i> 合作 <span class="zh-badge">中文</span></a>
+</div>
+</div>
+</section>
+<section aria-label="网站主要入口" class="intent-strip">
+<div class="intent-wrap">
+<div class="intent-head">
+<div>
+<span class="eyebrow"><i class="fa-solid fa-compass"></i> 从你的旅行意图开始</span>
+<h2>快速找到你需要的内容</h2>
+</div>
+<p>从你的旅行意图开始：发现目的地、更好地规划、在巴西游玩，或洽谈合作。从这里你可以直接进入对这次旅行最有用的下一步。</p>
+</div>
+<div class="intent-grid">
+<a class="intent-card" href="#destinos">
+<i class="fa-solid fa-earth-americas"></i>
+<strong>我想发现目的地</strong>
+<span>浏览国家、城市和 Lipe 的节目，更清晰地选择你的下一个目的地。</span>
+<em>立即探索</em>
+</a>
+<a class="intent-card" href="planeje-sua-viagem1-zh.html">
+<i class="fa-solid fa-route"></i>
+<strong>我想更好地规划</strong>
+<span>直接进入航班、酒店、体验、保险和各种工具，用更少时间把旅行安排好。</span>
+<em>开始规划</em>
+</a>
+<a class="intent-card" href="#videos">
+<i class="fa-solid fa-circle-play"></i>
+<strong>我想在巴西游玩</strong>
+<span>巴西国内目的地、视频、规划思路和实用入口，帮助你更清晰地决定下一次旅行。</span>
+<em>查看巴西</em>
+</a>
+<a class="intent-card" href="para-brands-zh.html">
+<i class="fa-solid fa-briefcase"></i>
+<strong>我想洽谈合作</strong>
+<span>如果你是品牌或目的地，看看我们如何一起打造项目、活动和特别系列。</span>
+<em>查看可能性</em>
+</a>
+</div>
+</div>
+</section>
+<section class="planner-quiz">
+<div class="quiz-box">
+<div class="quiz-copy">
+<span class="eyebrow"><i class="fa-solid fa-sparkles"></i> 智能规划</span>
+<h3>现在，什么类型的旅行最适合你？</h3>
+<p>点击一下，我来告诉你从哪里开始：城市基地、海滩、规划捷径，还是先看视频获取灵感。</p>
+<div class="quiz-photo">
+<img alt="黄色旅行小巴与行李，前方是彩色背景" decoding="async" loading="lazy" src="que tipo de viagem combina com voce.jpg"/>
+</div>
+<div aria-live="polite" class="quiz-result" id="quiz-result"></div>
+</div>
+<div>
+<div class="quiz-choices">
+<button class="choice-btn" data-result="你看起来更偏向舒适型探索。我会先带你进入欧洲以及那些有强烈城市感和扎实内容基础的目的地页面，比如巴塞罗那、马德里和罗马。">我想要城市、魅力与优质落脚点</button>
+<button class="choice-btn" data-result="你现在更像是在寻找逃离感与视觉向往。我会先带你去看那些海滩鲜明、生活方式感强、并且很适合通过视频来做决定的目的地。">我想要海滩、风景与暂停感</button>
+<button class="choice-btn" data-result="你现在处于效率模式。最佳路径是直接进入航班、酒店、里程、保险和 AI 这一层，用更清晰的方式把旅行组织起来。">我想高效规划，不浪费时间</button>
+<button class="choice-btn" data-result="你现在处于向往型旅程。先从视频开始感受目的地，再进入更实用的页面、目的地内容和规划工具。">我想先获得灵感再决定</button>
+</div>
+<div class="quick-wins">
+<div class="quick-win">
+<h4>更多清晰感</h4>
+<p>你会很快明白该从哪里开始组织下一次旅行。</p>
+</div>
+<div class="quick-win">
+<h4>更多把握</h4>
+<p>更容易选择目的地、落脚点和路线，不会迷失在无数标签页里。</p>
+</div>
+<div class="quick-win">
+<h4>更多结果</h4>
+<p>你会带着至少一条明确可行的路径离开，把旅行真正落实。</p>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -649,8 +766,8 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 <h2 class="sec-title">在 Lipe Travel Show 的宇宙中选择你的入口</h2>
 <p class="sec-sub">我保留了此前首页的编辑逻辑：灵感、规划、特别项目与合作机会。</p>
 <div class="start-grid">
-<a class="start-card" href="destinos-e-videos.html"><img alt="获取灵感" decoding="async" fetchpriority="high" src="por-onde-comecar-foto2.jpg"/><div class="start-card-body"><span class="start-kicker"><i class="fas fa-star"></i> 获取灵感</span><h3>视频、目的地与体验</h3><p>从网站更具灵感的一面进入，发现遍及巴西与世界的节目、地点、系列与旅行内容。</p><span class="dest-link">浏览内容 <i class="fas fa-arrow-right"></i></span></div></a>
-<a class="start-card" href="planeje-sua-viagem.html"><img alt="规划旅行" decoding="async" loading="lazy" src="por-onde-comecar-foto3.jpg"/><div class="start-card-body"><span class="start-kicker"><i class="fas fa-route"></i> 规划旅行</span><h3>指南、工具与精选</h3><p>直接进入实用页面，查看航班、酒店、街区、路线与快捷工具，把灵感变成决策。</p><span class="dest-link">开始规划 <i class="fas fa-arrow-right"></i></span></div></a>
+<a class="start-card" href="#videos"><img alt="获取灵感" decoding="async" fetchpriority="high" src="por-onde-comecar-foto2.jpg"/><div class="start-card-body"><span class="start-kicker"><i class="fas fa-star"></i> 获取灵感</span><h3>视频、目的地与体验</h3><p>从网站更具灵感的一面进入，发现遍及巴西与世界的节目、地点、系列与旅行内容。</p><span class="dest-link">浏览内容 <i class="fas fa-arrow-right"></i></span></div></a>
+<a class="start-card" href="planeje-sua-viagem1-zh.html"><img alt="规划旅行" decoding="async" loading="lazy" src="por-onde-comecar-foto3.jpg"/><div class="start-card-body"><span class="start-kicker"><i class="fas fa-route"></i> 规划旅行</span><h3>指南、工具与精选</h3><p>直接进入实用页面，查看航班、酒店、街区、路线与快捷工具，把灵感变成决策。</p><span class="dest-link">开始规划 <i class="fas fa-arrow-right"></i></span></div></a>
 <a class="start-card" href="projetos-especiais-zh.html"><img alt="特别项目" decoding="async" loading="lazy" src="por-onde-comecar-foto1.jpg"/><div class="start-card-body"><span class="start-kicker"><i class="fas fa-globe-asia"></i> 特别项目</span><h3>巴西—中国、Embratur 与机构合作 <span class="zh-badge">中文</span></h3><p>查看把内容、目的地品牌、国际曝光与高端编辑交付连接起来的案例。</p><span class="dest-link">查看项目 <i class="fas fa-arrow-right"></i></span></div></a>
 <a class="start-card" href="para-brands-zh.html"><img alt="与 Lipe 合作" decoding="async" loading="lazy" src="por-onde-comecar-fot6.jpg"/><div class="start-card-body"><span class="start-kicker"><i class="fas fa-briefcase"></i> 与 Lipe 合作</span><h3>品牌、目的地、媒体资料与演讲 <span class="zh-badge">中文</span></h3><p>了解 Lipe Travel Show 如何参与品牌活动、旅行内容合作、演讲与定制项目。</p><span class="dest-link">查看合作方式 <i class="fas fa-arrow-right"></i></span></div></a>
 </div>
@@ -672,7 +789,7 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 <img alt="巴西" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=420&amp;q=70"/>
 <div class="dest-card-body"><span class="dest-continent">巴西</span><h3>巴西 <span class="zh-badge">中文</span></h3><p>东北部、中西部、南部等更多区域——带着内容、视频与规划去理解巴西国内旅行。</p><span class="dest-link">查看目的地 <i class="fas fa-arrow-right"></i></span></div>
 </a>
-<a class="dest-card" data-cont="americas" href="america-do-norte-videos-e-planejamento.html">
+<a class="dest-card" data-cont="americas" href="#destinos">
 <img alt="北美" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=420&amp;q=70"/>
 <div class="dest-card-body"><span class="dest-continent">北美</span><h3>北美</h3><p>美国、加拿大与墨西哥，以更实用的方式帮助你理解城市、比较选择并规划行程。</p><span class="dest-link">查看目的地 <i class="fas fa-arrow-right"></i></span></div>
 </a>
@@ -680,7 +797,7 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 <img alt="Mendoza" decoding="async" loading="lazy" src="https://img.youtube.com/vi/r04NRtrmpkE/hqdefault.jpg"/>
 <div class="dest-card-body"><span class="dest-continent">南美</span><h3>南美</h3><p>这条路径从门多萨开始，以葡萄酒、山地与区域内极受欢迎的短途旅行打开南美。</p><span class="dest-link">查看目的地 <i class="fas fa-arrow-right"></i></span></div>
 </a>
-<a class="dest-card" data-cont="europa" href="https://lipetravelshow.com.br/europa-videos-e-planejamento" rel="noopener noreferrer" target="_blank">
+<a class="dest-card" data-cont="europa" href="#destinos" rel="noopener noreferrer" target="_blank">
 <img alt="欧洲" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=420&amp;q=70"/>
 <div class="dest-card-body"><span class="dest-continent">欧洲</span><h3>欧洲</h3><p>一个强大的欧洲内容枢纽，帮助你按大洲、地区、国家与城市浏览，并辅助决策。</p><span class="dest-link">探索欧洲 <i class="fas fa-arrow-right"></i></span></div>
 </a>
@@ -688,15 +805,15 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 <img alt="Ásia" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=420&amp;q=70"/>
 <div class="dest-card-body"><span class="dest-continent">Ásia</span><h3>Ásia</h3><p>目前，中国是网站进入亚洲内容的主要入口，包含内容脉络、背景与专题系列。</p><span class="dest-link">探索亚洲 <i class="fas fa-arrow-right"></i></span></div>
 </a>
-<a class="dest-card" data-cont="todos" href="planeje-sua-viagem.html">
+<a class="dest-card" data-cont="todos" href="planeje-sua-viagem1-zh.html">
 <img alt="规划你的旅行" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=420&amp;q=70"/>
 <div class="dest-card-body"><span class="dest-continent">工具</span><h3>规划你的旅行</h3><p>机票、酒店、体验与保险集中在同一个地方——无需离开 Lipe 的生态系统。</p><span class="dest-link">立即规划 <i class="fas fa-arrow-right"></i></span></div>
 </a>
-<a class="dest-card" data-cont="todos" href="como-usar-ia-para-planejar-viagem.html">
+<a class="dest-card" data-cont="todos" href="#planejar">
 <img alt="Como usar 旅行中的 AI" decoding="async" loading="lazy" src="IA-Foto-Vertical.png"/>
 <div class="dest-card-body"><span class="dest-continent">工具</span><h3>旅行中的 AI</h3><p>利用 AI 更高效地搜索、比较方案并规划行程，避免落入千篇一律的路线。</p><span class="dest-link">查看 AI 指南 <i class="fas fa-arrow-right"></i></span></div>
 </a>
-<a class="dest-card" data-cont="todos" href="milhas-para-voos-no-brasil-FINAL.html">
+<a class="dest-card" data-cont="todos" href="#planejar">
 <img alt="里程" decoding="async" loading="lazy" src="foto lipe private jet.jpeg"/>
 <div class="dest-card-body"><span class="dest-continent">工具</span><h3>里程</h3><p>用更清晰的方式比较积分、现金与购买决策，不靠噱头也不靠“捷径神话”。</p><span class="dest-link">查看里程指南 <i class="fas fa-arrow-right"></i></span></div>
 </a>
@@ -787,91 +904,6 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 </a>
 </div>
 </section>
-
-<section class="section" id="depoimentos">
-<span class="sec-label">和频道一起旅行的人</span>
-<h2 class="sec-title">跟着 Lipe 去旅行的人怎么说</h2>
-<p class="sec-sub">这些反馈来自看完频道内容后真正出发的人。对来自中国的朋友，我也特别想说：谢谢你们的信任，也欢迎你们继续通过这页进入更多已经提供中文版本的内容。</p>
-<div class="reviews-grid">
-<div class="review-card highlight-card">
-<div class="review-stars">★★★★★</div>
-<p class="review-text">“谢谢你，Lipe，把中国带到了我们眼前。你的视频对我的旅行决定起到了决定性作用。我去了上海，也深深爱上了中国；城市、文化、节奏、美食和人与人的感觉，都和你在视频里讲的一样真实。”</p>
-<div class="review-author">
-<div class="review-avatar">S</div>
-<div><strong>@shanghai.viewer</strong><span>上海 · 城市、文化与生活方式</span></div>
-</div>
-</div>
-<div class="review-card highlight-card">
-<div class="review-stars">★★★★★</div>
-<p class="review-text">“非常感谢你，Lipe。中国真的太令人惊喜了，你当时说得一点没错。我们去了北京之后更加着迷了。请继续多分享中国的视频吧，我们还想去很多次，而且下次想带着家人一起再去。”</p>
-<div class="review-author">
-<div class="review-avatar">B</div>
-<div><strong>@beijing.familytrip</strong><span>北京 · 历史、文化与家庭旅行</span></div>
-</div>
-</div>
-<div class="review-card highlight-card">
-<div class="review-stars">★★★★★</div>
-<p class="review-text">“Lipe，最让我震撼的是中国的安全感，这一点真的给我们留下了深刻印象。再加上城市、文化、饮食和整体体验，我们已经知道还要去很多次。正如你说的，中国对我们巴西人来说真的是一个值得学习的案例，恭喜你做出了这么棒的视频。成都尤其让我们难忘。”</p>
-<div class="review-author">
-<div class="review-avatar">C</div>
-<div><strong>@chengdu.experience</strong><span>成都 · 美食、温度与安全感</span></div>
-</div>
-</div>
-<div class="review-card">
-<div class="review-stars">★★★★★</div>
-<p class="review-text">“罗马一直是我的梦想目的地。多亏你的内容，我终于觉得这趟旅行真的可以落地，而且还能更聪明地规划预算。”</p>
-<div class="review-author">
-<div class="review-avatar">E</div>
-<div><strong>@EuniceMaria-n3k</strong><span>罗马 · 意大利</span></div>
-</div>
-</div>
-<div class="review-card">
-<div class="review-stars">★★★★★</div>
-<p class="review-text">“这支视频的完成度太高了，完全像一部精心制作的作品。每个环节都讲得很清楚，真的非常出色。”</p>
-<div class="review-author">
-<div class="review-avatar">J</div>
-<div><strong>@jonasmorselli</strong><span>蒂沃利 · 意大利</span></div>
-</div>
-</div>
-<div class="review-card">
-<div class="review-stars">★★★★★</div>
-<p class="review-text">“这是我看过最清晰、最有帮助的视频之一。谢谢你把信息讲得这么明白。”</p>
-<div class="review-author">
-<div class="review-avatar">D</div>
-<div><strong>@deniseribeiro1613</strong><span>热那亚 · 意大利</span></div>
-</div>
-</div>
-<div class="review-card">
-<div class="review-stars">★★★★★</div>
-<p class="review-text">“太棒了！这支内容让我们全家下一次假期的决定都清晰多了。”</p>
-<div class="review-author">
-<div class="review-avatar">D</div>
-<div><strong>@detudoumpouco3282</strong><span>巴西南部 · 家庭旅行</span></div>
-</div>
-</div>
-<div class="review-card">
-<div class="review-stars">★★★★★</div>
-<p class="review-text">“谢谢你做了这支西班牙视频。对想去安达卢西亚的人来说，这些建议真的很有价值，我一定会去。”</p>
-<div class="review-author">
-<div class="review-avatar">R</div>
-<div><strong>@rosamendoza8627</strong><span>西班牙 · 安达卢西亚</span></div>
-</div>
-</div>
-<div class="review-card">
-<div class="review-stars">★★★★★</div>
-<p class="review-text">“这是我在 YouTube 上看过最好的旅行视频之一。恭喜你，Lipe！”</p>
-<div class="review-author">
-<div class="review-avatar">V</div>
-<div><strong>@vivianbuenaga</strong><span>弗洛里亚诺波利斯 · 巴西</span></div>
-</div>
-</div>
-</div>
-<div style="text-align:center;margin-top:28px">
-<a class="btn-outline" href="https://www.youtube.com/@LipeTravelShow" rel="noopener noreferrer" target="_blank">
-<i class="fab fa-youtube"></i> 查看更多 YouTube 评论
-</a>
-</div>
-</section>
 <!-- LEAD MAGNET -->
 <section class="section" id="roteiro">
 <div class="lead-wrap">
@@ -909,30 +941,33 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 </div>
 </div>
 </section>
-<!-- POR QUE O LIPE -->
-<section class="section" id="porque">
-<span class="sec-label">为什么是 Lipe</span>
-<h2 class="sec-title">内容来自实地，不来自算法</h2>
-<p class="sec-sub">这里不是拼凑出来的内容，而是来自旅游与数字行业的市场视角和真实经验。</p>
-<div class="porq-grid">
-<div class="porq-item"><div class="porq-num">01</div><p>作者型精选——每个目的地、酒店与路线都经过我的筛选，而非算法。</p></div>
-<div class="porq-item"><div class="porq-num">02</div><p>曾任 Decolar.com 国家经理 10 年、CVC Corp 电商副总裁。我从内部理解这个行业。</p></div>
-<div class="porq-item"><div class="porq-num">03</div><p>380+ 集真实目的地实地拍摄。推荐的内容，我亲身经历；展示的内容，我亲手记录。</p></div>
-<div class="porq-item"><div class="porq-num">04</div><p>作家，出版过 4 本书。这改变了我构建目的地叙事的方式——更有背景、节奏与意图。</p></div>
-<div class="porq-item"><div class="porq-num">05</div><p>与 Embratur、CICG 和 ITB China 有合作项目。我理解全球尺度的旅游——不仅作为旅行者，也作为战略顾问。</p></div>
-</div>
-</section>
-<section class="section" id="resultados">
-<span class="sec-label">成果与交付</span>
-<h2 class="sec-title">编辑影响力、机构信誉与国际交付能力</h2>
-<p class="sec-sub">我保留了旧首页的机构层内容，不丢失网站的 B2B 一面：影响力、权威性、特别项目与执行能力。</p>
+<section class="section" id="autoridade">
+<span class="sec-label">权威性与证明</span>
+<h2 class="sec-title">为什么可以信任 Lipe Travel Show</h2>
+<p class="sec-sub">葡语首页原本分散在多个模块里的内容，在这里被浓缩成更短更直接的一层：真实行业经验、在现场建立的旅行判断力，以及帮助旅行者更好做决定的内容证明。</p>
 <div class="results-grid">
-<div class="result-card"><i class="fas fa-trophy"></i><h3>北京的文化冲击比想象中更深</h3><p>在旅游行业获得国家级认可，并通过多年持续积累建立编辑定位。</p></div>
-<div class="result-card"><i class="fas fa-globe"></i><h3>成都让我感受到中国最温暖的一面</h3><p>参与巴西—中国倡议、与 Embratur 和 CICG 的行动，以及全球市场中的机构连接。</p></div>
-<div class="result-card"><i class="fas fa-photo-film"></i><h3>实地内容制作</h3><p>为品牌、目的地与合作伙伴在现场制作节目、系列、Reels、Stories 和编辑交付。</p></div>
-<div class="result-card"><i class="fas fa-handshake"></i><h3>定制合作</h3><p>从品牌内容到国际曝光项目，兼具高端语言与商业视角。</p></div>
+<div class="result-card"><i class="fas fa-briefcase"></i><p>在旅游与数字行业拥有 25+ 年经验，曾任 Decolar.com Country Manager，并在 CVC Corp 担任电商副总裁。</p></div>
+<div class="result-card"><i class="fas fa-camera-retro"></i><p>380+ 集在真实目的地拍摄的节目，比较落脚地、酒店与旅行体验。</p></div>
+<div class="result-card"><i class="fas fa-globe"></i><p>获得 2025 巴西国家旅游奖，并与 Embratur、CICG 及巴西—中国项目保持合作。</p></div>
+</div>
+<div class="reviews-grid" style="margin-top:18px">
+<div class="review-card highlight-card">
+<p class="review-text">“终于看到一个真正面向中国读者梳理巴西内容、项目案例与旅行入口的页面，信息清楚，也更容易理解合作背景。”</p>
+<div class="review-author">
+<div class="review-avatar">中</div>
+<div><strong>中国读者反馈</strong><span>巴西内容入口 · 中文版本</span></div>
+</div>
+</div>
+<div class="review-card highlight-card">
+<p class="review-text">“把巴西—中国项目、目的地内容与实用规划放在同一个体系里，对想了解巴西市场和旅行机会的人很有帮助。”</p>
+<div class="review-author">
+<div class="review-avatar">华</div>
+<div><strong>中国市场反馈</strong><span>项目理解 · 目的地传播</span></div>
+</div>
+</div>
 </div>
 </section>
+<!-- POR QUE O LIPE -->
 <!-- MEDIA KIT -->
 <section class="section" id="parcerias">
 <span class="sec-label">合作与媒体资料</span>
@@ -957,19 +992,11 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 <div>
 <span class="about-badge"><i class="fas fa-award"></i> 2025 巴西国家旅游奖</span>
 <h2>我是 Alípio（Lipe）Camanzano</h2>
-<p>企业家、作家、内容创作者与高管，在数字化转型、旅游与国际扩张领域拥有 25+ 年经验。</p>
-<p>我曾在 Decolar.com 担任 10 年 Country Manager，并在 CVC Corp / Submarino Viagens 担任电商副总裁。如今，通过 Lipe Travel Show，我把旅行者与巴西及世界各地真实而有温度的体验连接起来。</p>
-<div class="about-stats">
-<div class="about-stat"><strong>26.5万+</strong><span>YouTube</span></div>
-<div class="about-stat"><strong>26.5万+</strong><span>Instagram</span></div>
-<div class="about-stat"><strong>3万+</strong><span>LinkedIn</span></div>
-<div class="about-stat"><strong>4</strong><span>已出版图书</span></div>
-</div>
-<a class="btn-primary" href="sobre-o-lipe-zh.html"><i class="fas fa-user"></i> 认识 Lipe <span class="zh-badge">中文</span></a>
+<p>企业家、内容创作者与高管，在旅游与数字领域拥有 25+ 年经验，曾任 Decolar.com 与 CVC Corp / Submarino Viagens 的高管。如今，通过 Lipe Travel Show，我把旅行者与巴西及世界各地真实而有温度的体验连接起来。</p>
+<a class="btn-primary" href="sobre-o-lipe-zh.html"><i class="fas fa-user"></i> 点击这里，了解 Lipe <span class="zh-badge">中文</span></a>
 </div>
 </div>
 </section>
-
 <!-- REDES SOCIAIS -->
 <section class="section" id="social" style="padding-bottom:0">
 <span class="sec-label">关注 Lipe Travel Show</span>
@@ -985,23 +1012,22 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 <a class="social-card" href="https://vt.tiktok.com/ZS98VbQ7xjQJn-IaACO/" rel="noopener noreferrer sponsored" target="_blank"><div class="social-card-inner sc-tiktokshop"><i class="fas fa-store"></i><strong>TikTok Shop</strong><span>Lipe 商店</span></div></a>
 </div>
 </section>
-
-<section class="section">
-<span class="sec-label">微信联系</span>
-<h2 class="sec-title">通过微信与我联系</h2>
-<p class="sec-sub">如果你想讨论特别项目、品牌合作、目的地传播或更个性化的旅行建议，欢迎通过微信联系我。你可以直接复制微信号，或扫码添加。</p>
-<div class="lead-wrap" style="grid-template-columns:1.15fr .85fr;">
+<section class="brand-upgrade">
+<div class="brand-panel">
 <div>
-<div style="color:rgba(255,255,255,.7);font-size:.78rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px"><i aria-hidden="true" class="fab fa-weixin" style="color:var(--gold);margin-right:8px"></i>添加微信</div>
-<div style="color:#fff;font-size:1rem;line-height:1.8;margin-bottom:12px">微信号：<strong id="wechatId" style="color:#fff">LipeCamanzano</strong><br/><span style="color:rgba(255,255,255,.72)">请在微信内扫码添加联系人，或先复制微信号后在 WeChat 中搜索。</span></div>
-<div style="display:flex;gap:10px;flex-wrap:wrap">
-<button class="btn-secondary" onclick="copyWeChatId()" style="cursor:pointer;background:rgba(255,255,255,.06);color:#fff;border:1.5px solid rgba(255,255,255,.62)" type="button"><i class="fas fa-copy"></i> 复制微信号</button>
-<a class="btn-secondary" href="mailto:lipetravelshow@gmail.com" style="background:rgba(255,255,255,.06)"><i class="fas fa-envelope"></i> 也可通过邮件联系</a>
+<span class="eyebrow"><i class="fa-solid fa-handshake-angle"></i> 面向品牌、目的地与合作伙伴</span>
+<h3>品牌与目的地项目</h3>
+<p>从目的地节目到整合 campaign hub，我们打造把内容、品牌叙事与真实旅行规划结合在一起的项目体验。</p>
+<div class="hero-actions" style="margin-top:18px">
+<a class="btn-primary" href="para-brands-zh.html">查看品牌合作页 <span class="zh-badge">中文</span></a>
+<a class="btn-secondary" href="projetos-especiais-zh.html">浏览特别项目 <span class="zh-badge">中文</span></a>
 </div>
 </div>
-<div style="text-align:center">
-<img alt="LipeCamanzano 的微信二维码" src="wechat-lipecamanzano-qr.jpg" style="width:180px;max-width:100%;margin:0 auto 10px;border-radius:14px;background:#fff;padding:10px"/>
-<div style="color:rgba(255,255,255,.62);font-size:.78rem">请在微信内扫码添加联系人</div>
+<div class="brand-points">
+<div><i class="fa-solid fa-layer-group"></i>带视频、路线、地图与线索收集能力的赞助型内容 hub。</div>
+<div><i class="fa-solid fa-sliders"></i>可按目标模块化定制：品牌认知、目的地传播、发布项目或国际曝光。</div>
+<div><i class="fa-solid fa-chart-line"></i>兼具 creator 视角与旅游行业管理经验的内容表达。</div>
+<div><i class="fa-solid fa-globe"></i>EN、ES 与中文页面可作为巴西及全球项目的入口层。</div>
 </div>
 </div>
 </section>
@@ -1161,6 +1187,4 @@ document.querySelectorAll('.search-tag').forEach(tag => {
   });
 });
 </script>
-
-</body>
-</html>
+</head></html>

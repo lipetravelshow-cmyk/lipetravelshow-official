@@ -9,17 +9,17 @@
 <meta content="Lipe Travel Show" property="og:title"/>
 <meta content="Destinations, planning, videos and tools for travellers who want to make smarter choices." property="og:description"/>
 <meta content="og-lipe.jpg" property="og:image"/>
-<link rel="canonical" href="https://www.lipetravelshow.com.br/index-en.html">
-<link rel="alternate" hreflang="pt-BR" href="https://www.lipetravelshow.com.br/">
-<link rel="alternate" hreflang="en" href="https://www.lipetravelshow.com.br/index-en.html">
-<link rel="alternate" hreflang="es" href="https://www.lipetravelshow.com.br/index-es.html">
-<link rel="alternate" hreflang="zh-CN" href="https://www.lipetravelshow.com.br/index-zh.html">
-<link rel="alternate" hreflang="x-default" href="https://www.lipetravelshow.com.br/">
-<meta name="robots" content="index, follow">
-<meta property="og:url" content="https://www.lipetravelshow.com.br/index-en.html">
-<meta property="og:type" content="website">
-<meta property="og:locale" content="en_US">
-<meta name="author" content="Alípio Lipe Camanzano">
+<link href="https://www.lipetravelshow.com.br/index-en.html" rel="canonical"/>
+<link href="https://www.lipetravelshow.com.br/" hreflang="pt-BR" rel="alternate"/>
+<link href="https://www.lipetravelshow.com.br/index-en.html" hreflang="en" rel="alternate"/>
+<link href="https://www.lipetravelshow.com.br/index-es.html" hreflang="es" rel="alternate"/>
+<link href="https://www.lipetravelshow.com.br/index-zh.html" hreflang="zh-CN" rel="alternate"/>
+<link href="https://www.lipetravelshow.com.br/" hreflang="x-default" rel="alternate"/>
+<meta content="index, follow" name="robots"/>
+<meta content="https://www.lipetravelshow.com.br/index-en.html" property="og:url"/>
+<meta content="website" property="og:type"/>
+<meta content="en_US" property="og:locale"/>
+<meta content="Alípio Lipe Camanzano" name="author"/>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -452,6 +452,55 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 @media(max-width:1100px){.reviews-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:860px){.reviews-grid{grid-template-columns:1fr}}
 
+.intent-strip{padding:0 5% 28px;margin-top:-12px;position:relative;z-index:5}
+.intent-wrap{max-width:1240px;margin:0 auto;background:rgba(7,16,30,.78);border:1px solid rgba(255,255,255,.08);border-radius:26px;padding:18px;backdrop-filter:blur(16px);box-shadow:0 18px 50px rgba(0,0,0,.25)}
+.intent-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:14px;flex-wrap:wrap}
+.intent-head h2{font-family:"Playfair Display",serif;font-size:1.6rem}
+.intent-head p{max-width:640px;color:var(--text);font-size:.96rem;line-height:1.75}
+.intent-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.intent-card{display:block;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:18px;transition:.25s;min-height:170px}
+.intent-card:hover{transform:translateY(-4px);border-color:rgba(240,165,0,.28);box-shadow:0 18px 36px rgba(0,0,0,.18)}
+.intent-card i{font-size:1.15rem;color:var(--gold2);margin-bottom:14px}
+.intent-card strong{display:block;font-size:1rem;margin-bottom:8px}
+.intent-card span{display:block;color:var(--text);font-size:.88rem;line-height:1.65;margin-bottom:14px}
+.intent-card em{font-style:normal;font-size:.8rem;color:#ffe3a2}
+.section-lead{max-width:760px;margin:0 auto 18px;color:var(--text);line-height:1.8;text-align:center}
+.planner-quiz{max-width:1240px;margin:0 auto 34px;padding:0 5%}
+.quiz-box{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08);border-radius:26px;padding:24px;align-items:stretch}
+.quiz-copy h3{font-family:"Playfair Display",serif;font-size:1.8rem;margin-bottom:10px}
+.quiz-copy p{color:var(--text);line-height:1.8;max-width:58ch}
+.quiz-photo{margin-top:16px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}
+.quiz-photo img{display:block;width:100%;height:auto;object-fit:contain}
+.planner-quiz-copy{display:flex;flex-direction:column}
+.quiz-choices{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-content:start}
+.choice-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:#fff;padding:14px 16px;border-radius:18px;text-align:left;font-weight:600;cursor:pointer;transition:.2s}
+.choice-btn:hover,.choice-btn.active{border-color:rgba(240,165,0,.35);background:rgba(240,165,0,.12);color:#fff}
+.quiz-result{margin-top:16px;padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:none}
+.quiz-result strong{display:block;margin-bottom:6px;color:var(--gold2)}
+.planner-quiz-media{margin-top:18px;border-radius:20px;overflow:hidden;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.04);box-shadow:0 18px 40px rgba(0,0,0,.18);flex:1;min-height:0}
+.planner-quiz-media img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 34%}
+@media(max-width:1040px){.planner-quiz-copy{display:block}.planner-quiz-media{min-height:0}.planner-quiz-media img{height:auto;object-fit:cover;aspect-ratio:4/5;object-position:center 32%}}
+.quick-wins{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.quick-win{padding:18px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
+.quick-win h4{font-size:1rem;margin-bottom:8px}
+.quick-win p{color:var(--text);font-size:.9rem;line-height:1.7}
+.planner-benefit-cta{display:inline-flex;align-items:center;gap:8px;margin-top:14px;padding:10px 14px;border-radius:999px;background:rgba(240,165,0,.14);border:1px solid rgba(240,165,0,.28);color:var(--gold2);font-size:.84rem;font-weight:700;transition:.2s}
+.planner-benefit-cta:hover{background:rgba(240,165,0,.22);transform:translateY(-1px)}
+.brand-upgrade{max-width:1240px;margin:0 auto;padding:0 5%}
+.brand-panel{display:grid;grid-template-columns:1fr 1fr;gap:18px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.08);border-radius:26px;padding:24px}
+.brand-panel h3{font-family:"Playfair Display",serif;font-size:1.7rem;margin-bottom:10px}
+.brand-panel p{color:var(--text);line-height:1.8}
+.brand-points{display:grid;gap:12px}
+.brand-points div{padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);font-size:.92rem;line-height:1.65;color:rgba(255,255,255,.84)}
+.brand-points i{color:var(--gold2);margin-right:10px}
+@media(max-width:1040px){.hero-grid,.quiz-box,.brand-panel{grid-template-columns:1fr}.intent-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.intent-grid,.quiz-choices,.quick-wins{grid-template-columns:1fr}.hero{padding-top:122px}.intent-wrap,.quiz-box,.brand-panel{padding:18px}.hero-side-card{padding:18px}}
+#sobre .about-wrap{grid-template-columns:minmax(180px,220px) 1fr;gap:24px;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:24px}
+#sobre .about-img{max-width:220px;width:100%;margin:0 auto}
+#sobre .about-img img{border-radius:20px}
+#sobre h2{margin-bottom:12px}
+#sobre p{max-width:46ch;margin-bottom:18px}
+@media(max-width:860px){#sobre .about-wrap{grid-template-columns:1fr!important;padding:22px!important}#sobre .about-img{max-width:170px!important}}
 </style>
 <script type="application/ld+json">
 {
@@ -524,36 +573,35 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
   ]
 }
 </script>
-
 </head>
 <body>
 <!-- NAV -->
 <nav>
 <a class="nav-logo" href="index-en.html">
-    <img src="carinha portrait.png" alt="Lipe Travel Show" decoding="async" fetchpriority="high">
-    <div class="nav-logo-text">
-      <span class="nav-logo-name">Lipe Travel Show</span>
-      <span class="nav-logo-sub">Travel across Brazil & the world</span>
-    </div>
-  </a>
+<img alt="Lipe Travel Show" decoding="async" fetchpriority="high" src="carinha portrait.png"/>
+<div class="nav-logo-text">
+<span class="nav-logo-name">Lipe Travel Show</span>
+<span class="nav-logo-sub">Travel across Brazil &amp; the world</span>
+</div>
+</a>
 <ul class="nav-links">
-<li><a href="#videos"><i class="fas fa-globe"></i>Destinations</a></li>
+<li><a href="watch-and-plan.html"><i class="fas fa-globe"></i>Destinations</a></li>
 <li>
 <a href="#"><i class="fas fa-map"></i>International<i class="fas fa-chevron-down" style="font-size:.65rem;opacity:.6"></i></a>
 <div class="dropdown-menu">
-<a href="italy-videos-and-planning.html"><i class="fas fa-landmark"></i>Europe</a>
+<a href="europe-videos-and-planning.html"><i class="fas fa-landmark"></i>Europe</a>
 <a href="italy-videos-and-planning.html"><i class="fas fa-circle" style="font-size:.5rem;color:var(--gold2)"></i>Italy</a>
-<a href="italy-videos-and-planning.html"><i class="fas fa-circle" style="font-size:.5rem"></i>France<span class="badge-soon">coming soon</span></a>
-<a href="italy-videos-and-planning.html"><i class="fas fa-circle" style="font-size:.5rem"></i>Portugal<span class="badge-soon">coming soon</span></a>
+<a href="europe-videos-and-planning.html"><i class="fas fa-circle" style="font-size:.5rem"></i>France<span class="badge-soon">coming soon</span></a>
+<a href="europe-videos-and-planning.html"><i class="fas fa-circle" style="font-size:.5rem"></i>Portugal<span class="badge-soon">coming soon</span></a>
 <div class="dd-sep"></div>
-<a href="#destinos"><i class="fas fa-city"></i>North America</a>
+<a href="north-america-videos-and-planning.html"><i class="fas fa-city"></i>North America</a>
 <a href="#destinos"><i class="fas fa-mountain"></i>South America</a>
-<a href="#planejar"><i class="fas fa-dragon"></i>China / Asia</a>
+<a href="#destinos"><i class="fas fa-dragon"></i>China / Asia</a>
 </div>
 </li>
 <li><a href="#destinos"><i class="fab fa-pagelines"></i>Brazil</a></li>
-<li><a href="#planejar"><i class="fas fa-compass"></i>Plan</a></li>
-<li><a href="#milhas"><i class="fas fa-award"></i>Miles</a></li>
+<li><a href="planeje-sua-viagem1-en.html"><i class="fas fa-compass"></i>Plan</a></li>
+<li><a href="miles-for-domestic-flights-LIMPO-PACOTE-COMPLETO-LINKS-AJUSTADOS-v2.html"><i class="fas fa-award"></i>Miles</a></li>
 <li><a class="nav-cta" href="para-brands.html">Partnerships</a></li>
 </ul>
 <div style="display:flex;align-items:center;gap:10px">
@@ -563,77 +611,143 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 </div>
 </div>
 </nav>
-
 <!-- HERO -->
 <section class="hero">
-  <video autoplay class="hero-video" id="heroVideo" loop muted playsinline poster="carinha-portrait.jpg">
-    <source src="banner.mp4" type="video/mp4">
-  </video>
-  <div class="hero-video-overlay"></div>
-  <div class="hero-inner">
-    <span class="eyebrow"><i class="fas fa-award"></i> National Tourism Award 2025 — Press & Social Media</span>
-    <h1>Curated travel across Brazil and the world with real perspective and lived experience</h1>
-    <p class="hero-sub">If you want inspiration, better planning and smarter travel decisions, this is the right place. Destinations, itineraries, videos and practical tools gathered in one ecosystem.</p>
-    <div class="hero-stats">
-      <div class="hero-stat"><strong>265K+</strong><span>YouTube subscribers</span></div>
-      <div class="hero-stat"><strong>265K+</strong><span>Instagram followers</span></div>
-      <div class="hero-stat"><strong>380+</strong><span>Episodes filmed</span></div>
-      <div class="hero-stat"><strong>30K+</strong><span>LinkedIn connections</span></div>
-      <div class="hero-stat"><strong>25+</strong><span>Years in travel & digital</span></div>
-    </div>
-
-    <!-- SEARCH BOX -->
-    <div class="search-box">
-      <div class="search-row">
-        <div class="search-input-wrap">
-          <i class="fas fa-search"></i>
-          <input type="text" id="search-input" placeholder="Search for a destination, city or travel topic..." autocomplete="off">
-        </div>
-        <button class="btn-search" onclick="doSearch()"><i class="fas fa-arrow-right"></i> Search</button>
-      </div>
-      <div class="search-suggestions">
-        <a class="search-tag" href="https://skyscanner.pxf.io/9VL6Xj" target="_blank" rel="noopener noreferrer sponsored">Flights</a>
-        <a class="search-tag" href="https://www.awin1.com/cread.php?awinmid=117697&awinaffid=2819302&ued=https%3A%2F%2Fwww.hotels.com%2F" target="_blank" rel="noopener noreferrer sponsored">Hotels</a>
-        <a class="search-tag" href="https://www.getyourguide.com/" target="_blank" rel="noopener noreferrer sponsored">Tours</a>
-        <a class="search-tag" href="car-rental-pillar-page-en-final-links-corrigidos-v8-crossed-minimal.html">Car rental</a>
-        <a class="search-tag" href="how-to-use-ai-to-plan-a-trip-seo.html">Learn to buy with AI</a>
-        <a class="search-tag" href="how-to-search-flights-in-brazil-seo-v3.html">How to buy domestic flights</a>
-        <a class="search-tag" href="how-to-search-flights-to-the-united-states-v3-no-repetition.html">How to buy flights to the USA</a>
-        <a class="search-tag" href="world-cup-2026.html">World Cup 2026</a>
-      </div>
-      <div id="search-results"></div>
-    </div>
-
-
-    <div class="copa-feature">
-      <div class="copa-feature-copy">
-        <small><i class="fas fa-futbol"></i> Special feature 2026</small>
-        <h3>World Cup 2026</h3>
-        <p>A practical guide for travellers who want to plan the World Cup intelligently: host cities, tickets, hotels, transport and the first steps to organise the trip without wasting time.</p>
-      </div>
-      <div class="copa-feature-actions">
-        <a class="btn-primary" href="world-cup-2026.html"><i class="fas fa-arrow-right"></i> Explore the guide</a>
-        <div class="copa-feature-note">USA · Canada · Mexico<br>Editorial guide and trip planning</div>
-      </div>
-    </div>
-
-    <div class="hero-actions">
-      <a class="btn-primary" href="#destinos"><i class="fas fa-globe"></i> Explore destinations</a>
-      <a class="btn-secondary" href="#planejar"><i class="fas fa-compass"></i> Start planning</a>
-      <a class="btn-secondary" href="para-brands.html"><i class="fas fa-handshake"></i> Partnerships</a>
-    </div>
-  </div>
+<video autoplay="" class="hero-video" id="heroVideo" loop="" muted="" playsinline="" poster="carinha-portrait.jpg">
+<source src="banner.mp4" type="video/mp4"/>
+</video>
+<div class="hero-video-overlay"></div>
+<div class="hero-inner">
+<span class="eyebrow"><i class="fas fa-award"></i> National Tourism Award 2025 — Press &amp; Social Media</span>
+<h1>Curated travel across Brazil and the world with real perspective and lived experience</h1>
+<p class="hero-sub">If you want inspiration, better planning and smarter travel decisions, this is the right place. Destinations, itineraries, videos and practical tools gathered in one ecosystem.</p>
+<div class="hero-stats">
+<div class="hero-stat"><strong>265K+</strong><span>YouTube subscribers</span></div>
+<div class="hero-stat"><strong>265K+</strong><span>Instagram followers</span></div>
+<div class="hero-stat"><strong>380+</strong><span>Episodes filmed</span></div>
+<div class="hero-stat"><strong>30K+</strong><span>LinkedIn connections</span></div>
+<div class="hero-stat"><strong>25+</strong><span>Years in travel &amp; digital</span></div>
+</div>
+<!-- SEARCH BOX -->
+<div class="search-box">
+<div class="search-row">
+<div class="search-input-wrap">
+<i class="fas fa-search"></i>
+<input autocomplete="off" id="search-input" placeholder="Search for a destination, city or travel topic..." type="text"/>
+</div>
+<button class="btn-search" onclick="doSearch()"><i class="fas fa-arrow-right"></i> Search</button>
+</div>
+<div class="search-suggestions">
+<a class="search-tag" href="https://skyscanner.pxf.io/9VL6Xj" rel="noopener noreferrer sponsored" target="_blank">Flights</a>
+<a class="search-tag" href="https://www.awin1.com/cread.php?awinmid=117697&amp;awinaffid=2819302&amp;ued=https%3A%2F%2Fwww.hotels.com%2F" rel="noopener noreferrer sponsored" target="_blank">Hotels</a>
+<a class="search-tag" href="https://www.getyourguide.com/" rel="noopener noreferrer sponsored" target="_blank">Tours</a>
+<a class="search-tag" href="car-rental-pillar-page-en-final-links-corrigidos-v8-crossed-minimal.html">Car rental</a>
+<a class="search-tag" href="how-to-use-ai-to-plan-a-trip-seo.html">Learn to buy with AI</a>
+<a class="search-tag" href="how-to-search-flights-in-brazil-seo-v3.html">How to buy domestic flights</a>
+<a class="search-tag" href="how-to-search-flights-to-the-united-states-v3-no-repetition.html">How to buy flights to the USA</a>
+<a class="search-tag" href="world-cup-2026.html">World Cup 2026</a>
+</div>
+<div id="search-results"></div>
+</div>
+<div class="copa-feature">
+<div class="copa-feature-copy">
+<small><i class="fas fa-futbol"></i> Special feature 2026</small>
+<h3>World Cup 2026</h3>
+<p>A practical guide for travellers who want to plan the World Cup intelligently: host cities, tickets, hotels, transport and the first steps to organise the trip without wasting time.</p>
+</div>
+<div class="copa-feature-actions">
+<a class="btn-primary" href="world-cup-2026.html"><i class="fas fa-arrow-right"></i> Explore the guide</a>
+<div class="copa-feature-note">USA · Canada · Mexico<br/>Editorial guide and trip planning</div>
+</div>
+</div>
+<div class="hero-actions">
+<a class="btn-primary" href="#destinos"><i class="fas fa-globe"></i> Explore destinations</a>
+<a class="btn-secondary" href="planeje-sua-viagem1-en.html"><i class="fas fa-compass"></i> Start planning</a>
+<a class="btn-secondary" href="para-brands.html"><i class="fas fa-handshake"></i> Partnerships</a>
+</div>
+</div>
 </section>
-
+<section aria-label="Main entry points of the site" class="intent-strip">
+<div class="intent-wrap">
+<div class="intent-head">
+<div>
+<span class="eyebrow"><i class="fa-solid fa-compass"></i> Start with your intention</span>
+<h2>Find quickly what you need</h2>
+</div>
+<p>Start with your intention: descobrir destinos, planejar melhor, ver vídeos ou falar sobre projetos. Daqui você já segue para o próximo passo mais útil da sua viagem.</p>
+</div>
+<div class="intent-grid">
+<a class="intent-card" href="watch-and-plan.html">
+<i class="fa-solid fa-earth-americas"></i>
+<strong>I want to discover destinations</strong>
+<span>Browse countries, cities and Lipe's episodes to choose your next destination with more clarity.</span>
+<em>Explore now</em>
+</a>
+<a class="intent-card" href="planeje-sua-viagem1-en.html">
+<i class="fa-solid fa-route"></i>
+<strong>I want to plan better</strong>
+<span>Go straight to flights, hotels, experiences, insurance and tools that help you organise your trip in less time.</span>
+<em>Start planning</em>
+</a>
+<a class="intent-card" href="#videos">
+<i class="fa-solid fa-circle-play"></i>
+<strong>I want to travel in Brazil</strong>
+<span>Domestic destinations with videos, planning ideas and practical starting points to decide your next trip with more clarity.</span>
+<em>See Brazil</em>
+</a>
+<a class="intent-card" href="projects-for-brands-destinations-en.html">
+<i class="fa-solid fa-briefcase"></i>
+<strong>I want to talk about partnerships</strong>
+<span>If you are a brand or destination, see how we can create projects, campaigns and special series together.</span>
+<em>See possibilities</em>
+</a>
+</div>
+</div>
+</section>
+<section class="planner-quiz">
+<div class="quiz-box">
+<div class="quiz-copy">
+<span class="eyebrow"><i class="fa-solid fa-sparkles"></i> Smart planning</span>
+<h3>What type of trip suits you right now?</h3>
+<p>Answer in one click and I will show you where to start: city base, beach, planning shortcuts or videos to get inspired.</p>
+<div class="quiz-photo">
+<img alt="Yellow travel van with luggage against a colourful backdrop" decoding="async" loading="lazy" src="que tipo de viagem combina com voce.jpg"/>
+</div>
+<div aria-live="polite" class="quiz-result" id="quiz-result"></div>
+</div>
+<div>
+<div class="quiz-choices">
+<button class="choice-btn" data-result="You seem to be in discovery mode with comfort. I would take you first to Europe and strong urban bases with rich repertoire, like Barcelona, Madrid and Rome.">I want a city with charm and a solid base</button>
+<button class="choice-btn" data-result="You seem to be looking for escape and visual desire. I would take you to striking beaches, lifestyle and Brazilian destinations with strong decision-making power through video.">I want beach, scenery and a real pause</button>
+<button class="choice-btn" data-result="You are in efficiency mode. The best path is to enter through flights, hotels, miles, insurance and AI to organise the trip with more clarity.">I want to plan without wasting time</button>
+<button class="choice-btn" data-result="You are on an aspirational journey. Start with the videos first and then move on to practical destination pages and planning tools.">I want inspiration before deciding</button>
+</div>
+<div class="quick-wins">
+<div class="quick-win">
+<h4>More clarity</h4>
+<p>You quickly understand where to begin organising your next trip.</p>
+</div>
+<div class="quick-win">
+<h4>More confidence</h4>
+<p>It becomes easier to choose the destination, base and route without getting lost in a thousand tabs.</p>
+</div>
+<div class="quick-win">
+<h4>More progress</h4>
+<p>You leave this section with at least one concrete path to turn the trip into reality.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section class="section" id="start-here">
 <span class="sec-label">Where to start</span>
 <h2 class="sec-title">Choose your path inside the Lipe Travel Show universe</h2>
-<p class="sec-sub">I kept the editorial logic of the previous homepage here: inspiration, planning, special projects and partnership opportunities.</p>
+<p class="sec-sub">Navigate the Lipe Travel Show universe by intention: inspiration, practical planning, special projects or partnership opportunities.</p>
 <div class="start-grid">
-<a class="start-card" href="watch-and-plan.html"><img alt="Inspirar-se" src="por-onde-comecar-foto2.jpg" decoding="async" fetchpriority="high"/><div class="start-card-body"><span class="start-kicker"><i class="fas fa-star"></i>Get inspired</span><h3>Videos, destinations and experiences</h3><p>Enter through the most aspirational side of the site and discover episodes, places, series and travel perspective across Brazil and the world.</p><span class="dest-link">Explore content<i class="fas fa-arrow-right"></i></span></div></a>
-<a class="start-card" href="plan-your-trip.html"><img alt="Planejar viagem" loading="lazy" src="por-onde-comecar-foto3.jpg" decoding="async"/><div class="start-card-body"><span class="start-kicker"><i class="fas fa-route"></i>Plan your trip</span><h3>Guides, tools and curation</h3><p>Go straight to practical pages with flights, hotels, neighbourhoods, itineraries and shortcuts that turn inspiration into decisions.</p><span class="dest-link">Start planning<i class="fas fa-arrow-right"></i></span></div></a>
-<a class="start-card" href="para-brands.html"><img alt="Projetos especiais" loading="lazy" src="por-onde-comecar-foto1.jpg" decoding="async"/><div class="start-card-body"><span class="start-kicker"><i class="fas fa-globe-asia"></i>Special projects</span><h3>Brazil–China, Embratur and institutional work</h3><p>See the projects that connect content, destination branding, international presence and premium editorial delivery.</p><span class="dest-link">View projects<i class="fas fa-arrow-right"></i></span></div></a>
-<a class="start-card" href="para-brands.html"><img alt="Trabalhar com o Lipe" loading="lazy" src="por-onde-comecar-fot6.jpg" decoding="async"/><div class="start-card-body"><span class="start-kicker"><i class="fas fa-briefcase"></i>Work with Lipe</span><h3>Brands, destinations, media kit and speaking</h3><p>See how Lipe Travel Show can work with campaigns, branded travel, speaking and tailor-made projects.</p><span class="dest-link">See possibilities<i class="fas fa-arrow-right"></i></span></div></a>
+<a class="start-card" href="watch-and-plan.html"><img alt="Inspirar-se" decoding="async" fetchpriority="high" src="por-onde-comecar-foto2.jpg"/><div class="start-card-body"><span class="start-kicker"><i class="fas fa-star"></i>Get inspired</span><h3>Videos, destinations and experiences</h3><p>Enter through the most aspirational side of the site and discover episodes, places, series and travel perspective across Brazil and the world.</p><span class="dest-link">Explore content<i class="fas fa-arrow-right"></i></span></div></a>
+<a class="start-card" href="planeje-sua-viagem1-en.html"><img alt="Planejar viagem" decoding="async" loading="lazy" src="por-onde-comecar-foto3.jpg"/><div class="start-card-body"><span class="start-kicker"><i class="fas fa-route"></i>Plan your trip</span><h3>Guides, tools and curation</h3><p>Go straight to practical pages with flights, hotels, neighbourhoods, itineraries and shortcuts that turn inspiration into decisions.</p><span class="dest-link">Start planning<i class="fas fa-arrow-right"></i></span></div></a>
+<a class="start-card" href="projects-for-brands-destinations-en.html"><img alt="Special projects" decoding="async" loading="lazy" src="por-onde-comecar-foto1.jpg"/><div class="start-card-body"><span class="start-kicker"><i class="fas fa-globe-asia"></i>Special projects</span><h3>Brazil–China, Embratur and institutional work</h3><p>See the projects that connect content, destination branding, international presence and premium editorial delivery.</p><span class="dest-link">View projects<i class="fas fa-arrow-right"></i></span></div></a>
+<a class="start-card" href="para-brands.html"><img alt="Trabalhar com o Lipe" decoding="async" loading="lazy" src="por-onde-comecar-fot6.jpg"/><div class="start-card-body"><span class="start-kicker"><i class="fas fa-briefcase"></i>Work with Lipe</span><h3>Brands, destinations, media kit and speaking</h3><p>See how Lipe Travel Show can work with campaigns, branded travel, speaking and tailor-made projects.</p><span class="dest-link">See possibilities<i class="fas fa-arrow-right"></i></span></div></a>
 </div>
 </section>
 <!-- DESTINOS EM DESTAQUE -->
@@ -649,39 +763,38 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 <button class="filter-btn" onclick="filterDest(\'brasil\',this)">🇧🇷 Brazil</button>
 </div>
 <div class="destinos-grid" id="destinos-grid">
-
-    <a class="dest-card" href="brazil-videos-and-planning.html" data-cont="brasil">
-      <img src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=420&q=70" alt="Brazil" loading="lazy" decoding="async">
-      <div class="dest-card-body"><span class="dest-continent">Brazil</span><h3>Brazil</h3><p>Northeast, Central-West, South and more — domestic travel with videos, planning and editorial curation.</p><span class="dest-link">See destination <i class="fas fa-arrow-right"></i></span></div>
-    </a>
-    <a class="dest-card" href="north-america-videos-and-planning.html" data-cont="americas">
-      <img src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=420&q=70" alt="North America" loading="lazy" decoding="async">
-      <div class="dest-card-body"><span class="dest-continent">North America</span><h3>North America</h3><p>The United States, Canada and Mexico organized through more useful angles for cities, comparison and planning.</p><span class="dest-link">See destination <i class="fas fa-arrow-right"></i></span></div>
-    </a>
-    <a class="dest-card" href="https://www.youtube.com/watch?v=r04NRtrmpkE" target="_blank" rel="noopener noreferrer" data-cont="americas">
-      <img src="https://img.youtube.com/vi/r04NRtrmpkE/hqdefault.jpg" alt="Mendoza" loading="lazy" decoding="async">
-      <div class="dest-card-body"><span class="dest-continent">South America</span><h3>South America</h3><p>Mendoza opens this layer with wine, mountains and one of the region’s most charming escapes.</p><span class="dest-link">See destination <i class="fas fa-arrow-right"></i></span></div>
-    </a>
-    <a class="dest-card" href="europe-videos-and-planning.html" target="_blank" rel="noopener noreferrer" data-cont="europa">
-      <img src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=420&q=70" alt="Europe" loading="lazy" decoding="async">
-      <div class="dest-card-body"><span class="dest-continent">Europe</span><h3>Europe</h3><p>A strong hub to navigate by continent, regions, countries and cities, with pages designed to inspire and help decision-making.</p><span class="dest-link">Explore Europe <i class="fas fa-arrow-right"></i></span></div>
-    </a>
-    <a class="dest-card" href="https://www.youtube.com/@LipeTravelShow" target="_blank" rel="noopener noreferrer" data-cont="asia">
-      <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=420&q=70" alt="Asia" loading="lazy" decoding="async">
-      <div class="dest-card-body"><span class="dest-continent">Asia</span><h3>Asia</h3><p>China is currently the main gateway into Asia on the site, with context, editorial perspective and a web series.</p><span class="dest-link">Explore Asia <i class="fas fa-arrow-right"></i></span></div>
-    </a>
-    <a class="dest-card" href="plan-your-trip.html" data-cont="todos">
-      <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=420&q=70" alt="Plan your trip" loading="lazy" decoding="async">
-      <div class="dest-card-body"><span class="dest-continent">Tool</span><h3>Plan your trip</h3><p>Flights, hotels, experiences and insurance in one place — without leaving the Lipe ecosystem.</p><span class="dest-link">Plan now <i class="fas fa-arrow-right"></i></span></div>
-    </a>
-    <a class="dest-card" href="how-to-use-ai-to-plan-a-trip-seo.html" data-cont="todos">
-      <img src="IA-Foto-Vertical.png" alt="How to use AI for travel" loading="lazy" decoding="async">
-      <div class="dest-card-body"><span class="dest-continent">Tool</span><h3>AI for travel</h3><p>Use AI to research better, compare options and plan without falling into generic itineraries.</p><span class="dest-link">See AI guide <i class="fas fa-arrow-right"></i></span></div>
-    </a>
-    <a class="dest-card" href="miles-for-domestic-flights-LIMPO-PACOTE-COMPLETO-LINKS-AJUSTADOS-v2.html" data-cont="todos">
-      <img src="foto lipe private jet.jpeg" alt="Points & miles" loading="lazy" decoding="async">
-      <div class="dest-card-body"><span class="dest-continent">Tool</span><h3>Miles</h3><p>Clearer guides to compare points, cash and buying decisions without hype or magic shortcuts.</p><span class="dest-link">See miles guides <i class="fas fa-arrow-right"></i></span></div>
-    </a>
+<a class="dest-card" data-cont="brasil" href="brazil-videos-and-planning.html">
+<img alt="Brazil" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=420&amp;q=70"/>
+<div class="dest-card-body"><span class="dest-continent">Brazil</span><h3>Brazil</h3><p>Northeast, Central-West, South and more — domestic travel with videos, planning and editorial curation.</p><span class="dest-link">See destination <i class="fas fa-arrow-right"></i></span></div>
+</a>
+<a class="dest-card" data-cont="americas" href="north-america-videos-and-planning.html">
+<img alt="North America" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=420&amp;q=70"/>
+<div class="dest-card-body"><span class="dest-continent">North America</span><h3>North America</h3><p>The United States, Canada and Mexico organized through more useful angles for cities, comparison and planning.</p><span class="dest-link">See destination <i class="fas fa-arrow-right"></i></span></div>
+</a>
+<a class="dest-card" data-cont="americas" href="https://www.youtube.com/watch?v=r04NRtrmpkE" rel="noopener noreferrer" target="_blank">
+<img alt="Mendoza" decoding="async" loading="lazy" src="https://img.youtube.com/vi/r04NRtrmpkE/hqdefault.jpg"/>
+<div class="dest-card-body"><span class="dest-continent">South America</span><h3>South America</h3><p>Mendoza opens this layer with wine, mountains and one of the region’s most charming escapes.</p><span class="dest-link">See destination <i class="fas fa-arrow-right"></i></span></div>
+</a>
+<a class="dest-card" data-cont="europa" href="europe-videos-and-planning.html" rel="noopener noreferrer" target="_blank">
+<img alt="Europe" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=420&amp;q=70"/>
+<div class="dest-card-body"><span class="dest-continent">Europe</span><h3>Europe</h3><p>A strong hub to navigate by continent, regions, countries and cities, with pages designed to inspire and help decision-making.</p><span class="dest-link">Explore Europe <i class="fas fa-arrow-right"></i></span></div>
+</a>
+<a class="dest-card" data-cont="asia" href="https://www.youtube.com/@LipeTravelShow" rel="noopener noreferrer" target="_blank">
+<img alt="Asia" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=420&amp;q=70"/>
+<div class="dest-card-body"><span class="dest-continent">Asia</span><h3>Asia</h3><p>China is currently the main gateway into Asia on the site, with context, editorial perspective and a web series.</p><span class="dest-link">Explore Asia <i class="fas fa-arrow-right"></i></span></div>
+</a>
+<a class="dest-card" data-cont="todos" href="planeje-sua-viagem1-en.html">
+<img alt="Plan your trip" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=420&amp;q=70"/>
+<div class="dest-card-body"><span class="dest-continent">Tool</span><h3>Plan your trip</h3><p>Flights, hotels, experiences and insurance in one place — without leaving the Lipe ecosystem.</p><span class="dest-link">Plan now <i class="fas fa-arrow-right"></i></span></div>
+</a>
+<a class="dest-card" data-cont="todos" href="how-to-use-ai-to-plan-a-trip-seo.html">
+<img alt="How to use AI for travel" decoding="async" loading="lazy" src="IA-Foto-Vertical.png"/>
+<div class="dest-card-body"><span class="dest-continent">Tool</span><h3>AI for travel</h3><p>Use AI to research better, compare options and plan without falling into generic itineraries.</p><span class="dest-link">See AI guide <i class="fas fa-arrow-right"></i></span></div>
+</a>
+<a class="dest-card" data-cont="todos" href="miles-for-domestic-flights-LIMPO-PACOTE-COMPLETO-LINKS-AJUSTADOS-v2.html">
+<img alt="Points &amp; miles" decoding="async" loading="lazy" src="foto lipe private jet.jpeg"/>
+<div class="dest-card-body"><span class="dest-continent">Tool</span><h3>Miles</h3><p>Clearer guides to compare points, cash and buying decisions without hype or magic shortcuts.</p><span class="dest-link">See miles guides <i class="fas fa-arrow-right"></i></span></div>
+</a>
 </div>
 </section>
 <!-- PLANEJAMENTO AFILIADOS -->
@@ -713,8 +826,8 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 <h3>Travel insurance</h3>
 <p>Travel protected. Compare travel insurance plans in less than 2 minutes.</p>
 <a class="plan-btn" href="travel-insurance.html">International insurance guide <i class="fas fa-arrow-right"></i></a>
-      <a class="plan-btn" href="brazil-travel-insurance.html">Brazil insurance guide <i class="fas fa-arrow-right"></i></a>
-      <a class="plan-btn" href="https://assistcard.com/br/b2c/afiliados?utm_source=mais&utm_medium=maisplataforma&utm_campaign=lipetravelshow" rel="noopener noreferrer" target="_blank">Quote insurance<i class="fas fa-arrow-right"></i></a>
+<a class="plan-btn" href="brazil-travel-insurance.html">Brazil insurance guide <i class="fas fa-arrow-right"></i></a>
+<a class="plan-btn" href="https://assistcard.com/br/b2c/afiliados?utm_source=mais&amp;utm_medium=maisplataforma&amp;utm_campaign=lipetravelshow" rel="noopener noreferrer" target="_blank">Quote insurance<i class="fas fa-arrow-right"></i></a>
 </div>
 </div>
 </section>
@@ -731,141 +844,44 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 <button class="filter-btn">Asia</button>
 </div>
 <div class="video-grid">
-    <a class="video-card" href="https://www.youtube.com/watch?v=XzVWO6HrOrE&pp=0gcJCdkKAYcqIYzv" target="_blank" rel="noopener noreferrer">
-      <img src="https://img.youtube.com/vi/XzVWO6HrOrE/hqdefault.jpg" alt="Florianópolis" loading="lazy" decoding="async">
-      <div class="video-card-body">
-        <span class="video-tag">Brazil</span>
-        <h3>Florianópolis</h3>
-        <p>Beach lifestyle and one of Brazil’s most desired domestic trips.</p>
-        <span class="watch">Watch <i class="fas fa-arrow-right"></i></span>
-      </div>
-    </a>
-    <a class="video-card" href="https://www.youtube.com/watch?v=73dfZfKigVA" target="_blank" rel="noopener noreferrer">
-      <img src="https://img.youtube.com/vi/73dfZfKigVA/hqdefault.jpg" alt="Lisbon" loading="lazy" decoding="async">
-      <div class="video-card-body">
-        <span class="video-tag">Europe</span>
-        <h3>Portugal — Lisbon</h3>
-        <p>A strong gateway into Europe, with urban charm and a very smart travel base.</p>
-        <span class="watch">Watch <i class="fas fa-arrow-right"></i></span>
-      </div>
-    </a>
-    <a class="video-card" href="https://www.youtube.com/watch?v=tQIfykHiAjE" target="_blank" rel="noopener noreferrer">
-      <img src="https://img.youtube.com/vi/tQIfykHiAjE/hqdefault.jpg" alt="New York" loading="lazy" decoding="async">
-      <div class="video-card-body">
-        <span class="video-tag">USA</span>
-        <h3>New York</h3>
-        <p>One of the world’s most iconic cities, with strong value for a first or tenth trip.</p>
-        <span class="watch">Watch <i class="fas fa-arrow-right"></i></span>
-      </div>
-    </a>
-    <a class="video-card" href="https://www.youtube.com/watch?v=MIwbdafFy8s" target="_blank" rel="noopener noreferrer">
-      <img src="https://img.youtube.com/vi/MIwbdafFy8s/hqdefault.jpg" alt="Ushuaia" loading="lazy" decoding="async">
-      <div class="video-card-body">
-        <span class="video-tag">South America</span>
-        <h3>Ushuaia</h3>
-        <p>A striking journey at the end of the world, with nature, landscape and expedition energy.</p>
-        <span class="watch">Watch <i class="fas fa-arrow-right"></i></span>
-      </div>
-    </a>
+<a class="video-card" href="https://www.youtube.com/watch?v=XzVWO6HrOrE&amp;pp=0gcJCdkKAYcqIYzv" rel="noopener noreferrer" target="_blank">
+<img alt="Florianópolis" decoding="async" loading="lazy" src="https://img.youtube.com/vi/XzVWO6HrOrE/hqdefault.jpg"/>
+<div class="video-card-body">
+<span class="video-tag">Brazil</span>
+<h3>Florianópolis</h3>
+<p>Beach lifestyle and one of Brazil’s most desired domestic trips.</p>
+<span class="watch">Watch <i class="fas fa-arrow-right"></i></span>
+</div>
+</a>
+<a class="video-card" href="https://www.youtube.com/watch?v=73dfZfKigVA" rel="noopener noreferrer" target="_blank">
+<img alt="Lisbon" decoding="async" loading="lazy" src="https://img.youtube.com/vi/73dfZfKigVA/hqdefault.jpg"/>
+<div class="video-card-body">
+<span class="video-tag">Europe</span>
+<h3>Portugal — Lisbon</h3>
+<p>A strong gateway into Europe, with urban charm and a very smart travel base.</p>
+<span class="watch">Watch <i class="fas fa-arrow-right"></i></span>
+</div>
+</a>
+<a class="video-card" href="https://www.youtube.com/watch?v=tQIfykHiAjE" rel="noopener noreferrer" target="_blank">
+<img alt="New York" decoding="async" loading="lazy" src="https://img.youtube.com/vi/tQIfykHiAjE/hqdefault.jpg"/>
+<div class="video-card-body">
+<span class="video-tag">USA</span>
+<h3>New York</h3>
+<p>One of the world’s most iconic cities, with strong value for a first or tenth trip.</p>
+<span class="watch">Watch <i class="fas fa-arrow-right"></i></span>
+</div>
+</a>
+<a class="video-card" href="https://www.youtube.com/watch?v=MIwbdafFy8s" rel="noopener noreferrer" target="_blank">
+<img alt="Ushuaia" decoding="async" loading="lazy" src="https://img.youtube.com/vi/MIwbdafFy8s/hqdefault.jpg"/>
+<div class="video-card-body">
+<span class="video-tag">South America</span>
+<h3>Ushuaia</h3>
+<p>A striking journey at the end of the world, with nature, landscape and expedition energy.</p>
+<span class="watch">Watch <i class="fas fa-arrow-right"></i></span>
+</div>
+</a>
 </div>
 </section>
-
-
-<section class="section" id="depoimentos">
-  <span class="sec-label">Travellers who journeyed with the channel</span>
-  <h2 class="sec-title">What travellers say about following Lipe</h2>
-  <p class="sec-sub">Real comments from the YouTube channel — from those who got inspired, planned and went.</p>
-  <div class="reviews-grid">
-
-    <div class="review-card highlight-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"I went to Buenos Aires on my honeymoon after watching your video and loved Puerto Madero. I watched the episode again just to relive the city."</p>
-      <div class="review-author">
-        <div class="review-avatar">M</div>
-        <div><strong>@mluisavianna</strong><span>Buenos Aires — lua de mel</span></div>
-      </div>
-    </div>
-
-    <div class="review-card highlight-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Your channel gave me the confidence to visit Maceió, and it was incredible. You encouraged me. Thank you!"</p>
-      <div class="review-author">
-        <div class="review-avatar">R</div>
-        <div><strong>@raquelcostadasilvatavarest</strong><span>Maceió — viagem realizada</span></div>
-      </div>
-    </div>
-
-    <div class="review-card highlight-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"We will be visiting Canada in September inspired by your tips. I loved the video!"</p>
-      <div class="review-author">
-        <div class="review-avatar">E</div>
-        <div><strong>@elianeribeiro8144</strong><span>Montreal — viagem planejada</span></div>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Rome — my dream trip, spending little. I love Lipe Travel Show. Congratulations on the channel and the impeccable work."</p>
-      <div class="review-author">
-        <div class="review-avatar">E</div>
-        <div><strong>@EuniceMaria-n3k</strong><span>Roma — Itália</span></div>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Beautiful work — this edit could be called a work of art. Congratulations. Every tour explained, sensational."</p>
-      <div class="review-author">
-        <div class="review-avatar">J</div>
-        <div><strong>@jonasmorselli</strong><span>Tivoli — Itália</span></div>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"The best video I have watched. Thank you for how clearly you explained everything!"</p>
-      <div class="review-author">
-        <div class="review-avatar">D</div>
-        <div><strong>@deniseribeiro1613</strong><span>Gênova — Itália</span></div>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Amazing! It made things so much clearer for my family’s trip on our next holiday!"</p>
-      <div class="review-author">
-        <div class="review-avatar">D</div>
-        <div><strong>@detudoumpouco3282</strong><span>Sul do Brasil — viagem em família</span></div>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Congratulations on the Spain video, full of valuable tips for anyone planning to discover Andalusia. I will go as soon as I can."</p>
-      <div class="review-author">
-        <div class="review-avatar">R</div>
-        <div><strong>@rosamendoza8627</strong><span>Espanha — Andaluzia</span></div>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"The best video I have ever watched on YouTube. Congratulations, Lipe!"</p>
-      <div class="review-author">
-        <div class="review-avatar">V</div>
-        <div><strong>@vivianbuenaga</strong><span>Florianópolis — Brasil</span></div>
-      </div>
-    </div>
-
-  </div>
-  <div style="text-align:center;margin-top:28px">
-    <a class="btn-outline" href="https://www.youtube.com/@LipeTravelShow" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-youtube"></i> See more comments on YouTube
-    </a>
-  </div>
-</section>
-
 <!-- LEAD MAGNET -->
 <section class="section" id="roteiro">
 <div class="lead-wrap">
@@ -902,53 +918,29 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 <p class="form-fine">No spam. Unsubscribe anytime.</p>
 </div>
 </div>
+</section><section class="section" id="autoridade">
+<span class="sec-label">Authority &amp; proof</span>
+<h2 class="sec-title">Why trust Lipe Travel Show</h2>
+<p class="sec-sub">Everything that was previously scattered across different modules now comes together here in a shorter, clearer way: real industry experience, perspective built in the field, and proof that the content helps travellers make better decisions.</p>
+<div class="results-grid">
+<div class="result-card"><i class="fas fa-briefcase"></i><p>25+ years in travel and digital, former Country Manager at Decolar.com and former VP of E-Commerce at CVC Corp.</p></div>
+<div class="result-card"><i class="fas fa-camera-retro"></i><p>380+ episodes filmed in real destinations, comparing bases, hotels and experiences.</p></div>
+<div class="result-card"><i class="fas fa-globe"></i><p>Prêmio Nacional do Turismo 2025 and projects with Embratur, CICG and Brazil–China initiatives.</p></div>
+</div>
+<div class="reviews-grid" style="margin-top:18px">
+<div class="review-card highlight-card">
+<p class="review-text">“We will be visiting Canada in September inspired by your tips. I loved the video!”</p>
+<div class="review-author"><div class="review-avatar">D</div><div><strong>@elianeribeiro8144</strong><span>Canada · North America</span></div></div>
+</div>
+<div class="review-card highlight-card">
+<p class="review-text">“Amazing! It made things so much clearer for my family’s trip on our next holiday!”</p>
+<div class="review-author"><div class="review-avatar">D</div><div><strong>@detudoumpouco3282</strong><span>Trip planning</span></div></div>
+</div>
+</div>
 </section>
 <!-- MILHAS -->
-<section class="section" id="milhas">
-<div class="milhas-wrap">
-<div>
-<span class="sec-label">Miles &amp; points</span>
-<h3>Miles guides without hype or fake shortcuts</h3>
-<p>A clearer way to compare points, cash and booking decisions — without impossible promises. I built this area for people who want to understand the topic for real.</p>
-</div>
-<a class="btn-primary" href="#milhas"><i class="fas fa-award"></i>See miles guides</a>
-</div>
-</section>
 <!-- IA BLOCK -->
-<section class="section">
-<div class="ia-wrap">
-<div>
-<span class="sec-label">AI &amp; planning</span>
-<h3>AI can help — but it still gets rhythm, neighbourhoods and logistics wrong</h3>
-<p>Here I show how to use the tool the right way: speeding up research and comparing scenarios without losing judgement or ending up with generic travel plans. The human filter still matters.</p>
-</div>
-<a class="btn-outline" href="#planejar"><i class="fas fa-robot"></i>How to use AI for travel</a>
-</div>
-</section>
 <!-- POR QUE O LIPE -->
-<section class="section" id="porque">
-<span class="sec-label">Why Lipe</span>
-<h2 class="sec-title">Perspective built in the field, not by algorithm</h2>
-<p class="sec-sub">This is not compiled content. It is market perspective and real experience in travel and digital.</p>
-<div class="porq-grid">
-<div class="porq-item"><div class="porq-num">01</div><p>Authorial curation — every destination, hotel and route passes through my filter, not an algorithm.</p></div>
-<div class="porq-item"><div class="porq-num">02</div><p>10 years as Country Manager of Decolar.com and VP of E-Commerce at CVC Corp. I know the sector from the inside.</p></div>
-<div class="porq-item"><div class="porq-num">03</div><p>380+ episodes filmed in real destinations. What I recommend, I experienced. What I show, I documented with a camera in hand.</p></div>
-<div class="porq-item"><div class="porq-num">04</div><p>Writer and author of 4 books. That changes how I build destination narratives — with context, rhythm and intention.</p></div>
-<div class="porq-item"><div class="porq-num">05</div><p>Projects with Embratur, CICG and ITB China. I understand tourism at global scale — not only as a traveller, but as a strategist.</p></div>
-</div>
-</section>
-<section class="section" id="resultados">
-<span class="sec-label">Results &amp; delivery</span>
-<h2 class="sec-title">Editorial presence, institutional credibility and international delivery</h2>
-<p class="sec-sub">I kept the institutional layer of the previous homepage so the B2B side of the site would not be lost: reach, authority, special projects and execution capability.</p>
-<div class="results-grid">
-<div class="result-card"><i class="fas fa-trophy"></i><h3>Award &amp; authority</h3><p>National recognition in tourism and an editorial position built consistently over the years.</p></div>
-<div class="result-card"><i class="fas fa-globe"></i><h3>International projects</h3><p>Work across Brazil–China initiatives, projects with Embratur, CICG and institutional connections in the global market.</p></div>
-<div class="result-card"><i class="fas fa-photo-film"></i><h3>On-location content</h3><p>Episodes, series, reels, stories and editorial deliverables produced on location for brands, destinations and partners.</p></div>
-<div class="result-card"><i class="fas fa-handshake"></i><h3>Tailor-made partnerships</h3><p>From branded content to international presence projects, with premium language and business perspective.</p></div>
-</div>
-</section>
 <!-- MEDIA KIT -->
 <section class="section" id="parcerias">
 <span class="sec-label">Partnerships &amp; Media Kit</span>
@@ -968,20 +960,13 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 <section class="section" id="sobre" style="padding-bottom:80px">
 <div class="about-wrap">
 <div class="about-img">
-<img alt="Lipe Camanzano" loading="lazy" src="foto-lipe-quemeolipe.png" decoding="async"/>
+<img alt="Lipe Camanzano" decoding="async" loading="lazy" src="foto-lipe-quemeolipe.png"/>
 </div>
 <div>
 <span class="about-badge"><i class="fas fa-award"></i>National Tourism Award 2025</span>
 <h2>I am Alípio (Lipe) Camanzano</h2>
-<p>Entrepreneur, writer, content creator and executive with more than 25 years in digital transformation, tourism and international expansion.</p>
-<p>I spent 10 years as Country Manager of Decolar.com and later became VP of E-Commerce at CVC Corp/Submarino Viagens. Today, through Lipe Travel Show, I connect travellers with authentic experiences across Brazil and the world.</p>
-<div class="about-stats">
-<div class="about-stat"><strong>265K+</strong><span>YouTube</span></div>
-<div class="about-stat"><strong>265K+</strong><span>Instagram</span></div>
-<div class="about-stat"><strong>30K+</strong><span>LinkedIn</span></div>
-<div class="about-stat"><strong>4</strong><span>Published books</span></div>
-</div>
-<a class="btn-primary" href="sobre-o-lipe-en.html"><i class="fas fa-user"></i>Meet Lipe</a>
+<p>Entrepreneur, content creator and executive with 25+ years in tourism and digital, with experience at Decolar.com and CVC Corp/Submarino Viagens. Today, through Lipe Travel Show, I connect travellers to authentic experiences across Brazil and the world.</p>
+<a class="btn-primary" href="sobre-o-lipe-en.html"><i class="fas fa-user"></i>Click here to meet Lipe</a>
 </div>
 </div>
 </section>
@@ -999,7 +984,25 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 <a class="social-card" href="https://vt.tiktok.com/ZS98VbQ7xjQJn-IaACO/" rel="noopener noreferrer sponsored" target="_blank"><i class="fas fa-store"></i><strong>TikTok Shop</strong><span>Lipe Store — tap to shop</span></a>
 </div>
 </section>
-<footer>
+<section class="brand-upgrade">
+<div class="brand-panel">
+<div>
+<span class="eyebrow"><i class="fa-solid fa-handshake-angle"></i> For brands, destinations and partners</span>
+<h3>Projects for brands and destinations</h3>
+<p>From destination-led episodes to campaign hubs, we create experiences that combine content, branding and real travel planning.</p>
+<div class="hero-actions" style="margin-top:18px">
+<a class="btn-primary" href="para-brands.html">See brand page</a>
+<a class="btn-secondary" href="projects-for-brands-destinations-en.html">Explore special projects</a>
+</div>
+</div>
+<div class="brand-points">
+<div><i class="fa-solid fa-layer-group"></i>Sponsored hubs with video, itinerary, map and lead generation.</div>
+<div><i class="fa-solid fa-sliders"></i>Modular formats by objective: awareness, destination, launch or international presence.</div>
+<div><i class="fa-solid fa-chart-line"></i>Creator + executive positioning: content with a business view of travel.</div>
+<div><i class="fa-solid fa-globe"></i>EN, ES and Mandarin pages as entry points for Brazil and global projects.</div>
+</div>
+</div>
+</section><footer>
 <div class="footer-inner">
 <p>© 2026 Lipe Travel Show. All rights reserved.</p>
 <p><a href="para-brands.html">Partnerships</a> · <a href="sobre-o-lipe-en.html">About</a> · <a href="index.html">PT</a></p>
@@ -1091,7 +1094,7 @@ document.querySelectorAll('.nav-links > li > a').forEach(a=>{
   });
 });
 </script>
-<div id="exit-popup" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(6,16,30,.85);backdrop-filter:blur(8px);align-items:center;justify-content:center"><div style="background:linear-gradient(135deg,#0d2240,#0a1628);border:1.5px solid rgba(240,165,0,.3);border-radius:28px;padding:40px 36px;max-width:480px;width:90%;position:relative;box-shadow:0 32px 80px rgba(0,0,0,.5)"><button onclick="closePopup()" style="position:absolute;top:14px;right:18px;background:none;border:none;color:rgba(255,255,255,.5);font-size:1.4rem;cursor:pointer">×</button><span style="display:inline-flex;align-items:center;gap:7px;background:rgba(240,165,0,.12);color:#ffd15e;border:1px solid rgba(240,165,0,.25);border-radius:999px;padding:6px 14px;font-size:.76rem;font-weight:700;margin-bottom:16px"><i class="fas fa-gift"></i> Wait!</span><h3 style="font-family:'Playfair Display',serif;font-size:1.55rem;margin-bottom:10px;color:#fff">Want the free itinerary before you go?</h3><p style="color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.75;margin-bottom:20px">Practical guides with Lipe’s perspective — the right destinations, ideal bases and what no one tells you before you travel.</p><form action="https://formspree.io/f/xreoodnd" method="POST" style="display:flex;flex-direction:column;gap:10px"><input type="text" name="name" placeholder="Your name" required style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:10px;padding:11px 14px;color:#fff;font-size:.9rem;outline:none"><input type="email" name="email" placeholder="Your best email" required style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:10px;padding:11px 14px;color:#fff;font-size:.9rem;outline:none"><select name="destination" style="background:#0d2240;border:1px solid rgba(255,255,255,.13);border-radius:10px;padding:11px 14px;color:#fff;font-size:.9rem;outline:none"><option value="">Destination of interest</option><option>Italy</option><option>Europe</option><option>USA / North America</option><option>Brazil</option><option>China / Asia</option><option>South America</option></select><button type="submit" style="background:#f0a500;color:#0a1628;border:none;border-radius:999px;padding:13px;font-weight:800;font-size:.95rem;cursor:pointer"><i class="fas fa-paper-plane"></i> I want the free itinerary</button></form><p style="text-align:center;color:rgba(255,255,255,.35);font-size:.74rem;margin-top:10px">No spam. Unsubscribe anytime.</p></div></div><script>(function(){if(window.innerWidth<768)return;if(sessionStorage.getItem('exitShown'))return;var shown=false;document.addEventListener('mouseleave',function(e){if(e.clientY<=0&&!shown){shown=true;sessionStorage.setItem('exitShown','1');document.getElementById('exit-popup').style.display='flex';}});})();function closePopup(){document.getElementById('exit-popup').style.display='none';}</script>
+<div id="exit-popup" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(6,16,30,.85);backdrop-filter:blur(8px);align-items:center;justify-content:center"><div style="background:linear-gradient(135deg,#0d2240,#0a1628);border:1.5px solid rgba(240,165,0,.3);border-radius:28px;padding:40px 36px;max-width:480px;width:90%;position:relative;box-shadow:0 32px 80px rgba(0,0,0,.5)"><button onclick="closePopup()" style="position:absolute;top:14px;right:18px;background:none;border:none;color:rgba(255,255,255,.5);font-size:1.4rem;cursor:pointer">×</button><span style="display:inline-flex;align-items:center;gap:7px;background:rgba(240,165,0,.12);color:#ffd15e;border:1px solid rgba(240,165,0,.25);border-radius:999px;padding:6px 14px;font-size:.76rem;font-weight:700;margin-bottom:16px"><i class="fas fa-gift"></i> Wait!</span><h3 style="font-family:'Playfair Display',serif;font-size:1.55rem;margin-bottom:10px;color:#fff">Want the free itinerary before you go?</h3><p style="color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.75;margin-bottom:20px">Practical guides with Lipe’s perspective — the right destinations, ideal bases and what no one tells you before you travel.</p><form action="https://formspree.io/f/xreoodnd" method="POST" style="display:flex;flex-direction:column;gap:10px"><input name="name" placeholder="Your name" required="" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:10px;padding:11px 14px;color:#fff;font-size:.9rem;outline:none" type="text"/><input name="email" placeholder="Your best email" required="" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:10px;padding:11px 14px;color:#fff;font-size:.9rem;outline:none" type="email"/><select name="destination" style="background:#0d2240;border:1px solid rgba(255,255,255,.13);border-radius:10px;padding:11px 14px;color:#fff;font-size:.9rem;outline:none"><option value="">Destination of interest</option><option>Italy</option><option>Europe</option><option>USA / North America</option><option>Brazil</option><option>China / Asia</option><option>South America</option></select><button style="background:#f0a500;color:#0a1628;border:none;border-radius:999px;padding:13px;font-weight:800;font-size:.95rem;cursor:pointer" type="submit"><i class="fas fa-paper-plane"></i> I want the free itinerary</button></form><p style="text-align:center;color:rgba(255,255,255,.35);font-size:.74rem;margin-top:10px">No spam. Unsubscribe anytime.</p></div></div><script>(function(){if(window.innerWidth<768)return;if(sessionStorage.getItem('exitShown'))return;var shown=false;document.addEventListener('mouseleave',function(e){if(e.clientY<=0&&!shown){shown=true;sessionStorage.setItem('exitShown','1');document.getElementById('exit-popup').style.display='flex';}});})();function closePopup(){document.getElementById('exit-popup').style.display='none';}</script>
 <script>(function(){var params=new URLSearchParams(window.location.search);var dest=params.get('dest');if(!dest)return;var inp=document.getElementById('search-input');if(inp){inp.value=dest;inp.dispatchEvent(new Event('input'));}document.querySelectorAll('.dest-card,.cont-country').forEach(function(el){var href=(el.href||'').toLowerCase();var text=el.textContent.toLowerCase();if(href.indexOf(dest.toLowerCase())>-1||text.indexOf(dest.toLowerCase())>-1){el.style.borderColor='rgba(240,165,0,.55)';el.style.boxShadow='0 0 0 3px rgba(240,165,0,.15)';}});})();</script>
 </body>
 </html>

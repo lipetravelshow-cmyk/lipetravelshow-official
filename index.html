@@ -118,12 +118,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 5%;display:fle
 .btn-outline{background:transparent;color:var(--gold2);border:1.5px solid var(--gold)}
 .btn-outline:hover{background:rgba(240,165,0,.1);transform:translateY(-2px)}
 
-
 .hero{position:relative;min-height:92vh;padding:140px 5% 80px;display:flex;align-items:center;overflow:hidden}
 .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
 .hero-video-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(115deg,rgba(6,16,30,.85) 0%,rgba(10,22,40,.55) 45%,rgba(10,22,40,.25) 100%),radial-gradient(circle at 70% 30%,rgba(240,165,0,.10),transparent 40%)}
 .hero-inner{position:relative;z-index:2;max-width:1240px;width:100%;margin:0 auto}
-
 
 /* COPA HERO FEATURE */
 .copa-feature{display:grid;grid-template-columns:1.2fr auto;gap:24px;align-items:center;margin:0 0 28px;padding:22px 24px;border-radius:22px;background:linear-gradient(135deg,rgba(240,165,0,.10),rgba(13,34,64,.88));border:1.5px solid rgba(240,165,0,.24);box-shadow:0 24px 60px rgba(0,0,0,.22)}
@@ -135,7 +133,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:16px 5%;display:fle
 @media(max-width:860px){.copa-feature{grid-template-columns:1fr}.copa-feature-actions{align-items:flex-start}.copa-feature-note{text-align:left;max-width:none}}
 
 /* SECTIONS */
-.section{max-width:1240px;margin:0 auto;padding:90px 5% 0}
+.section{max-width:1240px;margin:0 auto;padding:72px 5% 0}
 .sec-label{color:var(--gold2);text-transform:uppercase;letter-spacing:1.8px;font-size:.76rem;font-weight:700;display:inline-block;margin-bottom:10px}
 h2.sec-title{font-family:"Playfair Display",serif;font-size:clamp(1.9rem,3.8vw,3rem);margin-bottom:12px}
 .sec-sub{color:var(--muted);line-height:1.86;max-width:820px;margin-bottom:32px}
@@ -371,7 +369,6 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
   }
 }
 
-
 /* ajuste fino — vídeos em destaque mais compactos e elegantes */
 #videos .section-header{margin-bottom:28px}
 #videos .video-grid{
@@ -414,7 +411,6 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
   #videos .video-card-body{padding:14px}
 }
 
-
 .social-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;max-width:1100px;margin:0 auto;padding:0 5%}
 .social-card{text-decoration:none}
 .social-card-inner{border-radius:20px;padding:32px 20px;text-align:center;transition:transform .3s,box-shadow .3s;border:1px solid rgba(255,255,255,.08)}
@@ -431,7 +427,6 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 .social-card-inner span{font-size:.78rem;color:rgba(255,255,255,.86);margin-top:6px;display:block;line-height:1.35}
 @media(max-width:900px){.social-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:600px){.social-grid{grid-template-columns:repeat(2,1fr)}}
-
 
 .social-grid{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:18px!important;max-width:1400px!important;margin:0 auto!important;padding:0 5%!important}
 .social-card{display:block;text-decoration:none}
@@ -450,7 +445,6 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 @media(max-width:1100px){.social-grid{grid-template-columns:repeat(3,1fr)!important}}
 @media(max-width:700px){.social-grid{grid-template-columns:repeat(2,1fr)!important}}
 
-
 @media(max-width:1100px){.social-grid{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:700px){.social-grid{grid-template-columns:repeat(2,1fr)}}
 
@@ -468,6 +462,66 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 @media(max-width:1100px){.reviews-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:860px){.reviews-grid{grid-template-columns:1fr}}
 
+/* 2026 UPGRADE */
+:root{
+  --accent-soft:rgba(240,165,0,.12);
+  --panel:rgba(255,255,255,.04);
+  --panel-2:rgba(255,255,255,.06);
+}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:end}
+.hero-side-card{background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));border:1px solid rgba(255,255,255,.11);border-radius:24px;padding:24px;backdrop-filter:blur(12px);box-shadow:0 20px 60px rgba(0,0,0,.22)}
+.hero-side-card h3{font-family:"Playfair Display",serif;font-size:1.35rem;margin-bottom:10px}
+.hero-side-card p{color:var(--text);font-size:.95rem;line-height:1.75;margin-bottom:18px}
+.hero-mini-list{display:grid;gap:10px}
+.hero-mini-item{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(255,255,255,.08)}
+.hero-mini-item:first-child{border-top:0;padding-top:0}
+.hero-mini-item i{color:var(--gold2);margin-top:2px}
+.hero-mini-item span{font-size:.88rem;color:rgba(255,255,255,.8);line-height:1.6}
+.intent-strip{padding:0 5% 28px;margin-top:-12px;position:relative;z-index:5}
+.intent-wrap{max-width:1240px;margin:0 auto;background:rgba(7,16,30,.78);border:1px solid rgba(255,255,255,.08);border-radius:26px;padding:18px;backdrop-filter:blur(16px);box-shadow:0 18px 50px rgba(0,0,0,.25)}
+.intent-head{display:flex;justify-content:space-between;gap:20px;align-items:end;margin-bottom:14px;flex-wrap:wrap}
+.intent-head h2{font-family:"Playfair Display",serif;font-size:1.6rem}
+.intent-head p{max-width:640px;color:var(--text);font-size:.96rem;line-height:1.75}
+.intent-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.intent-card{display:block;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:18px;transition:.25s;min-height:170px}
+.intent-card:hover{transform:translateY(-4px);border-color:rgba(240,165,0,.28);box-shadow:0 18px 36px rgba(0,0,0,.18)}
+.intent-card i{font-size:1.15rem;color:var(--gold2);margin-bottom:14px}
+.intent-card strong{display:block;font-size:1rem;margin-bottom:8px}
+.intent-card span{display:block;color:var(--text);font-size:.88rem;line-height:1.65;margin-bottom:14px}
+.intent-card em{font-style:normal;font-size:.8rem;color:#ffe3a2}
+.section-lead{max-width:760px;margin:0 auto 18px;color:var(--text);line-height:1.8;text-align:center}
+.planner-quiz{max-width:1240px;margin:0 auto 34px;padding:0 5%}
+.quiz-box{display:grid;grid-template-columns:1.1fr .9fr;gap:20px;background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));border:1px solid rgba(255,255,255,.08);border-radius:26px;padding:24px}
+.quiz-copy h3{font-family:"Playfair Display",serif;font-size:1.8rem;margin-bottom:10px}
+.quiz-copy p{color:var(--text);line-height:1.8;max-width:58ch}
+.quiz-photo{margin-top:16px;border-radius:18px;overflow:hidden;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)}
+.quiz-photo img{display:block;width:100%;height:auto;object-fit:contain}
+.quiz-choices{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;align-content:start}
+.choice-btn{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:#fff;padding:14px 16px;border-radius:18px;text-align:left;font-weight:600;cursor:pointer;transition:.2s}
+.choice-btn:hover,.choice-btn.active{border-color:rgba(240,165,0,.35);background:rgba(240,165,0,.12);color:#fff}
+.quiz-result{margin-top:16px;padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:none}
+.quiz-result strong{display:block;margin-bottom:6px;color:var(--gold2)}
+.quick-wins{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:18px}
+.quick-win{padding:18px;border-radius:20px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07)}
+.quick-win h4{font-size:1rem;margin-bottom:8px}
+.quick-win p{color:var(--text);font-size:.9rem;line-height:1.7}
+.brand-upgrade{max-width:1240px;margin:0 auto;padding:0 5%}
+.brand-panel{display:grid;grid-template-columns:1fr 1fr;gap:18px;background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.025));border:1px solid rgba(255,255,255,.08);border-radius:26px;padding:24px}
+.brand-panel h3{font-family:"Playfair Display",serif;font-size:1.7rem;margin-bottom:10px}
+.brand-panel p{color:var(--text);line-height:1.8}
+.brand-points{display:grid;gap:12px}
+.brand-points div{padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);font-size:.92rem;line-height:1.65;color:rgba(255,255,255,.84)}
+.brand-points i{color:var(--gold2);margin-right:10px}
+@media(max-width:1040px){.hero-grid,.quiz-box,.brand-panel{grid-template-columns:1fr}.intent-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:720px){.intent-grid,.quiz-choices,.quick-wins{grid-template-columns:1fr}.hero{padding-top:122px}.intent-wrap,.quiz-box,.brand-panel{padding:18px}.hero-side-card{padding:18px}}
+
+
+#sobre .about-wrap{grid-template-columns:minmax(180px,220px) 1fr;gap:24px;align-items:center;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:24px}
+#sobre .about-img{max-width:220px;width:100%;margin:0 auto}
+#sobre .about-img img{border-radius:20px}
+#sobre h2{margin-bottom:12px}
+#sobre p{max-width:46ch;margin-bottom:18px}
+@media(max-width:860px){#sobre .about-wrap{grid-template-columns:1fr!important;padding:22px!important}#sobre .about-img{max-width:170px!important}}
 </style>
 <script type="application/ld+json">
 {
@@ -554,9 +608,9 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
     </div>
   </a>
   <ul class="nav-links">
-    <li><a href="#videos"><i class="fas fa-globe"></i> Destinos</a></li>
+    <li><a href="ver-videos-antes-final.html"><i class="fas fa-globe"></i> Destinos</a></li>
     <li>
-      <a href="#"><i class="fas fa-map"></i> Internacional <i class="fas fa-chevron-down" style="font-size:.65rem;opacity:.6"></i></a>
+      <a href="javascript:void(0)"><i class="fas fa-map"></i> Internacional <i class="fas fa-chevron-down" style="font-size:.65rem;opacity:.6"></i></a>
       <div class="dropdown-menu">
         <a href="italia-videos-e-planejamento.html"><i class="fas fa-landmark"></i> Europa</a>
         <a href="italia-videos-e-planejamento.html"><i class="fas fa-circle" style="font-size:.5rem;color:var(--gold2)"></i> Itália</a>
@@ -565,11 +619,11 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
         <div class="dd-sep"></div>
         <a href="#destinos"><i class="fas fa-city"></i> América do Norte</a>
         <a href="#destinos"><i class="fas fa-mountain"></i> América do Sul</a>
-        <a href="#planejar"><i class="fas fa-dragon"></i> China / Ásia</a>
+        <a href="planeje-sua-viagem-lp2-v6.html"><i class="fas fa-dragon"></i> China / Ásia</a>
       </div>
     </li>
     <li><a href="#destinos"><i class="fab fa-pagelines"></i> Brasil</a></li>
-    <li><a href="#planejar"><i class="fas fa-compass"></i> Planeje</a></li>
+    <li><a href="planeje-sua-viagem1.html"><i class="fas fa-compass"></i> Planeje</a></li>
     <li><a href="milhas-para-voos-no-brasil-FINAL.html"><i class="fas fa-award"></i> Milhas</a></li>
     <li><a href="para-marcas.html" class="nav-cta">Parcerias</a></li>
   </ul>
@@ -581,7 +635,6 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
   </div>
 </nav>
 
-
 <!-- HERO -->
 <section class="hero">
   <video autoplay class="hero-video" id="heroVideo" loop muted playsinline poster="carinha-portrait.jpg">
@@ -589,6 +642,7 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
   </video>
   <div class="hero-video-overlay"></div>
   <div class="hero-inner">
+      <div class="hero-main">
     <span class="eyebrow"><i class="fas fa-award"></i> Prêmio Nacional do Turismo 2025 — Imprensa & Mídias Sociais</span>
     <h1>Viagens pelo Brasil e pelo mundo com curadoria, repertório e experiência real</h1>
     <p class="hero-sub">Se você quer se inspirar, planejar melhor e viajar com mais inteligência — este é o lugar certo. Destinos, roteiros, vídeos e ferramentas práticas reunidos num só ecossistema.</p>
@@ -622,7 +676,6 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
       <div id="search-results"></div>
     </div>
 
-
     <div class="copa-feature">
       <div class="copa-feature-copy">
         <small><i class="fas fa-futbol"></i> Evento especial 2026</small>
@@ -637,20 +690,95 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 
     <div class="hero-actions">
       <a class="btn-primary" href="#destinos"><i class="fas fa-globe"></i> Explorar destinos</a>
-      <a class="btn-secondary" href="#planejar"><i class="fas fa-compass"></i> Começar a planejar</a>
+      <a class="btn-secondary" href="planeje-sua-viagem1.html"><i class="fas fa-compass"></i> Começar a planejar</a>
       <a class="btn-secondary" href="para-marcas.html"><i class="fas fa-handshake"></i> Parcerias</a>
     </div>
   </div>
-</section>
 
+      </div>
+    </div>
+  </section>
 
+  <section class="intent-strip" aria-label="Entradas principais do site">
+    <div class="intent-wrap">
+      <div class="intent-head">
+        <div>
+          <span class="eyebrow"><i class="fa-solid fa-compass"></i> Comece pela sua intenção</span>
+          <h2>Encontre rápido o que você precisa</h2>
+        </div>
+        <p>Comece pela sua intenção: descobrir destinos, planejar melhor, ver vídeos ou falar sobre projetos. Daqui você já segue para o próximo passo mais útil da sua viagem.</p>
+      </div>
+      <div class="intent-grid">
+        <a class="intent-card" href="destinos-e-videos.html">
+          <i class="fa-solid fa-earth-americas"></i>
+          <strong>Quero descobrir destinos</strong>
+          <span>Veja países, cidades e episódios do Lipe para escolher seu próximo destino com mais clareza.</span>
+          <em>Explorar agora</em>
+        </a>
+        <a class="intent-card" href="planeje-sua-viagem1.html">
+          <i class="fa-solid fa-route"></i>
+          <strong>Quero planejar melhor</strong>
+          <span>Entre direto em voos, hotéis, experiências, seguro e ferramentas que ajudam você a organizar a viagem em menos tempo.</span>
+          <em>Começar a planejar</em>
+        </a>
+        <a class="intent-card" href="ver-videos-antes-final.html">
+          <i class="fa-solid fa-circle-play"></i>
+          <strong>Quero ver vídeos antes</strong>
+          <span>Use os episódios para sentir a cidade antes de decidir: onde ficar, o que fazer e qual bairro faz mais sentido.</span>
+          <em>Ver vídeos</em>
+        </a>
+        <a class="intent-card" href="projetos-para-marcas-destinos.html">
+          <i class="fa-solid fa-briefcase"></i>
+          <strong>Quero falar sobre parcerias</strong>
+          <span>Se você é marca ou destino, veja como podemos criar projetos, campanhas e séries especiais juntos.</span>
+          <em>Ver possibilidades</em>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="planner-quiz">
+    <div class="quiz-box">
+      <div class="quiz-copy">
+        <span class="eyebrow"><i class="fa-solid fa-sparkles"></i> Planejamento inteligente</span>
+        <h3>Que tipo de viagem combina com você agora?</h3>
+        <p>Responda em um clique e eu te mostro por onde começar: cidade-base, praia, atalhos de planejamento ou vídeos para se inspirar.</p>
+        <div class="quiz-photo">
+          <img src="que tipo de viagem combina com voce.jpg" alt="Mini van amarela de viagem com malas diante de um fundo colorido" loading="lazy" decoding="async">
+        </div>
+        <div id="quiz-result" class="quiz-result" aria-live="polite"></div>
+      </div>
+      <div>
+        <div class="quiz-choices">
+          <button class="choice-btn" data-result="Você parece estar em modo descoberta com conforto. Eu te levaria primeiro para Europa e bases urbanas com repertório forte, como Barcelona, Madrid e Roma.">Quero cidade, charme e boa base</button>
+          <button class="choice-btn" data-result="Você parece buscar escape e desejo visual. Eu te levaria para praias marcantes, lifestyle e destinos nacionais com forte poder de decisão por vídeo.">Quero praia, paisagem e pausa</button>
+          <button class="choice-btn" data-result="Você está em modo eficiência. O melhor caminho é entrar pela camada de voos, hotéis, milhas, seguro e IA para organizar a viagem com mais clareza.">Quero planejar sem perder tempo</button>
+          <button class="choice-btn" data-result="Você está em jornada aspiracional. Entre primeiro pelos vídeos e depois avance para páginas práticas de destino e ferramentas de planejamento.">Quero me inspirar antes de decidir</button>
+        </div>
+        <div class="quick-wins">
+          <div class="quick-win">
+            <h4>Mais clareza</h4>
+            <p>Você entende rápido por onde começar a organizar a próxima viagem.</p>
+          </div>
+          <div class="quick-win">
+            <h4>Mais segurança</h4>
+            <p>Fica mais fácil escolher destino, base e roteiro sem se perder em mil abas.</p>
+          </div>
+          <div class="quick-win">
+            <h4>Mais resultado</h4>
+            <p>Você sai daqui com pelo menos um caminho concreto para tirar a viagem do papel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 <section class="section" id="start-here">
   <span class="sec-label">Por onde começar</span>
   <h2 class="sec-title">Escolha seu caminho dentro do universo Lipe Travel Show</h2>
   <p class="sec-sub">Mantive aqui a lógica editorial da home anterior: inspiração, planejamento, projetos especiais e oportunidades de parceria.</p>
   <div class="start-grid">
     <a class="start-card" href="destinos-e-videos.html"><img src="por-onde-comecar-foto2.jpg" alt="Inspirar-se" decoding="async" fetchpriority="high"><div class="start-card-body"><span class="start-kicker"><i class="fas fa-star"></i> Inspirar-se</span><h3>Vídeos, destinos e experiências</h3><p>Entre pelo lado mais aspiracional do site e descubra episódios, lugares, séries e repertório de viagem pelo Brasil e pelo mundo.</p><span class="dest-link">Explorar conteúdos <i class="fas fa-arrow-right"></i></span></div></a>
-    <a class="start-card" href="planeje-sua-viagem.html"><img src="por-onde-comecar-foto3.jpg" alt="Planejar viagem" loading="lazy" decoding="async"><div class="start-card-body"><span class="start-kicker"><i class="fas fa-route"></i> Planejar viagem</span><h3>Guias, ferramentas e curadoria</h3><p>Vá direto para páginas práticas com voos, hotéis, bairros, roteiros e atalhos para transformar inspiração em decisão.</p><span class="dest-link">Começar a planejar <i class="fas fa-arrow-right"></i></span></div></a>
+    <a class="start-card" href="planeje-sua-viagem1.html"><img src="por-onde-comecar-foto3.jpg" alt="Planejar viagem" loading="lazy" decoding="async"><div class="start-card-body"><span class="start-kicker"><i class="fas fa-route"></i> Planejar viagem</span><h3>Guias, ferramentas e curadoria</h3><p>Vá direto para páginas práticas com voos, hotéis, bairros, roteiros e atalhos para transformar inspiração em decisão.</p><span class="dest-link">Começar a planejar <i class="fas fa-arrow-right"></i></span></div></a>
     <a class="start-card" href="projetos-especiais.html"><img src="por-onde-comecar-foto1.jpg" alt="Projetos especiais" loading="lazy" decoding="async"><div class="start-card-body"><span class="start-kicker"><i class="fas fa-globe-asia"></i> Projetos especiais</span><h3>Brasil–China, Embratur e institucionais</h3><p>Veja os cases que conectam conteúdo, branding de destinos, presença internacional e entregas editoriais premium.</p><span class="dest-link">Ver projetos <i class="fas fa-arrow-right"></i></span></div></a>
     <a class="start-card" href="para-marcas.html"><img src="por-onde-comecar-fot6.jpg" alt="Trabalhar com o Lipe" loading="lazy" decoding="async"><div class="start-card-body"><span class="start-kicker"><i class="fas fa-briefcase"></i> Trabalhar com o Lipe</span><h3>Marcas, destinos, mídia kit e palestras</h3><p>Entenda como o Lipe Travel Show pode atuar com campanhas, branded travel, speaking e projetos sob medida.</p><span class="dest-link">Ver possibilidades <i class="fas fa-arrow-right"></i></span></div></a>
   </div>
@@ -692,7 +820,7 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
       <img src="https://images.unsplash.com/photo-1508804185872-d7badad00f7d?w=420&q=70" alt="Ásia" loading="lazy" decoding="async">
       <div class="dest-card-body"><span class="dest-continent">Ásia</span><h3>Ásia</h3><p>China hoje é a principal porta de entrada do site para a Ásia, com repertório, contexto e websérie.</p><span class="dest-link">Explorar Ásia <i class="fas fa-arrow-right"></i></span></div>
     </a>
-    <a class="dest-card" href="planeje-sua-viagem.html" data-cont="todos">
+    <a class="dest-card" href="planeje-sua-viagem1.html" data-cont="todos">
       <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=420&q=70" alt="Planeje sua viagem" loading="lazy" decoding="async">
       <div class="dest-card-body"><span class="dest-continent">Ferramenta</span><h3>Planeje sua viagem</h3><p>Voos, hotéis, experiências e seguro num só lugar — sem sair do ecossistema do Lipe.</p><span class="dest-link">Planejar agora <i class="fas fa-arrow-right"></i></span></div>
     </a>
@@ -746,7 +874,7 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 <section class="section" id="videos">
   <span class="sec-label">Vídeos em destaque</span>
   <h2 class="sec-title">380+ episódios gravados em campo</h2>
-  <p class="sec-sub">Cada vídeo é uma camada a mais de repertório para decidir com mais critério e viajar com mais intenção.</p>
+  <p class="sec-sub" id="videos">Cada vídeo é uma camada a mais de repertório para decidir com mais critério e viajar com mais intenção.</p>
   <div class="filter-bar">
     <button class="filter-btn active">Todos</button>
     <button class="filter-btn">Europa</button>
@@ -794,103 +922,6 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 </div>
 </section>
 
-
-<section class="section" id="depoimentos">
-  <span class="sec-label">Quem viajou com o canal</span>
-  <h2 class="sec-title">O que dizem os viajantes que seguiram o Lipe</h2>
-  <p class="sec-sub">Comentários reais do canal no YouTube — de quem se inspirou, planejou e foi.</p>
-  <div class="reviews-grid">
-
-    <div class="review-card highlight-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Fui para Buenos Aires na minha lua de mel depois que vi seu vídeo e amei Puerto Madero. Assisti o episódio novamente para matar as saudades da cidade."</p>
-      <div class="review-author">
-        <div class="review-avatar">M</div>
-        <div><strong>@mluisavianna</strong><span>Buenos Aires — lua de mel</span></div>
-      </div>
-    </div>
-
-    <div class="review-card highlight-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Através do seu canal me encorajei para conhecer Maceió, e foi incrível. Você me encorajou. Obrigado!"</p>
-      <div class="review-author">
-        <div class="review-avatar">R</div>
-        <div><strong>@raquelcostadasilvatavarest</strong><span>Maceió — viagem realizada</span></div>
-      </div>
-    </div>
-
-    <div class="review-card highlight-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Estaremos visitando o Canadá no mês de setembro incentivados por suas dicas. Adorei o vídeo!"</p>
-      <div class="review-author">
-        <div class="review-avatar">E</div>
-        <div><strong>@elianeribeiro8144</strong><span>Montreal — viagem planejada</span></div>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Roma — meu sonho de consumo, gastando pouco. Adoro o Lipe Travel Show. Parabéns pelo canal e pelo trabalho impecável."</p>
-      <div class="review-author">
-        <div class="review-avatar">E</div>
-        <div><strong>@EuniceMaria-n3k</strong><span>Roma — Itália</span></div>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Belíssima obra — essa edição pode se chamar de uma obra de arte. Parabéns. Todos os passeios explicados, sensacional."</p>
-      <div class="review-author">
-        <div class="review-avatar">J</div>
-        <div><strong>@jonasmorselli</strong><span>Tivoli — Itália</span></div>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Melhor vídeo que já assisti. Obrigada pela clareza das informações!"</p>
-      <div class="review-author">
-        <div class="review-avatar">D</div>
-        <div><strong>@deniseribeiro1613</strong><span>Gênova — Itália</span></div>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Arrasou! Clareou demais para a viagem da minha família nas próximas férias!"</p>
-      <div class="review-author">
-        <div class="review-avatar">D</div>
-        <div><strong>@detudoumpouco3282</strong><span>Sul do Brasil — viagem em família</span></div>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Parabéns pelo vídeo da Espanha, cheio de dicas valiosas para quem pretende conhecer a Andaluzia. Irei conhecer assim que puder."</p>
-      <div class="review-author">
-        <div class="review-avatar">R</div>
-        <div><strong>@rosamendoza8627</strong><span>Espanha — Andaluzia</span></div>
-      </div>
-    </div>
-
-    <div class="review-card">
-      <div class="review-stars">★★★★★</div>
-      <p class="review-text">"Melhor vídeo que eu já assisti no YouTube. Parabéns Lipe!"</p>
-      <div class="review-author">
-        <div class="review-avatar">V</div>
-        <div><strong>@vivianbuenaga</strong><span>Florianópolis — Brasil</span></div>
-      </div>
-    </div>
-
-  </div>
-  <div style="text-align:center;margin-top:28px">
-    <a class="btn-outline" href="https://www.youtube.com/@LipeTravelShow" target="_blank" rel="noopener noreferrer">
-      <i class="fab fa-youtube"></i> Ver mais comentários no YouTube
-    </a>
-  </div>
-</section>
-
-
 <!-- LEAD MAGNET -->
 <section class="section" id="roteiro">
   <div class="lead-wrap">
@@ -930,37 +961,40 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 </section>
 
 <!-- POR QUE O LIPE -->
-<section class="section" id="porque">
-  <span class="sec-label">Por que o Lipe</span>
-  <h2 class="sec-title">Repertório construído em campo, não por algoritmo</h2>
-  <p class="sec-sub">Isso aqui não é conteúdo compilado. É visão de mercado e experiência real em turismo e digital.</p>
-  <div class="porq-grid">
-    <div class="porq-item"><div class="porq-num">01</div><p>Curadoria autoral — cada destino, hotel e rota passa pelo meu filtro, não pelo algoritmo.</p></div>
-    <div class="porq-item"><div class="porq-num">02</div><p>10 anos como Country Manager da Decolar.com e VP de E-Commerce da CVC Corp. Conheço o setor por dentro.</p></div>
-    <div class="porq-item"><div class="porq-num">03</div><p>380+ episódios gravados em destinos reais. O que recomendo, vivi. O que mostro, documentei com câmera na mão.</p></div>
-    <div class="porq-item"><div class="porq-num">04</div><p>Escritor, autor de 4 livros. Isso muda como construo narrativa de destino — com contexto, ritmo e intenção.</p></div>
-    <div class="porq-item"><div class="porq-num">05</div><p>Projetos com Embratur, CICG e ITB China. Entendo turismo em escala global — não só como viajante, mas como estrategista.</p></div>
-  </div>
-</section>
-
-
-<section class="section" id="resultados">
-  <span class="sec-label">Resultados & entregas</span>
-  <h2 class="sec-title">Presença editorial, credibilidade institucional e entrega internacional</h2>
-  <p class="sec-sub">Mantive a camada institucional da home anterior para não perder o lado B2B do site: alcance, autoridade, projetos especiais e capacidade de execução.</p>
-  <div class="results-grid">
-    <div class="result-card"><i class="fas fa-trophy"></i><h3>Prêmio & autoridade</h3><p>Reconhecimento nacional no turismo e posicionamento editorial construído com consistência ao longo dos anos.</p></div>
-    <div class="result-card"><i class="fas fa-globe"></i><h3>Projetos internacionais</h3><p>Atuação em iniciativas Brasil–China, ações com Embratur, CICG e conexões institucionais no mercado global.</p></div>
-    <div class="result-card"><i class="fas fa-photo-film"></i><h3>Conteúdo em campo</h3><p>Episódios, séries, reels, stories e entregas editoriais produzidas in loco para marcas, destinos e parceiros.</p></div>
-    <div class="result-card"><i class="fas fa-handshake"></i><h3>Parcerias sob medida</h3><p>Do branded content a projetos de presença internacional, com linguagem premium e visão de negócio.</p></div>
-  </div>
-</section>
 
 <!-- MEDIA KIT -->
+
+<section class="section" id="autoridade">
+  <span class="sec-label">Autoridade & prova</span>
+  <h2 class="sec-title">Por que confiar no Lipe Travel Show</h2>
+  <p class="sec-sub">Tudo o que antes estava espalhado em blocos diferentes agora entra aqui, de forma mais curta e direta: experiência real no setor, repertório construído em campo e prova de que o conteúdo ajuda o viajante a decidir melhor.</p>
+  <div class="results-grid">
+    <div class="result-card"><i class="fas fa-briefcase"></i><p>25+ anos em turismo e digital, ex-Country Manager Decolar.com e VP de E-Commerce CVC Corp.</p></div>
+    <div class="result-card"><i class="fas fa-camera-retro"></i><p>380+ episódios gravados em destinos reais comparando bases, hotéis e experiências.</p></div>
+    <div class="result-card"><i class="fas fa-globe"></i><p>Prêmio Nacional do Turismo 2025 e projetos com Embratur, CICG e iniciativas Brasil–China.</p></div>
+  </div>
+  <div class="reviews-grid" style="margin-top:18px">
+    <div class="review-card highlight-card">
+      <p class="review-text">“Melhor vídeo que já assisti. Obrigada pela clareza das informações!”</p>
+      <div class="review-author">
+        <div class="review-avatar">D</div>
+        <div><strong>Denise Ribeiro</strong><span>Gênova — Itália</span></div>
+      </div>
+    </div>
+    <div class="review-card highlight-card">
+      <p class="review-text">“Arrasou! Clareou demais para a viagem da minha família nas próximas férias!”</p>
+      <div class="review-author">
+        <div class="review-avatar">D</div>
+        <div><strong>Detudo Um Pouco</strong><span>Sul do Brasil — família</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="parcerias">
   <span class="sec-label">Parcerias & Media Kit</span>
   <h2 class="sec-title">Conecte sua marca a viajantes reais</h2>
-  <p class="sec-sub">Conteúdo premium, audiência qualificada e 25+ anos de experiência para entregar campanhas que geram resultado.</p>
+  <p class="sec-sub" id="marcas">Conteúdo premium, audiência qualificada e 25+ anos de experiência para entregar campanhas que geram resultado.</p>
   <div class="mk-grid">
     <div class="mk-item"><i class="fas fa-film"></i><h4>Branded content</h4><p>Episódios, Reels e Stories integrados à narrativa editorial do canal.</p></div>
     <div class="mk-item"><i class="fas fa-camera"></i><h4>Produção on-location</h4><p>Conteúdo gravado em destino para hotéis, secretarias e marcas de turismo.</p></div>
@@ -981,15 +1015,8 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
     <div>
       <span class="about-badge"><i class="fas fa-award"></i> Prêmio Nacional do Turismo 2025</span>
       <h2>Sou Alípio (Lipe) Camanzano</h2>
-      <p>Empreendedor, escritor, criador de conteúdo e executivo com mais de 25 anos em transformação digital, turismo e expansão internacional.</p>
-      <p>Fui Country Manager da Decolar.com por 10 anos e VP de E-Commerce da CVC Corp/Submarino Viagens. Hoje, com o Lipe Travel Show, conecto viajantes a experiências autênticas pelo Brasil e pelo mundo.</p>
-      <div class="about-stats">
-        <div class="about-stat"><strong>265K+</strong><span>YouTube</span></div>
-        <div class="about-stat"><strong>265K+</strong><span>Instagram</span></div>
-        <div class="about-stat"><strong>30K+</strong><span>LinkedIn</span></div>
-        <div class="about-stat"><strong>4</strong><span>Livros publicados</span></div>
-      </div>
-      <a class="btn-primary" href="sobre-o-lipe.html"><i class="fas fa-user"></i> Conheça o Lipe</a>
+      <p>Empreendedor, criador de conteúdo e executivo com 25+ anos em turismo e digital, com passagem pela Decolar.com e CVC Corp/Submarino Viagens. Hoje, com o Lipe Travel Show, conecto viajantes a experiências autênticas pelo Brasil e pelo mundo.</p>
+      <a class="btn-primary" href="sobre-o-lipe.html"><i class="fas fa-user"></i> Clique aqui e conheça o Lipe</a>
     </div>
   </div>
 </section>
@@ -1099,5 +1126,38 @@ document.querySelectorAll('.nav-links > li > a').forEach(a=>{
 </script>
 <div id="exit-popup" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(6,16,30,.85);backdrop-filter:blur(8px);align-items:center;justify-content:center"><div style="background:linear-gradient(135deg,#0d2240,#0a1628);border:1.5px solid rgba(240,165,0,.3);border-radius:28px;padding:40px 36px;max-width:480px;width:90%;position:relative;box-shadow:0 32px 80px rgba(0,0,0,.5)"><button onclick="closePopup()" style="position:absolute;top:14px;right:18px;background:none;border:none;color:rgba(255,255,255,.5);font-size:1.4rem;cursor:pointer">×</button><span style="display:inline-flex;align-items:center;gap:7px;background:rgba(240,165,0,.12);color:#ffd15e;border:1px solid rgba(240,165,0,.25);border-radius:999px;padding:6px 14px;font-size:.76rem;font-weight:700;margin-bottom:16px"><i class="fas fa-gift"></i> Espera!</span><h3 style="font-family:'Playfair Display',serif;font-size:1.55rem;margin-bottom:10px;color:#fff">Quer o roteiro grátis antes de ir?</h3><p style="color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.75;margin-bottom:20px">Guias práticos com a visão do Lipe — destinos, bases certas e o que ninguém te conta antes de viajar.</p><form action="https://formspree.io/f/xreoodnd" method="POST" style="display:flex;flex-direction:column;gap:10px"><input type="text" name="nome" placeholder="Seu nome" required style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:10px;padding:11px 14px;color:#fff;font-size:.9rem;outline:none"><input type="email" name="email" placeholder="Seu melhor e-mail" required style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:10px;padding:11px 14px;color:#fff;font-size:.9rem;outline:none"><select name="destino" style="background:#0d2240;border:1px solid rgba(255,255,255,.13);border-radius:10px;padding:11px 14px;color:#fff;font-size:.9rem;outline:none"><option value="">Destino de interesse</option><option>Itália</option><option>Europa geral</option><option>EUA / América do Norte</option><option>Brasil</option><option>China / Ásia</option><option>América do Sul</option></select><button type="submit" style="background:#f0a500;color:#0a1628;border:none;border-radius:999px;padding:13px;font-weight:800;font-size:.95rem;cursor:pointer"><i class="fas fa-paper-plane"></i> Quero o roteiro grátis</button></form><p style="text-align:center;color:rgba(255,255,255,.35);font-size:.74rem;margin-top:10px">Sem spam. Cancele quando quiser.</p></div></div><script>(function(){if(window.innerWidth<768)return;if(sessionStorage.getItem('exitShown'))return;var shown=false;document.addEventListener('mouseleave',function(e){if(e.clientY<=0&&!shown){shown=true;sessionStorage.setItem('exitShown','1');document.getElementById('exit-popup').style.display='flex';}});})();function closePopup(){document.getElementById('exit-popup').style.display='none';}</script>
 <script>(function(){var params=new URLSearchParams(window.location.search);var dest=params.get('dest');if(!dest)return;var inp=document.getElementById('search-input');if(inp){inp.value=dest;inp.dispatchEvent(new Event('input'));}document.querySelectorAll('.dest-card,.cont-country').forEach(function(el){var href=(el.href||'').toLowerCase();var text=el.textContent.toLowerCase();if(href.indexOf(dest.toLowerCase())>-1||text.indexOf(dest.toLowerCase())>-1){el.style.borderColor='rgba(240,165,0,.55)';el.style.boxShadow='0 0 0 3px rgba(240,165,0,.15)';}});})();</script>
+
+<script>
+(function(){
+  const buttons=document.querySelectorAll('.choice-btn');
+  const result=document.getElementById('quiz-result');
+  buttons.forEach(btn=>btn.addEventListener('click',()=>{
+    buttons.forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    result.style.display='block';
+    result.innerHTML='<strong>Sugestão de caminho</strong><p style="color:rgba(255,255,255,.84);line-height:1.75">'+btn.dataset.result+'</p>';
+  }));
+})();
+</script>
+
 </body>
 </html>
+  <section class="brand-upgrade">
+    <div class="brand-panel">
+      <div>
+        <span class="eyebrow"><i class="fa-solid fa-handshake-angle"></i> Para marcas, destinos e parceiros</span>
+        <h3>Projetos para marcas e destinos</h3>
+        <p>Do episódio em destino ao hub de campanha, criamos experiências que juntam conteúdo, branding e planejamento real de viagem.</p>
+        <div class="hero-actions" style="margin-top:18px">
+          <a class="btn-primary" href="para-marcas.html">Ver página para marcas</a>
+          <a class="btn-secondary" href="projetos-especiais.html">Explorar projetos especiais</a>
+        </div>
+      </div>
+      <div class="brand-points">
+        <div><i class="fa-solid fa-layer-group"></i>Hubs patrocinados com vídeo, roteiro, mapa e geração de leads.</div>
+        <div><i class="fa-solid fa-sliders"></i>Formatos modulares por objetivo: awareness, destino, lançamento ou presença internacional.</div>
+        <div><i class="fa-solid fa-chart-line"></i>Posicionamento creator + executivo: conteúdo com visão de negócio em turismo.</div>
+        <div><i class="fa-solid fa-globe"></i>Páginas EN, ES e Mandarin como portas de entrada para o Brasil e projetos globais.</div>
+      </div>
+    </div>
+  </section>
