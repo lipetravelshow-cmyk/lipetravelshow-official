@@ -501,6 +501,97 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 #sobre h2{margin-bottom:12px}
 #sobre p{max-width:46ch;margin-bottom:18px}
 @media(max-width:860px){#sobre .about-wrap{grid-template-columns:1fr!important;padding:22px!important}#sobre .about-img{max-width:170px!important}}
+
+
+/* LTS TRAVEL PLANNER MODULE */
+.lts-planner{max-width:1240px;margin:0 auto 34px;padding:0 5%}
+.lts-planner-shell{display:grid;grid-template-columns:.88fr 1.12fr;gap:22px;align-items:stretch;background:linear-gradient(135deg,rgba(255,255,255,.055),rgba(13,34,64,.72));border:1.5px solid rgba(240,165,0,.22);border-radius:28px;padding:28px;box-shadow:0 24px 70px rgba(0,0,0,.24);position:relative;overflow:hidden}
+.lts-planner-shell:before{"content":"";position:absolute;inset:auto -120px -140px auto;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(240,165,0,.13),transparent 68%);pointer-events:none}
+.lts-planner-intro{position:relative;z-index:1;display:flex;flex-direction:column;justify-content:space-between;gap:22px}
+.lts-planner-kicker{display:inline-flex;width:max-content;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:rgba(240,165,0,.12);border:1px solid rgba(240,165,0,.24);color:var(--gold2);font-size:.75rem;font-weight:800;letter-spacing:1.1px;text-transform:uppercase}
+.lts-planner h3{font-family:"Playfair Display",serif;font-size:clamp(1.75rem,3vw,2.45rem);line-height:1.08;margin:14px 0 12px;color:#fff}
+.lts-planner-intro p{color:var(--text);font-size:.94rem;line-height:1.82;max-width:520px}
+.lts-planner-note{display:grid;gap:10px;margin-top:4px}
+.lts-planner-note span{display:flex;align-items:flex-start;gap:10px;color:rgba(255,255,255,.7);font-size:.84rem;line-height:1.55}
+.lts-planner-note i{color:var(--gold2);margin-top:3px}
+.lts-planner-panel{position:relative;z-index:1;background:rgba(6,16,30,.44);border:1px solid rgba(255,255,255,.09);border-radius:22px;padding:20px}
+.lts-planner-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.lts-planner-field label{display:block;color:rgba(255,255,255,.72);font-size:.76rem;font-weight:700;margin-bottom:7px;letter-spacing:.2px}
+.lts-planner-field select,.lts-planner-field input{width:100%;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:12px;padding:12px 13px;color:#fff;font-family:"Inter",sans-serif;font-size:.88rem;outline:none;transition:.2s}
+.lts-planner-field select:focus,.lts-planner-field input:focus{border-color:rgba(240,165,0,.45);background:rgba(255,255,255,.095)}
+.lts-planner-field select option{background:#0a1628;color:#fff}
+.lts-planner-wide{grid-column:1/-1}
+.lts-planner-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.lts-planner-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:none;border-radius:999px;padding:12px 17px;font-family:"Inter",sans-serif;font-weight:800;font-size:.85rem;cursor:pointer;transition:.22s}
+.lts-planner-btn.primary{background:var(--gold);color:var(--navy)}
+.lts-planner-btn.primary:hover{background:var(--gold2);transform:translateY(-1px)}
+.lts-planner-btn.secondary{background:rgba(255,255,255,.06);color:#fff;border:1px solid rgba(255,255,255,.15)}
+.lts-planner-btn.secondary:hover{border-color:rgba(240,165,0,.35);color:var(--gold2)}
+.lts-planner-result{display:none;margin-top:18px;background:rgba(255,255,255,.055);border:1px solid rgba(240,165,0,.18);border-radius:18px;padding:18px}
+.lts-planner-result strong{display:block;color:var(--gold2);font-size:.82rem;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px}
+.lts-planner-result p{color:rgba(255,255,255,.82);line-height:1.72;font-size:.9rem;margin-bottom:14px}
+.lts-planner-ctas{display:flex;flex-wrap:wrap;gap:10px}
+.lts-planner-ctas a{display:inline-flex;align-items:center;gap:8px;padding:10px 13px;border-radius:999px;font-size:.82rem;font-weight:800;transition:.2s}
+.lts-planner-ctas .wa{background:#f0a500;color:#0a1628}
+.lts-planner-ctas .mail{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);color:#fff}
+.lts-planner-ctas .link{background:rgba(240,165,0,.1);border:1px solid rgba(240,165,0,.22);color:var(--gold2)}
+@media(max-width:920px){.lts-planner-shell{grid-template-columns:1fr;padding:22px}.lts-planner-grid{grid-template-columns:1fr}.lts-planner-actions,.lts-planner-ctas{flex-direction:column}.lts-planner-btn,.lts-planner-ctas a{width:100%}}
+
+
+/* V27 — patch cirúrgico mínimo: toggle LIPA + planner visual + LIPA após planner */
+.nav-lipa-toggle-v27{display:inline-flex;align-items:center;gap:10px;padding:7px 14px 7px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.045);color:rgba(255,255,255,.92);font-size:.76rem;font-weight:800;letter-spacing:.04em;text-transform:uppercase;text-decoration:none;box-shadow:0 10px 26px rgba(0,0,0,.18);transition:transform .2s ease,border-color .2s ease,background .2s ease;white-space:nowrap}
+.nav-lipa-toggle-v27:hover{transform:translateY(-1px);border-color:rgba(240,165,0,.46);background:rgba(240,165,0,.10);color:#fff}
+.nav-lipa-toggle-v27 img{width:34px;height:34px;min-width:34px;border-radius:50%;display:block;object-fit:cover;object-position:center center;box-shadow:0 0 0 1px rgba(240,165,0,.55),0 8px 18px rgba(0,0,0,.26)}
+.lts-planner-shell.v27-has-visual{grid-template-columns:1fr;grid-template-areas:"visual" "intro" "panel";gap:22px}
+.lts-planner-shell.v27-has-visual .lts-planner-intro{grid-area:intro}
+.lts-planner-shell.v27-has-visual .lts-planner-panel{grid-area:panel}
+.lts-planner-visual-v27{grid-area:visual;width:100%;height:clamp(170px,15vw,230px);border-radius:26px;overflow:hidden;border:1px solid rgba(240,165,0,.18);background:linear-gradient(135deg,rgba(255,255,255,.03),rgba(6,16,30,.24));box-shadow:0 18px 42px rgba(0,0,0,.20);line-height:0}
+.lts-planner-visual-v27 img{width:100%;height:100%;display:block;object-fit:cover;object-position:center center}
+.lipa-v27{max-width:1240px;margin:0 auto 34px;padding:0 5%}
+.lipa-v27-shell{display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1fr) 300px;gap:24px;align-items:center;padding:28px;border-radius:30px;border:1px solid rgba(255,255,255,.10);background:radial-gradient(circle at 84% 16%,rgba(240,165,0,.10),transparent 34%),linear-gradient(135deg,rgba(255,255,255,.06),rgba(255,255,255,.025));box-shadow:0 24px 68px rgba(0,0,0,.26)}
+.lipa-v27-copy{display:flex;flex-direction:column;gap:16px;min-width:0}
+.lipa-v27-kicker{display:inline-flex;align-items:center;gap:9px;color:var(--gold2);font-size:.78rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+.lipa-v27-copy h3{font-family:"Playfair Display",serif;font-size:clamp(2.1rem,3.7vw,3.5rem);line-height:1.02;letter-spacing:-.025em;margin:0;color:#fff}
+.lipa-v27-copy p{color:var(--text);font-size:.96rem;line-height:1.78;margin:0;max-width:36ch}
+.lipa-v27-note{display:flex;align-items:flex-start;gap:10px;padding:13px 15px;border-radius:18px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);color:var(--muted);font-size:.86rem;line-height:1.65;max-width:38ch}
+.lipa-v27-note i{color:var(--gold2);margin-top:2px;flex-shrink:0}
+.lipa-v27-chat{min-width:0;padding:18px;border-radius:26px;background:rgba(6,16,30,.54);border:1px solid rgba(255,255,255,.10);box-shadow:inset 0 1px 0 rgba(255,255,255,.03)}
+.lipa-v27-form{display:flex;flex-direction:column;gap:13px}
+.lipa-v27-input{width:100%;min-height:220px;resize:vertical;border-radius:22px;padding:20px 22px;border:1px solid rgba(255,255,255,.13);background:rgba(255,255,255,.075);color:#fff;font-family:"Inter",sans-serif;font-size:.98rem;line-height:1.65;outline:none}
+.lipa-v27-input::placeholder{color:rgba(255,255,255,.48)}
+.lipa-v27-input:focus{border-color:rgba(240,165,0,.46);box-shadow:0 0 0 3px rgba(240,165,0,.12)}
+.lipa-v27-send{min-height:60px;border:0;border-radius:999px;padding:14px 20px;background:var(--gold);color:var(--navy);font-family:"Inter",sans-serif;font-size:.94rem;font-weight:900;line-height:1.25;display:inline-flex;align-items:center;justify-content:center;gap:9px;cursor:pointer;transition:transform .2s ease,background .2s ease}
+.lipa-v27-send:hover{background:var(--gold2);transform:translateY(-1px)}
+.lipa-v27-send:disabled{opacity:.72;cursor:wait;transform:none}
+.lipa-v27-log{display:none;margin-top:14px;padding:16px 18px;border-radius:18px;background:rgba(255,255,255,.045);border:1px solid rgba(255,255,255,.09);color:rgba(255,255,255,.84);line-height:1.72;white-space:pre-wrap}
+.lipa-v27-photo{width:100%;max-width:300px;justify-self:end;border-radius:26px;overflow:hidden;border:1px solid rgba(240,165,0,.22);background:rgba(255,255,255,.04);box-shadow:0 22px 52px rgba(0,0,0,.26)}
+.lipa-v27-photo img{width:100%;display:block;aspect-ratio:1/1;object-fit:cover;object-position:center center}
+@media(max-width:1120px){.lipa-v27-shell{grid-template-columns:minmax(0,1fr) 290px;grid-template-areas:"copy photo" "chat chat"}.lipa-v27-copy{grid-area:copy}.lipa-v27-chat{grid-area:chat}.lipa-v27-photo{grid-area:photo}}
+@media(max-width:920px){.nav-lipa-toggle-v27 span{display:none}.nav-lipa-toggle-v27{padding:6px}.lts-planner-shell.v27-has-visual{grid-template-columns:1fr;grid-template-areas:"visual" "intro" "panel"}.lts-planner-visual-v27{height:180px;min-height:0}.lipa-v27-shell{grid-template-columns:1fr;grid-template-areas:"copy" "photo" "chat";padding:24px}.lipa-v27-photo{justify-self:center;max-width:340px}.lipa-v27-copy p,.lipa-v27-note{max-width:none}}
+@media(max-width:640px){.nav-lipa-toggle-v27{display:none}.lipa-v27{padding:0 4%;margin-bottom:28px}.lipa-v27-shell{padding:20px;border-radius:26px}.lipa-v27-copy h3{font-size:clamp(2rem,10vw,3rem)}.lipa-v27-input{min-height:190px;padding:18px}.lipa-v27-send{min-height:58px}}
+
+
+/* V32 — compactação editorial do bloco Planejador */
+.lts-planner-shell.v27-has-visual{padding:24px;gap:18px}
+.lts-planner-shell.v27-has-visual .lts-planner-intro{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(280px,.92fr);gap:16px 28px;align-items:start}
+.lts-planner-shell.v27-has-visual .lts-planner-intro>div:first-child{max-width:none}
+.lts-planner-shell.v27-has-visual .lts-planner-intro p{max-width:none;line-height:1.68;margin-bottom:0}
+.lts-planner-shell.v27-has-visual .lts-planner-note{margin-top:6px;gap:8px;align-self:center}
+.lts-planner-shell.v27-has-visual .lts-planner-note span{font-size:.84rem;line-height:1.5}
+.lts-planner-shell.v27-has-visual .lts-planner-visual-v27{height:clamp(150px,14vw,196px)}
+.lts-planner-shell.v27-has-visual .lts-planner-panel{padding:18px}
+.lts-planner-shell.v27-has-visual .lts-planner-grid{gap:12px}
+.lts-planner-shell.v27-has-visual .lts-planner-field label{margin-bottom:6px}
+.lts-planner-shell.v27-has-visual .lts-planner-field select,.lts-planner-shell.v27-has-visual .lts-planner-field input{padding:11px 13px}
+.lts-planner-shell.v27-has-visual .lts-planner-actions{margin-top:14px}
+@media(max-width:920px){
+.lts-planner-shell.v27-has-visual{padding:18px;gap:16px}
+.lts-planner-shell.v27-has-visual .lts-planner-intro{grid-template-columns:1fr;gap:12px}
+.lts-planner-shell.v27-has-visual .lts-planner-visual-v27{height:140px}
+.lts-planner-shell.v27-has-visual .lts-planner-intro p{font-size:.92rem;line-height:1.62}
+.lts-planner-shell.v27-has-visual .lts-planner-note{gap:7px}
+}
+
 </style>
 <script type="application/ld+json">
 {
@@ -638,6 +729,7 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 <li><a class="nav-cta" href="para-brands.html">Partnerships</a></li>
 </ul>
 <div style="display:flex;align-items:center;gap:10px">
+    <a class="nav-lipa-toggle-v27" href="#lipa" aria-label="Ask LIPA"><img src="lipa-avatar.png" alt="LIPA"><span>Ask LIPA</span></a>
 <div class="lang-switch"><a href="index.html">PT</a><a class="active" href="index-en.html">EN</a><a href="index-es.html">ES</a><a href="index-zh.html">中文</a></div>
 <div class="hamburger" onclick="toggleMenu()">
 <span></span><span></span><span></span>
@@ -771,6 +863,89 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 </div>
 </div>
 </div>
+</section>
+
+
+<section class="lts-planner" id="ask-lipe-planner" data-lang="en" data-wa="WHATSAPP_NUMBER_HERE" data-mail="lipetravelshow@gmail.com" data-subject="Travel Planning Inquiry from Lipe Travel Show" data-plan-link="planeje-sua-viagem1-en.html" data-explore-link="watch-and-plan.html" data-wa-base="Hi Lipe, I came from the Lipe Travel Show planner.">
+  <div class="lts-planner-shell v27-has-visual">
+    <div class="lts-planner-intro">
+      <div>
+        <span class="lts-planner-kicker"><i class="fa-solid fa-wand-magic-sparkles"></i> START PLANNING YOUR TRIP HERE</span>
+        <h3>Ask Lipe Travel Planner</h3>
+        <p>Answer 5 quick questions and get an initial path to organize your trip with more clarity — from the right destination to the next planning steps.</p>
+      </div>
+      <div class="lts-planner-note"><span><i class="fa-solid fa-check"></i>Initial curation based on your travel profile.</span><span><i class="fa-solid fa-check"></i>Useful suggestions for flights, hotels, insurance, experiences and itineraries.</span><span><i class="fa-solid fa-check"></i>Option to contact Lipe when you want to turn the idea into a real trip.</span></div>
+    </div>
+    <div class="lts-planner-visual-v27" aria-hidden="true"><img src="lipe-LM-extended-box-header.png" alt="Lipe travel planner" loading="lazy" decoding="async"></div>
+    <div class="lts-planner-panel">
+      <div class="lts-planner-grid">
+          <div class="lts-planner-field">
+            <label>Where do you want to travel?</label>
+            <select data-lts-field="0">
+              <option value="">Choose your destination</option><option value="Brazil">Brazil</option><option value="Europe">Europe</option><option value="United States / Canada">United States / Canada</option><option value="Asia">Asia</option><option value="Africa / Oceania">Africa / Oceania</option><option value="Still deciding">Still deciding</option>
+            </select>
+          </div>
+          <div class="lts-planner-field">
+            <label>What is your travel style?</label>
+            <select data-lts-field="1">
+              <option value="">Choose your travel style</option><option value="First time in the destination">First time in the destination</option><option value="Premium trip / special hotels">Premium trip / special hotels</option><option value="Culture, food and local experiences">Culture, food and local experiences</option><option value="Nature and landscapes">Nature and landscapes</option><option value="Family / couple / honeymoon">Family / couple / honeymoon</option><option value="Practical trip with good value">Practical trip with good value</option>
+            </select>
+          </div>
+          <div class="lts-planner-field">
+            <label>What stage are you in?</label>
+            <select data-lts-field="2">
+              <option value="">Choose your stage</option><option value="Just looking for inspiration">Just looking for inspiration</option><option value="I have a destination, but need structure">I have a destination, but need structure</option><option value="I am comparing flights and hotels">I am comparing flights and hotels</option><option value="I want a full itinerary">I want a full itinerary</option><option value="I want to talk to someone">I want to talk to someone</option>
+            </select>
+          </div>
+          <div class="lts-planner-field">
+            <label>What do you need most right now?</label>
+            <select data-lts-field="3">
+              <option value="">Choose your priority</option><option value="Flights">Flights</option><option value="Hotels">Hotels</option><option value="Travel insurance">Travel insurance</option><option value="Tours and experiences">Tours and experiences</option><option value="Custom itinerary">Custom itinerary</option><option value="Full support">Full support</option>
+            </select>
+          </div>
+          <div class="lts-planner-field">
+            <label>When do you plan to travel?</label>
+            <select data-lts-field="4">
+              <option value="">Choose your travel timing</option><option value="Next 30 days">Next 30 days</option><option value="In 1 to 3 months">In 1 to 3 months</option><option value="In 3 to 6 months">In 3 to 6 months</option><option value="No fixed date yet">No fixed date yet</option>
+            </select>
+          </div>
+      </div>
+      <div class="lts-planner-actions">
+        <button class="lts-planner-btn primary" type="button" data-lts-build><i class="fa-solid fa-compass"></i> Show my path</button>
+        <button class="lts-planner-btn secondary" type="button" data-lts-reset><i class="fa-solid fa-rotate-left"></i> Clear choices</button>
+      </div>
+      <div class="lts-planner-result" aria-live="polite" data-lts-result>
+        <strong>Suggested path</strong>
+        <p>Based on your profile, the best next step is to organize destination, travel style, timing and priorities before booking. You can continue through the site tools or send this brief to Lipe to keep the conversation going.</p>
+        <div class="lts-planner-ctas">
+          <a class="wa" href="#" data-lts-wa target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Talk to Lipe on WhatsApp</a>
+          <a class="mail" href="https://mail.google.com/mail/?view=cm&fs=1&to=lipetravelshow%40gmail.com" target="_blank" rel="noopener" data-lts-email><i class="fa-solid fa-envelope"></i> Talk by email</a>
+          <a class="link" href="planeje-sua-viagem1-en.html"><i class="fa-solid fa-suitcase-rolling"></i> See travel tools</a>
+          <a class="link" href="watch-and-plan.html"><i class="fa-solid fa-earth-americas"></i> Explore destinations and videos</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="lipa-v27" id="lipa" data-lipa-v27 data-lang="en" data-loading="LIPA is preparing an answer based on the Lipe Travel Show universe..." data-empty="Type your question above to begin." data-error="I could not answer right now. Please try again or contact Lipe on WhatsApp.">
+  <div class="lipa-v27-shell">
+    <div class="lipa-v27-copy">
+      <span class="lipa-v27-kicker"><i class="fa-solid fa-comments"></i> LIPA</span>
+      <h3>Talk to LIPA</h3>
+      <p>Use LIPA to organize travel ideas: destinations, itineraries, best season, hotels, flights, insurance and experiences.</p>
+      <div class="lipa-v27-note"><i class="fa-solid fa-circle-info"></i><span>LIPA helps with the first direction. For bookings, final prices and personalized curation, speak directly with Lipe.</span></div>
+    </div>
+    <div class="lipa-v27-chat">
+      <form class="lipa-v27-form">
+        <textarea class="lipa-v27-input" rows="7" placeholder="E.g.: I want to go to Portugal for 10 days in September. Where should I start?"></textarea>
+        <button class="lipa-v27-send" type="submit"><i class="fa-solid fa-paper-plane"></i> Type your question above and click here to ask LIPA</button>
+      </form>
+      <div class="lipa-v27-log" aria-live="polite"></div>
+    </div>
+    <div class="lipa-v27-photo" aria-hidden="true">
+      <img src="lipa-panel-v12.png" alt="LIPA" loading="lazy" decoding="async">
+    </div>
+  </div>
 </section>
 <section class="section" id="start-here">
 <span class="sec-label">Where to start</span>
@@ -1129,5 +1304,78 @@ document.querySelectorAll('.nav-links > li > a').forEach(a=>{
 </script>
 <div id="exit-popup" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(6,16,30,.85);backdrop-filter:blur(8px);align-items:center;justify-content:center"><div style="background:linear-gradient(135deg,#0d2240,#0a1628);border:1.5px solid rgba(240,165,0,.3);border-radius:28px;padding:40px 36px;max-width:480px;width:90%;position:relative;box-shadow:0 32px 80px rgba(0,0,0,.5)"><button onclick="closePopup()" style="position:absolute;top:14px;right:18px;background:none;border:none;color:rgba(255,255,255,.5);font-size:1.4rem;cursor:pointer">×</button><span style="display:inline-flex;align-items:center;gap:7px;background:rgba(240,165,0,.12);color:#ffd15e;border:1px solid rgba(240,165,0,.25);border-radius:999px;padding:6px 14px;font-size:.76rem;font-weight:700;margin-bottom:16px"><i class="fas fa-gift"></i> Wait!</span><h3 style="font-family:'Playfair Display',serif;font-size:1.55rem;margin-bottom:10px;color:#fff">Want the free itinerary before you go?</h3><p style="color:rgba(255,255,255,.72);font-size:.9rem;line-height:1.75;margin-bottom:20px">Practical guides with Lipe’s perspective — the right destinations, ideal bases and what no one tells you before you travel.</p><form action="https://formspree.io/f/xreoodnd" method="POST" style="display:flex;flex-direction:column;gap:10px"><input name="name" placeholder="Your name" required="" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:10px;padding:11px 14px;color:#fff;font-size:.9rem;outline:none" type="text"/><input name="email" placeholder="Your best email" required="" style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:10px;padding:11px 14px;color:#fff;font-size:.9rem;outline:none" type="email"/><select name="destination" style="background:#0d2240;border:1px solid rgba(255,255,255,.13);border-radius:10px;padding:11px 14px;color:#fff;font-size:.9rem;outline:none"><option value="">Destination of interest</option><option>Italy</option><option>Europe</option><option>USA / North America</option><option>Brazil</option><option>China / Asia</option><option>South America</option></select><button style="background:#f0a500;color:#0a1628;border:none;border-radius:999px;padding:13px;font-weight:800;font-size:.95rem;cursor:pointer" type="submit"><i class="fas fa-paper-plane"></i> I want the free itinerary</button></form><p style="text-align:center;color:rgba(255,255,255,.35);font-size:.74rem;margin-top:10px">No spam. Unsubscribe anytime.</p></div></div><script>(function(){if(window.innerWidth<768)return;if(sessionStorage.getItem('exitShown'))return;var shown=false;document.addEventListener('mouseleave',function(e){if(e.clientY<=0&&!shown){shown=true;sessionStorage.setItem('exitShown','1');document.getElementById('exit-popup').style.display='flex';}});})();function closePopup(){document.getElementById('exit-popup').style.display='none';}</script>
 <script>(function(){var params=new URLSearchParams(window.location.search);var dest=params.get('dest');if(!dest)return;var inp=document.getElementById('search-input');if(inp){inp.value=dest;inp.dispatchEvent(new Event('input'));}document.querySelectorAll('.dest-card,.cont-country').forEach(function(el){var href=(el.href||'').toLowerCase();var text=el.textContent.toLowerCase();if(href.indexOf(dest.toLowerCase())>-1||text.indexOf(dest.toLowerCase())>-1){el.style.borderColor='rgba(240,165,0,.55)';el.style.boxShadow='0 0 0 3px rgba(240,165,0,.15)';}});})();</script>
+
+
+<script>
+(function(){
+  const planner=document.getElementById('ask-lipe-planner');
+  if(!planner) return;
+  const build=planner.querySelector('[data-lts-build]');
+  const reset=planner.querySelector('[data-lts-reset]');
+  const result=planner.querySelector('[data-lts-result]');
+  const wa=planner.querySelector('[data-lts-wa]');
+  const email=planner.querySelector('[data-lts-email]');
+  const selects=[...planner.querySelectorAll('[data-lts-field]')];
+  function selectedLines(){
+    const labels=[...planner.querySelectorAll('.lts-planner-field label')].map(l=>l.textContent.trim());
+    return selects.map((s,i)=>({label:labels[i], value:s.value})).filter(x=>x.value);
+  }
+  function updateLinks(){
+    const lines=selectedLines();
+    const base=planner.dataset.waBase || 'Hi Lipe, I came from Lipe Travel Show.';
+    const body=[base,'',...lines.map(x=>x.label+' '+x.value)].join('\n');
+    const number=(planner.dataset.wa||'').replace(/\D/g,'');
+    wa.href=number ? 'https://wa.me/'+number+'?text='+encodeURIComponent(body) : '#';
+    wa.onclick=function(e){if(!number){e.preventDefault(); alert('WhatsApp number pending. Replace WHATSAPP_NUMBER_HERE with the final number.');}};
+    const mail=planner.dataset.mail || 'lipetravelshow@gmail.com';
+    const subject=planner.dataset.subject || 'Travel Planning Inquiry';
+    const gmailUrl='https://mail.google.com/mail/?view=cm&fs=1&to='+encodeURIComponent(mail)+'&su='+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);
+    email.href=gmailUrl;
+    email.target='_blank';
+    email.rel='noopener';
+  }
+  if(build){build.addEventListener('click',function(){updateLinks(); result.style.display='block'; result.scrollIntoView({behavior:'smooth',block:'nearest'});});}
+  if(reset){reset.addEventListener('click',function(){selects.forEach(s=>s.value=''); result.style.display='none';});}
+})();
+</script>
+
+
+<script>
+(function(){
+  document.querySelectorAll('[data-lipa-v27]').forEach(function(block){
+    var form = block.querySelector('.lipa-v27-form');
+    var input = block.querySelector('.lipa-v27-input');
+    var log = block.querySelector('.lipa-v27-log');
+    var send = block.querySelector('.lipa-v27-send');
+    var lang = block.getAttribute('data-lang') || 'pt';
+    var loading = block.getAttribute('data-loading') || 'A LIPA está organizando uma resposta...';
+    var empty = block.getAttribute('data-empty') || 'Digite sua dúvida acima para começar.';
+    var error = block.getAttribute('data-error') || 'Não consegui responder agora. Tente novamente.';
+    if(!form || !input || !log || !send) return;
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var question = (input.value || '').trim();
+      if(!question){
+        log.style.display = 'block';
+        log.textContent = empty;
+        input.focus();
+        return;
+      }
+      log.style.display = 'block';
+      log.textContent = loading;
+      send.disabled = true;
+      fetch('/.netlify/functions/ask-lipe', {
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({question:question, lang:lang})
+      })
+      .then(function(r){ return r.json(); })
+      .then(function(data){ log.textContent = data.answer || error; })
+      .catch(function(){ log.textContent = error; })
+      .finally(function(){ send.disabled = false; });
+    });
+  });
+})();
+</script>
 </body>
 </html>
