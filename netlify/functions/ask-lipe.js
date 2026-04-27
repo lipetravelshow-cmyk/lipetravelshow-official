@@ -19,12 +19,14 @@ exports.handler = async (event) => {
   }
 
   const apiKey = process.env.GEMINI_API_KEY;
+  const lipeWhatsappUrl = process.env.LIPE_WHATSAPP_URL || "";
+  const lipeEmail = process.env.LIPE_EMAIL || "lipetravelshow@gmail.com";
 
   if (!apiKey) {
     return {
       statusCode: 500,
       headers,
-      body: JSON.stringify({ error: "Missing GEMINI_API_KEY" })
+      body: JSON.stringify({ error: "A LIPA ainda não está conectada à chave Gemini. Verifique a variável GEMINI_API_KEY no Netlify." })
     };
   }
 
@@ -36,7 +38,7 @@ exports.handler = async (event) => {
     return {
       statusCode: 400,
       headers,
-      body: JSON.stringify({ error: "Invalid JSON" })
+      body: JSON.stringify({ error: "Não consegui ler sua pergunta. Tente escrever novamente em uma frase simples." })
     };
   }
 
@@ -47,7 +49,18 @@ exports.handler = async (event) => {
     return {
       statusCode: 400,
       headers,
-      body: JSON.stringify({ error: "Missing question" })
+      body: JSON.stringify({ error: "Digite sua dúvida de viagem para a LIPA começar." })
+    };
+  }
+
+  const repeatedChars = /(.)\1{80,}/.test(question);
+  const tooManyLinks = (question.match(/https?:\/\//gi) || []).length > 3;
+
+  if (repeatedChars || tooManyLinks) {
+    return {
+      statusCode: 400,
+      headers,
+      body: JSON.stringify({ error: "A LIPA foi criada para perguntas reais de viagem. Reformule sua dúvida com origem, destino, datas ou objetivo da viagem." })
     };
   }
 
@@ -67,8 +80,8 @@ exports.handler = async (event) => {
       experiences: "Experiências / Ver experiências",
       gear: "Malas e itens de viagem",
       tools: "Planejamento prático",
-      whatsapp: "WhatsApp",
-      email: "e-mail",
+      whatsapp: "Falar com Lipe no WhatsApp",
+      email: "Enviar e-mail para Lipe",
       localPage: "página do Lipe Travel Show",
       mapsRoute: "Abrir rota no Google Maps",
       mapsPlace: "Abrir no Google Maps"
@@ -81,8 +94,8 @@ exports.handler = async (event) => {
       experiences: "Experiences / View experiences",
       gear: "Luggage and travel essentials",
       tools: "Practical planning",
-      whatsapp: "WhatsApp",
-      email: "email",
+      whatsapp: "Talk to Lipe on WhatsApp",
+      email: "Email Lipe",
       localPage: "Lipe Travel Show page",
       mapsRoute: "Open route in Google Maps",
       mapsPlace: "Open in Google Maps"
@@ -95,8 +108,8 @@ exports.handler = async (event) => {
       experiences: "Experiencias / Ver experiencias",
       gear: "Maletas y artículos de viaje",
       tools: "Planificación práctica",
-      whatsapp: "WhatsApp",
-      email: "e-mail",
+      whatsapp: "Hablar con Lipe por WhatsApp",
+      email: "Enviar e-mail a Lipe",
       localPage: "página de Lipe Travel Show",
       mapsRoute: "Abrir ruta en Google Maps",
       mapsPlace: "Abrir en Google Maps"
@@ -109,8 +122,8 @@ exports.handler = async (event) => {
       experiences: "体验 / 查看体验",
       gear: "行李箱和旅行用品",
       tools: "实用旅行规划",
-      whatsapp: "WhatsApp",
-      email: "电子邮件",
+      whatsapp: "通过 WhatsApp 联系 Lipe",
+      email: "给 Lipe 发邮件",
       localPage: "Lipe Travel Show 页面",
       mapsRoute: "在 Google Maps 中打开路线",
       mapsPlace: "在 Google Maps 中打开"
@@ -201,7 +214,6 @@ exports.handler = async (event) => {
 
   const routeIntent = extractRouteIntent(question);
 
-
   const affiliateUrls = {
     skyscannerHome: "https://skyscanner.pxf.io/vDPKAL",
     flights: "https://skyscanner.pxf.io/9VL6Xj",
@@ -264,12 +276,32 @@ exports.handler = async (event) => {
     "价格", "票价", "现在", "今天", "天气", "温度", "活动", "签证", "规则"
   ];
 
+  const firstTripTerms = [
+    "primeira viagem", "primeira vez", "nunca viajei", "nunca fui", "primeira viagem internacional", "first trip", "first time", "never been", "primera vez", "primer viaje", "第一次", "首次"
+  ];
+
+  const itineraryTerms = [
+    "roteiro", "itinerário", "itinerario", "dia a dia", "quantos dias", "monte", "montar", "route", "itinerary", "day by day", "days in", "organiza", "organize", "路线", "行程"
+  ];
+
+  const safetyTerms = [
+    "segurança", "seguro", "golpe", "golpes", "perigoso", "evitar", "etiqueta", "costumes", "gorjeta", "safety", "safe", "scam", "avoid", "etiquette", "customs", "tips", "seguridad", "estafa", "evitar", "etiqueta", "costumbres", "安全", "骗局", "礼仪"
+  ];
+
+  const complexTripTerms = [
+    "lua de mel", "honeymoon", "família", "familia", "family", "premium", "luxo", "luxury", "multicidades", "multi-city", "multidestino", "grupo", "idosos", "crianças", "kids", "roteiro complexo", "viagem complexa", "viagem especial", "aniversário", "anniversary", "comemoração"
+  ];
+
   const detectedIntents = intentMap.filter((item) =>
     item.terms.some((term) => normalizedQuestion.includes(term))
   );
 
   const detectedLabels = detectedIntents.map((item) => item.label);
   const asksCurrentInfo = currentInfoTerms.some((term) => normalizedQuestion.includes(term));
+  const isFirstTrip = firstTripTerms.some((term) => normalizedQuestion.includes(term));
+  const asksItinerary = itineraryTerms.some((term) => normalizedQuestion.includes(term));
+  const asksSafety = safetyTerms.some((term) => normalizedQuestion.includes(term));
+  const isComplexTrip = complexTripTerms.some((term) => normalizedQuestion.includes(term));
 
   const actions = [];
   const seenActionKeys = new Set();
@@ -284,7 +316,6 @@ exports.handler = async (event) => {
       seenActionKeys.add(item.key);
     }
   }
-
 
   if (routeIntent && routeIntent.destination) {
     const mapsUrl = routeIntent.origin
@@ -302,11 +333,56 @@ exports.handler = async (event) => {
     });
   }
 
+  // Contextual commercial refinement: if the user is planning a destination trip but did not mention a specific product,
+  // suggest the most useful LTS buttons without overloading the card.
+  const generalTripTerms = ["vou para", "viajar para", "viagem para", "indo para", "i am going to", "traveling to", "trip to", "voy a", "viaje a", "去", "旅行"];
+  const isGeneralTripPlanning = generalTripTerms.some((term) => normalizedQuestion.includes(term));
+
+  if (isGeneralTripPlanning && actions.length < 3) {
+    const suggested = [
+      { key: "hotels", label: labels.hotels, url: affiliateUrls.hotels },
+      { key: "experiences", label: labels.experiences, url: affiliateUrls.experiences },
+      { key: "insurance", label: labels.insurance, url: affiliateUrls.insurance }
+    ];
+
+    for (const item of suggested) {
+      if (actions.length >= 3) break;
+      if (!seenActionKeys.has(item.key)) {
+        actions.push({ label: item.label, url: item.url, type: item.key });
+        seenActionKeys.add(item.key);
+      }
+    }
+  }
+
+  if (isComplexTrip) {
+    if (lipeWhatsappUrl) {
+      actions.push({
+        label: labels.whatsapp,
+        url: lipeWhatsappUrl,
+        type: "whatsapp"
+      });
+    }
+
+    actions.push({
+      label: labels.email,
+      url: `mailto:${lipeEmail}?subject=${encodeURIComponent("Planejamento de viagem com Lipe Travel Show")}&body=${encodeURIComponent(`Olá Lipe, quero continuar este planejamento de viagem:\n\n${question}`)}`,
+      type: "email"
+    });
+  }
+
   const intentInstruction = detectedLabels.length
     ? `Detected travel-planning/commercial categories: ${detectedLabels.join(" | ")}.
 In the final next-step paragraph, naturally point the user to these button(s) on this same Lipe Travel Show page: ${detectedLabels.join(" | ")}.
 The interface will also show clickable action buttons for these options; do not paste raw URLs in the answer.`
     : `No direct purchase category detected. If useful, close by mentioning the ${labels.tools} area on the ${labels.localPage}.`;
+
+  const modeInstructions = `
+Special response modes:
+- If this is a first-trip question, be extra clear, reassuring and step-by-step. Explain airport, immigration, documents, timing, neighborhoods or basic travel logic without sounding childish.
+- If this is an itinerary question, structure by day or by planning blocks: arrival, main area, experiences, food/neighborhoods, logistics, booking priorities.
+- If this is a safety/etiquette question, include practical safety, scam awareness, local customs, dress codes, transport tips and what to verify before going.
+- If this is a complex/premium/family/honeymoon/multi-city trip, give a strong travel-planning answer and suggest human curation with Lipe via WhatsApp or email.
+`;
 
   const systemPrompt = `
 You are LIPA, the intelligent travel assistant for Lipe Travel Show.
@@ -325,7 +401,6 @@ You can help with travel questions about the whole world, including:
 Travel-only scope:
 If the user asks about something outside travel, gently redirect to travel planning.
 
-
 LGBTQ+ and nudist travel:
 - Be inclusive, respectful and genuinely useful for LGBTQ+ travelers, couples, friends and solo travelers.
 - You may answer about LGBTQ+-friendly destinations, neighborhoods, hotels, hotel-saunas, wellness/spa venues, restaurants, bars, clubs, Pride events, beaches, nudist beaches, nightlife, cultural etiquette, local safety and travel planning.
@@ -334,6 +409,7 @@ LGBTQ+ and nudist travel:
 - For venues that may be adult-only, always remind users to verify age restrictions, local laws, venue rules, reviews/reputation and personal safety before going.
 - Nudist beaches should be framed as legal/cultural/naturist travel spaces, not sexualized spaces.
 
+${modeInstructions}
 
 Use Google Search grounding when it helps:
 - current weather or temperature context;
@@ -379,7 +455,7 @@ Answer structure:
 2. If current or price-sensitive information is involved, explain that exact prices/availability can change.
 3. End with one clear next step inside Lipe Travel Show, referring to the action button(s), not to raw URLs.
 
-Keep the answer under 240 words unless the user asks for a detailed itinerary.
+Keep the answer under 260 words unless the user asks for a detailed itinerary.
 Use clean paragraphs and bullets when helpful.
 `;
 
@@ -394,8 +470,8 @@ Use clean paragraphs and bullets when helpful.
       }
     ],
     generationConfig: {
-      temperature: 0.55,
-      maxOutputTokens: 700
+      temperature: 0.52,
+      maxOutputTokens: 760
     },
     tools: [
       {
@@ -418,11 +494,16 @@ Use clean paragraphs and bullets when helpful.
     const data = await response.json();
 
     if (!response.ok) {
+      const rawError = data.error?.message || "Gemini API error";
+      const friendlyError = rawError.toLowerCase().includes("quota")
+        ? "A LIPA atingiu o limite temporário de uso da API. Tente novamente em alguns minutos."
+        : "A LIPA não conseguiu responder agora. Tente novamente em alguns instantes.";
+
       return {
         statusCode: response.status,
         headers,
         body: JSON.stringify({
-          error: data.error?.message || "Gemini API error"
+          error: friendlyError
         })
       };
     }
@@ -436,7 +517,7 @@ Use clean paragraphs and bullets when helpful.
       return {
         statusCode: 502,
         headers,
-        body: JSON.stringify({ error: "Empty response from Gemini" })
+        body: JSON.stringify({ error: "A LIPA não recebeu uma resposta completa agora. Tente novamente." })
       };
     }
 
@@ -481,7 +562,7 @@ ${replacements[lang] || replacements.pt}`.trim();
       statusCode: 500,
       headers,
       body: JSON.stringify({
-        error: "Function error"
+        error: "A LIPA não conseguiu responder agora. Tente novamente em alguns instantes."
       })
     };
   }
