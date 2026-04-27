@@ -620,7 +620,7 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 }
 .lipa-v27-log{
   margin-top:16px !important;
-  max-height:300px !important;
+  max-height:360px !important;
   overflow-y:auto !important;
   padding:0 !important;
   background:transparent !important;
@@ -701,7 +701,7 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 }
 @media(max-width:920px){
   .lipa-v27-log{
-    max-height:240px !important;
+    max-height:270px !important;
   }
   .lipa-v27-response-body{
     font-size:.9rem;
@@ -1516,7 +1516,7 @@ document.querySelectorAll('.nav-links > li > a').forEach(a=>{
   function responseCard(content, state){
     var loadingClass = state === 'loading' ? ' loading' : '';
     return '<div class="lipa-v27-response-card' + loadingClass + '">' +
-      '<div class="lipa-v27-response-head"><img src="lipa-avatar.png" alt="LIPA"><span>Resposta da LIPA</span></div>' +
+      '<div class="lipa-v27-response-head"><img src="lipa-avatar.png" alt="LIPA"><span>RESPOSTA DA LIPA</span></div>' +
       '<div class="lipa-v27-response-body">' + content + '</div>' +
       '</div>';
   }
