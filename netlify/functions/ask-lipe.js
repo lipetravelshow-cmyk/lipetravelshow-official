@@ -69,7 +69,9 @@ exports.handler = async (event) => {
       tools: "Planejamento prático",
       whatsapp: "WhatsApp",
       email: "e-mail",
-      localPage: "página do Lipe Travel Show"
+      localPage: "página do Lipe Travel Show",
+      mapsRoute: "Abrir rota no Google Maps",
+      mapsPlace: "Abrir no Google Maps"
     },
     en: {
       flights: "Flights / Search flights",
@@ -81,7 +83,9 @@ exports.handler = async (event) => {
       tools: "Practical planning",
       whatsapp: "WhatsApp",
       email: "email",
-      localPage: "Lipe Travel Show page"
+      localPage: "Lipe Travel Show page",
+      mapsRoute: "Open route in Google Maps",
+      mapsPlace: "Open in Google Maps"
     },
     es: {
       flights: "Vuelos / Buscar vuelos",
@@ -93,7 +97,9 @@ exports.handler = async (event) => {
       tools: "Planificación práctica",
       whatsapp: "WhatsApp",
       email: "e-mail",
-      localPage: "página de Lipe Travel Show"
+      localPage: "página de Lipe Travel Show",
+      mapsRoute: "Abrir ruta en Google Maps",
+      mapsPlace: "Abrir en Google Maps"
     },
     zh: {
       flights: "机票 / 搜索航班",
@@ -105,13 +111,96 @@ exports.handler = async (event) => {
       tools: "实用旅行规划",
       whatsapp: "WhatsApp",
       email: "电子邮件",
-      localPage: "Lipe Travel Show 页面"
+      localPage: "Lipe Travel Show 页面",
+      mapsRoute: "在 Google Maps 中打开路线",
+      mapsPlace: "在 Google Maps 中打开"
     }
   };
 
   const answerLanguage = languageMap[lang] || "Brazilian Portuguese";
   const labels = labelsByLang[lang] || labelsByLang.pt;
   const normalizedQuestion = question.toLowerCase();
+
+  function buildMapsUrl({ origin, destination, travelmode = "driving" }) {
+    const baseUrl = "https://www.google.com/maps/dir/?api=1";
+    const params = new URLSearchParams();
+
+    if (origin) params.set("origin", origin);
+    if (destination) params.set("destination", destination);
+    if (travelmode) params.set("travelmode", travelmode);
+
+    return `${baseUrl}&${params.toString()}`;
+  }
+
+  function buildMapsSearchUrl(query) {
+    const params = new URLSearchParams({
+      api: "1",
+      query
+    });
+
+    return `https://www.google.com/maps/search/?${params.toString()}`;
+  }
+
+  function cleanRoutePlace(value) {
+    return String(value || "")
+      .replace(/[?.!,;:]+$/g, "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .slice(0, 140);
+  }
+
+  function detectTravelMode(text) {
+    if (/(a pé|caminhando|walking|walk|徒歩|步行)/i.test(text)) return "walking";
+    if (/(transporte público|metro|metrô|ônibus|bus|train|subway|transit|transporte publico|公共交通|地铁|公交)/i.test(text)) return "transit";
+    if (/(bicicleta|bike|bicycle|cycling|bici|自行车)/i.test(text)) return "bicycling";
+    return "driving";
+  }
+
+  function extractRouteIntent(rawQuestion) {
+    const q = cleanRoutePlace(rawQuestion);
+    const travelmode = detectTravelMode(q);
+
+    const patterns = [
+      /(?:como ir|como chegar|rota|trajeto|caminho)\s+(?:de|do|da|dos|das)\s+(.+?)\s+(?:para|até|ate|ao|à|a)\s+(.+?)(?:\?|$)/i,
+      /(?:de|do|da|dos|das)\s+(.+?)\s+(?:para|até|ate|ao|à|a)\s+(.+?)(?:\?|$)/i,
+      /(?:from)\s+(.+?)\s+(?:to)\s+(.+?)(?:\?|$)/i,
+      /(?:how to get|route|directions)\s+(?:from)\s+(.+?)\s+(?:to)\s+(.+?)(?:\?|$)/i,
+      /(?:desde)\s+(.+?)\s+(?:hasta|a)\s+(.+?)(?:\?|$)/i,
+      /(?:cómo ir|como llegar|ruta)\s+(?:desde)\s+(.+?)\s+(?:hasta|a)\s+(.+?)(?:\?|$)/i
+    ];
+
+    for (const pattern of patterns) {
+      const match = q.match(pattern);
+      if (match && match[1] && match[2]) {
+        const origin = cleanRoutePlace(match[1]);
+        const destination = cleanRoutePlace(match[2]);
+        if (origin.length >= 3 && destination.length >= 3) {
+          return { origin, destination, travelmode, confidence: "route" };
+        }
+      }
+    }
+
+    const destinationPatterns = [
+      /(?:como chegar|como ir|rota para|ir para|chegar ao|chegar à|chegar a)\s+(.+?)(?:\?|$)/i,
+      /(?:directions to|how to get to|route to)\s+(.+?)(?:\?|$)/i,
+      /(?:cómo llegar a|ruta para|ir a)\s+(.+?)(?:\?|$)/i
+    ];
+
+    for (const pattern of destinationPatterns) {
+      const match = q.match(pattern);
+      if (match && match[1]) {
+        const destination = cleanRoutePlace(match[1]);
+        if (destination.length >= 3) {
+          return { origin: "", destination, travelmode, confidence: "destination" };
+        }
+      }
+    }
+
+    return null;
+  }
+
+  const routeIntent = extractRouteIntent(question);
+
 
   const affiliateUrls = {
     skyscannerHome: "https://skyscanner.pxf.io/vDPKAL",
@@ -196,6 +285,23 @@ exports.handler = async (event) => {
     }
   }
 
+
+  if (routeIntent && routeIntent.destination) {
+    const mapsUrl = routeIntent.origin
+      ? buildMapsUrl({
+          origin: routeIntent.origin,
+          destination: routeIntent.destination,
+          travelmode: routeIntent.travelmode
+        })
+      : buildMapsSearchUrl(routeIntent.destination);
+
+    actions.unshift({
+      label: routeIntent.origin ? labels.mapsRoute : labels.mapsPlace,
+      url: mapsUrl,
+      type: "maps"
+    });
+  }
+
   const intentInstruction = detectedLabels.length
     ? `Detected travel-planning/commercial categories: ${detectedLabels.join(" | ")}.
 In the final next-step paragraph, naturally point the user to these button(s) on this same Lipe Travel Show page: ${detectedLabels.join(" | ")}.
@@ -211,7 +317,7 @@ You are a broad, expert travel-planning assistant with access to Google Search g
 You can help with travel questions about the whole world, including:
 - destination choice, route logic, airports and connections;
 - best season, average climate, current weather context, typical temperatures and what to wear;
-- itinerary structure, neighborhoods, transport, safety and travel rhythm;
+- itinerary structure, neighborhoods, transport, route logic, Google Maps directions links, safety and travel rhythm;
 - what to buy, what to pack, what to bring back, local customs and practical travel behavior;
 - hotels by style and area, flights by strategy, travel insurance, car rental, tours, tickets and experiences;
 - family travel, honeymoons, premium travel, quick getaways and multi-city routes.
@@ -231,6 +337,7 @@ LGBTQ+ and nudist travel:
 
 Use Google Search grounding when it helps:
 - current weather or temperature context;
+- practical route context when the user asks how to get from one place to another;
 - recent destination information, events, closures, current rules, visa/document updates;
 - LGBTQ+ travel context, Pride dates, nightlife changes, venue reputation, naturist/nudist beach rules and safety-relevant current information;
 - indicative market context for prices or availability;
@@ -245,6 +352,12 @@ Accuracy and live-data rules:
 
 Commercial ecosystem rules:
 ${intentInstruction}
+
+Google Maps route rules:
+- If the user asks how to get from one place to another, explain the route logic briefly and tell them to use the Google Maps action button shown in the answer card.
+- If the origin is missing, explain that Google Maps can open the destination and use the user's current location/device context.
+- Do not invent exact travel times, traffic conditions or transit schedules unless grounded/current.
+- For live routing, traffic, transport schedules or navigation, the action button is the reliable next step.
 
 When the user asks about purchasable travel items, answer the travel question first, then route the user to the relevant button(s) shown in the answer card:
 - Flights: "${labels.flights}"
