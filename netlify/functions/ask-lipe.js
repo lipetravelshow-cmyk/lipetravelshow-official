@@ -42,6 +42,37 @@ exports.handler = async (event) => {
     };
   }
 
+  const eventType = String(payload.eventType || "").trim();
+
+  if (eventType === "lipa_event" || eventType === "lipa_lead") {
+    const safeEvent = {
+      eventType,
+      lang: String(payload.lang || "pt").slice(0, 8),
+      category: String(payload.category || "").slice(0, 80),
+      actionType: String(payload.actionType || "").slice(0, 80),
+      destination: String(payload.destination || "").slice(0, 120),
+      question: String(payload.question || "").slice(0, 500),
+      label: String(payload.label || "").slice(0, 120),
+      urlHost: (() => {
+        try {
+          return payload.url ? new URL(String(payload.url)).hostname : "";
+        } catch (e) {
+          return "";
+        }
+      })(),
+      userAgent: event.headers?.["user-agent"] || event.headers?.["User-Agent"] || "",
+      ts: new Date().toISOString()
+    };
+
+    console.log("LIPA_EVENT", JSON.stringify(safeEvent));
+
+    return {
+      statusCode: 200,
+      headers,
+      body: JSON.stringify({ ok: true })
+    };
+  }
+
   const question = String(payload.question || "").trim().slice(0, 1800);
   const lang = String(payload.lang || "pt").trim();
 
@@ -367,6 +398,20 @@ exports.handler = async (event) => {
       label: labels.email,
       url: `mailto:${lipeEmail}?subject=${encodeURIComponent("Planejamento de viagem com Lipe Travel Show")}&body=${encodeURIComponent(`Olá Lipe, quero continuar este planejamento de viagem:\n\n${question}`)}`,
       type: "email"
+    });
+  }
+
+  const hasLeadAction = actions.some((action) => action.type === "whatsapp" || action.type === "email" || action.type === "lead");
+
+  if (!hasLeadAction) {
+    const leadUrl = lipeWhatsappUrl
+      ? `${lipeWhatsappUrl}${lipeWhatsappUrl.includes("?") ? "&" : "?"}text=${encodeURIComponent(`Olá Lipe, quero continuar este planejamento de viagem:\n\n${question}`)}`
+      : `mailto:${lipeEmail}?subject=${encodeURIComponent("Planejamento de viagem com Lipe Travel Show")}&body=${encodeURIComponent(`Olá Lipe, quero continuar este planejamento de viagem:\n\n${question}`)}`;
+
+    actions.push({
+      label: labels.lead,
+      url: leadUrl,
+      type: "lead"
     });
   }
 

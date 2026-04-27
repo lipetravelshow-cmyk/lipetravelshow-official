@@ -792,6 +792,56 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
   }
 }
 
+
+/* V42/V44/V50 — LIPA lead capture, follow-up suggestions and analytics */
+.lipa-v27-suggestions{
+  margin-top:14px;
+  padding-top:14px;
+  border-top:1px solid rgba(255,255,255,.08);
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+.lipa-v27-suggestion-chip{
+  border:1px solid rgba(255,255,255,.13);
+  background:rgba(255,255,255,.055);
+  color:rgba(255,255,255,.86);
+  border-radius:999px;
+  padding:8px 11px;
+  font-family:"Inter",sans-serif;
+  font-size:.78rem;
+  font-weight:800;
+  cursor:pointer;
+  transition:transform .18s ease,border-color .18s ease,background .18s ease;
+}
+.lipa-v27-suggestion-chip:hover{
+  transform:translateY(-1px);
+  border-color:rgba(240,165,0,.42);
+  background:rgba(240,165,0,.10);
+  color:#fff;
+}
+.lipa-v27-action-btn[data-action-type="lead"],
+.lipa-v27-action-btn[data-action-type="whatsapp"],
+.lipa-v27-action-btn[data-action-type="email"]{
+  background:rgba(255,255,255,.08);
+  color:#fff;
+  border:1px solid rgba(240,165,0,.34);
+}
+.lipa-v27-action-btn[data-action-type="lead"]:hover,
+.lipa-v27-action-btn[data-action-type="whatsapp"]:hover,
+.lipa-v27-action-btn[data-action-type="email"]:hover{
+  background:rgba(240,165,0,.16);
+}
+@media(max-width:640px){
+  .lipa-v27-suggestions{
+    flex-direction:column;
+  }
+  .lipa-v27-suggestion-chip{
+    width:100%;
+    text-align:left;
+  }
+}
+
 </style>
 <script type="application/ld+json">
 {
@@ -1584,8 +1634,65 @@ document.querySelectorAll('.nav-links > li > a').forEach(a=>{
     return '<div class="lipa-v27-actions">' + actions.map(function(action){
       var label = escapeHtml(action.label || 'Abrir');
       var url = escapeHtml(action.url || '#');
-      return '<a class="lipa-v27-action-btn" href="' + url + '" target="_blank" rel="noopener sponsored nofollow">' + label + '</a>';
+      var type = escapeHtml(action.type || 'action');
+      return '<a class="lipa-v27-action-btn" data-action-type="' + type + '" data-action-label="' + label + '" href="' + url + '" target="_blank" rel="noopener sponsored nofollow">' + label + '</a>';
     }).join('') + '</div>';
+  }
+
+
+  function formatLipaSuggestions(lang){
+    var suggestionsByLang = {
+      pt: [
+        'Monte um roteiro dia a dia',
+        'Onde ficar melhor?',
+        'Que roupa levar?',
+        'Como economizar nessa viagem?'
+      ],
+      en: [
+        'Build a day-by-day itinerary',
+        'Where should I stay?',
+        'What should I pack?',
+        'How can I save on this trip?'
+      ],
+      es: [
+        'Monta un itinerario día a día',
+        '¿Dónde conviene alojarse?',
+        '¿Qué ropa debo llevar?',
+        '¿Cómo puedo ahorrar en este viaje?'
+      ],
+      zh: [
+        '帮我安排每日行程',
+        '我应该住在哪个区域？',
+        '我该带什么衣服？',
+        '这趟旅行如何省钱？'
+      ]
+    };
+    var suggestions = suggestionsByLang[lang] || suggestionsByLang.pt;
+    return '<div class="lipa-v27-suggestions">' + suggestions.map(function(label){
+      return '<button type="button" class="lipa-v27-suggestion-chip" data-lipa-suggestion="' + escapeHtml(label) + '">' + escapeHtml(label) + '</button>';
+    }).join('') + '</div>';
+  }
+
+  function trackLipaEvent(block, eventType, meta){
+    try{
+      var payload = Object.assign({
+        eventType: 'lipa_event',
+        lang: block.getAttribute('data-lang') || 'pt'
+      }, meta || {});
+      var body = JSON.stringify(payload);
+
+      if(navigator.sendBeacon){
+        var blob = new Blob([body], {type:'application/json'});
+        navigator.sendBeacon('/.netlify/functions/ask-lipe', blob);
+      }else{
+        fetch('/.netlify/functions/ask-lipe', {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body:body,
+          keepalive:true
+        });
+      }
+    }catch(e){}
   }
 
   function responseCard(content, state){
@@ -1606,6 +1713,28 @@ document.querySelectorAll('.nav-links > li > a').forEach(a=>{
     var empty = block.getAttribute('data-empty') || 'Digite sua dúvida acima para começar.';
     var error = block.getAttribute('data-error') || 'Não consegui responder agora. Tente novamente.';
     if(!form || !input || !log || !send) return;
+
+    log.addEventListener('click', function(e){
+      var suggestion = e.target.closest('[data-lipa-suggestion]');
+      if(suggestion){
+        var text = suggestion.getAttribute('data-lipa-suggestion') || '';
+        input.value = text;
+        trackLipaEvent(block, 'lipa_event', {category:'suggestion_click', label:text});
+        form.dispatchEvent(new Event('submit', {cancelable:true}));
+        return;
+      }
+
+      var action = e.target.closest('.lipa-v27-action-btn');
+      if(action){
+        trackLipaEvent(block, 'lipa_event', {
+          category:'action_click',
+          actionType:action.getAttribute('data-action-type') || '',
+          label:action.getAttribute('data-action-label') || action.textContent || '',
+          url:action.href || ''
+        });
+      }
+    });
+
     form.addEventListener('submit', function(e){
       e.preventDefault();
       var question = (input.value || '').trim();
@@ -1617,6 +1746,7 @@ document.querySelectorAll('.nav-links > li > a').forEach(a=>{
       }
       log.style.display = 'block';
       log.innerHTML = responseCard('<p>' + inlineMarkdown(loading) + '</p>', 'loading');
+      trackLipaEvent(block, 'lipa_event', {category:'question_submitted', question:question});
       send.disabled = true;
       fetch('/.netlify/functions/ask-lipe', {
         method:'POST',
@@ -1630,8 +1760,10 @@ document.querySelectorAll('.nav-links > li > a').forEach(a=>{
           if(data.actions && data.actions.length){
             answerHtml += formatLipaActions(data.actions);
           }
+          answerHtml += formatLipaSuggestions(lang);
           log.innerHTML = responseCard(answerHtml, 'answer');
           log.scrollTop = 0;
+          trackLipaEvent(block, 'lipa_event', {category:'response_received', question:question});
         }else{
           log.innerHTML = responseCard('<p>' + inlineMarkdown((data && data.error) ? data.error : error) + '</p>', 'error');
         }
