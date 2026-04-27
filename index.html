@@ -708,6 +708,37 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
   }
 }
 
+
+/* V35 — LIPA floating access on mobile */
+@media(max-width:640px){
+  .nav-lipa-toggle-v27{
+    display:flex !important;
+    position:fixed !important;
+    right:16px !important;
+    bottom:88px !important;
+    z-index:9999 !important;
+    width:54px !important;
+    height:54px !important;
+    padding:6px !important;
+    border-radius:999px !important;
+    background:rgba(8,21,40,.92) !important;
+    border:1px solid rgba(240,165,0,.48) !important;
+    box-shadow:0 14px 34px rgba(0,0,0,.36) !important;
+    backdrop-filter:blur(12px) !important;
+  }
+  .nav-lipa-toggle-v27 span{
+    display:none !important;
+  }
+  .nav-lipa-toggle-v27 img{
+    width:42px !important;
+    height:42px !important;
+    min-width:42px !important;
+    border-radius:50% !important;
+    object-fit:cover !important;
+    object-position:center center !important;
+  }
+}
+
 </style>
 <script type="application/ld+json">
 {
