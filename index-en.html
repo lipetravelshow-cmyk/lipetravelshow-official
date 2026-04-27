@@ -592,6 +592,101 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
 .lts-planner-shell.v27-has-visual .lts-planner-note{gap:7px}
 }
 
+
+/* V33 — LIPA response card: resposta separada, com scroll interno */
+.lipa-v27-chat{
+  align-self:center;
+}
+.lipa-v27-log{
+  margin-top:16px !important;
+  max-height:300px !important;
+  overflow-y:auto !important;
+  padding:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  white-space:normal !important;
+}
+.lipa-v27-response-card{
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.10);
+  background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.045));
+  box-shadow:0 16px 34px rgba(0,0,0,.22);
+  overflow:hidden;
+}
+.lipa-v27-response-head{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:13px 16px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  color:var(--gold2);
+  font-weight:900;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  font-size:.74rem;
+}
+.lipa-v27-response-head img{
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  object-fit:cover;
+  box-shadow:0 0 0 1px rgba(240,165,0,.4);
+}
+.lipa-v27-response-body{
+  padding:16px 18px 18px;
+  color:rgba(255,255,255,.86);
+  font-size:.92rem;
+  line-height:1.7;
+}
+.lipa-v27-response-body p{
+  margin:0 0 12px;
+}
+.lipa-v27-response-body p:last-child{
+  margin-bottom:0;
+}
+.lipa-v27-response-body strong{
+  color:#fff;
+}
+.lipa-v27-response-body ul{
+  margin:8px 0 14px 0;
+  padding:0;
+  list-style:none;
+  display:grid;
+  gap:8px;
+}
+.lipa-v27-response-body li{
+  position:relative;
+  padding-left:18px;
+}
+.lipa-v27-response-body li:before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:.72em;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:var(--gold2);
+}
+.lipa-v27-response-card.loading .lipa-v27-response-body{
+  color:rgba(255,255,255,.72);
+}
+.lipa-v27-log::-webkit-scrollbar{
+  width:8px;
+}
+.lipa-v27-log::-webkit-scrollbar-thumb{
+  background:rgba(255,255,255,.16);
+  border-radius:999px;
+}
+@media(max-width:920px){
+  .lipa-v27-log{
+    max-height:240px !important;
+  }
+  .lipa-v27-response-body{
+    font-size:.9rem;
+  }
+}
+
 </style>
 <script type="application/ld+json">
 {
@@ -1340,8 +1435,48 @@ document.querySelectorAll('.nav-links > li > a').forEach(a=>{
 </script>
 
 
+
 <script>
 (function(){
+  function escapeHtml(text){
+    return String(text || '').replace(/[&<>"']/g, function(ch){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch];
+    });
+  }
+  function inlineMarkdown(text){
+    return escapeHtml(text)
+      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  }
+  function formatLipaAnswer(text){
+    var lines = String(text || '').split(/\n+/).map(function(line){ return line.trim(); }).filter(Boolean);
+    var html = '';
+    var list = [];
+    function flushList(){
+      if(list.length){
+        html += '<ul>' + list.map(function(item){ return '<li>' + inlineMarkdown(item) + '</li>'; }).join('') + '</ul>';
+        list = [];
+      }
+    }
+    lines.forEach(function(line){
+      var bullet = line.match(/^(\*|-|•)\s+(.*)$/);
+      if(bullet){
+        list.push(bullet[2]);
+      }else{
+        flushList();
+        html += '<p>' + inlineMarkdown(line) + '</p>';
+      }
+    });
+    flushList();
+    return html || '<p></p>';
+  }
+  function responseCard(content, state){
+    var loadingClass = state === 'loading' ? ' loading' : '';
+    return '<div class="lipa-v27-response-card' + loadingClass + '">' +
+      '<div class="lipa-v27-response-head"><img src="lipa-avatar.png" alt="LIPA"><span>Resposta da LIPA</span></div>' +
+      '<div class="lipa-v27-response-body">' + content + '</div>' +
+      '</div>';
+  }
+
   document.querySelectorAll('[data-lipa-v27]').forEach(function(block){
     var form = block.querySelector('.lipa-v27-form');
     var input = block.querySelector('.lipa-v27-input');
@@ -1357,12 +1492,12 @@ document.querySelectorAll('.nav-links > li > a').forEach(a=>{
       var question = (input.value || '').trim();
       if(!question){
         log.style.display = 'block';
-        log.textContent = empty;
+        log.innerHTML = responseCard('<p>' + inlineMarkdown(empty) + '</p>', 'empty');
         input.focus();
         return;
       }
       log.style.display = 'block';
-      log.textContent = loading;
+      log.innerHTML = responseCard('<p>' + inlineMarkdown(loading) + '</p>', 'loading');
       send.disabled = true;
       fetch('/.netlify/functions/ask-lipe', {
         method:'POST',
@@ -1370,12 +1505,22 @@ document.querySelectorAll('.nav-links > li > a').forEach(a=>{
         body:JSON.stringify({question:question, lang:lang})
       })
       .then(function(r){ return r.json(); })
-      .then(function(data){ log.textContent = data.answer || error; })
-      .catch(function(){ log.textContent = error; })
+      .then(function(data){
+        if(data && data.answer){
+          log.innerHTML = responseCard(formatLipaAnswer(data.answer), 'answer');
+          log.scrollTop = 0;
+        }else{
+          log.innerHTML = responseCard('<p>' + inlineMarkdown((data && data.error) ? data.error : error) + '</p>', 'error');
+        }
+      })
+      .catch(function(){
+        log.innerHTML = responseCard('<p>' + inlineMarkdown(error) + '</p>', 'error');
+      })
       .finally(function(){ send.disabled = false; });
     });
   });
 })();
 </script>
+
 </body>
 </html>
