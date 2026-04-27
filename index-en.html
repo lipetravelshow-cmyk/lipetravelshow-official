@@ -718,6 +718,75 @@ footer{border-top:1px solid rgba(255,255,255,.07);background:var(--dark);margin-
   }
 }
 
+
+/* V38 — LIPA affiliate action buttons + real mobile floating button */
+.lipa-v27-actions{
+  margin-top:16px;
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.lipa-v27-action-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:999px;
+  background:var(--gold);
+  color:var(--navy);
+  font-weight:900;
+  font-size:.82rem;
+  line-height:1.15;
+  text-decoration:none;
+  box-shadow:0 10px 20px rgba(0,0,0,.20);
+  transition:transform .18s ease, background .18s ease;
+}
+.lipa-v27-action-btn:hover{
+  transform:translateY(-1px);
+  background:var(--gold2);
+}
+.lipa-floating-mobile-v38{
+  display:none;
+}
+@media(max-width:640px){
+  .nav-lipa-toggle-v27{
+    display:none !important;
+  }
+  .lipa-floating-mobile-v38{
+    display:flex !important;
+    position:fixed !important;
+    right:16px !important;
+    bottom:calc(20px + env(safe-area-inset-bottom)) !important;
+    z-index:2147483000 !important;
+    width:62px !important;
+    height:62px !important;
+    padding:7px !important;
+    border-radius:999px !important;
+    background:rgba(8,21,40,.94) !important;
+    border:1px solid rgba(240,165,0,.55) !important;
+    box-shadow:0 18px 42px rgba(0,0,0,.42) !important;
+    backdrop-filter:blur(14px) !important;
+    align-items:center !important;
+    justify-content:center !important;
+  }
+  .lipa-floating-mobile-v38 img{
+    width:48px !important;
+    height:48px !important;
+    min-width:48px !important;
+    border-radius:50% !important;
+    object-fit:cover !important;
+    object-position:center center !important;
+    display:block !important;
+  }
+  .lipa-v27-actions{
+    flex-direction:column;
+  }
+  .lipa-v27-action-btn{
+    width:100%;
+  }
+}
+
 </style>
 <script type="application/ld+json">
 {
@@ -1500,6 +1569,16 @@ document.querySelectorAll('.nav-links > li > a').forEach(a=>{
     flushList();
     return html || '<p></p>';
   }
+
+  function formatLipaActions(actions){
+    if(!actions || !actions.length) return '';
+    return '<div class="lipa-v27-actions">' + actions.map(function(action){
+      var label = escapeHtml(action.label || 'Abrir');
+      var url = escapeHtml(action.url || '#');
+      return '<a class="lipa-v27-action-btn" href="' + url + '" target="_blank" rel="noopener sponsored nofollow">' + label + '</a>';
+    }).join('') + '</div>';
+  }
+
   function responseCard(content, state){
     var loadingClass = state === 'loading' ? ' loading' : '';
     return '<div class="lipa-v27-response-card' + loadingClass + '">' +
@@ -1538,7 +1617,11 @@ document.querySelectorAll('.nav-links > li > a').forEach(a=>{
       .then(function(r){ return r.json(); })
       .then(function(data){
         if(data && data.answer){
-          log.innerHTML = responseCard(formatLipaAnswer(data.answer), 'answer');
+          var answerHtml = formatLipaAnswer(data.answer);
+          if(data.actions && data.actions.length){
+            answerHtml += formatLipaActions(data.actions);
+          }
+          log.innerHTML = responseCard(answerHtml, 'answer');
           log.scrollTop = 0;
         }else{
           log.innerHTML = responseCard('<p>' + inlineMarkdown((data && data.error) ? data.error : error) + '</p>', 'error');
