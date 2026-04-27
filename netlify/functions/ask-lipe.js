@@ -136,7 +136,7 @@ exports.handler = async (event) => {
       label: labels.hotels,
       actionLabel: labels.hotels,
       url: affiliateUrls.hotels,
-      terms: ["hotel", "hotéis", "hoteis", "hospedagem", "resort", "pousada", "bairro para ficar", "onde ficar", "stay", "stays", "accommodation", "where to stay", "alojamiento", "hoteles", "dónde alojarse", "酒店", "住宿"]
+      terms: ["hotel", "hotéis", "hoteis", "hospedagem", "resort", "pousada", "bairro para ficar", "onde ficar", "lgbt", "lgbtq", "lgbtq+", "gay friendly", "lgbt friendly", "hotel gay", "hotel lgbt", "hotel sauna", "sauna hotel", "stay", "stays", "accommodation", "where to stay", "alojamiento", "hoteles", "dónde alojarse", "gay friendly hotel", "酒店", "住宿"]
     },
     {
       key: "insurance",
@@ -157,7 +157,7 @@ exports.handler = async (event) => {
       label: labels.experiences,
       actionLabel: labels.experiences,
       url: affiliateUrls.experiences,
-      terms: ["passeio", "passeios", "experiência", "experiencias", "experiências", "ingresso", "ingressos", "tour", "tours", "atração", "atrações", "tickets", "attractions", "experiences", "entradas", "体验", "门票", "景点"]
+      terms: ["passeio", "passeios", "experiência", "experiencias", "experiências", "ingresso", "ingressos", "tour", "tours", "atração", "atrações", "balada", "baladas", "bar gay", "bares gays", "pride", "parada lgbt", "parada gay", "praia nudista", "praias nudistas", "praia lgbt", "sauna gay", "saunas gays", "sauna lgbt", "cruising", "vida noturna lgbt", "tickets", "attractions", "experiences", "nightlife", "gay bar", "gay sauna", "nudist beach", "lgbt beach", "lgbt nightlife", "entradas", "体验", "门票", "景点"]
     },
     {
       key: "gear",
@@ -219,9 +219,20 @@ You can help with travel questions about the whole world, including:
 Travel-only scope:
 If the user asks about something outside travel, gently redirect to travel planning.
 
+
+LGBTQ+ and nudist travel:
+- Be inclusive, respectful and genuinely useful for LGBTQ+ travelers, couples, friends and solo travelers.
+- You may answer about LGBTQ+-friendly destinations, neighborhoods, hotels, hotel-saunas, wellness/spa venues, restaurants, bars, clubs, Pride events, beaches, nudist beaches, nightlife, cultural etiquette, local safety and travel planning.
+- You may mention adult-oriented travel categories such as saunas, cruising areas and nudist beaches only in a non-explicit, travel-focused way: location type, neighborhood context, safety, legality, etiquette, age restrictions, consent, discretion, opening-day logic and how to verify current reputation.
+- Do not provide sexualized descriptions, explicit instructions, pickup tactics, or graphic content.
+- For venues that may be adult-only, always remind users to verify age restrictions, local laws, venue rules, reviews/reputation and personal safety before going.
+- Nudist beaches should be framed as legal/cultural/naturist travel spaces, not sexualized spaces.
+
+
 Use Google Search grounding when it helps:
 - current weather or temperature context;
 - recent destination information, events, closures, current rules, visa/document updates;
+- LGBTQ+ travel context, Pride dates, nightlife changes, venue reputation, naturist/nudist beach rules and safety-relevant current information;
 - indicative market context for prices or availability;
 - recent travel news or time-sensitive facts.
 
