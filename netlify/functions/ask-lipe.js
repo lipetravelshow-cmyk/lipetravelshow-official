@@ -738,7 +738,7 @@ When the user asks about purchasable travel items, answer the travel question fi
 
 Do not mention affiliate links or commissions.
 Do not paste raw URLs.
-Do not write commercial button labels as a plain list unless they are also present as action buttons.
+Do not write commercial button labels as a plain list in the answer text. The interface will render clickable action buttons separately. Instead, use one natural sentence such as: 'Use the buttons below to watch videos, compare flights, view hotels, book experiences, get insurance or talk to Lipe on WhatsApp.'
 Do not make external websites the main next step in prose.
 Avoid recommending random OTAs, airline websites, hotel websites or generic comparison websites as the main action.
 Always prefer the Lipe Travel Show ecosystem and the action buttons in the answer card.
@@ -747,7 +747,7 @@ When relevant Lipe Travel Show videos are available in the answer card, mention 
 Answer structure:
 1. Give a helpful travel answer.
 2. If current or price-sensitive information is involved, explain that exact prices/availability can change.
-3. End with one clear next step inside Lipe Travel Show, referring to the action button(s), not to raw URLs.
+3. End with one clear next step inside Lipe Travel Show, referring to the buttons below in one natural sentence. Do not repeat every button label as separate bold lines.
 
 Keep the answer under 260 words unless the user asks for a detailed itinerary.
 Use clean paragraphs and bullets when helpful.
@@ -814,6 +814,62 @@ Use clean paragraphs and bullets when helpful.
         body: JSON.stringify({ error: "A LIPA não recebeu uma resposta completa agora. Tente novamente." })
       };
     }
+
+    function stripRepeatedActionLabelsFromAnswer(rawAnswer, actionList) {
+      if (!rawAnswer || !Array.isArray(actionList) || !actionList.length) return rawAnswer;
+
+      const labelsToStrip = new Set(
+        actionList
+          .map((action) => String(action.label || "").trim())
+          .filter(Boolean)
+      );
+
+      if (!labelsToStrip.size) return rawAnswer;
+
+      const normalizedLabels = Array.from(labelsToStrip).map((label) =>
+        label
+          .replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+      );
+
+      const exactLabelLine = new RegExp(
+        "^\\s*(?:[-*•]\\s*)?(?:\\*\\*)?(" + normalizedLabels.join("|") + ")(?:\\*\\*)?\\s*$",
+        "i"
+      );
+
+      const lines = rawAnswer.split(/\r?\n/);
+      const filtered = lines.filter((line) => !exactLabelLine.test(line.trim()));
+
+      let cleaned = filtered.join("\n")
+        .replace(/\n{3,}/g, "\n\n")
+        .trim();
+
+      // Remove common leftover lead-in lines that become awkward after button labels are stripped.
+      cleaned = cleaned
+        .replace(/\n?(?:Para começar a planejar sua viagem, você pode explorar as opções de voos, hotéis e experiências diretamente aqui no Lipe Travel Show\.?)\s*$/i, "")
+        .replace(/\n?(?:Se precisar de ajuda para montar um roteiro personalizado ou tiver dúvidas mais específicas, pode entrar em contato com o Lipe pelo WhatsApp ou e-mail\.?)\s*$/i, "")
+        .trim();
+
+      const hasCommercialOrLeadAction = actionList.some((action) =>
+        ["youtube", "youtube_search", "flights", "hotels", "experiences", "insurance", "cars", "gear", "lead", "whatsapp", "email", "maps"].includes(action.type)
+      );
+
+      const alreadyMentionsButtons = /(botões abaixo|botões no card|buttons below|action buttons|botones abajo|按钮)/i.test(cleaned);
+
+      if (hasCommercialOrLeadAction && !alreadyMentionsButtons) {
+        const closingByLang = {
+          en: "Use the buttons below to continue with videos, flights, hotels, experiences, insurance or to talk to Lipe.",
+          es: "Usa los botones de abajo para continuar con videos, vuelos, hoteles, experiencias, seguro o hablar con Lipe.",
+          zh: "请使用下方按钮继续查看视频、机票、酒店、体验、保险，或联系 Lipe。",
+          pt: "Use os botões abaixo para continuar com vídeos, voos, hotéis, experiências, seguro ou falar com Lipe."
+        };
+
+        cleaned = `${cleaned}\n\n${closingByLang[lang] || closingByLang.pt}`.trim();
+      }
+
+      return cleaned;
+    }
+
+    answer = stripRepeatedActionLabelsFromAnswer(answer, actions);
 
     const externalProviderPattern = /(skyscanner|kayak|decolar|google flights|booking\.com|expedia|companhias aéreas|companhias aereas|sites das companhias|airline websites|hotel websites|generic comparison|comparadores externos|otas)/i;
 
