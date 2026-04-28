@@ -121,7 +121,8 @@ exports.handler = async (event) => {
       whatsapp: "Falar com Lipe no WhatsApp",
       email: "Enviar e-mail para Lipe",
       localPage: "página do Lipe Travel Show",
-      youtube: "Assistir no Lipe Travel Show",
+      youtube: "Assistir vídeo do Lipe Travel Show",
+      youtubeSearch: "Buscar vídeos no canal Lipe Travel Show",
       mapsRoute: "Abrir rota no Google Maps",
       mapsPlace: "Abrir no Google Maps"
     },
@@ -136,7 +137,8 @@ exports.handler = async (event) => {
       whatsapp: "Talk to Lipe on WhatsApp",
       email: "Email Lipe",
       localPage: "Lipe Travel Show page",
-      youtube: "Watch on Lipe Travel Show",
+      youtube: "Watch Lipe Travel Show video",
+      youtubeSearch: "Search videos on Lipe Travel Show",
       mapsRoute: "Open route in Google Maps",
       mapsPlace: "Open in Google Maps"
     },
@@ -151,7 +153,8 @@ exports.handler = async (event) => {
       whatsapp: "Hablar con Lipe por WhatsApp",
       email: "Enviar e-mail a Lipe",
       localPage: "página de Lipe Travel Show",
-      youtube: "Ver en Lipe Travel Show",
+      youtube: "Ver video de Lipe Travel Show",
+      youtubeSearch: "Buscar videos en Lipe Travel Show",
       mapsRoute: "Abrir ruta en Google Maps",
       mapsPlace: "Abrir en Google Maps"
     },
@@ -167,6 +170,7 @@ exports.handler = async (event) => {
       email: "给 Lipe 发邮件",
       localPage: "Lipe Travel Show 页面",
       youtube: "观看 Lipe Travel Show 视频",
+      youtubeSearch: "搜索 Lipe Travel Show 视频",
       mapsRoute: "在 Google Maps 中打开路线",
       mapsPlace: "在 Google Maps 中打开"
     }
@@ -206,47 +210,94 @@ exports.handler = async (event) => {
     return `${prefix}: ${shortTitle}`;
   }
 
+  function extractVideoSearchQuery(rawQuestion) {
+    const cleaned = normalizeVideoText(rawQuestion)
+      .replace(/\b(videos?|vídeos?|video|vídeo|youtube|canal|assistir|ver|lipe travel show|lts|tem|sobre|dicas|quero|vou|para|pela|primeira|vez|first|watch|channel|search)\b/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+
+    return cleaned || normalizeVideoText(rawQuestion).slice(0, 80);
+  }
+
+  function buildLtsYoutubeSearchUrl(rawQuestion) {
+    const query = extractVideoSearchQuery(rawQuestion);
+    if (!query) return "https://www.youtube.com/@LipeTravelShow/videos";
+    return `https://www.youtube.com/@LipeTravelShow/search?query=${encodeURIComponent(query)}`;
+  }
+
+  function isExplicitVideoRequest(rawQuestion) {
+    return /(vídeo|video|vídeos|videos|youtube|canal|assistir|watch|lipe travel show|lts)/i.test(rawQuestion);
+  }
+
   function recommendLtsVideos(rawQuestion, maxResults = 2) {
     const videos = Array.isArray(ltsVideoIndex.videos) ? ltsVideoIndex.videos : [];
     if (!videos.length) return [];
 
     const tokens = tokenizeVideoQuery(rawQuestion);
-    if (!tokens.length) return [];
+    const explicitVideo = isExplicitVideoRequest(rawQuestion);
+    if (!tokens.length && !explicitVideo) return [];
 
     const normalizedQuestionForPhrases = normalizeVideoText(rawQuestion);
     const scored = videos.map((video) => {
       const title = normalizeVideoText(video.title);
+      const description = normalizeVideoText(video.description || "");
       const searchText = normalizeVideoText(video.search_text || `${video.title} ${video.description || ""}`);
       const country = normalizeVideoText(video.country || "");
-      const places = normalizeVideoText((video.places || []).join(" "));
+      const placesArray = Array.isArray(video.places) ? video.places : [];
+      const places = normalizeVideoText(placesArray.join(" "));
       const themes = normalizeVideoText((video.themes || []).join(" "));
 
       let score = 0;
 
       for (const token of tokens) {
-        if (title.includes(token)) score += 8;
-        if (places.includes(token)) score += 9;
-        if (country.includes(token)) score += 5;
+        if (title.includes(token)) score += 10;
+        if (places.includes(token)) score += 12;
+        if (country.includes(token)) score += 7;
         if (themes.includes(token)) score += 4;
-        if (searchText.includes(token)) score += 2;
+        if (description.includes(token)) score += 2;
+        if (searchText.includes(token)) score += 3;
       }
 
-      // Phrase boosts for destination/city names appearing in both query and video metadata.
-      const phraseSource = `${country} ${places}`;
-      for (const phrase of phraseSource.split(/\s+/).filter((p) => p.length >= 4)) {
-        if (normalizedQuestionForPhrases.includes(phrase)) score += 5;
+      for (const place of placesArray) {
+        const np = normalizeVideoText(place);
+        if (np.length >= 4 && normalizedQuestionForPhrases.includes(np)) score += 36;
+      }
+
+      if (country && country.length >= 4 && normalizedQuestionForPhrases.includes(country)) score += 18;
+
+      const aliasPairs = [
+        ["lisboa", ["lisbon", "portugal", "lisboa"]],
+        ["lisbon", ["lisboa", "portugal", "lisbon"]],
+        ["nova york", ["new york", "nyc"]],
+        ["new york", ["nova york", "nyc"]],
+        ["roma", ["rome", "italy", "italia"]],
+        ["rome", ["roma", "italy", "italia"]],
+        ["buenos aires", ["argentina", "palermo", "recoleta", "san telmo"]],
+        ["orlando", ["disney", "florida"]],
+        ["hangzhou", ["china"]],
+        ["pequim", ["beijing", "china"]],
+        ["beijing", ["pequim", "china"]],
+        ["xangai", ["shanghai", "china"]],
+        ["shanghai", ["xangai", "china"]]
+      ];
+
+      for (const [needle, aliases] of aliasPairs) {
+        if (normalizedQuestionForPhrases.includes(needle)) {
+          for (const alias of aliases) {
+            if (title.includes(alias) || places.includes(alias) || country.includes(alias) || searchText.includes(alias)) score += 18;
+          }
+        }
       }
 
       if (score > 0 && video.view_count) {
         score += Math.min(4, Math.log10(Number(video.view_count) + 1) / 2);
       }
 
-      // Keep newer channel order slightly favored if otherwise close.
-      score += Math.max(0, 1 - ((Number(video.sort_index || 0)) / 1000));
+      score += Math.max(0, 1 - ((Number(video.sort_index || 0)) / 1200));
 
       return { video, score };
     })
-    .filter((item) => item.score >= 9)
+    .filter((item) => item.score >= (explicitVideo ? 5 : 10))
     .sort((a, b) => b.score - a.score)
     .slice(0, maxResults)
     .map((item) => item.video);
@@ -492,6 +543,8 @@ exports.handler = async (event) => {
   }
 
   const recommendedVideos = recommendLtsVideos(question, 2);
+  const asksForLtsVideo = isExplicitVideoRequest(question);
+
   for (const video of recommendedVideos) {
     actions.push({
       label: truncateActionLabel(labels.youtube, video.title),
@@ -499,6 +552,15 @@ exports.handler = async (event) => {
       type: "youtube"
     });
   }
+
+  if (asksForLtsVideo && !actions.some((action) => action.type === "youtube")) {
+    actions.push({
+      label: labels.youtubeSearch,
+      url: buildLtsYoutubeSearchUrl(question),
+      type: "youtube_search"
+    });
+  }
+
 
   const hasLeadAction = actions.some((action) => action.type === "whatsapp" || action.type === "email" || action.type === "lead");
 
@@ -594,7 +656,7 @@ Do not paste raw URLs.
 Do not make external websites the main next step in prose.
 Avoid recommending random OTAs, airline websites, hotel websites or generic comparison websites as the main action.
 Always prefer the Lipe Travel Show ecosystem and the action buttons in the answer card.
-When relevant Lipe Travel Show videos are available in the answer card, mention that the user can watch them as an extra planning layer, but do not invent video titles.
+When relevant Lipe Travel Show videos are available in the answer card, mention that the user can watch them as an extra planning layer, but do not invent video titles. If the user asks specifically for videos, never route them only to e-mail/lead; the interface will show either matched video buttons or a channel search button.
 
 Answer structure:
 1. Give a helpful travel answer.
