@@ -128,6 +128,7 @@ exports.handler = async (event) => {
       tools: "Planejamento prático",
       whatsapp: "Falar com Lipe no WhatsApp",
       email: "Enviar e-mail para Lipe",
+      lead: "Continuar com Lipe",
       localPage: "página do Lipe Travel Show",
       youtube: "Assistir vídeo do Lipe Travel Show",
       youtubeSearch: "Buscar vídeos no canal Lipe Travel Show",
@@ -144,6 +145,7 @@ exports.handler = async (event) => {
       tools: "Practical planning",
       whatsapp: "Talk to Lipe on WhatsApp",
       email: "Email Lipe",
+      lead: "Continue with Lipe",
       localPage: "Lipe Travel Show page",
       youtube: "Watch Lipe Travel Show video",
       youtubeSearch: "Search videos on Lipe Travel Show",
@@ -160,6 +162,7 @@ exports.handler = async (event) => {
       tools: "Planificación práctica",
       whatsapp: "Hablar con Lipe por WhatsApp",
       email: "Enviar e-mail a Lipe",
+      lead: "Continuar con Lipe",
       localPage: "página de Lipe Travel Show",
       youtube: "Ver video de Lipe Travel Show",
       youtubeSearch: "Buscar videos en Lipe Travel Show",
@@ -176,6 +179,7 @@ exports.handler = async (event) => {
       tools: "实用旅行规划",
       whatsapp: "通过 WhatsApp 联系 Lipe",
       email: "给 Lipe 发邮件",
+      lead: "继续联系 Lipe",
       localPage: "Lipe Travel Show 页面",
       youtube: "观看 Lipe Travel Show 视频",
       youtubeSearch: "搜索 Lipe Travel Show 视频",
@@ -359,6 +363,86 @@ exports.handler = async (event) => {
 
     return scored;
   }
+
+
+  function buildMapsUrl({ origin, destination, travelmode = "driving" }) {
+    const baseUrl = "https://www.google.com/maps/dir/?api=1";
+    const params = new URLSearchParams();
+
+    if (origin) params.set("origin", origin);
+    if (destination) params.set("destination", destination);
+    if (travelmode) params.set("travelmode", travelmode);
+
+    return `${baseUrl}&${params.toString()}`;
+  }
+
+  function buildMapsSearchUrl(query) {
+    const params = new URLSearchParams({
+      api: "1",
+      query
+    });
+
+    return `https://www.google.com/maps/search/?${params.toString()}`;
+  }
+
+  function cleanRoutePlace(value) {
+    return String(value || "")
+      .replace(/[?.!,;:]+$/g, "")
+      .replace(/\s+/g, " ")
+      .trim()
+      .slice(0, 140);
+  }
+
+  function detectTravelMode(text) {
+    if (/(a pé|caminhando|walking|walk|徒歩|步行)/i.test(text)) return "walking";
+    if (/(transporte público|metro|metrô|ônibus|bus|train|subway|transit|transporte publico|公共交通|地铁|公交)/i.test(text)) return "transit";
+    if (/(bicicleta|bike|bicycle|cycling|bici|自行车)/i.test(text)) return "bicycling";
+    return "driving";
+  }
+
+  function extractRouteIntent(rawQuestion) {
+    const q = cleanRoutePlace(rawQuestion);
+    const travelmode = detectTravelMode(q);
+
+    const patterns = [
+      /(?:como ir|como chegar|rota|trajeto|caminho)\s+(?:de|do|da|dos|das)\s+(.+?)\s+(?:para|até|ate|ao|à|a)\s+(.+?)(?:\?|$)/i,
+      /(?:de|do|da|dos|das)\s+(.+?)\s+(?:para|até|ate|ao|à|a)\s+(.+?)(?:\?|$)/i,
+      /(?:from)\s+(.+?)\s+(?:to)\s+(.+?)(?:\?|$)/i,
+      /(?:how to get|route|directions)\s+(?:from)\s+(.+?)\s+(?:to)\s+(.+?)(?:\?|$)/i,
+      /(?:desde)\s+(.+?)\s+(?:hasta|a)\s+(.+?)(?:\?|$)/i,
+      /(?:cómo ir|como llegar|ruta)\s+(?:desde)\s+(.+?)\s+(?:hasta|a)\s+(.+?)(?:\?|$)/i
+    ];
+
+    for (const pattern of patterns) {
+      const match = q.match(pattern);
+      if (match && match[1] && match[2]) {
+        const origin = cleanRoutePlace(match[1]);
+        const destination = cleanRoutePlace(match[2]);
+        if (origin.length >= 3 && destination.length >= 3) {
+          return { origin, destination, travelmode, confidence: "route" };
+        }
+      }
+    }
+
+    const destinationPatterns = [
+      /(?:como chegar|como ir|rota para|ir para|chegar ao|chegar à|chegar a)\s+(.+?)(?:\?|$)/i,
+      /(?:directions to|how to get to|route to)\s+(.+?)(?:\?|$)/i,
+      /(?:cómo llegar a|ruta para|ir a)\s+(.+?)(?:\?|$)/i
+    ];
+
+    for (const pattern of destinationPatterns) {
+      const match = q.match(pattern);
+      if (match && match[1]) {
+        const destination = cleanRoutePlace(match[1]);
+        if (destination.length >= 3) {
+          return { origin: "", destination, travelmode, confidence: "destination" };
+        }
+      }
+    }
+
+    return null;
+  }
+
 
   const routeIntent = extractRouteIntent(question);
 
@@ -560,7 +644,7 @@ exports.handler = async (event) => {
       : `mailto:${lipeEmail}?subject=${encodeURIComponent("Planejamento de viagem com Lipe Travel Show")}&body=${encodeURIComponent(`Olá Lipe, quero continuar este planejamento de viagem:\n\n${question}`)}`;
 
     actions.push({
-      label: labels.lead,
+      label: labels.lead || labels.email,
       url: leadUrl,
       type: "lead"
     });
