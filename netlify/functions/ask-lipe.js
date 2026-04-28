@@ -824,49 +824,51 @@ Use clean paragraphs and bullets when helpful.
           .filter(Boolean)
       );
 
-      if (!labelsToStrip.size) return rawAnswer;
-
       const normalizedLabels = Array.from(labelsToStrip).map((label) =>
-        label
-          .replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
+        label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")
       );
 
-      const exactLabelLine = new RegExp(
-        "^\\s*(?:[-*•]\\s*)?(?:\\*\\*)?(" + normalizedLabels.join("|") + ")(?:\\*\\*)?\\s*$",
-        "i"
-      );
+      let cleaned = rawAnswer;
 
-      const lines = rawAnswer.split(/\r?\n/);
-      const filtered = lines.filter((line) => !exactLabelLine.test(line.trim()));
+      if (normalizedLabels.length) {
+        const exactLabelLine = new RegExp(
+          "^\\s*(?:[-*•]\\s*)?(?:\\*\\*)?(" + normalizedLabels.join("|") + ")(?:\\*\\*)?\\s*$",
+          "i"
+        );
 
-      let cleaned = filtered.join("\n")
-        .replace(/\n{3,}/g, "\n\n")
-        .trim();
-
-      // Remove common leftover lead-in lines that become awkward after button labels are stripped.
-      cleaned = cleaned
-        .replace(/\n?(?:Para começar a planejar sua viagem, você pode explorar as opções de voos, hotéis e experiências diretamente aqui no Lipe Travel Show\.?)\s*$/i, "")
-        .replace(/\n?(?:Se precisar de ajuda para montar um roteiro personalizado ou tiver dúvidas mais específicas, pode entrar em contato com o Lipe pelo WhatsApp ou e-mail\.?)\s*$/i, "")
-        .trim();
+        cleaned = cleaned
+          .split(/\r?\n/)
+          .filter((line) => !exactLabelLine.test(line.trim()))
+          .join("\n");
+      }
 
       const hasCommercialOrLeadAction = actionList.some((action) =>
         ["youtube", "youtube_search", "flights", "hotels", "experiences", "insurance", "cars", "gear", "lead", "whatsapp", "email", "maps"].includes(action.type)
       );
 
-      const alreadyMentionsButtons = /(botões abaixo|botões no card|buttons below|action buttons|botones abajo|按钮)/i.test(cleaned);
-
-      if (hasCommercialOrLeadAction && !alreadyMentionsButtons) {
-        const closingByLang = {
-          en: "Use the buttons below to continue with videos, flights, hotels, experiences, insurance or to talk to Lipe.",
-          es: "Usa los botones de abajo para continuar con videos, vuelos, hoteles, experiencias, seguro o hablar con Lipe.",
-          zh: "请使用下方按钮继续查看视频、机票、酒店、体验、保险，或联系 Lipe。",
+      if (hasCommercialOrLeadAction) {
+        const ctaByLang = {
+          en: "Click the buttons below to continue with videos, flights, hotels, experiences, insurance or to talk to Lipe on WhatsApp.",
+          es: "Haz clic en los botones de abajo para continuar con videos, vuelos, hoteles, experiencias, seguro o hablar con Lipe por WhatsApp.",
+          zh: "请点击下方按钮继续查看视频、机票、酒店、体验、保险，或通过 WhatsApp 联系 Lipe。",
           pt: "Clique nos botões abaixo para continuar com vídeos, voos, hotéis, experiências, seguro ou falar com o Lipe no WhatsApp."
         };
 
-        cleaned = `${cleaned}\n\n${closingByLang[lang] || closingByLang.pt}`.trim();
+        const finalCta = ctaByLang[lang] || ctaByLang.pt;
+
+        cleaned = cleaned
+          .replace(/\n?Além disso, se quiser explorar opções de voos, hotéis, experiências ou seguro viagem, também encontrará os botões correspondentes\.?/gi, "")
+          .replace(/\n?Se preferir um planejamento mais personalizado, pode falar diretamente com o Lipe pelo WhatsApp ou enviar um e-mail\.?/gi, "")
+          .replace(/\n?Para te ajudar a planejar sua viagem, você pode conferir os vídeos disponíveis clicando nos botões abaixo\.?/gi, "")
+          .replace(/\n?Use os botões abaixo para continuar com vídeos, voos, hotéis, experiências, seguro ou falar com Lipe\.?/gi, "")
+          .replace(/\n?Clique nos botões abaixo para continuar com vídeos, voos, hotéis, experiências, seguro ou falar com o Lipe no WhatsApp\.?/gi, "")
+          .replace(/\n{3,}/g, "\n\n")
+          .trim();
+
+        cleaned = `${cleaned}\n\n${finalCta}`.trim();
       }
 
-      return cleaned;
+      return cleaned.replace(/\n{3,}/g, "\n\n").trim();
     }
 
     answer = stripRepeatedActionLabelsFromAnswer(answer, actions);
