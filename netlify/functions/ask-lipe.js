@@ -402,7 +402,16 @@ exports.handler = async (event) => {
 
   function extractRouteIntent(rawQuestion) {
     const q = cleanRoutePlace(rawQuestion);
+    const lowerQ = q.toLowerCase();
     const travelmode = detectTravelMode(q);
+
+    // V59: Google Maps should only appear for explicit navigation / route questions.
+    // Generic travel intent such as "quero ir para Lisboa" should NOT create a Maps button.
+    const explicitRouteQuestion = /(\bcomo\s+(ir|chegar)\b|\brota\b|\btrajeto\b|\bcaminho\b|\bdirections?\b|\broute\b|\bhow\s+to\s+get\b|\bcómo\s+(ir|llegar)\b|\bruta\b|\bdesde\b|\bfrom\b.*\bto\b)/i.test(q);
+
+    if (!explicitRouteQuestion) {
+      return null;
+    }
 
     const patterns = [
       /(?:como ir|como chegar|rota|trajeto|caminho)\s+(?:de|do|da|dos|das)\s+(.+?)\s+(?:para|até|ate|ao|à|a)\s+(.+?)(?:\?|$)/i,
@@ -425,9 +434,9 @@ exports.handler = async (event) => {
     }
 
     const destinationPatterns = [
-      /(?:como chegar|como ir|rota para|ir para|chegar ao|chegar à|chegar a)\s+(.+?)(?:\?|$)/i,
+      /(?:como chegar|como ir|rota para|trajeto para|caminho para|chegar ao|chegar à|chegar a)\s+(.+?)(?:\?|$)/i,
       /(?:directions to|how to get to|route to)\s+(.+?)(?:\?|$)/i,
-      /(?:cómo llegar a|ruta para|ir a)\s+(.+?)(?:\?|$)/i
+      /(?:cómo llegar a|ruta para)\s+(.+?)(?:\?|$)/i
     ];
 
     for (const pattern of destinationPatterns) {
@@ -442,7 +451,6 @@ exports.handler = async (event) => {
 
     return null;
   }
-
 
   const routeIntent = extractRouteIntent(question);
 
@@ -711,7 +719,7 @@ Commercial ecosystem rules:
 ${intentInstruction}
 
 Google Maps route rules:
-- If the user asks how to get from one place to another, explain the route logic briefly and tell them to use the Google Maps action button shown in the answer card.
+- Show or mention the Google Maps action button only when the user explicitly asks for a route, directions, how to get somewhere, or how to go from one place to another. Do not mention Google Maps for generic destination-planning questions.
 - If the origin is missing, explain that Google Maps can open the destination and use the user's current location/device context.
 - Do not invent exact travel times, traffic conditions or transit schedules unless grounded/current.
 - For live routing, traffic, transport schedules or navigation, the action button is the reliable next step.
