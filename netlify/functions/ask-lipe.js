@@ -407,17 +407,20 @@ exports.handler = async (event) => {
 
     // V59: Google Maps should only appear for explicit navigation / route questions.
     // Generic travel intent such as "quero ir para Lisboa" should NOT create a Maps button.
-    const explicitRouteQuestion = /(\bcomo\s+(ir|chegar)\b|\brota\b|\btrajeto\b|\bcaminho\b|\bdirections?\b|\broute\b|\bhow\s+to\s+get\b|\bcómo\s+(ir|llegar)\b|\bruta\b|\bdesde\b|\bfrom\b.*\bto\b)/i.test(q);
+    const explicitRouteQuestion = /(\bcomo\s+(ir|chegar)\b|\bdist[âa]ncia\b|\bquanto\s+tempo\b|\btempo\s+de\s+deslocamento\b|\btempo\s+leva\b|\brota\b|\btrajeto\b|\bcaminho\b|\bdirections?\b|\bdistance\b|\bhow\s+far\b|\bhow\s+long\b|\btravel\s+time\b|\broute\b|\bhow\s+to\s+get\b|\bc[oó]mo\s+(ir|llegar)\b|\bdistancia\b|\bcu[aá]nto\s+tiempo\b|\bruta\b|\bdesde\b|\bfrom\b.*\bto\b)/i.test(q);
 
     if (!explicitRouteQuestion) {
       return null;
     }
 
     const patterns = [
+      /(?:qual\s+é\s+a\s+dist[âa]ncia|dist[âa]ncia|quanto\s+tempo|tempo\s+de\s+deslocamento)\s+(?:de|do|da|dos|das)\s+(.+?)\s+(?:para|até|ate|ao|à|a)\s+(.+?)(?:\?|$)/i,
       /(?:como ir|como chegar|rota|trajeto|caminho)\s+(?:de|do|da|dos|das)\s+(.+?)\s+(?:para|até|ate|ao|à|a)\s+(.+?)(?:\?|$)/i,
       /(?:de|do|da|dos|das)\s+(.+?)\s+(?:para|até|ate|ao|à|a)\s+(.+?)(?:\?|$)/i,
+      /(?:distance|how far|how long|travel time)\s+(?:from)\s+(.+?)\s+(?:to)\s+(.+?)(?:\?|$)/i,
       /(?:from)\s+(.+?)\s+(?:to)\s+(.+?)(?:\?|$)/i,
       /(?:how to get|route|directions)\s+(?:from)\s+(.+?)\s+(?:to)\s+(.+?)(?:\?|$)/i,
+      /(?:distancia|cu[aá]nto\s+tiempo)\s+(?:desde|de)\s+(.+?)\s+(?:hasta|a)\s+(.+?)(?:\?|$)/i,
       /(?:desde)\s+(.+?)\s+(?:hasta|a)\s+(.+?)(?:\?|$)/i,
       /(?:cómo ir|como llegar|ruta)\s+(?:desde)\s+(.+?)\s+(?:hasta|a)\s+(.+?)(?:\?|$)/i
     ];
@@ -719,7 +722,7 @@ Commercial ecosystem rules:
 ${intentInstruction}
 
 Google Maps route rules:
-- Show or mention the Google Maps action button only when the user explicitly asks for a route, directions, how to get somewhere, or how to go from one place to another. Do not mention Google Maps for generic destination-planning questions.
+- Show or mention the Google Maps action button only when the user explicitly asks for a route, directions, distance, travel time, how to get somewhere, or how to go from one place to another. Do not mention Google Maps for generic destination-planning questions.
 - If the origin is missing, explain that Google Maps can open the destination and use the user's current location/device context.
 - Do not invent exact travel times, traffic conditions or transit schedules unless grounded/current.
 - For live routing, traffic, transport schedules or navigation, the action button is the reliable next step.
