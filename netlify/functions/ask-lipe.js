@@ -1,8 +1,16 @@
+const fs = require("fs");
+const path = require("path");
+
 let ltsVideoIndex = { videos: [] };
 try {
   ltsVideoIndex = require("./lts-youtube-videos.json");
 } catch (err) {
-  ltsVideoIndex = { videos: [] };
+  try {
+    const indexPath = path.join(__dirname, "lts-youtube-videos.json");
+    ltsVideoIndex = JSON.parse(fs.readFileSync(indexPath, "utf8"));
+  } catch (fallbackErr) {
+    ltsVideoIndex = { videos: [] };
+  }
 }
 
 exports.handler = async (event) => {
@@ -210,13 +218,25 @@ exports.handler = async (event) => {
     return `${prefix}: ${shortTitle}`;
   }
 
-  function extractVideoSearchQuery(rawQuestion) {
-    const cleaned = normalizeVideoText(rawQuestion)
-      .replace(/\b(videos?|vídeos?|video|vídeo|youtube|canal|assistir|ver|lipe travel show|lts|tem|sobre|dicas|quero|vou|para|pela|primeira|vez|first|watch|channel|search)\b/g, " ")
-      .replace(/\s+/g, " ")
-      .trim();
+  function getVideoNoiseWords() {
+    return new Set([
+      "video","videos","vídeo","vídeos","youtube","canal","channel","watch","assistir","ver","lipe","travel","show","lts",
+      "tem","tenho","existe","existem","sobre","dicas","quero","vou","para","pela","pelo","primeira","primeiro","vez","vezes",
+      "first","time","going","trip","travel","tips","about","there","are","is","the","and","with","for","what","where","how",
+      "hay","ver","canal","quiero","primera","vez","sobre","viaje","viajar"
+    ]);
+  }
 
-    return cleaned || normalizeVideoText(rawQuestion).slice(0, 80);
+  function extractVideoSearchQuery(rawQuestion) {
+    const noise = getVideoNoiseWords();
+    const tokens = normalizeVideoText(rawQuestion)
+      .replace(/[^a-z0-9\u4e00-\u9fff]+/g, " ")
+      .split(/\s+/)
+      .map((token) => token.trim())
+      .filter((token) => token.length >= 3 && !noise.has(token));
+
+    const query = tokens.join(" ").trim();
+    return query || normalizeVideoText(rawQuestion).replace(/[^a-z0-9\u4e00-\u9fff]+/g, " ").trim().slice(0, 80);
   }
 
   function buildLtsYoutubeSearchUrl(rawQuestion) {
@@ -229,15 +249,47 @@ exports.handler = async (event) => {
     return /(vídeo|video|vídeos|videos|youtube|canal|assistir|watch|lipe travel show|lts)/i.test(rawQuestion);
   }
 
+  function getFocusedVideoTokens(rawQuestion) {
+    const noise = getVideoNoiseWords();
+    return tokenizeVideoQuery(rawQuestion)
+      .filter((token) => !noise.has(token))
+      .filter((token) => token.length >= 3)
+      .slice(0, 12);
+  }
+
   function recommendLtsVideos(rawQuestion, maxResults = 2) {
     const videos = Array.isArray(ltsVideoIndex.videos) ? ltsVideoIndex.videos : [];
     if (!videos.length) return [];
 
-    const tokens = tokenizeVideoQuery(rawQuestion);
     const explicitVideo = isExplicitVideoRequest(rawQuestion);
+    const tokens = getFocusedVideoTokens(rawQuestion);
     if (!tokens.length && !explicitVideo) return [];
 
     const normalizedQuestionForPhrases = normalizeVideoText(rawQuestion);
+
+    const aliasGroups = [
+      ["lisboa", "lisbon", "portugal"],
+      ["nova york", "new york", "nyc"],
+      ["roma", "rome", "italy", "italia"],
+      ["buenos aires", "argentina", "palermo", "recoleta", "san telmo"],
+      ["orlando", "disney", "florida"],
+      ["hangzhou", "china"],
+      ["pequim", "beijing", "china"],
+      ["xangai", "shanghai", "china"],
+      ["rio de janeiro", "rio", "copacabana", "ipanema"],
+      ["paris", "france", "franca"],
+      ["lima", "peru"],
+      ["benidorm", "spain", "espanha"],
+      ["lake como", "lago de como", "bellagio", "varenna"]
+    ];
+
+    const queryAliases = new Set();
+    for (const group of aliasGroups) {
+      if (group.some((alias) => normalizedQuestionForPhrases.includes(alias))) {
+        group.forEach((alias) => queryAliases.add(alias));
+      }
+    }
+
     const scored = videos.map((video) => {
       const title = normalizeVideoText(video.title);
       const description = normalizeVideoText(video.description || "");
@@ -250,43 +302,26 @@ exports.handler = async (event) => {
       let score = 0;
 
       for (const token of tokens) {
-        if (title.includes(token)) score += 10;
-        if (places.includes(token)) score += 12;
-        if (country.includes(token)) score += 7;
+        if (title.includes(token)) score += 12;
+        if (places.includes(token)) score += 16;
+        if (country.includes(token)) score += 9;
         if (themes.includes(token)) score += 4;
-        if (description.includes(token)) score += 2;
-        if (searchText.includes(token)) score += 3;
+        if (description.includes(token)) score += 3;
+        if (searchText.includes(token)) score += 5;
       }
 
       for (const place of placesArray) {
         const np = normalizeVideoText(place);
-        if (np.length >= 4 && normalizedQuestionForPhrases.includes(np)) score += 36;
+        if (np.length >= 4 && normalizedQuestionForPhrases.includes(np)) score += 42;
       }
 
-      if (country && country.length >= 4 && normalizedQuestionForPhrases.includes(country)) score += 18;
+      if (country && country.length >= 4 && normalizedQuestionForPhrases.includes(country)) score += 22;
 
-      const aliasPairs = [
-        ["lisboa", ["lisbon", "portugal", "lisboa"]],
-        ["lisbon", ["lisboa", "portugal", "lisbon"]],
-        ["nova york", ["new york", "nyc"]],
-        ["new york", ["nova york", "nyc"]],
-        ["roma", ["rome", "italy", "italia"]],
-        ["rome", ["roma", "italy", "italia"]],
-        ["buenos aires", ["argentina", "palermo", "recoleta", "san telmo"]],
-        ["orlando", ["disney", "florida"]],
-        ["hangzhou", ["china"]],
-        ["pequim", ["beijing", "china"]],
-        ["beijing", ["pequim", "china"]],
-        ["xangai", ["shanghai", "china"]],
-        ["shanghai", ["xangai", "china"]]
-      ];
-
-      for (const [needle, aliases] of aliasPairs) {
-        if (normalizedQuestionForPhrases.includes(needle)) {
-          for (const alias of aliases) {
-            if (title.includes(alias) || places.includes(alias) || country.includes(alias) || searchText.includes(alias)) score += 18;
-          }
-        }
+      for (const alias of queryAliases) {
+        if (title.includes(alias)) score += 20;
+        if (places.includes(alias)) score += 22;
+        if (country.includes(alias)) score += 12;
+        if (searchText.includes(alias)) score += 10;
       }
 
       if (score > 0 && video.view_count) {
@@ -297,91 +332,32 @@ exports.handler = async (event) => {
 
       return { video, score };
     })
-    .filter((item) => item.score >= (explicitVideo ? 5 : 10))
+    .filter((item) => item.score >= (explicitVideo ? 4 : 10))
     .sort((a, b) => b.score - a.score)
     .slice(0, maxResults)
     .map((item) => item.video);
 
+    if (!scored.length) {
+      const q = normalizedQuestionForPhrases;
+      const fallbackNeedles = [];
+      if (q.includes("lisboa") || q.includes("lisbon")) fallbackNeedles.push("lisboa", "lisbon", "portugal");
+      if (q.includes("buenos aires")) fallbackNeedles.push("buenos aires");
+      if (q.includes("orlando") || q.includes("disney")) fallbackNeedles.push("orlando", "disney");
+      if (q.includes("roma") || q.includes("rome")) fallbackNeedles.push("roma", "rome");
+      if (q.includes("china")) fallbackNeedles.push("china", "hangzhou", "beijing", "pequim", "shanghai", "xangai", "chengdu");
+
+      if (fallbackNeedles.length) {
+        return videos
+          .filter((video) => {
+            const haystack = normalizeVideoText(`${video.title} ${video.description || ""} ${video.search_text || ""}`);
+            return fallbackNeedles.some((needle) => haystack.includes(needle));
+          })
+          .sort((a, b) => (Number(b.view_count || 0) - Number(a.view_count || 0)))
+          .slice(0, maxResults);
+      }
+    }
+
     return scored;
-  }
-
-
-  function buildMapsUrl({ origin, destination, travelmode = "driving" }) {
-    const baseUrl = "https://www.google.com/maps/dir/?api=1";
-    const params = new URLSearchParams();
-
-    if (origin) params.set("origin", origin);
-    if (destination) params.set("destination", destination);
-    if (travelmode) params.set("travelmode", travelmode);
-
-    return `${baseUrl}&${params.toString()}`;
-  }
-
-  function buildMapsSearchUrl(query) {
-    const params = new URLSearchParams({
-      api: "1",
-      query
-    });
-
-    return `https://www.google.com/maps/search/?${params.toString()}`;
-  }
-
-  function cleanRoutePlace(value) {
-    return String(value || "")
-      .replace(/[?.!,;:]+$/g, "")
-      .replace(/\s+/g, " ")
-      .trim()
-      .slice(0, 140);
-  }
-
-  function detectTravelMode(text) {
-    if (/(a pé|caminhando|walking|walk|徒歩|步行)/i.test(text)) return "walking";
-    if (/(transporte público|metro|metrô|ônibus|bus|train|subway|transit|transporte publico|公共交通|地铁|公交)/i.test(text)) return "transit";
-    if (/(bicicleta|bike|bicycle|cycling|bici|自行车)/i.test(text)) return "bicycling";
-    return "driving";
-  }
-
-  function extractRouteIntent(rawQuestion) {
-    const q = cleanRoutePlace(rawQuestion);
-    const travelmode = detectTravelMode(q);
-
-    const patterns = [
-      /(?:como ir|como chegar|rota|trajeto|caminho)\s+(?:de|do|da|dos|das)\s+(.+?)\s+(?:para|até|ate|ao|à|a)\s+(.+?)(?:\?|$)/i,
-      /(?:de|do|da|dos|das)\s+(.+?)\s+(?:para|até|ate|ao|à|a)\s+(.+?)(?:\?|$)/i,
-      /(?:from)\s+(.+?)\s+(?:to)\s+(.+?)(?:\?|$)/i,
-      /(?:how to get|route|directions)\s+(?:from)\s+(.+?)\s+(?:to)\s+(.+?)(?:\?|$)/i,
-      /(?:desde)\s+(.+?)\s+(?:hasta|a)\s+(.+?)(?:\?|$)/i,
-      /(?:cómo ir|como llegar|ruta)\s+(?:desde)\s+(.+?)\s+(?:hasta|a)\s+(.+?)(?:\?|$)/i
-    ];
-
-    for (const pattern of patterns) {
-      const match = q.match(pattern);
-      if (match && match[1] && match[2]) {
-        const origin = cleanRoutePlace(match[1]);
-        const destination = cleanRoutePlace(match[2]);
-        if (origin.length >= 3 && destination.length >= 3) {
-          return { origin, destination, travelmode, confidence: "route" };
-        }
-      }
-    }
-
-    const destinationPatterns = [
-      /(?:como chegar|como ir|rota para|ir para|chegar ao|chegar à|chegar a)\s+(.+?)(?:\?|$)/i,
-      /(?:directions to|how to get to|route to)\s+(.+?)(?:\?|$)/i,
-      /(?:cómo llegar a|ruta para|ir a)\s+(.+?)(?:\?|$)/i
-    ];
-
-    for (const pattern of destinationPatterns) {
-      const match = q.match(pattern);
-      if (match && match[1]) {
-        const destination = cleanRoutePlace(match[1]);
-        if (destination.length >= 3) {
-          return { origin: "", destination, travelmode, confidence: "destination" };
-        }
-      }
-    }
-
-    return null;
   }
 
   const routeIntent = extractRouteIntent(question);
@@ -507,18 +483,18 @@ exports.handler = async (event) => {
 
   // Contextual commercial refinement: if the user is planning a destination trip but did not mention a specific product,
   // suggest the most useful LTS buttons without overloading the card.
-  const generalTripTerms = ["vou para", "viajar para", "viagem para", "indo para", "i am going to", "traveling to", "trip to", "voy a", "viaje a", "去", "旅行"];
+  const generalTripTerms = ["vou para", "quero ir para", "quero ir pra", "ir para", "ir pra", "viajar para", "viagem para", "indo para", "estou indo para", "pretendo ir para", "i am going to", "i want to go to", "traveling to", "trip to", "voy a", "quiero ir a", "viaje a", "去", "旅行"];
   const isGeneralTripPlanning = generalTripTerms.some((term) => normalizedQuestion.includes(term));
 
-  if (isGeneralTripPlanning && actions.length < 3) {
+  if (isGeneralTripPlanning) {
     const suggested = [
+      { key: "flights", label: labels.flights, url: affiliateUrls.flights },
       { key: "hotels", label: labels.hotels, url: affiliateUrls.hotels },
       { key: "experiences", label: labels.experiences, url: affiliateUrls.experiences },
       { key: "insurance", label: labels.insurance, url: affiliateUrls.insurance }
     ];
 
     for (const item of suggested) {
-      if (actions.length >= 3) break;
       if (!seenActionKeys.has(item.key)) {
         actions.push({ label: item.label, url: item.url, type: item.key });
         seenActionKeys.add(item.key);
@@ -545,21 +521,35 @@ exports.handler = async (event) => {
   const recommendedVideos = recommendLtsVideos(question, 2);
   const asksForLtsVideo = isExplicitVideoRequest(question);
 
+  const existingActionKey = new Set(actions.map((action) => `${action.type}:${action.url}`));
+
+  const videoActions = [];
   for (const video of recommendedVideos) {
-    actions.push({
-      label: truncateActionLabel(labels.youtube, video.title),
-      url: video.url,
-      type: "youtube"
-    });
+    const key = `youtube:${video.url}`;
+    if (!existingActionKey.has(key)) {
+      videoActions.push({
+        label: truncateActionLabel(labels.youtube, video.title),
+        url: video.url,
+        type: "youtube"
+      });
+      existingActionKey.add(key);
+    }
   }
 
-  if (asksForLtsVideo && !actions.some((action) => action.type === "youtube")) {
-    actions.push({
+  if (asksForLtsVideo && !videoActions.length) {
+    videoActions.push({
       label: labels.youtubeSearch,
       url: buildLtsYoutubeSearchUrl(question),
       type: "youtube_search"
     });
   }
+
+  if (videoActions.length) {
+    const mapActions = actions.filter((action) => action.type === "maps");
+    const nonMapActions = actions.filter((action) => action.type !== "maps");
+    actions.splice(0, actions.length, ...mapActions, ...videoActions, ...nonMapActions);
+  }
+
 
 
   const hasLeadAction = actions.some((action) => action.type === "whatsapp" || action.type === "email" || action.type === "lead");
@@ -653,6 +643,7 @@ When the user asks about purchasable travel items, answer the travel question fi
 
 Do not mention affiliate links or commissions.
 Do not paste raw URLs.
+Do not write commercial button labels as a plain list unless they are also present as action buttons.
 Do not make external websites the main next step in prose.
 Avoid recommending random OTAs, airline websites, hotel websites or generic comparison websites as the main action.
 Always prefer the Lipe Travel Show ecosystem and the action buttons in the answer card.
@@ -760,10 +751,33 @@ ${replacements[lang] || replacements.pt}`.trim();
       answer = `${answer}${note[lang] || note.pt}`;
     }
 
+    const actionLabelFallbacks = {
+      youtube: labels.youtube,
+      youtube_search: labels.youtubeSearch || labels.youtube,
+      hotels: labels.hotels,
+      experiences: labels.experiences,
+      insurance: labels.insurance,
+      flights: labels.flights,
+      cars: labels.cars,
+      gear: labels.gear,
+      maps: labels.mapsRoute,
+      lead: labels.lead || labels.email,
+      email: labels.email,
+      whatsapp: labels.whatsapp
+    };
+
+    const cleanActions = actions
+      .filter((action) => action && action.url)
+      .map((action) => ({
+        label: action.label || actionLabelFallbacks[action.type] || "Abrir",
+        url: action.url,
+        type: action.type || "action"
+      }));
+
     return {
       statusCode: 200,
       headers,
-      body: JSON.stringify({ answer, actions })
+      body: JSON.stringify({ answer, actions: cleanActions })
     };
   } catch (err) {
     return {
