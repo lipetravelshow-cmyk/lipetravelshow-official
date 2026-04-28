@@ -738,7 +738,7 @@ When the user asks about purchasable travel items, answer the travel question fi
 
 Do not mention affiliate links or commissions.
 Do not paste raw URLs.
-Do not write commercial button labels as a plain list in the answer text. The interface will render clickable action buttons separately. Instead, use one natural sentence such as: 'Use the buttons below to watch videos, compare flights, view hotels, book experiences, get insurance or talk to Lipe on WhatsApp.'
+Do not write commercial button labels as a plain list in the answer text. The interface will render clickable action buttons separately. Instead, use one natural sentence such as: 'Clique nos botões abaixo para continuar com vídeos, voos, hotéis, experiências, seguro ou falar com o Lipe no WhatsApp.'
 Do not make external websites the main next step in prose.
 Avoid recommending random OTAs, airline websites, hotel websites or generic comparison websites as the main action.
 Always prefer the Lipe Travel Show ecosystem and the action buttons in the answer card.
@@ -860,7 +860,7 @@ Use clean paragraphs and bullets when helpful.
           en: "Use the buttons below to continue with videos, flights, hotels, experiences, insurance or to talk to Lipe.",
           es: "Usa los botones de abajo para continuar con videos, vuelos, hoteles, experiencias, seguro o hablar con Lipe.",
           zh: "请使用下方按钮继续查看视频、机票、酒店、体验、保险，或联系 Lipe。",
-          pt: "Use os botões abaixo para continuar com vídeos, voos, hotéis, experiências, seguro ou falar com Lipe."
+          pt: "Clique nos botões abaixo para continuar com vídeos, voos, hotéis, experiências, seguro ou falar com o Lipe no WhatsApp."
         };
 
         cleaned = `${cleaned}\n\n${closingByLang[lang] || closingByLang.pt}`.trim();
