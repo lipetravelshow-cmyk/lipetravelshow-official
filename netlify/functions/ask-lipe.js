@@ -1,3 +1,10 @@
+let ltsVideoIndex = { videos: [] };
+try {
+  ltsVideoIndex = require("./lts-youtube-videos.json");
+} catch (err) {
+  ltsVideoIndex = { videos: [] };
+}
+
 exports.handler = async (event) => {
   const headers = {
     "Access-Control-Allow-Origin": "*",
@@ -114,6 +121,7 @@ exports.handler = async (event) => {
       whatsapp: "Falar com Lipe no WhatsApp",
       email: "Enviar e-mail para Lipe",
       localPage: "página do Lipe Travel Show",
+      youtube: "Assistir no Lipe Travel Show",
       mapsRoute: "Abrir rota no Google Maps",
       mapsPlace: "Abrir no Google Maps"
     },
@@ -128,6 +136,7 @@ exports.handler = async (event) => {
       whatsapp: "Talk to Lipe on WhatsApp",
       email: "Email Lipe",
       localPage: "Lipe Travel Show page",
+      youtube: "Watch on Lipe Travel Show",
       mapsRoute: "Open route in Google Maps",
       mapsPlace: "Open in Google Maps"
     },
@@ -142,6 +151,7 @@ exports.handler = async (event) => {
       whatsapp: "Hablar con Lipe por WhatsApp",
       email: "Enviar e-mail a Lipe",
       localPage: "página de Lipe Travel Show",
+      youtube: "Ver en Lipe Travel Show",
       mapsRoute: "Abrir ruta en Google Maps",
       mapsPlace: "Abrir en Google Maps"
     },
@@ -156,6 +166,7 @@ exports.handler = async (event) => {
       whatsapp: "通过 WhatsApp 联系 Lipe",
       email: "给 Lipe 发邮件",
       localPage: "Lipe Travel Show 页面",
+      youtube: "观看 Lipe Travel Show 视频",
       mapsRoute: "在 Google Maps 中打开路线",
       mapsPlace: "在 Google Maps 中打开"
     }
@@ -164,6 +175,85 @@ exports.handler = async (event) => {
   const answerLanguage = languageMap[lang] || "Brazilian Portuguese";
   const labels = labelsByLang[lang] || labelsByLang.pt;
   const normalizedQuestion = question.toLowerCase();
+
+  function normalizeVideoText(value) {
+    return String(value || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
+  }
+
+  function tokenizeVideoQuery(value) {
+    const stopwords = new Set([
+      "para","com","como","onde","qual","quais","quando","porque","por","que","vou","viajar","viagem","dicas","melhor","melhores","quero","sobre","uma","um","uns","umas","dos","das","de","do","da","em","no","na","nos","nas","ao","aos","as","os",
+      "the","and","for","with","what","where","when","how","trip","travel","best","tips","about","to","in","on","of","is","are","i","want","going",
+      "los","las","del","una","uno","unos","unas","viaje","viajar","mejor","mejores","quiero","con","como","donde",
+      "旅行","怎么","哪里","什么","最好"
+    ]);
+
+    return normalizeVideoText(value)
+      .replace(/[^a-z0-9\u4e00-\u9fff]+/g, " ")
+      .split(/\s+/)
+      .map((token) => token.trim())
+      .filter((token) => token.length >= 3 && !stopwords.has(token))
+      .slice(0, 24);
+  }
+
+  function truncateActionLabel(prefix, title) {
+    const cleanTitle = String(title || "").replace(/\s+/g, " ").trim();
+    const max = 72;
+    const shortTitle = cleanTitle.length > max ? `${cleanTitle.slice(0, max - 1)}…` : cleanTitle;
+    return `${prefix}: ${shortTitle}`;
+  }
+
+  function recommendLtsVideos(rawQuestion, maxResults = 2) {
+    const videos = Array.isArray(ltsVideoIndex.videos) ? ltsVideoIndex.videos : [];
+    if (!videos.length) return [];
+
+    const tokens = tokenizeVideoQuery(rawQuestion);
+    if (!tokens.length) return [];
+
+    const normalizedQuestionForPhrases = normalizeVideoText(rawQuestion);
+    const scored = videos.map((video) => {
+      const title = normalizeVideoText(video.title);
+      const searchText = normalizeVideoText(video.search_text || `${video.title} ${video.description || ""}`);
+      const country = normalizeVideoText(video.country || "");
+      const places = normalizeVideoText((video.places || []).join(" "));
+      const themes = normalizeVideoText((video.themes || []).join(" "));
+
+      let score = 0;
+
+      for (const token of tokens) {
+        if (title.includes(token)) score += 8;
+        if (places.includes(token)) score += 9;
+        if (country.includes(token)) score += 5;
+        if (themes.includes(token)) score += 4;
+        if (searchText.includes(token)) score += 2;
+      }
+
+      // Phrase boosts for destination/city names appearing in both query and video metadata.
+      const phraseSource = `${country} ${places}`;
+      for (const phrase of phraseSource.split(/\s+/).filter((p) => p.length >= 4)) {
+        if (normalizedQuestionForPhrases.includes(phrase)) score += 5;
+      }
+
+      if (score > 0 && video.view_count) {
+        score += Math.min(4, Math.log10(Number(video.view_count) + 1) / 2);
+      }
+
+      // Keep newer channel order slightly favored if otherwise close.
+      score += Math.max(0, 1 - ((Number(video.sort_index || 0)) / 1000));
+
+      return { video, score };
+    })
+    .filter((item) => item.score >= 9)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, maxResults)
+    .map((item) => item.video);
+
+    return scored;
+  }
+
 
   function buildMapsUrl({ origin, destination, travelmode = "driving" }) {
     const baseUrl = "https://www.google.com/maps/dir/?api=1";
@@ -401,6 +491,15 @@ exports.handler = async (event) => {
     });
   }
 
+  const recommendedVideos = recommendLtsVideos(question, 2);
+  for (const video of recommendedVideos) {
+    actions.push({
+      label: truncateActionLabel(labels.youtube, video.title),
+      url: video.url,
+      type: "youtube"
+    });
+  }
+
   const hasLeadAction = actions.some((action) => action.type === "whatsapp" || action.type === "email" || action.type === "lead");
 
   if (!hasLeadAction) {
@@ -442,6 +541,7 @@ You can help with travel questions about the whole world, including:
 - what to buy, what to pack, what to bring back, local customs and practical travel behavior;
 - hotels by style and area, flights by strategy, travel insurance, car rental, tours, tickets and experiences;
 - family travel, honeymoons, premium travel, quick getaways and multi-city routes.
+- relevant Lipe Travel Show YouTube videos when they match the destination or theme.
 
 Travel-only scope:
 If the user asks about something outside travel, gently redirect to travel planning.
@@ -494,6 +594,7 @@ Do not paste raw URLs.
 Do not make external websites the main next step in prose.
 Avoid recommending random OTAs, airline websites, hotel websites or generic comparison websites as the main action.
 Always prefer the Lipe Travel Show ecosystem and the action buttons in the answer card.
+When relevant Lipe Travel Show videos are available in the answer card, mention that the user can watch them as an extra planning layer, but do not invent video titles.
 
 Answer structure:
 1. Give a helpful travel answer.
