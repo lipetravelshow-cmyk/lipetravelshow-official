@@ -295,6 +295,52 @@ footer{margin-top:26px!important}
 }
 </style>
 
+
+<!-- FOTO BRASIL VERTICAL INICIO -->
+<style>
+/* Mantém os dois cards com a mesma altura */
+.path-grid {
+  align-items: stretch !important;
+}
+
+/* Faz o card esquerdo distribuir o espaço vertical */
+.path-grid > .card:first-child {
+  display: flex !important;
+  flex-direction: column !important;
+  align-self: stretch !important;
+  height: auto !important;
+}
+
+/* A foto preenche todo o espaço restante do card */
+.path-grid > .card:first-child .feature-photo-full {
+  width: 100% !important;
+  flex: 1 1 320px !important;
+  min-height: 320px !important;
+  height: 100% !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: cover !important;
+  object-position: center top !important;
+  margin-top: 14px !important;
+  display: block !important;
+  background: transparent !important;
+}
+
+/* No celular, preserva a proporção vertical da imagem */
+@media (max-width: 900px) {
+  .path-grid > .card:first-child .feature-photo-full {
+    flex: none !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 4 / 5 !important;
+    object-fit: cover !important;
+    object-position: center top !important;
+  }
+}
+</style>
+<!-- FOTO BRASIL VERTICAL FIM -->
+
 </head><body class="notranslate" translate="no">
 <nav>
 <a class="nav-logo" href="index-zh.html"><img alt="Lipe Travel Show" decoding="async" onerror="this.style.display='none'" src="assets/carinha-portrait.png"/><span>Lipe Travel Show</span></a>
