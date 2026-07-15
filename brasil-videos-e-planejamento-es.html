@@ -214,7 +214,31 @@ footer{margin-top:26px!important}
  .social-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}
  .social-card{min-height:104px}
 }
-</style></head><body>
+</style>
+<!-- AJUSTE BRASIL PESSOAS INICIO -->
+<style>
+.feature-photo-full {
+  width: 100% !important;
+  aspect-ratio: 16 / 10 !important;
+  height: auto !important;
+  max-height: 340px !important;
+  object-fit: cover !important;
+  object-position: center center !important;
+  border-radius: 16px !important;
+  margin-top: 14px !important;
+  display: block !important;
+  background: transparent !important;
+}
+
+@media (max-width: 680px) {
+  .feature-photo-full {
+    max-height: none !important;
+  }
+}
+</style>
+<!-- AJUSTE BRASIL PESSOAS FIM -->
+
+</head><body>
 <nav>
 <a class="nav-logo" href="index-es.html"><img alt="Lipe Travel Show" decoding="async" onerror="this.style.display='none'" src="assets/carinha-portrait.png"/><span>LipeTravelShow</span></a>
 <button aria-label="Menu" class="menu-toggle"><i class="fas fa-bars"></i></button>
