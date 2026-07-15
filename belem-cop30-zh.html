@@ -139,6 +139,31 @@ footer{margin-top:96px;background:var(--deep);border-top:1px solid rgba(255,255,
 
 html[lang="zh-Hans"] body{font-family:"Noto Sans SC",sans-serif}html[lang="zh-Hans"] h1,html[lang="zh-Hans"] h2,html[lang="zh-Hans"] h3,html[lang="zh-Hans"] blockquote,html[lang="zh-Hans"] .nav-logo-name,html[lang="zh-Hans"] .sec-title,html[lang="zh-Hans"] .split-copy h3{font-family:"Noto Serif SC",serif}
 </style>
+
+<!-- AJUSTE DNA NENA INICIO -->
+<style>
+/* Corrige o enquadramento da foto da Dna. Nena */
+.dna-nena-banner {
+  min-height: 640px !important;
+}
+
+.dna-nena-banner > img {
+  object-fit: cover !important;
+  object-position: center top !important;
+}
+
+@media (max-width: 760px) {
+  .dna-nena-banner {
+    min-height: 580px !important;
+  }
+
+  .dna-nena-banner > img {
+    object-position: center top !important;
+  }
+}
+</style>
+<!-- AJUSTE DNA NENA FIM -->
+
 </head>
 <body>
 <a class="skip-link" href="#conteudo">跳至正文</a>
@@ -272,7 +297,7 @@ html[lang="zh-Hans"] body{font-family:"Noto Sans SC",sans-serif}html[lang="zh-Ha
 <article class="flavor-card"><i class="fa-solid fa-carrot"></i><h3>素食旅行者</h3><p>可寻找蘑菇、manteiguinha豆、南瓜、木薯、水果与坚果等版本，并务必确认汤底或烹饪基底的成分。</p></article>
 </div>
 </div>
-<article class="feature-banner reveal">
+<article class="feature-banner reveal dna-nena-banner">
 <img alt="Dona Nena在孔布岛展示手工巧克力" decoding="async" loading="lazy" src="assets/dna_nena.webp"/>
 <div class="feature-banner-copy">
 <span class="sec-label"><i class="fa-solid fa-cookie-bite"></i> 孔布岛</span>

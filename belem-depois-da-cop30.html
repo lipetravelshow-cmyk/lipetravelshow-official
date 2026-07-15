@@ -137,6 +137,31 @@ footer{margin-top:96px;background:var(--deep);border-top:1px solid rgba(255,255,
 
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.reveal{opacity:1;transform:none;transition:none}.image-card img,.mosaic img{transition:none}}
 </style>
+
+<!-- AJUSTE DNA NENA INICIO -->
+<style>
+/* Corrige o enquadramento da foto da Dna. Nena */
+.dna-nena-banner {
+  min-height: 640px !important;
+}
+
+.dna-nena-banner > img {
+  object-fit: cover !important;
+  object-position: center top !important;
+}
+
+@media (max-width: 760px) {
+  .dna-nena-banner {
+    min-height: 580px !important;
+  }
+
+  .dna-nena-banner > img {
+    object-position: center top !important;
+  }
+}
+</style>
+<!-- AJUSTE DNA NENA FIM -->
+
 </head>
 <body>
 <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
@@ -270,7 +295,7 @@ footer{margin-top:96px;background:var(--deep);border-top:1px solid rgba(255,255,
 <article class="flavor-card"><i class="fa-solid fa-carrot"></i><h3>Para vegetarianos</h3><p>Procure versões com cogumelos, feijão-manteiguinha, jerimum, macaxeira, frutas e castanhas. Confirme sempre a base do caldo.</p></article>
 </div>
 </div>
-<article class="feature-banner reveal">
+<article class="feature-banner reveal dna-nena-banner">
 <img alt="Dna. Nena apresentando chocolates artesanais na Ilha do Combu" decoding="async" loading="lazy" src="assets/dna_nena.webp"/>
 <div class="feature-banner-copy">
 <span class="sec-label"><i class="fa-solid fa-cookie-bite"></i> Ilha do Combu</span>
