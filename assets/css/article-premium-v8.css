@@ -304,3 +304,52 @@ blockquote{margin:34px 0;padding:5px 0 5px 21px;border-left:3px solid var(--gold
   .home-footer{margin-top:64px}
   .home-footer .footer-inner{flex-direction:column;gap:8px}
 }
+
+/* Correção do bloco de conteúdos relacionados */
+.related-list{
+  display:grid;
+  margin-top:22px;
+  border-top:1px solid var(--line);
+}
+
+.related-list a{
+  display:grid;
+  grid-template-columns:120px minmax(0,1fr);
+  align-items:baseline;
+  gap:24px;
+  padding:18px 0;
+  border-bottom:1px solid var(--line-soft);
+  color:inherit;
+  text-decoration:none;
+}
+
+.related-list span{
+  display:block;
+  color:var(--gold-2);
+  font-family:var(--sans);
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.12em;
+  line-height:1.4;
+  text-transform:uppercase;
+}
+
+.related-list strong{
+  display:block;
+  color:#fff;
+  font-family:var(--display);
+  font-size:19px;
+  line-height:1.35;
+}
+
+.related-list a:hover strong,
+.related-list a:focus-visible strong{
+  color:var(--gold-2);
+}
+
+@media(max-width:760px){
+  .related-list a{
+    grid-template-columns:1fr;
+    gap:5px;
+  }
+}
