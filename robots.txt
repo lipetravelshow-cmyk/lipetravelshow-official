@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.lipetravelshow.com.br/sitemap.xml
+
+Sitemap: https://lipetravelshow.com.br/sitemap.xml
