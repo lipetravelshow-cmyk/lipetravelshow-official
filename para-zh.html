@@ -381,12 +381,21 @@ html[lang="zh-CN"] body{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHe
 @media(max-width:850px){.para-video-links{grid-template-columns:1fr}}
 
 </style>
+
+<!-- LTS FIX: para mobile hero -->
+<style>
+@media(max-width:650px){
+  .hero{min-height:720px;padding:124px 20px 54px}
+  .hero-media{object-position:56% center!important}
+}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#conteudo">跳至正文</a>
 <nav aria-label="主导航">
 <a aria-label="Lipe Travel Show — 首页" class="nav-logo" href="index.html">
-<img alt="Lipe Camanzano插画" decoding="async" height="46" onerror="this.style.display='none'" src="assets/carinha-portrait.png" width="46"/>
+<img alt="Lipe Camanzano插画" decoding="async" height="46" onerror="this.style.display='none'" src="carinha-portrait.jpg" width="46"/>
 <span class="nav-logo-text"><span class="nav-logo-name">Lipe Travel Show</span><span class="nav-logo-sub">探索巴西与世界</span></span>
 </a>
 <ul class="nav-links" id="navLinks">
@@ -404,7 +413,9 @@ html[lang="zh-CN"] body{font-family:"Noto Sans SC","PingFang SC","Microsoft YaHe
 </div>
 </nav>
 <header class="hero" id="topo">
-<img alt="暖光下被森林环绕的帕拉州亚马孙大河" class="hero-media" decoding="async" fetchpriority="high" height="941" src="assets/para-hero.webp" width="1672"/>
+<video class="hero-media" autoplay muted loop playsinline preload="metadata" poster="assets/para-hero.webp" aria-hidden="true">
+<source src="assets/para-jari-river.mp4" type="video/mp4"/>
+</video>
 <div class="hero-inner">
 <div class="hero-content reveal">
 <span class="eyebrow"><i class="fa-solid fa-location-dot"></i> 帕拉州 • 巴西亚马孙</span>

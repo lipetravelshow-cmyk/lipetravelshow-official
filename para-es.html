@@ -379,12 +379,21 @@
 @media(max-width:850px){.para-video-links{grid-template-columns:1fr}}
 
 </style>
+
+<!-- LTS FIX: para mobile hero -->
+<style>
+@media(max-width:650px){
+  .hero{min-height:720px;padding:124px 20px 54px}
+  .hero-media{object-position:56% center!important}
+}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#conteudo">Ir al contenido</a>
 <nav aria-label="Navegación principal">
 <a aria-label="Lipe Travel Show — Inicio" class="nav-logo" href="index.html">
-<img alt="Ilustración de Lipe Camanzano" decoding="async" height="46" onerror="this.style.display='none'" src="assets/carinha-portrait.png" width="46"/>
+<img alt="Ilustración de Lipe Camanzano" decoding="async" height="46" onerror="this.style.display='none'" src="carinha-portrait.jpg" width="46"/>
 <span class="nav-logo-text"><span class="nav-logo-name">Lipe Travel Show</span><span class="nav-logo-sub">Viajes por Brasil y el mundo</span></span>
 </a>
 <ul class="nav-links" id="navLinks">
@@ -402,7 +411,9 @@
 </div>
 </nav>
 <header class="hero" id="topo">
-<img alt="Gran río amazónico rodeado de bosque en Pará bajo una luz cálida" class="hero-media" decoding="async" fetchpriority="high" height="941" src="assets/para-hero.webp" width="1672"/>
+<video class="hero-media" autoplay muted loop playsinline preload="metadata" poster="assets/para-hero.webp" aria-hidden="true">
+<source src="assets/para-jari-river.mp4" type="video/mp4"/>
+</video>
 <div class="hero-inner">
 <div class="hero-content reveal">
 <span class="eyebrow"><i class="fa-solid fa-location-dot"></i> Pará • Amazonía brasileña</span>
