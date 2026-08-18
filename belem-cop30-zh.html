@@ -164,12 +164,38 @@ html[lang="zh-Hans"] body{font-family:"Noto Sans SC",sans-serif}html[lang="zh-Ha
 </style>
 <!-- AJUSTE DNA NENA FIM -->
 
+
+<!-- LTS FIX: belem video box + mobile hero -->
+<style>
+@media(max-width:680px){
+  .hero{min-height:88vh;padding:118px 5% 52px}
+  .hero-media{object-position:center 44%!important}
+  .hero-stats{margin-top:22px}
+}
+.video-spotlight{display:grid;grid-template-columns:1.02fr .98fr;gap:22px;align-items:center;margin-top:28px}
+.video-spotlight-poster{position:relative;display:block;min-height:340px;border-radius:26px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:url('assets/belem-hero.webp') center/cover no-repeat}
+.video-spotlight-poster::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,16,14,.14),rgba(4,16,14,.54) 70%,rgba(4,16,14,.84))}
+.video-spotlight-play{position:absolute;left:24px;right:24px;bottom:24px;display:flex;align-items:center;gap:14px;z-index:2}
+.video-spotlight-play i{width:76px;height:76px;display:grid;place-items:center;border-radius:50%;background:rgba(231,166,58,.94);color:var(--deep);font-size:1.55rem;box-shadow:0 18px 44px rgba(0,0,0,.28);flex:0 0 auto}
+.video-spotlight-play strong{display:block;font-family:"Playfair Display",serif;font-size:1.4rem;color:#fff}
+.video-spotlight-play span{display:block;margin-top:5px;color:rgba(255,255,255,.76);font-size:.82rem;line-height:1.55}
+.video-spotlight-copy{padding:26px;border-radius:24px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+.video-spotlight-copy h3{font-family:"Playfair Display",serif;font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:10px}
+.video-spotlight-copy p{color:var(--muted);line-height:1.82;margin-bottom:18px}
+@media(max-width:920px){.video-spotlight{grid-template-columns:1fr}}
+@media(max-width:680px){
+  .video-spotlight-poster{min-height:280px}
+  .video-spotlight-play i{width:66px;height:66px;font-size:1.3rem}
+  .video-spotlight-copy{padding:22px}
+}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#conteudo">跳至正文</a>
 <nav aria-label="主导航">
 <a aria-label="Lipe Travel Show — 首页" class="nav-logo" href="index-zh.html">
-<img alt="Lipe Camanzano插画" decoding="async" height="46" src="assets/carinha-portrait.png" width="46"/>
+<img alt="Lipe Camanzano插画" decoding="async" height="46" src="carinha-portrait.jpg" width="46"/>
 <div class="nav-logo-text"><span class="nav-logo-name">Lipe Travel Show</span><span class="nav-logo-sub">探索巴西与世界</span></div>
 </a>
 <ul class="nav-links" id="navLinks"><li><a href="index-zh.html"><i class="fa-solid fa-house"></i> 首页</a></li><li><a href="#legado">城市新变化</a></li><li><a href="#museu">博物馆</a></li><li><a href="#ver-o-peso">Ver-o-Peso</a></li><li><a href="#rio">河湾</a></li><li><a href="#roteiro">48小时</a></li><li><a href="para-zh.html">帕拉州</a></li><li><a class="nav-cta" href="#planeje">规划行程</a></li></ul>
@@ -388,7 +414,34 @@ html[lang="zh-Hans"] body{font-family:"Noto Sans SC",sans-serif}html[lang="zh-Ha
 </div>
 <div class="callout reveal" style="margin-top:24px"><h4>还有第3天吗？</h4><p>选择一段更慢的体验：在Mangal das Garças与乌廷加公园感受城市自然，或前往孔布岛体验河岸生活与亚马逊巧克力。</p></div>
 </div>
-</section><section class="section alt section-flow" id="alter-do-chao">
+</section>
+<!-- LTS VIDEO BOX START -->
+<section class="section section-flow" id="video">
+<div class="section-inner">
+<span class="sec-label"><i class="fab fa-youtube"></i> YouTube 视频</span>
+<h2 class="sec-title">视频看贝伦：Lipe 的完整体验</h2>
+<p class="sec-sub">如果你想更直观地感受这座城市的节奏——市场、河岸、风味与亚马孙氛围——这个视频正好补充这份指南。</p>
+<div class="video-spotlight reveal">
+<a class="video-spotlight-poster" href="https://www.youtube.com/watch?v=s9ExUqZjE-k" rel="noopener noreferrer" target="_blank" aria-label="立即观看">
+<div class="video-spotlight-play">
+<i class="fab fa-youtube"></i>
+<div>
+<strong>立即观看</strong>
+<span>YouTube • Lipe Travel Show</span>
+</div>
+</div>
+</a>
+<div class="video-spotlight-copy">
+<h3>文字之外的贝伦</h3>
+<p>视频可以帮助你更具体地感受这座城市的节奏、它与河流的关系，以及本页图片与文字所呈现的整体氛围。</p>
+<a class="btn btn-primary" href="https://www.youtube.com/watch?v=s9ExUqZjE-k" rel="noopener noreferrer" target="_blank"><i class="fab fa-youtube"></i> 在 YouTube 打开</a>
+</div>
+</div>
+</div>
+</section>
+<!-- LTS VIDEO BOX END -->
+
+<section class="section alt section-flow" id="alter-do-chao">
 <div class="section-inner">
 <span class="sec-label"><i class="fa-solid fa-tree"></i> 继续探索亚马逊</span>
 <div class="split">
@@ -407,8 +460,8 @@ html[lang="zh-Hans"] body{font-family:"Noto Sans SC",sans-serif}html[lang="zh-Ha
 <h2 class="sec-title">把灵感变成一场准备充分的旅程</h2>
 <p class="sec-sub">比较航班、选择合适的住宿区域，并提前安排交通，减少临时安排带来的压力。</p>
 <div class="plan-grid reveal">
-<article class="plan-card"><i class="fa-solid fa-plane-departure"></i><h3>搜索航班</h3><p>比较日期、转机方案与机场，再选择前往帕拉州的最佳组合。</p><a href="how-to-search-flights-in-brazil-zh.html">查看航班搜索攻略 <i class="fa-solid fa-arrow-right"></i></a></article>
-<article class="plan-card"><i class="fa-solid fa-hotel"></i><h3>选择酒店</h3><p>历史中心、Nazaré与Umarizal是三种截然不同的住宿据点。</p><a href="how-to-search-hotels-zh.html">搜索住宿 <i class="fa-solid fa-arrow-right"></i></a></article>
+<article class="plan-card"><i class="fa-solid fa-plane-departure"></i><h3>搜索航班</h3><p>比较日期、转机方案与机场，再选择前往帕拉州的最佳组合。</p><a href="planeje-sua-viagem1-zh.html#voos">查看航班搜索攻略 <i class="fa-solid fa-arrow-right"></i></a></article>
+<article class="plan-card"><i class="fa-solid fa-hotel"></i><h3>选择酒店</h3><p>历史中心、Nazaré与Umarizal是三种截然不同的住宿据点。</p><a href="planeje-sua-viagem1-zh.html#hoteis">搜索住宿 <i class="fa-solid fa-arrow-right"></i></a></article>
 <article class="plan-card"><i class="fa-solid fa-shield-heart"></i><h3>安心出行</h3><p>即使是巴西国内旅行，也应考虑医疗、行李与突发情况保障。</p><a href="seguro-viagem-no-brasil.html">了解巴西旅行保险 <i class="fa-solid fa-arrow-right"></i></a></article>
 </div>
 <div class="sources reveal">

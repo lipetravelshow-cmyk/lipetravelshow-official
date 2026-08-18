@@ -162,12 +162,38 @@ footer{margin-top:96px;background:var(--deep);border-top:1px solid rgba(255,255,
 </style>
 <!-- AJUSTE DNA NENA FIM -->
 
+
+<!-- LTS FIX: belem video box + mobile hero -->
+<style>
+@media(max-width:680px){
+  .hero{min-height:88vh;padding:118px 5% 52px}
+  .hero-media{object-position:center 44%!important}
+  .hero-stats{margin-top:22px}
+}
+.video-spotlight{display:grid;grid-template-columns:1.02fr .98fr;gap:22px;align-items:center;margin-top:28px}
+.video-spotlight-poster{position:relative;display:block;min-height:340px;border-radius:26px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:url('assets/belem-hero.webp') center/cover no-repeat}
+.video-spotlight-poster::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,16,14,.14),rgba(4,16,14,.54) 70%,rgba(4,16,14,.84))}
+.video-spotlight-play{position:absolute;left:24px;right:24px;bottom:24px;display:flex;align-items:center;gap:14px;z-index:2}
+.video-spotlight-play i{width:76px;height:76px;display:grid;place-items:center;border-radius:50%;background:rgba(231,166,58,.94);color:var(--deep);font-size:1.55rem;box-shadow:0 18px 44px rgba(0,0,0,.28);flex:0 0 auto}
+.video-spotlight-play strong{display:block;font-family:"Playfair Display",serif;font-size:1.4rem;color:#fff}
+.video-spotlight-play span{display:block;margin-top:5px;color:rgba(255,255,255,.76);font-size:.82rem;line-height:1.55}
+.video-spotlight-copy{padding:26px;border-radius:24px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+.video-spotlight-copy h3{font-family:"Playfair Display",serif;font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:10px}
+.video-spotlight-copy p{color:var(--muted);line-height:1.82;margin-bottom:18px}
+@media(max-width:920px){.video-spotlight{grid-template-columns:1fr}}
+@media(max-width:680px){
+  .video-spotlight-poster{min-height:280px}
+  .video-spotlight-play i{width:66px;height:66px;font-size:1.3rem}
+  .video-spotlight-copy{padding:22px}
+}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#conteudo">Skip to content</a>
 <nav aria-label="Main navigation">
 <a aria-label="Lipe Travel Show — Home" class="nav-logo" href="index-en.html">
-<img alt="Illustration of Lipe Camanzano" decoding="async" height="46" src="assets/carinha-portrait.png" width="46"/>
+<img alt="Illustration of Lipe Camanzano" decoding="async" height="46" src="carinha-portrait.jpg" width="46"/>
 <div class="nav-logo-text"><span class="nav-logo-name">Lipe Travel Show</span><span class="nav-logo-sub">Travel through Brazil and around the world</span></div>
 </a>
 <ul class="nav-links" id="navLinks"><li><a href="index-en.html"><i class="fa-solid fa-house"></i> Home</a></li><li><a href="#legado">What changed</a></li><li><a href="#museu">Museums</a></li><li><a href="#ver-o-peso">Ver-o-Peso</a></li><li><a href="#rio">River</a></li><li><a href="#roteiro">48 hours</a></li><li><a href="para-en.html">Pará</a></li><li><a class="nav-cta" href="#planeje">Plan your trip</a></li></ul>
@@ -386,7 +412,34 @@ footer{margin-top:96px;background:var(--deep);border-top:1px solid rgba(255,255,
 </div>
 <div class="callout reveal" style="margin-top:24px"><h4>Do you have a third day?</h4><p>Choose a slower experience: Mangal das Garças and Utinga Park for urban nature, or Combu Island for riverside life and Amazonian chocolate.</p></div>
 </div>
-</section><section class="section alt section-flow" id="alter-do-chao">
+</section>
+<!-- LTS VIDEO BOX START -->
+<section class="section section-flow" id="video">
+<div class="section-inner">
+<span class="sec-label"><i class="fab fa-youtube"></i> YouTube episode</span>
+<h2 class="sec-title">Belém on video: watch Lipe’s full experience</h2>
+<p class="sec-sub">If you want to feel the city in motion — markets, waterfront, flavors and Amazonian atmosphere — this episode complements the guide.</p>
+<div class="video-spotlight reveal">
+<a class="video-spotlight-poster" href="https://www.youtube.com/watch?v=s9ExUqZjE-k" rel="noopener noreferrer" target="_blank" aria-label="Watch now">
+<div class="video-spotlight-play">
+<i class="fab fa-youtube"></i>
+<div>
+<strong>Watch now</strong>
+<span>YouTube • Lipe Travel Show</span>
+</div>
+</div>
+</a>
+<div class="video-spotlight-copy">
+<h3>Belém beyond the text</h3>
+<p>The video helps you visualize the city’s rhythm, its connection with the river and the atmosphere that the photos and text begin to reveal on this page.</p>
+<a class="btn btn-primary" href="https://www.youtube.com/watch?v=s9ExUqZjE-k" rel="noopener noreferrer" target="_blank"><i class="fab fa-youtube"></i> Open on YouTube</a>
+</div>
+</div>
+</div>
+</section>
+<!-- LTS VIDEO BOX END -->
+
+<section class="section alt section-flow" id="alter-do-chao">
 <div class="section-inner">
 <span class="sec-label"><i class="fa-solid fa-tree"></i> Continue through the Amazon</span>
 <div class="split">
@@ -406,7 +459,7 @@ footer{margin-top:96px;background:var(--deep);border-top:1px solid rgba(255,255,
 <p class="sec-sub">Compare flights, choose the best area to stay and organize the logistics so you can enjoy Belém with less improvisation.</p>
 <div class="plan-grid reveal">
 <article class="plan-card"><i class="fa-solid fa-plane-departure"></i><h3>Search flights</h3><p>Compare dates, connections and airports before choosing the best route to Pará.</p><a href="how-to-search-flights-in-brazil-seo-v3.html">See the flight-search strategy <i class="fa-solid fa-arrow-right"></i></a></article>
-<article class="plan-card"><i class="fa-solid fa-hotel"></i><h3>Choose a hotel</h3><p>The historic center, Nazaré and Umarizal offer three very different bases for exploring the city.</p><a href="how-to-search-hotels.html">Search accommodation <i class="fa-solid fa-arrow-right"></i></a></article>
+<article class="plan-card"><i class="fa-solid fa-hotel"></i><h3>Choose a hotel</h3><p>The historic center, Nazaré and Umarizal offer three very different bases for exploring the city.</p><a href="planeje-sua-viagem-eng.html">Search accommodation <i class="fa-solid fa-arrow-right"></i></a></article>
 <article class="plan-card"><i class="fa-solid fa-shield-heart"></i><h3>Protect your trip</h3><p>Even on domestic trips, consider coverage for medical care, baggage and unexpected disruptions.</p><a href="brazil-travel-insurance.html">Understand travel insurance in Brazil <i class="fa-solid fa-arrow-right"></i></a></article>
 </div>
 <div class="sources reveal">

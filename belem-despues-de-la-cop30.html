@@ -162,12 +162,38 @@ footer{margin-top:96px;background:var(--deep);border-top:1px solid rgba(255,255,
 </style>
 <!-- AJUSTE DNA NENA FIM -->
 
+
+<!-- LTS FIX: belem video box + mobile hero -->
+<style>
+@media(max-width:680px){
+  .hero{min-height:88vh;padding:118px 5% 52px}
+  .hero-media{object-position:center 44%!important}
+  .hero-stats{margin-top:22px}
+}
+.video-spotlight{display:grid;grid-template-columns:1.02fr .98fr;gap:22px;align-items:center;margin-top:28px}
+.video-spotlight-poster{position:relative;display:block;min-height:340px;border-radius:26px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:url('assets/belem-hero.webp') center/cover no-repeat}
+.video-spotlight-poster::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(4,16,14,.14),rgba(4,16,14,.54) 70%,rgba(4,16,14,.84))}
+.video-spotlight-play{position:absolute;left:24px;right:24px;bottom:24px;display:flex;align-items:center;gap:14px;z-index:2}
+.video-spotlight-play i{width:76px;height:76px;display:grid;place-items:center;border-radius:50%;background:rgba(231,166,58,.94);color:var(--deep);font-size:1.55rem;box-shadow:0 18px 44px rgba(0,0,0,.28);flex:0 0 auto}
+.video-spotlight-play strong{display:block;font-family:"Playfair Display",serif;font-size:1.4rem;color:#fff}
+.video-spotlight-play span{display:block;margin-top:5px;color:rgba(255,255,255,.76);font-size:.82rem;line-height:1.55}
+.video-spotlight-copy{padding:26px;border-radius:24px;background:rgba(255,255,255,.04);border:1px solid var(--line)}
+.video-spotlight-copy h3{font-family:"Playfair Display",serif;font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:10px}
+.video-spotlight-copy p{color:var(--muted);line-height:1.82;margin-bottom:18px}
+@media(max-width:920px){.video-spotlight{grid-template-columns:1fr}}
+@media(max-width:680px){
+  .video-spotlight-poster{min-height:280px}
+  .video-spotlight-play i{width:66px;height:66px;font-size:1.3rem}
+  .video-spotlight-copy{padding:22px}
+}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#conteudo">Ir al contenido</a>
 <nav aria-label="Navegación principal">
 <a aria-label="Lipe Travel Show — Inicio" class="nav-logo" href="index-es.html">
-<img alt="Ilustración de Lipe Camanzano" decoding="async" height="46" src="assets/carinha-portrait.png" width="46"/>
+<img alt="Ilustración de Lipe Camanzano" decoding="async" height="46" src="carinha-portrait.jpg" width="46"/>
 <div class="nav-logo-text"><span class="nav-logo-name">Lipe Travel Show</span><span class="nav-logo-sub">Viajes por Brasil y el mundo</span></div>
 </a>
 <ul class="nav-links" id="navLinks"><li><a href="index-es.html"><i class="fa-solid fa-house"></i> Inicio</a></li><li><a href="#legado">Qué cambió</a></li><li><a href="#museu">Museos</a></li><li><a href="#ver-o-peso">Ver-o-Peso</a></li><li><a href="#rio">Río</a></li><li><a href="#roteiro">48 horas</a></li><li><a href="para-es.html">Pará</a></li><li><a class="nav-cta" href="#planeje">Planear el viaje</a></li></ul>
@@ -386,7 +412,34 @@ footer{margin-top:96px;background:var(--deep);border-top:1px solid rgba(255,255,
 </div>
 <div class="callout reveal" style="margin-top:24px"><h4>¿Tienes un tercer día?</h4><p>Elige una experiencia más pausada: Mangal das Garças y Parque do Utinga para naturaleza urbana, o Isla de Combu para vida ribereña y chocolate amazónico.</p></div>
 </div>
-</section><section class="section alt section-flow" id="alter-do-chao">
+</section>
+<!-- LTS VIDEO BOX START -->
+<section class="section section-flow" id="video">
+<div class="section-inner">
+<span class="sec-label"><i class="fab fa-youtube"></i> Episodio en YouTube</span>
+<h2 class="sec-title">Belém en video: mira la experiencia completa de Lipe</h2>
+<p class="sec-sub">Si quieres sentir la ciudad en movimiento — mercados, ribera, sabores y atmósfera amazónica — este episodio complementa la guía.</p>
+<div class="video-spotlight reveal">
+<a class="video-spotlight-poster" href="https://www.youtube.com/watch?v=s9ExUqZjE-k" rel="noopener noreferrer" target="_blank" aria-label="Ver ahora">
+<div class="video-spotlight-play">
+<i class="fab fa-youtube"></i>
+<div>
+<strong>Ver ahora</strong>
+<span>YouTube • Lipe Travel Show</span>
+</div>
+</div>
+</a>
+<div class="video-spotlight-copy">
+<h3>Belém más allá del texto</h3>
+<p>El video ayuda a visualizar el ritmo de la ciudad, su relación con el río y la atmósfera que las fotos y el texto empiezan a revelar en esta página.</p>
+<a class="btn btn-primary" href="https://www.youtube.com/watch?v=s9ExUqZjE-k" rel="noopener noreferrer" target="_blank"><i class="fab fa-youtube"></i> Abrir en YouTube</a>
+</div>
+</div>
+</div>
+</section>
+<!-- LTS VIDEO BOX END -->
+
+<section class="section alt section-flow" id="alter-do-chao">
 <div class="section-inner">
 <span class="sec-label"><i class="fa-solid fa-tree"></i> Continúa por la Amazonía</span>
 <div class="split">
@@ -405,9 +458,9 @@ footer{margin-top:96px;background:var(--deep);border-top:1px solid rgba(255,255,
 <h2 class="sec-title">Convierte la inspiración en un viaje bien planificado</h2>
 <p class="sec-sub">Compara vuelos, elige la mejor zona para alojarte y organiza la logística para disfrutar Belém con menos improvisación.</p>
 <div class="plan-grid reveal">
-<article class="plan-card"><i class="fa-solid fa-plane-departure"></i><h3>Buscar vuelos</h3><p>Compara fechas, escalas y aeropuertos antes de decidir la mejor combinación para Pará.</p><a href="como-buscar-vuelos-en-brasil.html">Ver estrategia de vuelos <i class="fa-solid fa-arrow-right"></i></a></article>
-<article class="plan-card"><i class="fa-solid fa-hotel"></i><h3>Elegir hotel</h3><p>El centro histórico, Nazaré y Umarizal son tres bases muy diferentes para recorrer la ciudad.</p><a href="como-buscar-hoteles.html">Buscar alojamiento <i class="fa-solid fa-arrow-right"></i></a></article>
-<article class="plan-card"><i class="fa-solid fa-shield-heart"></i><h3>Viajar protegido</h3><p>Incluso en viajes nacionales, considera cobertura para atención médica, equipaje e imprevistos.</p><a href="seguro-viaje-no-brasil.html">Entender el seguro de viaje en Brasil <i class="fa-solid fa-arrow-right"></i></a></article>
+<article class="plan-card"><i class="fa-solid fa-plane-departure"></i><h3>Buscar vuelos</h3><p>Compara fechas, escalas y aeropuertos antes de decidir la mejor combinación para Pará.</p><a href="planeje-sua-viagem1-es.html#voos">Ver estrategia de vuelos <i class="fa-solid fa-arrow-right"></i></a></article>
+<article class="plan-card"><i class="fa-solid fa-hotel"></i><h3>Elegir hotel</h3><p>El centro histórico, Nazaré y Umarizal son tres bases muy diferentes para recorrer la ciudad.</p><a href="planeje-sua-viagem1-es.html#hoteis">Buscar alojamiento <i class="fa-solid fa-arrow-right"></i></a></article>
+<article class="plan-card"><i class="fa-solid fa-shield-heart"></i><h3>Viajar protegido</h3><p>Incluso en viajes nacionales, considera cobertura para atención médica, equipaje e imprevistos.</p><a href="planeje-sua-viagem1-es.html#seguro">Entender el seguro de viaje en Brasil <i class="fa-solid fa-arrow-right"></i></a></article>
 </div>
 <div class="sources reveal">
 <h3>Fuentes y actualización editorial</h3>
