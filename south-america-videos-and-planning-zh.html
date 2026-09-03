@@ -635,7 +635,34 @@
  #destinos .destination-grid .destination-card:last-child{grid-column:auto!important}
 }
 @media(max-width:860px){#destinos .destination-grid{gap:20px!important}}
-</style></head>
+</style>
+<style id="v20-country-flag-flow-fix">
+/* V20 — flag stays in its own visual zone instead of colliding with country text */
+.country-flag{
+  position:relative!important;
+  top:auto!important;
+  left:auto!important;
+  right:auto!important;
+  bottom:auto!important;
+  align-self:flex-start!important;
+  margin:0 0 auto 0!important;
+  line-height:1!important;
+  z-index:2!important;
+  pointer-events:none
+}
+</style>
+
+<style id="v21-colombia-card-focal-points">
+/* V21 — preserve heads in Colombia destination cards */
+#colombia .destination-group-grid.four .destination-card:nth-child(1) img{
+  --pos:center 16%;
+}
+#colombia .destination-group-grid.four .destination-card:nth-child(4) img{
+  --pos:center 18%;
+}
+</style>
+
+</head>
 <body>
 <nav>
 <a aria-label="返回南美洲页面顶部" class="nav-logo" href="#top">
@@ -745,7 +772,7 @@
 <a class="tool-card" href="https://lipetravelshow.com.br/como-usar-ia-para-planejar-viagem"><i class="fas fa-wand-magic-sparkles"></i><div class="tool-kicker">AI</div><h3>用 AI 规划旅行</h3><p>更聪明地搜索和比较不同方案，避开模板化、只剩赶路的行程。</p><span>查看指南 <i class="fas fa-arrow-right"></i></span></a>
 <a class="tool-card" href="https://skyscanner.pxf.io/9VL6Xj" rel="noopener noreferrer sponsored" target="_blank"><i class="fas fa-plane-departure"></i><div class="tool-kicker">航班</div><h3>搜索机票</h3><p>当行程结构足够清晰，再比较日期与航线。</p><span>搜索机票 <i class="fas fa-arrow-right"></i></span></a>
 <a class="tool-card" href="https://www.awin1.com/cread.php?awinmid=117697&amp;awinaffid=2819302&amp;ued=https%3A%2F%2Fwww.hotels.com%2F" rel="noopener noreferrer sponsored" target="_blank"><i class="fas fa-hotel"></i><div class="tool-kicker">住宿</div><h3>选对住宿区域</h3><p>先确定街区、旅行节奏与交通逻辑，再选酒店，往往更合适。</p><span>查看酒店 <i class="fas fa-arrow-right"></i></span></a>
-<a class="tool-card" href="https://www.getyourguide.com/" rel="noopener noreferrer sponsored" target="_blank"><i class="fas fa-ticket"></i><div class="tool-kicker">体验</div><h3>当地体验与活动</h3><p>当你已经知道什么真正值得预订，再选择门票、导览与当地体验。</p><span>查看体验 <i class="fas fa-arrow-right"></i></span></a>
+<a class="tool-card" href="https://www.getyourguide.com/?partner_id=LRSURCL&amp;utm_medium=online_publisher&amp;cmp=lipetravelshow" rel="noopener noreferrer sponsored" target="_blank"><i class="fas fa-ticket"></i><div class="tool-kicker">体验</div><h3>当地体验与活动</h3><p>当你已经知道什么真正值得预订，再选择门票、导览与当地体验。</p><span>查看体验 <i class="fas fa-arrow-right"></i></span></a>
 <a class="tool-card" href="https://lipetravelshow.com.br/seguro-viagem-internacional.html"><i class="fas fa-shield-heart"></i><div class="tool-kicker">保险</div><h3>国际旅行保险</h3><p>旅行中重要的一层保障，购买前先看专门指南。</p><span>查看指南 <i class="fas fa-arrow-right"></i></span></a>
 <a class="tool-card" href="https://lipetravelshow.com.br/milhas-para-voos-no-brasil-final"><i class="fas fa-coins"></i><div class="tool-kicker">积分</div><h3>积分、现金与兑换</h3><p>先比较真实成本，不要默认使用积分一定更划算。</p><span>查看内容 <i class="fas fa-arrow-right"></i></span></a>
 </div>
@@ -758,7 +785,7 @@
 <div class="actions">
 <a class="btn-primary" href="https://skyscanner.pxf.io/9VL6Xj" rel="noopener noreferrer sponsored" target="_blank"><i class="fas fa-plane-departure"></i> 预订航班</a>
 <a class="btn-secondary" href="https://www.awin1.com/cread.php?awinmid=117697&amp;awinaffid=2819302&amp;ued=https%3A%2F%2Fwww.hotels.com%2F" rel="noopener noreferrer sponsored" target="_blank"><i class="fas fa-hotel"></i> 查看酒店</a>
-<a class="btn-secondary" href="https://www.getyourguide.com/" rel="noopener noreferrer sponsored" target="_blank"><i class="fas fa-ticket"></i> 查看体验</a>
+<a class="btn-secondary" href="https://www.getyourguide.com/?partner_id=LRSURCL&amp;utm_medium=online_publisher&amp;cmp=lipetravelshow" rel="noopener noreferrer sponsored" target="_blank"><i class="fas fa-ticket"></i> 查看体验</a>
 </div>
 </div>
 <div aria-hidden="true" class="cta-visual"><i class="fas fa-earth-americas"></i><strong>南美洲</strong><span>从影像到真实旅程</span></div>

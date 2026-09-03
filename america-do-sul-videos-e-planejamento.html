@@ -632,7 +632,34 @@
  #destinos .destination-grid .destination-card:last-child{grid-column:auto!important}
 }
 @media(max-width:860px){#destinos .destination-grid{gap:20px!important}}
-</style></head>
+</style>
+<style id="v20-country-flag-flow-fix">
+/* V20 — flag stays in its own visual zone instead of colliding with country text */
+.country-flag{
+  position:relative!important;
+  top:auto!important;
+  left:auto!important;
+  right:auto!important;
+  bottom:auto!important;
+  align-self:flex-start!important;
+  margin:0 0 auto 0!important;
+  line-height:1!important;
+  z-index:2!important;
+  pointer-events:none
+}
+</style>
+
+<style id="v21-colombia-card-focal-points">
+/* V21 — preserve heads in Colombia destination cards */
+#colombia .destination-group-grid.four .destination-card:nth-child(1) img{
+  --pos:center 16%;
+}
+#colombia .destination-group-grid.four .destination-card:nth-child(4) img{
+  --pos:center 18%;
+}
+</style>
+
+</head>
 <body>
 <nav>
 <a aria-label="Voltar ao topo da página de América do Sul" class="nav-logo" href="#top">
@@ -808,7 +835,7 @@
 <a class="tool-card" href="https://lipetravelshow.com.br/como-usar-ia-para-planejar-viagem"><i class="fas fa-wand-magic-sparkles"></i><div class="tool-kicker">IA</div><h3>Planejar com inteligência artificial</h3><p>Pesquise melhor, compare cenários e evite roteiros genéricos ou cheios de deslocamentos sem propósito.</p><span>Ver guia <i class="fas fa-arrow-right"></i></span></a>
 <a class="tool-card" href="https://skyscanner.pxf.io/9VL6Xj" rel="noopener noreferrer sponsored" target="_blank"><i class="fas fa-plane-departure"></i><div class="tool-kicker">Voos</div><h3>Pesquisar passagens</h3><p>Compare datas e rotas quando a estrutura da viagem já estiver suficientemente clara.</p><span>Pesquisar voos <i class="fas fa-arrow-right"></i></span></a>
 <a class="tool-card" href="https://www.awin1.com/cread.php?awinmid=117697&amp;awinaffid=2819302&amp;ued=https%3A%2F%2Fwww.hotels.com%2F" rel="noopener noreferrer sponsored" target="_blank"><i class="fas fa-hotel"></i><div class="tool-kicker">Hotéis</div><h3>Encontrar a base certa</h3><p>O hotel funciona melhor quando você escolhe primeiro o bairro, o ritmo e a logística que quer para a viagem.</p><span>Ver hotéis <i class="fas fa-arrow-right"></i></span></a>
-<a class="tool-card" href="https://www.getyourguide.com/" rel="noopener noreferrer sponsored" target="_blank"><i class="fas fa-ticket"></i><div class="tool-kicker">Experiências</div><h3>Passeios e atividades</h3><p>Ingressos, tours e experiências entram depois que você entende o que realmente vale reservar.</p><span>Ver experiências <i class="fas fa-arrow-right"></i></span></a>
+<a class="tool-card" href="https://www.getyourguide.com/?partner_id=LRSURCL&amp;utm_medium=online_publisher&amp;cmp=lipetravelshow" rel="noopener noreferrer sponsored" target="_blank"><i class="fas fa-ticket"></i><div class="tool-kicker">Experiências</div><h3>Passeios e atividades</h3><p>Ingressos, tours e experiências entram depois que você entende o que realmente vale reservar.</p><span>Ver experiências <i class="fas fa-arrow-right"></i></span></a>
 <a class="tool-card" href="https://lipetravelshow.com.br/seguro-viagem-internacional.html"><i class="fas fa-shield-heart"></i><div class="tool-kicker">Seguro</div><h3>Seguro viagem internacional</h3><p>Uma camada prática importante da viagem. Entenda cobertura, limites e assistência antes de contratar.</p><span>Ver guia <i class="fas fa-arrow-right"></i></span></a>
 <a class="tool-card" href="https://lipetravelshow.com.br/milhas-para-voos-no-brasil-final"><i class="fas fa-coins"></i><div class="tool-kicker">Milhas</div><h3>Pontos, dinheiro e emissão</h3><p>Compare o custo real antes de assumir que usar milhas é automaticamente a melhor escolha.</p><span>Ver conteúdo <i class="fas fa-arrow-right"></i></span></a>
 </div>
@@ -821,7 +848,7 @@
 <div class="actions">
 <a class="btn-primary" href="https://skyscanner.pxf.io/9VL6Xj" rel="noopener noreferrer sponsored" target="_blank"><i class="fas fa-plane-departure"></i> Comprar voos</a>
 <a class="btn-secondary" href="https://www.awin1.com/cread.php?awinmid=117697&amp;awinaffid=2819302&amp;ued=https%3A%2F%2Fwww.hotels.com%2F" rel="noopener noreferrer sponsored" target="_blank"><i class="fas fa-hotel"></i> Ver hotéis</a>
-<a class="btn-secondary" href="https://www.getyourguide.com/" rel="noopener noreferrer sponsored" target="_blank"><i class="fas fa-ticket"></i> Ver experiências</a>
+<a class="btn-secondary" href="https://www.getyourguide.com/?partner_id=LRSURCL&amp;utm_medium=online_publisher&amp;cmp=lipetravelshow" rel="noopener noreferrer sponsored" target="_blank"><i class="fas fa-ticket"></i> Ver experiências</a>
 </div>
 </div>
 <div aria-hidden="true" class="cta-visual"><i class="fas fa-earth-americas"></i><strong>América do Sul</strong><span>do vídeo à viagem real</span></div>
